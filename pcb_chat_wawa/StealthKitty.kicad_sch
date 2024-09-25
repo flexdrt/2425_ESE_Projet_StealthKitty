@@ -1,0 +1,165 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "23d5732b-7ccb-40aa-85a2-3b18421ac23b")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 27.94 15.24)
+		(size 71.12 45.72)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "3b52812e-304f-4912-a30c-3c03f9d89b81")
+		(property "Sheetname" "motorisation Sheet"
+			(at 27.94 14.5284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "motorisation.kicad_sch"
+			(at 27.94 61.5446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "StealthKitty"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 109.22 15.24)
+		(size 71.12 45.72)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "80e324d5-3692-40e2-ae7b-7b2010b2e090")
+		(property "Sheetname" "brain Sheet"
+			(at 109.22 14.5284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "brain.kicad_sch"
+			(at 109.22 61.5446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "StealthKitty"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 27.94 69.85)
+		(size 71.12 45.72)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "813d471c-6080-4c02-83a9-e4f8506d7616")
+		(property "Sheetname" "power Sheet"
+			(at 27.94 69.1384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 27.94 116.1546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "StealthKitty"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 107.95 69.85)
+		(size 71.12 45.72)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8cd8413a-9ba4-4bd6-b413-2331caa50cc2")
+		(property "Sheetname" "sensor Sheet"
+			(at 107.95 69.1384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensor.kicad_sch"
+			(at 107.95 116.1546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "StealthKitty"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
