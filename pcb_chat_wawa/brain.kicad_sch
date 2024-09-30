@@ -3847,7 +3847,7 @@
 		)
 		(uuid "f8aac62b-a63e-4f57-b054-8c65bb91323f")
 	)
-	(global_label "SDO_adx"
+	(global_label "SDO"
 		(shape input)
 		(at 64.77 97.79 0)
 		(fields_autoplaced yes)
@@ -3893,7 +3893,7 @@
 	)
 	(global_label "Codeur2_PH1"
 		(shape input)
-		(at 96.52 132.08 180)
+		(at 31.75 156.21 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3903,7 +3903,7 @@
 		)
 		(uuid "23a317b5-e329-4c2f-8452-5ec191f2a2df")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.9559 132.08 0)
+			(at 16.1859 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3913,7 +3913,29 @@
 			)
 		)
 	)
-	(global_label "SCLK_adx"
+	(global_label "INT2_adx"
+		(shape input)
+		(at 82.55 140.97 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "24fc8a35-ccc1-4c1e-a4fa-f086075e0ebf")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 89.6476 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SCLK"
 		(shape input)
 		(at 64.77 95.25 0)
 		(fields_autoplaced yes)
@@ -3925,7 +3947,7 @@
 		)
 		(uuid "4306d631-d7dc-4712-97bc-e91e8d4ccd50")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.8265 95.25 0)
+			(at 72.5328 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3957,7 +3979,7 @@
 			)
 		)
 	)
-	(global_label "SDIO_adx"
+	(global_label "SDIO"
 		(shape input)
 		(at 64.77 100.33 0)
 		(fields_autoplaced yes)
@@ -3979,7 +4001,51 @@
 			)
 		)
 	)
-	(global_label "SDA_tof2"
+	(global_label "INT_tof1"
+		(shape input)
+		(at 64.77 110.49 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "49d812a4-4cd1-49d4-bfe3-dfebae5f5ae8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 75.4356 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "INT1_adx"
+		(shape input)
+		(at 82.55 138.43 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "58c26eff-d82c-4e3b-a546-84adc743d43f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 89.6476 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SDA"
 		(shape input)
 		(at 31.75 143.51 180)
 		(fields_autoplaced yes)
@@ -4001,7 +4067,7 @@
 			)
 		)
 	)
-	(global_label "SDA_tof1"
+	(global_label "SDA"
 		(shape input)
 		(at 64.77 102.87 0)
 		(fields_autoplaced yes)
@@ -4025,7 +4091,7 @@
 	)
 	(global_label "Codeur1_PH1"
 		(shape input)
-		(at 96.52 127 180)
+		(at 31.75 151.13 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4035,7 +4101,7 @@
 		)
 		(uuid "9626abe5-5efa-4cf9-aea5-4ff3bca2cf21")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.9559 127 0)
+			(at 16.1859 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4047,7 +4113,7 @@
 	)
 	(global_label "Codeur1_PH2"
 		(shape input)
-		(at 96.52 124.46 180)
+		(at 31.75 153.67 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4057,7 +4123,7 @@
 		)
 		(uuid "9f637d18-7c1f-4de5-ad3e-c688fbee5245")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.9559 124.46 0)
+			(at 16.1859 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4133,31 +4199,9 @@
 			)
 		)
 	)
-	(global_label "INT_tof1"
-		(shape input)
-		(at 88.9 135.89 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c4076d45-bc22-4426-a48a-7a80aa38af4f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 78.2344 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "INT_tof2"
 		(shape input)
-		(at 88.9 140.97 180)
+		(at 31.75 102.87 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4167,7 +4211,7 @@
 		)
 		(uuid "c5b805ed-e52f-4527-841b-99a9f2ed6f62")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 78.2344 140.97 0)
+			(at 21.0844 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4177,7 +4221,7 @@
 			)
 		)
 	)
-	(global_label "SCL_tof1"
+	(global_label "SCL"
 		(shape input)
 		(at 31.75 100.33 180)
 		(fields_autoplaced yes)
@@ -4201,7 +4245,7 @@
 	)
 	(global_label "Codeur2_PH2"
 		(shape input)
-		(at 96.52 129.54 180)
+		(at 31.75 158.75 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4211,7 +4255,7 @@
 		)
 		(uuid "d12e56f7-fb4e-4c99-8d53-4277393c7ea3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.9559 129.54 0)
+			(at 16.1859 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4221,7 +4265,7 @@
 			)
 		)
 	)
-	(global_label "SCL_tof2"
+	(global_label "SCL"
 		(shape input)
 		(at 64.77 120.65 0)
 		(fields_autoplaced yes)
@@ -5308,6 +5352,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 87.63 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "777d4e64-2a83-41d4-81f5-8008313a0196")
+		(property "Reference" "R2"
+			(at 90.17 126.9999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_Small"
+			(at 90.17 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 87.63 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 87.63 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9674ef31-1288-4dc3-b6b3-a9fa35277e6d")
+		)
+		(pin "1"
+			(uuid "51ebbadc-3048-4607-9e47-c6c5de0aa8f1")
+		)
+		(instances
+			(project "StealthKitty"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 140.97 125.73 0)
 		(unit 1)
@@ -5379,6 +5493,76 @@
 			(project "StealthKitty"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
 					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 87.63 118.11 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "943c8e5c-dd60-4e0d-bf71-be68cc84135c")
+		(property "Reference" "R1"
+			(at 90.17 116.8399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_Small"
+			(at 90.17 119.3799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 87.63 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 87.63 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9560f7c2-6169-4a22-9f7b-0ee3211f7b2b")
+		)
+		(pin "1"
+			(uuid "005e0032-5e2f-4ddc-91f2-3f5d6f498f84")
+		)
+		(instances
+			(project ""
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "R1")
 					(unit 1)
 				)
 			)
