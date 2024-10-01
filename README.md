@@ -29,6 +29,7 @@ Les contributeurs de ce projet sont :
 - [ ] Pour le bus I2C placer la résistance de pull-up à 3.3 kOhms 
 - [ ] Mettre des leds pour 
   - [ ]  Power BU33SD5WG-TR
+- [ ] ******IOC FInir affectation des GPIO sur les pins de la STM ! ******
 - [ ] ST LINK: choisir la dernière empreinte du symbol placé grâce au prof
 - [ ] Mettre une capa en // sur NRST
 - [ ] Connecter Vref+ au 3.3V
