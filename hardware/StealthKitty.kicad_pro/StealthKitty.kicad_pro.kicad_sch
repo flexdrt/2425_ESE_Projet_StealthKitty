@@ -38,7 +38,7 @@
 			)
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
 					(page "3")
 				)
@@ -78,7 +78,7 @@
 			)
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
 					(page "4")
 				)
@@ -118,7 +118,7 @@
 			)
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
 					(page "5")
 				)
@@ -158,7 +158,7 @@
 			)
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
 					(page "3")
 				)
