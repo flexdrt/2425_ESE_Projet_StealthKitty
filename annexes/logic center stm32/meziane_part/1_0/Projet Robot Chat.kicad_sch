@@ -1,0 +1,57 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "b3a3883e-818e-4ae4-9069-e62863551c44")
+	(paper "A4")
+	(title_block
+		(title "Projet Robot Chat")
+		(date "2024-09-18")
+		(rev "0")
+		(company "ENSEA")
+	)
+	(lib_symbols)
+	(sheet
+		(at 31.75 22.86)
+		(size 85.09 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f28ce161-6b16-4b1b-83f1-b2a6b25b5e22")
+		(property "Sheetname" "Block STM32"
+			(at 31.75 22.1484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Block STM32.kicad_sch"
+			(at 31.75 61.5446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Projet Robot Chat"
+				(path "/b3a3883e-818e-4ae4-9069-e62863551c44"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

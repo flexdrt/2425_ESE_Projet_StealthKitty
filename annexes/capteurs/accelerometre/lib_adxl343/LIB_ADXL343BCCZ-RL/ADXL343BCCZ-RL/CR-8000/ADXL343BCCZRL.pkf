@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "ADXL343BCCZRL"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "ADXL343BCCZRL")
+        (spec "default")
+    )
+)
