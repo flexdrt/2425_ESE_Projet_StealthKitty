@@ -19,26 +19,104 @@ Les contributeurs de ce projet sont :
 
 ## Hardware
 
+STM32G431CBU6 
 
+symbole utilisé STM32G431CBUx ds kikad
 
-1/10/24-Suite à la revue de schématique avec le professeur les tâches à faire sont les suivantes : 
+##### 1/10/24-Suite à la revue de schématique avec le professeur les tâches à faire sont les suivantes : 
 
 - [ ] Affecter des pins pour les interruptions de l'ioc
-- [ ] Supprimé certains signaux i2c présents en double : un seul pin I2C GPIO doit être utilisé et pas 2 
-- [ ] Changer les labels des broches utilisant le SPI en MISO, MOSI, etc
-- [ ] Pour le bus I2C placer la résistance de pull-up à 3.3 kOhms 
+- [x] Capa de découplage car 3 VDD 
+- [x] connecter en // les capa de découplage de l'adx
+- [x] Supprimé certains signaux i2c présents en double : un seul pin I2C GPIO doit être utilisé et pas 2 
+- [x] Changer les labels des broches utilisant le SPI en MISO, MOSI, etc
+- [x] Pour le bus I2C placer la résistance de pull-up à 3.3 kOhms 
 - [ ] Mettre des leds pour 
   - [ ]  Power BU33SD5WG-TR
-- [ ] ******IOC FInir affectation des GPIO sur les pins de la STM ! ******
-- [ ] ST LINK: choisir la dernière empreinte du symbol placé grâce au prof
-- [ ] Mettre une capa en // sur NRST
-- [ ] Connecter Vref+ au 3.3V
-- [ ] Supprimer les fils autour de l'inductance 5V/3A
+- [x] ******IOC FInir affectation des GPIO sur les pins de la STM ! ******
+- [x] ST LINK: choisir la dernière empreinte du symbol placé grâce au prof
+- [x] Mettre une capa en // sur NRST
+- [x] COnnecter VDDA à 3.3VA : finalement pas besoin
+- [x] Découpler VDDA à l'aide de la datasheet de 
+
+​	![image-20241002105134742](/home/vincent/snap/typora/90/.config/Typora/typora-user-images/image-20241002105134742.png)
+
+	Electrical characteristics STM32G431x6 STM32G431x8 STM32G431xB
+68/198 DS12589 Rev 6
+5.1.6 Power supply scheme
+Figure 16. Power supply scheme
+Caution: Each power supply pair (V DD /V SS, V DDA /VSSA etc.) must be decoupled with filtering ceramic
+capacitors as shown above. These capacitors must be placed as close as possible to, or
+below, the appropriate pins on the underside of the PCB to ensure the good functionality of
+the device
+
+- [x] Connecter Vref+ au 3.3V et le découpler 
+- [x] Découpler NRST 
+  ![image-20241002105813090](/home/vincent/snap/typora/90/.config/Typora/typora-user-images/image-20241002105813090.png)
+- [x] Supprimer les fils autour de l'inductance 5V/3A
 - [ ] labels hiérarchiques si temps dispo 
 
 
 
+##### 3/10/24 - post deuxième séance après la revue (celle du mercredi)
 
+- [x] Ré Affectation des pins pour les interruptions de l'ioc (commencé 30 dernières minutes à la fin de la séance du mercredi 2 octobre).
+- [x] ajout de points de test pour les interruptions de l'adx et du bus SPI.
+
+​	![Sans titre](/home/vincent/Documents/ese_3a/projet/StealthKitty/annexes/Sans titre.jpeg)
+
+Pour assigner les pins sur les conseils de Mr.Fiack, l'ordre de "priorité d'assignation" est le suivant :
+
+- RCC Osc
+
+- Debug
+
+- Timers (proches des uns des autres au même endroit)
+
+- SPI
+
+- TX - RX
+
+- GPIOs
+
+  
+
+  
+
+###### 									Tableau récapitulatif de l'assignation des pins refaite le 03/10/24
+
+|         |                      |                      |                      |          |
+| ------- | -------------------- | -------------------- | -------------------- | -------- |
+| 2/10/24 | LABEL/Signal         | GPIO                 | PIN STM32            | 03/10/24 |
+| v       | SCLk_adx renommé SCK | SPI_1_SCLk           | PA5                  | v        |
+| v       | SDO_adx              | SPI_1_MISO           | PA6                  | v        |
+| v       | SDIO_adx             | SPI_1_MOSI           | PA7                  | v        |
+| v       | nCS                  | GPIO_Output          | PC4                  | v        |
+| v       | SDA-TOF              | I2C1-SDA             | PB9                  | v        |
+| v       | SCL-TOF              | I2C1_SCL             | PB8                  | v        |
+| v       | LIDAR UART_RX        | UART4_RX             | PC11                 | v        |
+| v       | LIDAR UART_TX        | UART4_TX             | PC10                 | v        |
+| v       | LIDAR DEV_EN         | GPIO_Output          | PB11                 | v        |
+| v       | LIDAR M_EN           | GPIO_Output          | PB10                 | v        |
+| v       | LIDAR M_SCTR         | TIM1_CH3             | PA10                 | v        |
+|         |                      |                      |                      |          |
+| v       | TX_link (stlink)     | USART2_TX            | PA2                  | v        |
+| v       | RX_link(stlink)      | USART2_RX            | PA3                  | v        |
+| v       | PWM_MOT1_CH1         | TIM1_CH1             | PA8                  | v        |
+| v       | PWM_MOT1_CH2         | TIM1_CH1n            | PA11                 | v        |
+| v       | PWM_MOT2_CH1         | TIM1_CH2             | PA9                  | v        |
+| v       | PWM_MOT2_CH2         | TIM1_CH3n            | PA12                 | v        |
+| v       | Codeur1_PH1          | TIM3_CH1             | PA0 remplacé par PB4 | v        |
+| v       | Codeur1_PH2          | TIM3_CH2             | PA1 remplacé par PB5 | v        |
+| v       | Codeur2_PH1          | TIM4_CH1             | PA2 remplacé par PB6 | v        |
+| v       | Codeur2_PH2          | TIM4_CH2             | PA3 remplacé par PB7 | v        |
+| v       | INT_TOF1             | TIM4_CH2 GPIO_EXTI13 | PC13                 | v        |
+| v       | INT_TOF2             | TIM4_CH3 GPIO_EXTI14 | PC14                 | v        |
+| v       | INT1_ADX             | GPIO_EXTI0           | PA0                  | v        |
+| v       | INT2_ADX             | GPIO_EXTI1           | PA1                  | v        |
+| v       | Bouton 1             | GPIO_EXTI2           | PB2                  | v        |
+| v       | status orangeq       | GPIO_Output          | PB14                 | v        |
+| v       | status purple        | GPIO_Output          | PB0                  | v        |
 
 
 

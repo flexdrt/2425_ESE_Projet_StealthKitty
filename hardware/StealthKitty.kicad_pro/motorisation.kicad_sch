@@ -1892,6 +1892,16 @@
 		)
 		(uuid "fd35079c-39db-476d-a7dd-a190176df665")
 	)
+	(text "si la led bleue est allumée c'est le sens de marche avant qui est enclenché"
+		(exclude_from_sim no)
+		(at 55.372 98.298 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "09a6ff1c-cfb5-462b-82bc-ba5f3b07255a")
+	)
 	(text "Motor driver 1\n"
 		(exclude_from_sim no)
 		(at 39.624 23.368 0)
@@ -1943,6 +1953,16 @@
 			(justify left bottom)
 		)
 		(uuid "d204fe87-be60-4596-b488-2150f19d13ba")
+	)
+	(text "si la led verte est allumée c'est le sens de marche avant qui est enclenché"
+		(exclude_from_sim no)
+		(at 131.572 184.658 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "dbc76c34-5fab-4179-8b9b-884b52a2dcef")
 	)
 	(text "Motor driver 2\n"
 		(exclude_from_sim no)
@@ -2679,7 +2699,7 @@
 				)
 			)
 		)
-		(property "Value" "RED"
+		(property "Value" "YELLOW"
 			(at 53.34 83.82 0)
 			(effects
 				(font
@@ -2824,7 +2844,7 @@
 				)
 			)
 		)
-		(property "Value" "RED"
+		(property "Value" "Blue"
 			(at 53.34 74.93 0)
 			(effects
 				(font
@@ -4256,7 +4276,7 @@
 				)
 			)
 		)
-		(property "Value" "RED"
+		(property "Value" "Green"
 			(at 71.12 176.53 0)
 			(effects
 				(font
