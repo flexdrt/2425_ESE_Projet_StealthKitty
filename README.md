@@ -105,7 +105,7 @@ Pour assigner les pins sur les conseils de Mr.Fiack, l'ordre de "priorité d'ass
 | v       | PWM_MOT1_CH1         | TIM1_CH1             | PA8                  | v        |
 | v       | PWM_MOT1_CH2         | TIM1_CH1n            | PA11                 | v        |
 | v       | PWM_MOT2_CH1         | TIM1_CH2             | PA9                  | v        |
-| v       | PWM_MOT2_CH2         | TIM1_CH3n            | PA12                 | v        |
+| v       | PWM_MOT2_CH2         | TIM1_CH2n            | PA12                 | v        |
 | v       | Codeur1_PH1          | TIM3_CH1             | PA0 remplacé par PB4 | v        |
 | v       | Codeur1_PH2          | TIM3_CH2             | PA1 remplacé par PB5 | v        |
 | v       | Codeur2_PH1          | TIM4_CH1             | PA2 remplacé par PB6 | v        |
