@@ -6,44 +6,6 @@
 	(paper "A4")
 	(lib_symbols)
 	(sheet
-		(at 233.68 60.96)
-		(size 44.45 45.72)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "344580df-2f57-464b-b463-a8b0d0638e7f")
-		(property "Sheetname" "a supprimerds final Sheet"
-			(at 233.68 60.2484 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "todeletefinal.kicad_sch"
-			(at 233.68 107.2646 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b"
-					(page "6")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 55.88 31.75)
 		(size 71.12 45.72)
 		(fields_autoplaced yes)
