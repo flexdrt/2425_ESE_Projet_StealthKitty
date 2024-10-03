@@ -1,0 +1,5 @@
+../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_timebase_tim_template.c:69:19:HAL_InitTick	64	static
+../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_timebase_tim_template.c:150:6:HAL_SuspendTick	4	static
+../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_timebase_tim_template.c:162:6:HAL_ResumeTick	4	static
+../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_timebase_tim_template.c:176:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_timebase_tim_template.c:186:6:TIM6_DAC_IRQHandler	8	static

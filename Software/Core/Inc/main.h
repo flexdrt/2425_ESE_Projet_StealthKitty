@@ -57,6 +57,52 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define INT_TOF1_Pin GPIO_PIN_13
+#define INT_TOF1_GPIO_Port GPIOC
+#define INT_TOF2_Pin GPIO_PIN_14
+#define INT_TOF2_GPIO_Port GPIOC
+#define INT1_ADX_Pin GPIO_PIN_0
+#define INT1_ADX_GPIO_Port GPIOA
+#define IN2T_ADX_Pin GPIO_PIN_1
+#define IN2T_ADX_GPIO_Port GPIOA
+#define TX_link_Pin GPIO_PIN_2
+#define TX_link_GPIO_Port GPIOA
+#define RX_link_Pin GPIO_PIN_3
+#define RX_link_GPIO_Port GPIOA
+#define SPI1_CS_Pin GPIO_PIN_4
+#define SPI1_CS_GPIO_Port GPIOC
+#define Status_purple_Pin GPIO_PIN_0
+#define Status_purple_GPIO_Port GPIOB
+#define Status_orange_Pin GPIO_PIN_1
+#define Status_orange_GPIO_Port GPIOB
+#define Bouton_1_Pin GPIO_PIN_2
+#define Bouton_1_GPIO_Port GPIOB
+#define LIDAR_M_EN_Pin GPIO_PIN_10
+#define LIDAR_M_EN_GPIO_Port GPIOB
+#define LIDAR_DEV_EN_Pin GPIO_PIN_11
+#define LIDAR_DEV_EN_GPIO_Port GPIOB
+#define PWM_MOT1_CH1_Pin GPIO_PIN_8
+#define PWM_MOT1_CH1_GPIO_Port GPIOA
+#define PWM_MOT2_CH1_Pin GPIO_PIN_9
+#define PWM_MOT2_CH1_GPIO_Port GPIOA
+#define LIDAR_M_SCTR_Pin GPIO_PIN_10
+#define LIDAR_M_SCTR_GPIO_Port GPIOA
+#define PWM_MOT1_CH2_Pin GPIO_PIN_11
+#define PWM_MOT1_CH2_GPIO_Port GPIOA
+#define PWM_MOT2_CH2_Pin GPIO_PIN_12
+#define PWM_MOT2_CH2_GPIO_Port GPIOA
+#define TX_LIDAR_Pin GPIO_PIN_10
+#define TX_LIDAR_GPIO_Port GPIOC
+#define RX_LIDAR_Pin GPIO_PIN_11
+#define RX_LIDAR_GPIO_Port GPIOC
+#define Codeur1_PH1_Pin GPIO_PIN_4
+#define Codeur1_PH1_GPIO_Port GPIOB
+#define Codeur1_PH2_Pin GPIO_PIN_5
+#define Codeur1_PH2_GPIO_Port GPIOB
+#define Codeur2_PH1_Pin GPIO_PIN_6
+#define Codeur2_PH1_GPIO_Port GPIOB
+#define Codeur2_PH2_Pin GPIO_PIN_7
+#define Codeur2_PH2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
