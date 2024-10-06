@@ -3055,7 +3055,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 218.44 78.74 0)
 			(effects
 				(font
@@ -3253,7 +3253,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 241.3 78.74 0)
 			(effects
 				(font
@@ -4402,7 +4402,7 @@
 		(fields_autoplaced yes)
 		(uuid "4c19426d-56b5-4c23-8fbd-2043c210c4c3")
 		(property "Reference" "U4"
-			(at 73.66 54.61 0)
+			(at 73.66 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4410,7 +4410,7 @@
 			)
 		)
 		(property "Value" "MP1475DJ-LF-P"
-			(at 73.66 57.15 0)
+			(at 73.66 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4877,7 +4877,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 233.68 78.74 0)
 			(effects
 				(font
@@ -6075,7 +6075,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 226.06 78.74 0)
 			(effects
 				(font

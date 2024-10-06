@@ -54,7 +54,7 @@ the device
 - [x] Découpler NRST 
   ![image-20241002105813090](/home/vincent/snap/typora/90/.config/Typora/typora-user-images/image-20241002105813090.png)
 - [x] Supprimer les fils autour de l'inductance 5V/3A
-- [ ] labels hiérarchiques si temps dispo 
+- [] labels hiérarchiques si temps dispo 
 
 
 
