@@ -5,6 +5,108 @@
 	(uuid "f4ba3f73-b98e-412d-804c-997deda43a51")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.762) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Generic:Conn_01x06"
 			(pin_names
 				(offset 1.016) hide)
@@ -913,6 +1015,126 @@
 				)
 			)
 		)
+		(symbol "power:+3.3V"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "power:+5V"
 			(power)
 			(pin_numbers hide)
@@ -1143,6 +1365,12 @@
 		(uuid "21987849-3a22-40e9-b686-e533364449ff")
 	)
 	(junction
+		(at 66.04 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "23855a29-0cd8-4406-873d-ef6a4f245be4")
+	)
+	(junction
 		(at 60.96 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1159,6 +1387,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4a8fca1a-710f-4620-9abb-9befea7c2754")
+	)
+	(junction
+		(at 87.63 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "55cb4d0d-2807-4a50-8b21-f207026566f9")
+	)
+	(junction
+		(at 66.04 161.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5b303d18-da89-42b5-8438-3b394a4b0aa4")
 	)
 	(junction
 		(at 60.96 45.72)
@@ -1179,16 +1419,16 @@
 		(uuid "7b891de9-d0fb-4fce-8104-5f8bda9149ad")
 	)
 	(junction
+		(at 40.64 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aae007ab-f8f6-4b2d-8a7b-9a54954538c5")
+	)
+	(junction
 		(at 87.63 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cbeb4885-df45-4e95-bf8b-24e5448ba1bd")
-	)
-	(junction
-		(at 87.63 133.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d71b539d-7a7b-4915-97bc-d74300aafd78")
 	)
 	(junction
 		(at 87.63 143.51)
@@ -1197,20 +1437,16 @@
 		(uuid "e3bf2443-412c-4873-b457-51c806786eb6")
 	)
 	(junction
+		(at 40.64 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e4fa10ed-4971-4e30-8c34-1966cbbb8b1f")
+	)
+	(junction
 		(at 127 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e7aab7fc-d664-461c-ab7d-5b3b3c30883b")
-	)
-	(wire
-		(pts
-			(xy 219.71 67.31) (xy 247.65 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0659a121-5afe-4e50-9b46-d3300d331b93")
 	)
 	(wire
 		(pts
@@ -1254,7 +1490,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 158.75) (xy 80.01 158.75)
+			(xy 60.96 158.75) (xy 66.04 158.75)
 		)
 		(stroke
 			(width 0)
@@ -1271,16 +1507,6 @@
 			(type default)
 		)
 		(uuid "17fe3dec-8c85-4c90-b876-bafeceed60c0")
-	)
-	(wire
-		(pts
-			(xy 219.71 64.77) (xy 219.71 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "186dc9fa-85cf-409a-899c-77b6d9dfa3ed")
 	)
 	(polyline
 		(pts
@@ -1314,7 +1540,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 161.29) (xy 80.01 161.29)
+			(xy 60.96 161.29) (xy 66.04 161.29)
 		)
 		(stroke
 			(width 0)
@@ -1384,6 +1610,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 59.69) (xy 53.34 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36a1867f-ec3b-4e9a-af42-58cf101470bb")
+	)
+	(wire
+		(pts
 			(xy 247.65 69.85) (xy 238.76 69.85)
 		)
 		(stroke
@@ -1394,7 +1630,17 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 138.43) (xy 87.63 133.35)
+			(xy 66.04 158.75) (xy 80.01 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "451f12eb-868f-4093-bf23-967027ba6ea8")
+	)
+	(wire
+		(pts
+			(xy 87.63 127) (xy 87.63 133.35)
 		)
 		(stroke
 			(width 0)
@@ -1484,7 +1730,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 58.42) (xy 138.43 58.42)
+			(xy 154.94 58.42) (xy 135.89 58.42)
 		)
 		(stroke
 			(width 0)
@@ -1504,13 +1750,43 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 57.15) (xy 53.34 57.15)
+			(xy 128.27 66.04) (xy 154.94 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6aa4d3a3-2905-4ced-9fc8-a035da6a432e")
+	)
+	(wire
+		(pts
+			(xy 209.55 67.31) (xy 247.65 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6acc2dab-91e1-4751-99ae-c148473b309c")
+	)
+	(wire
+		(pts
+			(xy 38.1 57.15) (xy 40.64 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "6b1b44e5-2e97-463a-ae21-a05f856c33a0")
+	)
+	(wire
+		(pts
+			(xy 209.55 60.96) (xy 209.55 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bc55939-50c3-49fd-842f-3807c90cee5f")
 	)
 	(wire
 		(pts
@@ -1521,6 +1797,16 @@
 			(type default)
 		)
 		(uuid "7022b9e1-0f33-4d87-bd46-94dbbe5e59cc")
+	)
+	(wire
+		(pts
+			(xy 85.09 187.96) (xy 87.63 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72e59522-8ae6-4705-a43e-4a9401487617")
 	)
 	(wire
 		(pts
@@ -1554,6 +1840,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 161.29) (xy 80.01 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b97135b-2443-4b96-af19-2b2be41e9973")
+	)
+	(wire
+		(pts
 			(xy 247.65 62.23) (xy 242.57 62.23)
 		)
 		(stroke
@@ -1574,7 +1870,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 59.69) (xy 53.34 59.69)
+			(xy 38.1 59.69) (xy 40.64 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1614,6 +1910,16 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 133.35) (xy 87.63 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87289f46-45de-4f24-a590-864b16bd9481")
+	)
+	(wire
+		(pts
 			(xy 60.96 38.1) (xy 60.96 45.72)
 		)
 		(stroke
@@ -1631,16 +1937,6 @@
 			(type default)
 		)
 		(uuid "8c3c8cdf-9df0-4cad-875c-5789b0168123")
-	)
-	(wire
-		(pts
-			(xy 132.08 63.5) (xy 132.08 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8ff1c272-babd-47c4-8200-d4f61e0a0add")
 	)
 	(wire
 		(pts
@@ -1671,16 +1967,6 @@
 			(type default)
 		)
 		(uuid "954e6563-d29b-47a8-a859-6ad816aa6acc")
-	)
-	(wire
-		(pts
-			(xy 154.94 66.04) (xy 132.08 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9776e19e-f199-468c-a18e-8c8eeb84e494")
 	)
 	(wire
 		(pts
@@ -1724,16 +2010,6 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 187.96) (xy 87.63 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aa45ff46-8842-41ee-8aa2-db465cbdea49")
-	)
-	(wire
-		(pts
 			(xy 73.66 187.96) (xy 80.01 187.96)
 		)
 		(stroke
@@ -1741,6 +2017,26 @@
 			(type default)
 		)
 		(uuid "b35a4311-2d7d-42d1-8bdb-fc59c21d6a48")
+	)
+	(wire
+		(pts
+			(xy 128.27 66.04) (xy 128.27 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9b1f20f-e093-4236-8f10-b65ae6e35eab")
+	)
+	(wire
+		(pts
+			(xy 87.63 187.96) (xy 87.63 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9d8bd3d-9eb6-4cc4-a7eb-86b9c520c9d1")
 	)
 	(wire
 		(pts
@@ -1754,6 +2050,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 57.15) (xy 53.34 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0d8de4c-338e-4a4a-8939-231cd7ef7615")
+	)
+	(wire
+		(pts
 			(xy 80.01 143.51) (xy 87.63 143.51)
 		)
 		(stroke
@@ -1764,7 +2070,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 59.69) (xy 247.65 59.69)
+			(xy 223.52 59.69) (xy 247.65 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1821,16 +2127,6 @@
 			(type default)
 		)
 		(uuid "d6ce3d99-cca9-4a61-a14e-decb08d4026d")
-	)
-	(wire
-		(pts
-			(xy 138.43 54.61) (xy 138.43 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d8beef49-97f1-4987-a5df-329802a94bb8")
 	)
 	(wire
 		(pts
@@ -1892,6 +2188,16 @@
 		)
 		(uuid "fd35079c-39db-476d-a7dd-a190176df665")
 	)
+	(text "si la led bleue est allumée c'est le sens de marche avant qui est enclenché"
+		(exclude_from_sim no)
+		(at 55.372 98.298 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "09a6ff1c-cfb5-462b-82bc-ba5f3b07255a")
+	)
 	(text "Motor driver 1\n"
 		(exclude_from_sim no)
 		(at 39.624 23.368 0)
@@ -1943,6 +2249,16 @@
 			(justify left bottom)
 		)
 		(uuid "d204fe87-be60-4596-b488-2150f19d13ba")
+	)
+	(text "si la led verte est allumée c'est le sens de marche avant qui est enclenché"
+		(exclude_from_sim no)
+		(at 131.572 184.658 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "dbc76c34-5fab-4179-8b9b-884b52a2dcef")
 	)
 	(text "Motor driver 2\n"
 		(exclude_from_sim no)
@@ -2056,7 +2372,7 @@
 	)
 	(global_label "PWM_MOT1_CH2"
 		(shape input)
-		(at 46.99 59.69 180)
+		(at 38.1 59.69 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2067,7 +2383,7 @@
 		)
 		(uuid "14039288-e5f0-4904-aa14-3b85cf6b3150")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 28.7788 59.69 0)
+			(at 19.8888 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2170,7 +2486,7 @@
 	)
 	(global_label "PWM_MOT2_CH1"
 		(shape input)
-		(at 66.04 158.75 180)
+		(at 60.96 158.75 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2181,7 +2497,7 @@
 		)
 		(uuid "87ce7afb-d79b-4adb-ab9a-6282ea142835")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 47.8288 158.75 0)
+			(at 42.7488 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2238,7 +2554,7 @@
 	)
 	(global_label "PWM_MOT1_CH1"
 		(shape input)
-		(at 46.99 57.15 180)
+		(at 38.1 57.15 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2249,7 +2565,7 @@
 		)
 		(uuid "b956e495-4ac2-4d76-8c8b-325a1504f99d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 28.7788 57.15 0)
+			(at 19.8888 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2283,7 +2599,7 @@
 	)
 	(global_label "PWM_MOT2_CH2"
 		(shape input)
-		(at 66.04 161.29 180)
+		(at 60.96 161.29 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2294,7 +2610,7 @@
 		)
 		(uuid "f9d17a63-a0a5-4d50-a1ee-863c26b950ba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 47.8288 161.29 0)
+			(at 42.7488 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2336,7 +2652,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "039fbd57-9a6b-475d-b2e1-d4058bd20bde")
-		(property "Reference" "D4"
+		(property "Reference" "D204"
 			(at 71.12 182.88 0)
 			(effects
 				(font
@@ -2386,9 +2702,76 @@
 			(uuid "13380013-46c4-4a9f-8883-57ce0185c746")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D4")
+					(reference "D204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 40.64 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "05e09c61-8ca3-4aca-bd3b-0c222b07218f")
+		(property "Reference" "TP201"
+			(at 43.18 52.5779 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M1_PWM_FWD"
+			(at 43.18 55.1179 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 45.72 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 45.72 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 40.64 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d7cc2128-3df5-4ee3-b753-294ccb259719")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "TP201")
 					(unit 1)
 				)
 			)
@@ -2404,7 +2787,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0f785cbf-46ac-4ca9-ad5b-4860c0d61c94")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR0214"
 			(at 102.87 153.67 0)
 			(effects
 				(font
@@ -2452,9 +2835,9 @@
 			(uuid "0b09ffd8-ba4f-4ad2-bbb2-3c91fc62471e")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR015")
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -2469,7 +2852,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "167aecc4-6fc1-4bdb-8be0-1d1308a01b21")
-		(property "Reference" "C3"
+		(property "Reference" "C201"
 			(at 48.26 34.29 0)
 			(effects
 				(font
@@ -2521,9 +2904,9 @@
 			(uuid "9dd84bec-122b-48fd-9956-a7d2a665962f")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C3")
+					(reference "C201")
 					(unit 1)
 				)
 			)
@@ -2539,7 +2922,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "16f8d158-4bd8-49fe-a553-58fc0caf35d5")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR0206"
 			(at 71.12 144.78 0)
 			(effects
 				(font
@@ -2587,9 +2970,9 @@
 			(uuid "4c07237b-ccbb-469a-9819-734cd94f7cd4")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR07")
+					(reference "#PWR0206")
 					(unit 1)
 				)
 			)
@@ -2605,7 +2988,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19ab0612-6d96-40ca-a7e1-5dac33d1cd61")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR0207"
 			(at 76.2 53.34 0)
 			(effects
 				(font
@@ -2653,9 +3036,75 @@
 			(uuid "176e9930-7004-4864-99aa-614a34e1818b")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR08")
+					(reference "#PWR0207")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 87.63 189.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1c246975-7d1f-43ba-9d7c-9ae6cf71daec")
+		(property "Reference" "#PWR0212"
+			(at 87.63 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 87.63 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 87.63 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b5daa399-26f6-4a5e-8445-a2010ab815fd")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -2671,7 +3120,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1d6cf926-9d2a-4e12-a42b-b99a5f0a13ea")
-		(property "Reference" "D2"
+		(property "Reference" "D202"
 			(at 53.34 81.28 0)
 			(effects
 				(font
@@ -2679,7 +3128,7 @@
 				)
 			)
 		)
-		(property "Value" "RED"
+		(property "Value" "YELLOW"
 			(at 53.34 83.82 0)
 			(effects
 				(font
@@ -2721,9 +3170,9 @@
 			(uuid "980591ca-ccc3-4205-9498-69f25a0ad8db")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D2")
+					(reference "D202")
 					(unit 1)
 				)
 			)
@@ -2739,7 +3188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f9e8c4f-5303-4eb7-b4a9-aafa3bf95399")
-		(property "Reference" "R8"
+		(property "Reference" "R204"
 			(at 82.55 182.88 90)
 			(effects
 				(font
@@ -2798,9 +3247,9 @@
 			(uuid "75e2020a-c0a6-48de-aec0-99c68f7ae9d2")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R8")
+					(reference "R204")
 					(unit 1)
 				)
 			)
@@ -2816,7 +3265,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "30dcdfcf-4c86-4a94-a295-db3c7022d6ee")
-		(property "Reference" "D1"
+		(property "Reference" "D201"
 			(at 53.34 72.39 0)
 			(effects
 				(font
@@ -2824,7 +3273,7 @@
 				)
 			)
 		)
-		(property "Value" "RED"
+		(property "Value" "Blue"
 			(at 53.34 74.93 0)
 			(effects
 				(font
@@ -2866,9 +3315,9 @@
 			(uuid "db5c8be1-dcac-4aba-a334-fae957a6ad58")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D1")
+					(reference "D201")
 					(unit 1)
 				)
 			)
@@ -2876,7 +3325,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 214.63 59.69 0)
+		(at 223.52 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2884,8 +3333,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3492a95d-598c-483c-b649-cfc078b7ed41")
-		(property "Reference" "#PWR021"
-			(at 214.63 66.04 0)
+		(property "Reference" "#PWR0220"
+			(at 223.52 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2894,7 +3343,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 214.63 64.77 0)
+			(at 223.52 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2902,7 +3351,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 59.69 0)
+			(at 223.52 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2911,7 +3360,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 59.69 0)
+			(at 223.52 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2920,7 +3369,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 214.63 59.69 0)
+			(at 223.52 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2932,9 +3381,9 @@
 			(uuid "e8161b13-a6ae-4954-a9f0-2068a23d0011")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR021")
+					(reference "#PWR0220")
 					(unit 1)
 				)
 			)
@@ -2950,7 +3399,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3690bbf7-197d-4831-a282-e5c2acfd45d0")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR0213"
 			(at 90.17 172.72 0)
 			(effects
 				(font
@@ -2998,9 +3447,9 @@
 			(uuid "ca8249fa-9691-47f9-96e2-aa530e942874")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR014")
+					(reference "#PWR0213")
 					(unit 1)
 				)
 			)
@@ -3015,7 +3464,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3694c073-67dc-44ef-9b5f-3efc879217c4")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR0208"
 			(at 85.09 66.04 0)
 			(effects
 				(font
@@ -3064,9 +3513,9 @@
 			(uuid "8e5655af-b91b-442b-9a72-c3f2e9e44a6b")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR09")
+					(reference "#PWR0208")
 					(unit 1)
 				)
 			)
@@ -3082,7 +3531,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45816c30-60f3-4a63-b53a-a79b71e833fd")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR0202"
 			(at 60.96 35.56 0)
 			(effects
 				(font
@@ -3131,9 +3580,9 @@
 			(uuid "8e675559-b051-4898-9414-ed7e7f940005")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR03")
+					(reference "#PWR0202")
 					(unit 1)
 				)
 			)
@@ -3141,7 +3590,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 138.43 54.61 180)
+		(at 135.89 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3149,8 +3598,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "47673b5f-c2c9-42de-96ae-200c864273f5")
-		(property "Reference" "#PWR019"
-			(at 138.43 48.26 0)
+		(property "Reference" "#PWR0218"
+			(at 135.89 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3159,7 +3608,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 138.43 50.8 0)
+			(at 135.89 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3167,7 +3616,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 138.43 54.61 0)
+			(at 135.89 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3176,7 +3625,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 138.43 54.61 0)
+			(at 135.89 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3185,7 +3634,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 138.43 54.61 0)
+			(at 135.89 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3197,9 +3646,142 @@
 			(uuid "4abcb9af-dcb9-407a-93a0-548d3214a727")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR019")
+					(reference "#PWR0218")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 128.27 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "56a42085-7398-4396-91d3-f9f6c7886d76")
+		(property "Reference" "#PWR0217"
+			(at 128.27 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 128.27 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.27 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 128.27 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "853dbf08-8e7e-4e5d-a8fc-ee33027b0420")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "#PWR0217")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 66.04 161.29 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "59818a7a-4858-4e0d-ad65-218c15db350b")
+		(property "Reference" "TP204"
+			(at 68.58 163.3219 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M2_PWM_REV"
+			(at 68.58 165.8619 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 60.96 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 60.96 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 66.04 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "388bd31d-f476-4b8c-b60a-84f332915cf8")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "TP204")
 					(unit 1)
 				)
 			)
@@ -3214,7 +3796,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "59c2ff3e-c614-4b9f-875d-f18be1195821")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR0215"
 			(at 127 170.18 0)
 			(effects
 				(font
@@ -3262,9 +3844,9 @@
 			(uuid "437f259e-86ff-401a-88c7-056ee5a62c41")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR016")
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -3279,7 +3861,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5eb29be9-531e-4429-8c87-ee36a48a68e8")
-		(property "Reference" "C5"
+		(property "Reference" "C203"
 			(at 78.74 45.72 0)
 			(effects
 				(font
@@ -3331,26 +3913,44 @@
 			(uuid "d2b61c61-a07a-4fa9-829c-ff954f5ff465")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C5")
+					(reference "C203")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 132.08 63.5 0)
+		(lib_id "Connector:TestPoint")
+		(at 40.64 59.69 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "78e98d91-bc45-4b69-a620-7c91641759c0")
-		(property "Reference" "#PWR018"
-			(at 132.08 67.31 0)
+		(uuid "6a4f4d8a-4ecd-484e-8183-7fa03324f2ee")
+		(property "Reference" "TP202"
+			(at 43.18 61.7219 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M1_PWM_REV"
+			(at 43.18 64.2619 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 35.56 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3358,17 +3958,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3"
-			(at 134.62 62.2299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 132.08 63.5 0)
+		(property "Datasheet" "~"
+			(at 35.56 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3376,17 +3967,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 132.08 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 132.08 63.5 0)
+		(property "Description" "test point"
+			(at 40.64 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3395,12 +3977,79 @@
 			)
 		)
 		(pin "1"
-			(uuid "f9087092-5128-4182-bcf1-226d6bea914a")
+			(uuid "b87ab734-aedf-4943-9973-cb0033b7f5e6")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR018")
+					(reference "TP202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 66.04 158.75 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7a899f9c-9164-426e-be78-732fda629e1b")
+		(property "Reference" "TP203"
+			(at 68.58 154.1779 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M2_PWM_FWD"
+			(at 68.58 156.7179 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 71.12 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 71.12 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 66.04 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "20e988ee-6f01-4588-b88c-df4ec8571b51")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "TP203")
 					(unit 1)
 				)
 			)
@@ -3416,7 +4065,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ac74151-2238-4af4-b7b4-434bf910b29d")
-		(property "Reference" "C7"
+		(property "Reference" "C205"
 			(at 87.63 64.7762 0)
 			(effects
 				(font
@@ -3434,7 +4083,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 85.09 66.04 0)
 			(effects
 				(font
@@ -3468,76 +4117,9 @@
 			(uuid "364e4709-9a19-477d-bfc2-845c6e809ce8")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 87.63 187.96 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7bdf16c2-3083-474b-bfb2-f825a0873143")
-		(property "Reference" "#PWR013"
-			(at 93.98 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 91.44 188.595 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 87.63 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a287fe55-7bb7-4549-b26c-e88ce5985dd9")
-		)
-		(instances
-			(project "StealthKitty"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR013")
+					(reference "C205")
 					(unit 1)
 				)
 			)
@@ -3553,7 +4135,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9262e2e8-b906-4c44-af1b-9a0d43eed965")
-		(property "Reference" "U3"
+		(property "Reference" "U202"
 			(at 92.1259 166.37 0)
 			(effects
 				(font
@@ -3641,9 +4223,9 @@
 			(uuid "0bf79afd-2f63-4874-b620-10333f4ffb86")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "U3")
+					(reference "U202")
 					(unit 1)
 				)
 			)
@@ -3659,7 +4241,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9935914a-83ec-4537-b16c-7ac98001795d")
-		(property "Reference" "R7"
+		(property "Reference" "R203"
 			(at 82.55 173.99 90)
 			(effects
 				(font
@@ -3718,9 +4300,9 @@
 			(uuid "0543e400-615c-4fed-81a7-aa6a2b498d88")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R7")
+					(reference "R203")
 					(unit 1)
 				)
 			)
@@ -3736,7 +4318,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9c67239b-c45e-4c4a-885c-1f67b72adb2a")
-		(property "Reference" "J2"
+		(property "Reference" "J201"
 			(at 162.56 60.96 0)
 			(effects
 				(font
@@ -3801,9 +4383,9 @@
 			(uuid "cca67da8-4784-457c-ae45-ae5f91c6991d")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "J2")
+					(reference "J201")
 					(unit 1)
 				)
 			)
@@ -3819,7 +4401,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a359bc73-385c-496e-9635-c6c3962c798a")
-		(property "Reference" "U2"
+		(property "Reference" "U201"
 			(at 65.6941 64.77 0)
 			(effects
 				(font
@@ -3889,9 +4471,9 @@
 			(uuid "18810bf4-1ac4-468a-837e-33ef4493ae29")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "U2")
+					(reference "U201")
 					(unit 1)
 				)
 			)
@@ -3906,7 +4488,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a777aa24-f3fc-4bbc-b74b-6879276f55bd")
-		(property "Reference" "C8"
+		(property "Reference" "C206"
 			(at 105.41 146.05 0)
 			(effects
 				(font
@@ -3924,7 +4506,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 102.87 144.78 0)
 			(effects
 				(font
@@ -3958,9 +4540,9 @@
 			(uuid "9458a163-cffa-4157-a2c1-5c0cd869f11a")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C8")
+					(reference "C206")
 					(unit 1)
 				)
 			)
@@ -3975,7 +4557,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b70c15cd-bd59-42ad-a883-6f22f83a6da4")
-		(property "Reference" "C4"
+		(property "Reference" "C202"
 			(at 73.66 137.16 0)
 			(effects
 				(font
@@ -4027,9 +4609,9 @@
 			(uuid "16e15009-d0af-426d-9543-febbbb4c0582")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C4")
+					(reference "C202")
 					(unit 1)
 				)
 			)
@@ -4037,7 +4619,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 69.85 77.47 90)
+		(at 69.85 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4045,8 +4627,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7623971-6417-4248-ad11-3f77b8c4fa0f")
-		(property "Reference" "#PWR05"
-			(at 76.2 77.47 0)
+		(property "Reference" "#PWR0204"
+			(at 69.85 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4055,12 +4637,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 73.66 78.105 90)
+			(at 69.85 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -4094,9 +4675,9 @@
 			(uuid "9c5243c1-4ce4-4c61-81d0-8cf2212b1ce1")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR05")
+					(reference "#PWR0204")
 					(unit 1)
 				)
 			)
@@ -4104,7 +4685,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 87.63 133.35 0)
+		(at 87.63 127 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4112,8 +4693,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b80fba43-9692-4b4f-a3e3-ba9cfd339e74")
-		(property "Reference" "#PWR011"
-			(at 87.63 137.16 0)
+		(property "Reference" "#PWR0210"
+			(at 87.63 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4122,7 +4703,7 @@
 			)
 		)
 		(property "Value" "+VBAT"
-			(at 90.17 132.0799 0)
+			(at 90.17 125.7299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4131,7 +4712,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 87.63 133.35 0)
+			(at 87.63 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4140,7 +4721,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 87.63 133.35 0)
+			(at 87.63 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4149,7 +4730,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 87.63 133.35 0)
+			(at 87.63 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4161,9 +4742,9 @@
 			(uuid "ddb31314-a2f4-4f82-83b3-2dacbb436c5c")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR011")
+					(reference "#PWR0210")
 					(unit 1)
 				)
 			)
@@ -4178,7 +4759,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bd3fafcd-8928-49d7-aacf-40e507387402")
-		(property "Reference" "C9"
+		(property "Reference" "C207"
 			(at 130.81 161.29 0)
 			(effects
 				(font
@@ -4230,9 +4811,9 @@
 			(uuid "1430638a-8e04-4fd8-a591-91204f8e1c2f")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C9")
+					(reference "C207")
 					(unit 1)
 				)
 			)
@@ -4248,7 +4829,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c0211e3d-7943-4157-8bbd-d812bcf10663")
-		(property "Reference" "D3"
+		(property "Reference" "D203"
 			(at 71.12 173.99 0)
 			(effects
 				(font
@@ -4256,7 +4837,7 @@
 				)
 			)
 		)
-		(property "Value" "RED"
+		(property "Value" "Green"
 			(at 71.12 176.53 0)
 			(effects
 				(font
@@ -4298,9 +4879,9 @@
 			(uuid "b36c58a9-4567-4c76-8b64-a4d75d3fa5d2")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D3")
+					(reference "D203")
 					(unit 1)
 				)
 			)
@@ -4315,7 +4896,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c057825a-8443-4c6d-811d-7c0a7bd04e04")
-		(property "Reference" "R6"
+		(property "Reference" "R202"
 			(at 64.77 72.39 90)
 			(effects
 				(font
@@ -4374,9 +4955,9 @@
 			(uuid "daed8cbc-48af-4d61-bb96-525c21585767")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R6")
+					(reference "R202")
 					(unit 1)
 				)
 			)
@@ -4392,7 +4973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cac2eade-f086-4e6b-a723-b9706e6db6e7")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR0203"
 			(at 63.5 71.12 0)
 			(effects
 				(font
@@ -4440,9 +5021,9 @@
 			(uuid "48d5e42b-44a2-486a-a426-a362ba889644")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR04")
+					(reference "#PWR0203")
 					(unit 1)
 				)
 			)
@@ -4457,7 +5038,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d7f93467-57b6-45fa-bddd-969886470698")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR0209"
 			(at 85.09 74.93 0)
 			(effects
 				(font
@@ -4506,9 +5087,9 @@
 			(uuid "10a80bf0-a159-435e-ada2-5ab052fb8721")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR010")
+					(reference "#PWR0209")
 					(unit 1)
 				)
 			)
@@ -4523,7 +5104,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "da2c678a-e9f3-4b2c-8aa5-2d052079a6b0")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR0216"
 			(at 127 179.07 0)
 			(effects
 				(font
@@ -4571,9 +5152,9 @@
 			(uuid "f7d200e0-2ab8-48b0-a269-52eff070a4c4")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR017")
+					(reference "#PWR0216")
 					(unit 1)
 				)
 			)
@@ -4581,7 +5162,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 69.85 86.36 90)
+		(at 69.85 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4589,8 +5170,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ddb9e1ce-9fbc-4f1d-8f0a-caa6bdfe62e0")
-		(property "Reference" "#PWR06"
-			(at 76.2 86.36 0)
+		(property "Reference" "#PWR0205"
+			(at 69.85 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4599,12 +5180,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 73.66 86.995 90)
+			(at 69.85 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -4638,9 +5218,75 @@
 			(uuid "16aa2a70-7975-4acd-8d2d-13c8804978f9")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR06")
+					(reference "#PWR0205")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 209.55 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e0b968eb-567e-47c0-824e-2c44c200dae0")
+		(property "Reference" "#PWR0219"
+			(at 209.55 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 209.55 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 209.55 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 209.55 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 209.55 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "91aa3059-8c7d-4dd3-ae5c-21cbc897d1bb")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "#PWR0219")
 					(unit 1)
 				)
 			)
@@ -4655,7 +5301,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e7125e94-b5c7-4cd8-a50d-76ff5700c0df")
-		(property "Reference" "C10"
+		(property "Reference" "C208"
 			(at 130.81 170.18 0)
 			(effects
 				(font
@@ -4707,9 +5353,9 @@
 			(uuid "dd646aaa-db82-42dc-aaca-55225599dfe6")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C10")
+					(reference "C208")
 					(unit 1)
 				)
 			)
@@ -4725,7 +5371,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e73ac2db-bb39-4f6b-8eee-3b49763c39b9")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR0201"
 			(at 44.45 44.45 0)
 			(effects
 				(font
@@ -4773,9 +5419,9 @@
 			(uuid "ee9a206c-be02-474a-80c0-b236dfe2fa16")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR02")
+					(reference "#PWR0201")
 					(unit 1)
 				)
 			)
@@ -4791,7 +5437,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8bbe349-5129-4597-9863-7d9e3963c947")
-		(property "Reference" "J3"
+		(property "Reference" "J202"
 			(at 255.27 62.23 0)
 			(effects
 				(font
@@ -4856,9 +5502,9 @@
 			(uuid "e8c695b4-56f5-4422-9064-b84d32197c2d")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "J3")
+					(reference "J202")
 					(unit 1)
 				)
 			)
@@ -4874,7 +5520,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ebe9199a-4e57-429a-b8b5-29c71ade4aba")
-		(property "Reference" "C6"
+		(property "Reference" "C204"
 			(at 87.63 55.8862 0)
 			(effects
 				(font
@@ -4892,7 +5538,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 85.09 57.15 0)
 			(effects
 				(font
@@ -4926,9 +5572,9 @@
 			(uuid "41402373-9549-41a0-aea3-c3b378d9a336")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C6")
+					(reference "C204")
 					(unit 1)
 				)
 			)
@@ -4943,7 +5589,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ec321fbb-1fe2-47e5-9c11-0d7dcf952547")
-		(property "Reference" "R5"
+		(property "Reference" "R201"
 			(at 62.23 88.9 90)
 			(effects
 				(font
@@ -5004,9 +5650,9 @@
 			(uuid "af2330e0-a5be-4159-aaad-eb600ab66d0c")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R5")
+					(reference "R201")
 					(unit 1)
 				)
 			)
@@ -5014,7 +5660,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 87.63 179.07 90)
+		(at 87.63 179.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5022,8 +5668,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f141e101-d58a-4eb3-9a71-cbaa0cb17c0a")
-		(property "Reference" "#PWR012"
-			(at 93.98 179.07 0)
+		(property "Reference" "#PWR0211"
+			(at 87.63 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5032,12 +5678,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 91.44 179.705 90)
+			(at 87.63 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -5071,76 +5716,9 @@
 			(uuid "1947c6e2-1d8f-454c-93e2-f4634266a925")
 		)
 		(instances
-			(project "StealthKitty"
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 219.71 64.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f23e9d76-bacf-461b-81c6-69b2f2e6a859")
-		(property "Reference" "#PWR020"
-			(at 219.71 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3"
-			(at 222.25 63.4999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 219.71 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 219.71 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 219.71 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8a0a8a35-4238-4009-aa65-8cd8f285ac9c")
-		)
-		(instances
-			(project "StealthKitty"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR020")
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
