@@ -2652,7 +2652,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "039fbd57-9a6b-475d-b2e1-d4058bd20bde")
-		(property "Reference" "D4"
+		(property "Reference" "D204"
 			(at 71.12 182.88 0)
 			(effects
 				(font
@@ -2704,7 +2704,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D4")
+					(reference "D204")
 					(unit 1)
 				)
 			)
@@ -2787,7 +2787,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0f785cbf-46ac-4ca9-ad5b-4860c0d61c94")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR0214"
 			(at 102.87 153.67 0)
 			(effects
 				(font
@@ -2837,7 +2837,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR015")
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -2852,7 +2852,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "167aecc4-6fc1-4bdb-8be0-1d1308a01b21")
-		(property "Reference" "C3"
+		(property "Reference" "C201"
 			(at 48.26 34.29 0)
 			(effects
 				(font
@@ -2906,7 +2906,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C3")
+					(reference "C201")
 					(unit 1)
 				)
 			)
@@ -2922,7 +2922,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "16f8d158-4bd8-49fe-a553-58fc0caf35d5")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR0206"
 			(at 71.12 144.78 0)
 			(effects
 				(font
@@ -2972,7 +2972,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR07")
+					(reference "#PWR0206")
 					(unit 1)
 				)
 			)
@@ -2988,7 +2988,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19ab0612-6d96-40ca-a7e1-5dac33d1cd61")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR0207"
 			(at 76.2 53.34 0)
 			(effects
 				(font
@@ -3038,7 +3038,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR08")
+					(reference "#PWR0207")
 					(unit 1)
 				)
 			)
@@ -3054,7 +3054,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1c246975-7d1f-43ba-9d7c-9ae6cf71daec")
-		(property "Reference" "#PWR0201"
+		(property "Reference" "#PWR0212"
 			(at 87.63 195.58 0)
 			(effects
 				(font
@@ -3104,7 +3104,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0201")
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -3120,7 +3120,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1d6cf926-9d2a-4e12-a42b-b99a5f0a13ea")
-		(property "Reference" "D2"
+		(property "Reference" "D202"
 			(at 53.34 81.28 0)
 			(effects
 				(font
@@ -3172,7 +3172,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D2")
+					(reference "D202")
 					(unit 1)
 				)
 			)
@@ -3188,7 +3188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f9e8c4f-5303-4eb7-b4a9-aafa3bf95399")
-		(property "Reference" "R8"
+		(property "Reference" "R204"
 			(at 82.55 182.88 90)
 			(effects
 				(font
@@ -3249,7 +3249,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R8")
+					(reference "R204")
 					(unit 1)
 				)
 			)
@@ -3265,7 +3265,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "30dcdfcf-4c86-4a94-a295-db3c7022d6ee")
-		(property "Reference" "D1"
+		(property "Reference" "D201"
 			(at 53.34 72.39 0)
 			(effects
 				(font
@@ -3317,7 +3317,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D1")
+					(reference "D201")
 					(unit 1)
 				)
 			)
@@ -3333,7 +3333,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3492a95d-598c-483c-b649-cfc078b7ed41")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR0220"
 			(at 223.52 66.04 0)
 			(effects
 				(font
@@ -3383,7 +3383,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR021")
+					(reference "#PWR0220")
 					(unit 1)
 				)
 			)
@@ -3399,7 +3399,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3690bbf7-197d-4831-a282-e5c2acfd45d0")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR0213"
 			(at 90.17 172.72 0)
 			(effects
 				(font
@@ -3449,7 +3449,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR014")
+					(reference "#PWR0213")
 					(unit 1)
 				)
 			)
@@ -3464,7 +3464,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3694c073-67dc-44ef-9b5f-3efc879217c4")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR0208"
 			(at 85.09 66.04 0)
 			(effects
 				(font
@@ -3515,7 +3515,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR09")
+					(reference "#PWR0208")
 					(unit 1)
 				)
 			)
@@ -3531,7 +3531,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45816c30-60f3-4a63-b53a-a79b71e833fd")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR0202"
 			(at 60.96 35.56 0)
 			(effects
 				(font
@@ -3582,7 +3582,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR03")
+					(reference "#PWR0202")
 					(unit 1)
 				)
 			)
@@ -3598,7 +3598,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "47673b5f-c2c9-42de-96ae-200c864273f5")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR0218"
 			(at 135.89 64.77 0)
 			(effects
 				(font
@@ -3648,7 +3648,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR019")
+					(reference "#PWR0218")
 					(unit 1)
 				)
 			)
@@ -3664,7 +3664,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56a42085-7398-4396-91d3-f9f6c7886d76")
-		(property "Reference" "#PWR0204"
+		(property "Reference" "#PWR0217"
 			(at 128.27 64.77 0)
 			(effects
 				(font
@@ -3714,7 +3714,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0204")
+					(reference "#PWR0217")
 					(unit 1)
 				)
 			)
@@ -3730,7 +3730,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "59818a7a-4858-4e0d-ad65-218c15db350b")
-		(property "Reference" "TP203"
+		(property "Reference" "TP204"
 			(at 68.58 163.3219 0)
 			(effects
 				(font
@@ -3781,7 +3781,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "TP203")
+					(reference "TP204")
 					(unit 1)
 				)
 			)
@@ -3796,7 +3796,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "59c2ff3e-c614-4b9f-875d-f18be1195821")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR0215"
 			(at 127 170.18 0)
 			(effects
 				(font
@@ -3846,7 +3846,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR016")
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -3861,7 +3861,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5eb29be9-531e-4429-8c87-ee36a48a68e8")
-		(property "Reference" "C5"
+		(property "Reference" "C203"
 			(at 78.74 45.72 0)
 			(effects
 				(font
@@ -3915,7 +3915,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C5")
+					(reference "C203")
 					(unit 1)
 				)
 			)
@@ -3998,7 +3998,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7a899f9c-9164-426e-be78-732fda629e1b")
-		(property "Reference" "TP204"
+		(property "Reference" "TP203"
 			(at 68.58 154.1779 0)
 			(effects
 				(font
@@ -4049,7 +4049,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "TP204")
+					(reference "TP203")
 					(unit 1)
 				)
 			)
@@ -4065,7 +4065,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ac74151-2238-4af4-b7b4-434bf910b29d")
-		(property "Reference" "C7"
+		(property "Reference" "C205"
 			(at 87.63 64.7762 0)
 			(effects
 				(font
@@ -4119,7 +4119,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C7")
+					(reference "C205")
 					(unit 1)
 				)
 			)
@@ -4135,7 +4135,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9262e2e8-b906-4c44-af1b-9a0d43eed965")
-		(property "Reference" "U3"
+		(property "Reference" "U202"
 			(at 92.1259 166.37 0)
 			(effects
 				(font
@@ -4225,7 +4225,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "U3")
+					(reference "U202")
 					(unit 1)
 				)
 			)
@@ -4241,7 +4241,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9935914a-83ec-4537-b16c-7ac98001795d")
-		(property "Reference" "R7"
+		(property "Reference" "R203"
 			(at 82.55 173.99 90)
 			(effects
 				(font
@@ -4302,7 +4302,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R7")
+					(reference "R203")
 					(unit 1)
 				)
 			)
@@ -4318,7 +4318,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9c67239b-c45e-4c4a-885c-1f67b72adb2a")
-		(property "Reference" "J2"
+		(property "Reference" "J201"
 			(at 162.56 60.96 0)
 			(effects
 				(font
@@ -4385,7 +4385,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "J2")
+					(reference "J201")
 					(unit 1)
 				)
 			)
@@ -4401,7 +4401,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a359bc73-385c-496e-9635-c6c3962c798a")
-		(property "Reference" "U2"
+		(property "Reference" "U201"
 			(at 65.6941 64.77 0)
 			(effects
 				(font
@@ -4473,7 +4473,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "U2")
+					(reference "U201")
 					(unit 1)
 				)
 			)
@@ -4488,7 +4488,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a777aa24-f3fc-4bbc-b74b-6879276f55bd")
-		(property "Reference" "C8"
+		(property "Reference" "C206"
 			(at 105.41 146.05 0)
 			(effects
 				(font
@@ -4542,7 +4542,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C8")
+					(reference "C206")
 					(unit 1)
 				)
 			)
@@ -4557,7 +4557,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b70c15cd-bd59-42ad-a883-6f22f83a6da4")
-		(property "Reference" "C4"
+		(property "Reference" "C202"
 			(at 73.66 137.16 0)
 			(effects
 				(font
@@ -4611,7 +4611,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C4")
+					(reference "C202")
 					(unit 1)
 				)
 			)
@@ -4627,7 +4627,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7623971-6417-4248-ad11-3f77b8c4fa0f")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR0204"
 			(at 69.85 83.82 0)
 			(effects
 				(font
@@ -4677,7 +4677,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR05")
+					(reference "#PWR0204")
 					(unit 1)
 				)
 			)
@@ -4693,7 +4693,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b80fba43-9692-4b4f-a3e3-ba9cfd339e74")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR0210"
 			(at 87.63 130.81 0)
 			(effects
 				(font
@@ -4744,7 +4744,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR011")
+					(reference "#PWR0210")
 					(unit 1)
 				)
 			)
@@ -4759,7 +4759,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bd3fafcd-8928-49d7-aacf-40e507387402")
-		(property "Reference" "C9"
+		(property "Reference" "C207"
 			(at 130.81 161.29 0)
 			(effects
 				(font
@@ -4813,7 +4813,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C9")
+					(reference "C207")
 					(unit 1)
 				)
 			)
@@ -4829,7 +4829,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c0211e3d-7943-4157-8bbd-d812bcf10663")
-		(property "Reference" "D3"
+		(property "Reference" "D203"
 			(at 71.12 173.99 0)
 			(effects
 				(font
@@ -4881,7 +4881,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D3")
+					(reference "D203")
 					(unit 1)
 				)
 			)
@@ -4896,7 +4896,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c057825a-8443-4c6d-811d-7c0a7bd04e04")
-		(property "Reference" "R6"
+		(property "Reference" "R202"
 			(at 64.77 72.39 90)
 			(effects
 				(font
@@ -4957,7 +4957,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R6")
+					(reference "R202")
 					(unit 1)
 				)
 			)
@@ -4973,7 +4973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cac2eade-f086-4e6b-a723-b9706e6db6e7")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR0203"
 			(at 63.5 71.12 0)
 			(effects
 				(font
@@ -5023,7 +5023,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR04")
+					(reference "#PWR0203")
 					(unit 1)
 				)
 			)
@@ -5038,7 +5038,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d7f93467-57b6-45fa-bddd-969886470698")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR0209"
 			(at 85.09 74.93 0)
 			(effects
 				(font
@@ -5089,7 +5089,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR010")
+					(reference "#PWR0209")
 					(unit 1)
 				)
 			)
@@ -5104,7 +5104,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "da2c678a-e9f3-4b2c-8aa5-2d052079a6b0")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR0216"
 			(at 127 179.07 0)
 			(effects
 				(font
@@ -5154,7 +5154,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR017")
+					(reference "#PWR0216")
 					(unit 1)
 				)
 			)
@@ -5170,7 +5170,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ddb9e1ce-9fbc-4f1d-8f0a-caa6bdfe62e0")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR0205"
 			(at 69.85 92.71 0)
 			(effects
 				(font
@@ -5220,7 +5220,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR06")
+					(reference "#PWR0205")
 					(unit 1)
 				)
 			)
@@ -5236,7 +5236,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0b968eb-567e-47c0-824e-2c44c200dae0")
-		(property "Reference" "#PWR0202"
+		(property "Reference" "#PWR0219"
 			(at 209.55 64.77 0)
 			(effects
 				(font
@@ -5286,7 +5286,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0202")
+					(reference "#PWR0219")
 					(unit 1)
 				)
 			)
@@ -5301,7 +5301,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e7125e94-b5c7-4cd8-a50d-76ff5700c0df")
-		(property "Reference" "C10"
+		(property "Reference" "C208"
 			(at 130.81 170.18 0)
 			(effects
 				(font
@@ -5355,7 +5355,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C10")
+					(reference "C208")
 					(unit 1)
 				)
 			)
@@ -5371,7 +5371,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e73ac2db-bb39-4f6b-8eee-3b49763c39b9")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR0201"
 			(at 44.45 44.45 0)
 			(effects
 				(font
@@ -5421,7 +5421,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR02")
+					(reference "#PWR0201")
 					(unit 1)
 				)
 			)
@@ -5437,7 +5437,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8bbe349-5129-4597-9863-7d9e3963c947")
-		(property "Reference" "J3"
+		(property "Reference" "J202"
 			(at 255.27 62.23 0)
 			(effects
 				(font
@@ -5504,7 +5504,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "J3")
+					(reference "J202")
 					(unit 1)
 				)
 			)
@@ -5520,7 +5520,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ebe9199a-4e57-429a-b8b5-29c71ade4aba")
-		(property "Reference" "C6"
+		(property "Reference" "C204"
 			(at 87.63 55.8862 0)
 			(effects
 				(font
@@ -5574,7 +5574,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "C6")
+					(reference "C204")
 					(unit 1)
 				)
 			)
@@ -5589,7 +5589,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ec321fbb-1fe2-47e5-9c11-0d7dcf952547")
-		(property "Reference" "R5"
+		(property "Reference" "R201"
 			(at 62.23 88.9 90)
 			(effects
 				(font
@@ -5652,7 +5652,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R5")
+					(reference "R201")
 					(unit 1)
 				)
 			)
@@ -5668,7 +5668,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f141e101-d58a-4eb3-9a71-cbaa0cb17c0a")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR0211"
 			(at 87.63 185.42 0)
 			(effects
 				(font
@@ -5718,7 +5718,7 @@
 		(instances
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR012")
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
