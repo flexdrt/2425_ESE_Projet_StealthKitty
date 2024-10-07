@@ -118,8 +118,12 @@ Pour assigner les pins sur les conseils de Mr.Fiack, l'ordre de "priorité d'ass
 | v       | status orangeq       | GPIO_Output          | PB14                 | v        |
 | v       | status purple        | GPIO_Output          | PB0                  | v        |
 
+##### 05/10/24 à 06/10/24 -Placement 
 
+Nous avons entamés la partie routage sur PCB editor, et nous avons effectués le placement des composant
 
+##### 07/10/24 -revue du placement 
 
+Nous avons revu et optimisé le placement des composants avec l'équipe en minimisant les longueurs de traces et en regroupant les éléments par fonction pour améliorer l'efficacité et la fiabilité du circuit.
 
 ## Software
