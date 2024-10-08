@@ -790,7 +790,7 @@
 				)
 			)
 		)
-		(symbol "Driver_Motor:ZXBM5210-S"
+		(symbol "Driver_Motor:ZXBM5210-SP"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -802,7 +802,7 @@
 					)
 				)
 			)
-			(property "Value" "ZXBM5210-S"
+			(property "Value" "ZXBM5210-SP"
 				(at 10.16 8.89 0)
 				(effects
 					(font
@@ -810,7 +810,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(property "Footprint" "Package_SO:Diodes_SO-8EP"
 				(at 1.27 -6.35 0)
 				(effects
 					(font
@@ -828,7 +828,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Reversible DC motor drive with speed control, 3-18V, 0.85A, SOIC-8"
+			(property "Description" "Reversible DC motor drive with speed control, 3-18V, 0.85A, SOIC-8EP"
 				(at 0 0 0)
 				(effects
 					(font
@@ -846,7 +846,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+			(property "ki_fp_filters" "Diodes*SO*EP*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -855,7 +855,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "ZXBM5210-S_0_0"
+			(symbol "ZXBM5210-SP_0_0"
 				(pin output line
 					(at 10.16 2.54 180)
 					(length 2.54)
@@ -1000,8 +1000,26 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54) hide
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
-			(symbol "ZXBM5210-S_0_1"
+			(symbol "ZXBM5210-SP_0_1"
 				(rectangle
 					(start -7.62 7.62)
 					(end 7.62 -5.08)
@@ -2844,6 +2862,97 @@
 		)
 	)
 	(symbol
+		(lib_id "Driver_Motor:ZXBM5210-SP")
+		(at 90.17 158.75 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1328a28b-7d42-4f0e-a868-718a54434378")
+		(property "Reference" "U2"
+			(at 92.3641 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ZXBM5210-SP"
+			(at 92.3641 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:Diodes_SO-8EP"
+			(at 91.44 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ZXBM5210.pdf"
+			(at 90.17 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Reversible DC motor drive with speed control, 3-18V, 0.85A, SOIC-8EP"
+			(at 90.17 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "9"
+			(uuid "de8d6f07-0200-4670-a5db-1e979960fdba")
+		)
+		(pin "1"
+			(uuid "b958ca2e-ca78-4f62-881d-d9cd3c7059fa")
+		)
+		(pin "3"
+			(uuid "9103792d-c31d-4825-ba05-3793f2263515")
+		)
+		(pin "4"
+			(uuid "6e9df77d-157c-4962-956e-ade3a319142d")
+		)
+		(pin "2"
+			(uuid "79e88405-3d51-4788-bb19-c83a4a00176e")
+		)
+		(pin "8"
+			(uuid "c4f28c7b-7c21-4aff-a073-b1acd16afbd2")
+		)
+		(pin "5"
+			(uuid "92397d23-3d32-4391-ac20-3c5caaf5d1ea")
+		)
+		(pin "6"
+			(uuid "4abf359b-a1af-474e-a9ab-81262120242e")
+		)
+		(pin "7"
+			(uuid "7bde4743-ca03-43d8-a59d-bcbff553c741")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 44.45 34.29 0)
 		(unit 1)
@@ -4126,112 +4235,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Driver_Motor:ZXBM5210-S")
-		(at 90.17 158.75 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9262e2e8-b906-4c44-af1b-9a0d43eed965")
-		(property "Reference" "U202"
-			(at 92.1259 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "ZXBM5210-S"
-			(at 92.1259 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 91.44 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ZXBM5210.pdf"
-			(at 90.17 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Reversible DC motor drive with speed control, 3-18V, 0.85A, SOIC-8"
-			(at 90.17 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" " 621-ZXBM5210-SP-13 "
-			(at 90.17 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.fr/ProductDetail/Diodes-Incorporated/ZXBM5210-SP-13?qs=98WN%2FnWUQiQYAgSBGLkvdw%3D%3D"
-			(at 90.17 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "06612a52-93f0-4e39-b604-27b8a2aa28f0")
-		)
-		(pin "2"
-			(uuid "cd7ceedf-f852-4297-97af-9b9759c43751")
-		)
-		(pin "3"
-			(uuid "d3b8a991-01b5-4ec7-bf4e-90dc447c034a")
-		)
-		(pin "4"
-			(uuid "2380b1de-cf4e-42ca-8daa-01b5f392a93a")
-		)
-		(pin "5"
-			(uuid "cea37a65-570a-4df4-a1d7-7da8c12305ad")
-		)
-		(pin "6"
-			(uuid "532cb7b3-6adf-44e9-a984-cb4c9187dfab")
-		)
-		(pin "7"
-			(uuid "b422a87a-3622-4945-8647-ec4ddecdf4af")
-		)
-		(pin "8"
-			(uuid "0bf79afd-2f63-4874-b620-10333f4ffb86")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "U202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 82.55 179.07 90)
 		(unit 1)
@@ -4392,94 +4395,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Driver_Motor:ZXBM5210-S")
-		(at 63.5 57.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a359bc73-385c-496e-9635-c6c3962c798a")
-		(property "Reference" "U201"
-			(at 65.6941 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "ZXBM5210-S"
-			(at 65.6941 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 64.77 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ZXBM5210.pdf"
-			(at 63.5 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Reversible DC motor drive with speed control, 3-18V, 0.85A, SOIC-8"
-			(at 63.5 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "7ac40c6e-f4d6-4d08-9ed0-04997313be21")
-		)
-		(pin "3"
-			(uuid "a53ecbd5-3d92-48b4-9208-8c8beb1acf5f")
-		)
-		(pin "6"
-			(uuid "bc48265a-aef6-4c85-bc84-f45cc5ee4ece")
-		)
-		(pin "2"
-			(uuid "2a22d258-a628-4ef3-9b8c-ff9b3530c5b5")
-		)
-		(pin "7"
-			(uuid "5d2011b8-c2f9-4824-adee-4fbfd0e37092")
-		)
-		(pin "8"
-			(uuid "38234660-c81c-4b68-93cc-c3ebeef3c24b")
-		)
-		(pin "4"
-			(uuid "acfd65e4-5dd7-4e14-bc29-0a6eeefcb26d")
-		)
-		(pin "1"
-			(uuid "18810bf4-1ac4-468a-837e-33ef4493ae29")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "U201")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 102.87 144.78 0)
 		(unit 1)
@@ -4543,6 +4458,97 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "C206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Driver_Motor:ZXBM5210-SP")
+		(at 63.5 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b0775fbb-8620-4759-98d7-a6b3c2e779d9")
+		(property "Reference" "U1"
+			(at 65.6941 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ZXBM5210-SP"
+			(at 65.6941 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:Diodes_SO-8EP"
+			(at 64.77 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ZXBM5210.pdf"
+			(at 63.5 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Reversible DC motor drive with speed control, 3-18V, 0.85A, SOIC-8EP"
+			(at 63.5 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "9"
+			(uuid "44126e71-002a-44cf-8538-93be3fae2484")
+		)
+		(pin "1"
+			(uuid "a1f8ffc1-408b-47df-b3b3-a8e361ac2dd7")
+		)
+		(pin "3"
+			(uuid "db96129f-f06d-49b7-87ff-bdd8331c5f9e")
+		)
+		(pin "4"
+			(uuid "56bf7173-4121-47d6-b894-6af8d9f5a478")
+		)
+		(pin "2"
+			(uuid "2e51bba4-65b7-492d-bcae-86ef8f11c484")
+		)
+		(pin "8"
+			(uuid "91ca3d0c-6aac-459f-803d-15bf1385f65d")
+		)
+		(pin "5"
+			(uuid "d2f1dfbb-2e96-4f7b-8488-aca55fa0b43d")
+		)
+		(pin "6"
+			(uuid "e131f105-4cce-4f25-8d80-971871b31d87")
+		)
+		(pin "7"
+			(uuid "b09fb2e8-2a33-46cb-bab9-a69883b5ba3a")
+		)
+		(instances
+			(project ""
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
+					(reference "U1")
 					(unit 1)
 				)
 			)
