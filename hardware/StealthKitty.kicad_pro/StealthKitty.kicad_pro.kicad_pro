@@ -244,11 +244,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "lib_symbol_issues|1358900|660400|039abc21-85df-4766-899c-18bd6be21d7c|00000000-0000-0000-0000-000000000000|||",
-      "lib_symbol_issues|635000|609600|c1fdd24d-39a3-4e8e-94c7-27820434a8db|00000000-0000-0000-0000-000000000000|||",
-      "lib_symbol_issues|698500|1600200|254cb0e3-e8f9-4b0c-b9bb-578727d23e2c|00000000-0000-0000-0000-000000000000|||"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
