@@ -118,12 +118,26 @@ Pour assigner les pins sur les conseils de Mr.Fiack, l'ordre de "priorité d'ass
 | v       | status orangeq       | GPIO_Output          | PB14                 | v        |
 | v       | status purple        | GPIO_Output          | PB0                  | v        |
 
-##### 05/10/24 à 06/10/24 -Placement 
+######05/10/24 - Placement et début du routage
 
-Nous avons entamés la partie routage sur PCB editor, et nous avons effectués le placement des composant
+##Placement des composants terminé
+##Correction des warnings et erreurs KiCad
+##Adaptation du schéma en conséquence
+##Début du routage sur PCB Editor
 
-##### 07/10/24 -revue du placement 
+######06/10/24 - Revue globale et optimisation
 
-Nous avons revu et optimisé le placement des composants avec l'équipe en minimisant les longueurs de traces et en regroupant les éléments par fonction pour améliorer l'efficacité et la fiabilité du circuit.
+##Revue globale du projet
+##Concertation sur le choix des capteurs
+##Réflexion sur l'intérêt des connecteurs (entrée/sortie)
+##Analyse préliminaire des contraintes CEM
+
+######07/10/24 - Optimisation du placement et ajustements
+
+##Optimisation du placement des composants
+##Réduction des longueurs de traces
+##Regroupement des composants par fonction
+##Intégration des contraintes CEM
+##Décisions finalisées sur les connecteurs
 
 ## Software
