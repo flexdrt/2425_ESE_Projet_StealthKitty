@@ -5995,7 +5995,7 @@
 			(uuid "e9d67857-ab0a-4aea-8cf7-6101749279c1")
 		)
 		(instances
-			(project ""
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/813d471c-6080-4c02-83a9-e4f8506d7616"
 					(reference "#FLG01")
 					(unit 1)
