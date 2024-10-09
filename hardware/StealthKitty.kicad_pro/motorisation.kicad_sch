@@ -497,299 +497,6 @@
 				)
 			)
 		)
-		(symbol "Device:LED_Small"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0.254) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at -1.27 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "LED_Small"
-				(at -4.445 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Light emitting diode, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "LED diode light-emitting-diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LED_Small_0_1"
-				(polyline
-					(pts
-						(xy -0.762 -1.016) (xy -0.762 1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 0) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.016) (xy -0.762 0) (xy 0.762 1.016) (xy 0.762 -1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.762) (xy -0.508 1.27) (xy -0.254 1.27) (xy -0.508 1.27) (xy -0.508 1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 1.27) (xy 0 1.778) (xy 0.254 1.778) (xy 0 1.778) (xy 0 1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "LED_Small_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 1.778)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 1.778)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Device:R_Small"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0.254) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 0.762 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "R_Small"
-				(at 0.762 -1.016 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_Small_0_1"
-				(rectangle
-					(start -0.762 1.778)
-					(end 0.762 -1.778)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_Small_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 0.762)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 0.762)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Driver_Motor:ZXBM5210-SP"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1498,16 +1205,6 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 179.07) (xy 87.63 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14f8cd6a-6ea0-44af-a51c-bc87103fab0a")
-	)
-	(wire
-		(pts
 			(xy 60.96 158.75) (xy 66.04 158.75)
 		)
 		(stroke
@@ -1618,16 +1315,6 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 187.96) (xy 68.58 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "368bf22e-11a6-458d-a056-cc0ecf9605db")
-	)
-	(wire
-		(pts
 			(xy 40.64 59.69) (xy 53.34 59.69)
 		)
 		(stroke
@@ -1665,36 +1352,6 @@
 			(type default)
 		)
 		(uuid "49e4c746-1ccb-4309-ba43-673edbae9fd0")
-	)
-	(wire
-		(pts
-			(xy 67.31 77.47) (xy 69.85 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4bb0e4f3-1aa5-44f4-b58f-891e97aac9e7")
-	)
-	(wire
-		(pts
-			(xy 67.31 86.36) (xy 69.85 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c116e68-942d-4927-9a2c-fd9851bad34c")
-	)
-	(wire
-		(pts
-			(xy 64.77 179.07) (xy 68.58 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4cfc3586-c626-4dab-bc91-f9b8f6dea7ae")
 	)
 	(wire
 		(pts
@@ -1818,16 +1475,6 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 187.96) (xy 87.63 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "72e59522-8ae6-4705-a43e-4a9401487617")
-	)
-	(wire
-		(pts
 			(xy 96.52 57.15) (xy 96.52 54.61)
 		)
 		(stroke
@@ -1948,16 +1595,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 77.47) (xy 62.23 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8c3c8cdf-9df0-4cad-875c-5789b0168123")
-	)
-	(wire
-		(pts
 			(xy 92.71 142.24) (xy 92.71 138.43)
 		)
 		(stroke
@@ -2028,16 +1665,6 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 187.96) (xy 80.01 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b35a4311-2d7d-42d1-8bdb-fc59c21d6a48")
-	)
-	(wire
-		(pts
 			(xy 128.27 66.04) (xy 128.27 60.96)
 		)
 		(stroke
@@ -2045,16 +1672,6 @@
 			(type default)
 		)
 		(uuid "b9b1f20f-e093-4236-8f10-b65ae6e35eab")
-	)
-	(wire
-		(pts
-			(xy 87.63 187.96) (xy 87.63 189.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b9d8bd3d-9eb6-4cc4-a7eb-86b9c520c9d1")
 	)
 	(wire
 		(pts
@@ -2108,26 +1725,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 77.47) (xy 50.8 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cdc06edd-d403-4f8d-b431-bea7887d0a81")
-	)
-	(wire
-		(pts
-			(xy 73.66 179.07) (xy 80.01 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ce3b25fc-9516-4a5a-81cd-6a53402580c8")
-	)
-	(wire
-		(pts
 			(xy 60.96 45.72) (xy 60.96 46.99)
 		)
 		(stroke
@@ -2168,16 +1765,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 86.36) (xy 62.23 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e67d270a-ceb9-45b2-9d7a-41f5e9c1f79f")
-	)
-	(wire
-		(pts
 			(xy 87.63 133.35) (xy 71.12 133.35)
 		)
 		(stroke
@@ -2188,16 +1775,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 86.36) (xy 50.8 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f0d6f620-ea23-4184-92df-245b3e18d316")
-	)
-	(wire
-		(pts
 			(xy 80.01 143.51) (xy 80.01 156.21)
 		)
 		(stroke
@@ -2205,16 +1782,6 @@
 			(type default)
 		)
 		(uuid "fd35079c-39db-476d-a7dd-a190176df665")
-	)
-	(text "si la led bleue est allumée c'est le sens de marche avant qui est enclenché"
-		(exclude_from_sim no)
-		(at 55.372 98.298 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "09a6ff1c-cfb5-462b-82bc-ba5f3b07255a")
 	)
 	(text "Motor driver 1\n"
 		(exclude_from_sim no)
@@ -2244,16 +1811,6 @@
 		)
 		(uuid "836f6e74-ff62-4d7d-bc86-371c2dc51490")
 	)
-	(text "1k"
-		(exclude_from_sim no)
-		(at 67.31 80.518 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "9467020e-abcf-4932-887d-b79097878507")
-	)
 	(text "Connector motor 1\n"
 		(exclude_from_sim no)
 		(at 119.634 26.416 0)
@@ -2267,16 +1824,6 @@
 			(justify left bottom)
 		)
 		(uuid "d204fe87-be60-4596-b488-2150f19d13ba")
-	)
-	(text "si la led verte est allumée c'est le sens de marche avant qui est enclenché"
-		(exclude_from_sim no)
-		(at 131.572 184.658 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "dbc76c34-5fab-4179-8b9b-884b52a2dcef")
 	)
 	(text "Motor driver 2\n"
 		(exclude_from_sim no)
@@ -2411,75 +1958,6 @@
 			)
 		)
 	)
-	(global_label "PWM_MOT2_CH1"
-		(shape input)
-		(at 64.77 179.07 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "412bd57b-2d46-4ae0-aaba-ce25814dc839")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.5588 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_MOT2_CH2"
-		(shape input)
-		(at 64.77 187.96 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "416c58eb-e9b3-4249-af24-3d18a1c74849")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.5588 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_MOT1_CH2"
-		(shape input)
-		(at 46.99 86.36 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "53c47543-3583-4f0b-abde-65d056c38887")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 28.6518 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Codeur2_PH1"
 		(shape input)
 		(at 242.57 62.23 180)
@@ -2516,29 +1994,6 @@
 		(uuid "87ce7afb-d79b-4adb-ab9a-6282ea142835")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 42.7488 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PWM_MOT1_CH1"
-		(shape input)
-		(at 46.99 77.47 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "afbd61f7-b648-457d-acc7-0b09bae676ba")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 28.6518 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2657,74 +2112,6 @@
 				)
 				(justify right)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 71.12 187.96 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "039fbd57-9a6b-475d-b2e1-d4058bd20bde")
-		(property "Reference" "D204"
-			(at 71.12 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "RED"
-			(at 71.12 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 71.12 187.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 71.12 187.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 71.12 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "04825e67-e59b-4f75-8f1d-825a9fe6cceb")
-		)
-		(pin "2"
-			(uuid "13380013-46c4-4a9f-8883-57ce0185c746")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D204")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2979,7 +2366,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 44.45 34.29 0)
 			(effects
 				(font
@@ -3148,285 +2535,6 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "#PWR0207")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 87.63 189.23 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1c246975-7d1f-43ba-9d7c-9ae6cf71daec")
-		(property "Reference" "#PWR0212"
-			(at 87.63 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 87.63 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 87.63 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b5daa399-26f6-4a5e-8445-a2010ab815fd")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0212")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 53.34 86.36 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1d6cf926-9d2a-4e12-a42b-b99a5f0a13ea")
-		(property "Reference" "D202"
-			(at 53.34 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "YELLOW"
-			(at 53.34 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 53.34 86.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 53.34 86.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 53.34 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e0443212-dd36-4796-b828-40f603520736")
-		)
-		(pin "2"
-			(uuid "980591ca-ccc3-4205-9498-69f25a0ad8db")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 82.55 187.96 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2f9e8c4f-5303-4eb7-b4a9-aafa3bf95399")
-		(property "Reference" "R204"
-			(at 82.55 182.88 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 82.55 185.42 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 82.55 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 82.55 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 82.55 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "0603"
-			(at 82.55 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "aeee2646-092d-4aef-9346-50eea1c49f5a")
-		)
-		(pin "2"
-			(uuid "75e2020a-c0a6-48de-aec0-99c68f7ae9d2")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R204")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 53.34 77.47 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "30dcdfcf-4c86-4a94-a295-db3c7022d6ee")
-		(property "Reference" "D201"
-			(at 53.34 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Blue"
-			(at 53.34 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 53.34 77.47 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 53.34 77.47 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 53.34 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3d7e61d2-5507-4f64-b59b-22d5acc23f38")
-		)
-		(pin "2"
-			(uuid "db5c8be1-dcac-4aba-a334-fae957a6ad58")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D201")
 					(unit 1)
 				)
 			)
@@ -3988,7 +3096,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 76.2 44.45 0)
 			(effects
 				(font
@@ -4192,7 +3300,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 85.09 66.04 0)
 			(effects
 				(font
@@ -4229,83 +3337,6 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "C205")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 82.55 179.07 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9935914a-83ec-4537-b16c-7ac98001795d")
-		(property "Reference" "R203"
-			(at 82.55 173.99 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 82.55 176.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 82.55 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 82.55 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 82.55 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "0603"
-			(at 82.55 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "31e38e5f-6578-46de-82de-730625431139")
-		)
-		(pin "2"
-			(uuid "0543e400-615c-4fed-81a7-aa6a2b498d88")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R203")
 					(unit 1)
 				)
 			)
@@ -4421,7 +3452,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 102.87 144.78 0)
 			(effects
 				(font
@@ -4581,7 +3612,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 71.12 135.89 0)
 			(effects
 				(font
@@ -4618,72 +3649,6 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "C202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 69.85 77.47 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b7623971-6417-4248-ad11-3f77b8c4fa0f")
-		(property "Reference" "#PWR0204"
-			(at 69.85 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 69.85 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 69.85 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 69.85 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9c5243c1-4ce4-4c61-81d0-8cf2212b1ce1")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0204")
 					(unit 1)
 				)
 			)
@@ -4783,7 +3748,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 127 161.29 0)
 			(effects
 				(font
@@ -4820,150 +3785,6 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "C207")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 71.12 179.07 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c0211e3d-7943-4157-8bbd-d812bcf10663")
-		(property "Reference" "D203"
-			(at 71.12 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Green"
-			(at 71.12 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 71.12 179.07 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 71.12 179.07 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 71.12 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e1767aca-3313-43a9-94a4-812c8ffd823b")
-		)
-		(pin "2"
-			(uuid "b36c58a9-4567-4c76-8b64-a4d75d3fa5d2")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "D203")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 64.77 86.36 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c057825a-8443-4c6d-811d-7c0a7bd04e04")
-		(property "Reference" "R202"
-			(at 64.77 72.39 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100R"
-			(at 64.77 91.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 64.77 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 64.77 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 64.77 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "0603"
-			(at 64.77 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9b05a649-370d-45de-a83d-d02ffe6d5dbc")
-		)
-		(pin "2"
-			(uuid "daed8cbc-48af-4d61-bb96-525c21585767")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R202")
 					(unit 1)
 				)
 			)
@@ -5167,72 +3988,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 69.85 86.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ddb9e1ce-9fbc-4f1d-8f0a-caa6bdfe62e0")
-		(property "Reference" "#PWR0205"
-			(at 69.85 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 69.85 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 69.85 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 69.85 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 69.85 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "16aa2a70-7975-4acd-8d2d-13c8804978f9")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0205")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 209.55 60.96 0)
 		(unit 1)
@@ -5325,7 +4080,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 127 170.18 0)
 			(effects
 				(font
@@ -5544,7 +4299,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 85.09 57.15 0)
 			(effects
 				(font
@@ -5581,150 +4336,6 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "C204")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 64.77 77.47 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ec321fbb-1fe2-47e5-9c11-0d7dcf952547")
-		(property "Reference" "R201"
-			(at 62.23 88.9 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "100R"
-			(at 63.5 74.93 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 64.77 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 64.77 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 64.77 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "0603"
-			(at 64.77 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3e0ce87d-5a48-4673-894b-79580ee6529a")
-		)
-		(pin "2"
-			(uuid "af2330e0-a5be-4159-aaad-eb600ab66d0c")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "R201")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 87.63 179.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f141e101-d58a-4eb3-9a71-cbaa0cb17c0a")
-		(property "Reference" "#PWR0211"
-			(at 87.63 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 87.63 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 87.63 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1947c6e2-1d8f-454c-93e2-f4634266a925")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
-					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
