@@ -140,4 +140,33 @@ Pour assigner les pins sur les conseils de Mr.Fiack, l'ordre de "priorité d'ass
 ##Intégration des contraintes CEM
 ##Décisions finalisées sur les connecteurs
 
+##### 07/10/24 -revue du placement 
+
+Nous avons revu et optimisé le placement des composants avec l'équipe en minimisant les longueurs de traces et en regroupant les éléments par fonction pour améliorer l'efficacité et la fiabilité du circuit.
+
+08/10 
+
+- [x] ajout de vias pour connecter au gnd les drivers avec pads afin de mieux dissiper leurs chaleurs
+- [x] mettre des connecteurs tof coudés en dehors de la carte si besoins
+- [ ] mettre les capacités au plus proche des broches d'alimentation :
+  -vdd mettre proche des pins  25 35 48 de la stm
+  -adc broche 21 pareil 
+  -empreintes de pas prendre Handsolder 
+  -
+- [x] R502 et autres res à mettre en 0402
+- [x] changer l'empreinte de l'interrupteur
+- [ ] inverser les pins de l'int adx et celui du bouton
+- [ ] zones de cuivre pour 5 v tof sur la couche in2
+- [ ] zone de cuivre 
+- [x] pointe de test inutile si présente sur le connecteur tof (int tof)
+- [ ] in1 masse
+  un plan vbat dans le plan niveua de priorité = îlot dans l'intérieur
+- [ ] couche paste sur kikad
+- [ ] signaux qui passe au bottom
+- [ ] scxsc
+- [ ] faire les zones de cuivres
+
+
+
+
 ## Software
