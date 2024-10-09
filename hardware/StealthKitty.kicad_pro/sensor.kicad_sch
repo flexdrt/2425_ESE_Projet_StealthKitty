@@ -1529,12 +1529,6 @@
 		(uuid "ae581ff7-8256-4e46-8108-3870e6f19126")
 	)
 	(junction
-		(at 102.87 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b2f55f7d-5bf0-4773-99ac-3e10d2273ed9")
-	)
-	(junction
 		(at 157.48 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1642,17 +1636,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 36.83) (xy 50.8 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1d1c5918-ed48-4be5-a9e4-f5c9cb81c5d3")
-	)
-	(wire
-		(pts
-			(xy 31.75 45.72) (xy 52.07 45.72)
+			(xy 49.53 39.37) (xy 58.42 39.37)
 		)
 		(stroke
 			(width 0)
@@ -1792,16 +1776,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 36.83) (xy 58.42 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57a516ef-96fb-45fe-8c6d-1788cea73498")
-	)
-	(wire
-		(pts
 			(xy 142.24 105.41) (xy 152.4 105.41)
 		)
 		(stroke
@@ -1809,16 +1783,6 @@
 			(type default)
 		)
 		(uuid "594a4e9d-e2a6-4cec-9f45-42cc6ccd6b44")
-	)
-	(wire
-		(pts
-			(xy 118.11 41.91) (xy 118.11 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f44bb5d-1e5c-41a6-b6c8-235382a23f07")
 	)
 	(polyline
 		(pts
@@ -1852,7 +1816,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 40.64) (xy 50.8 40.64)
+			(xy 39.37 36.83) (xy 58.42 36.83)
 		)
 		(stroke
 			(width 0)
@@ -1879,16 +1843,6 @@
 			(type default)
 		)
 		(uuid "79e502c0-ba41-41c6-8059-0613a73fecdd")
-	)
-	(wire
-		(pts
-			(xy 52.07 39.37) (xy 52.07 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7bcf4eec-5fac-4c0c-bbae-d07d0cf8cbe3")
 	)
 	(wire
 		(pts
@@ -1952,7 +1906,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 36.83) (xy 123.19 36.83)
+			(xy 99.06 36.83) (xy 123.19 36.83)
 		)
 		(stroke
 			(width 0)
@@ -2012,16 +1966,6 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 36.83) (xy 102.87 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b9f4b136-d607-40eb-84fb-61389c51a994")
-	)
-	(wire
-		(pts
 			(xy 110.49 29.21) (xy 110.49 34.29)
 		)
 		(stroke
@@ -2042,43 +1986,13 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 39.37) (xy 58.42 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4df6800-32ef-4c4b-a420-b100873c0b97")
-	)
-	(wire
-		(pts
-			(xy 102.87 33.02) (xy 102.87 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c5fb9b50-9b88-4bdf-b4a7-918674416a32")
-	)
-	(wire
-		(pts
-			(xy 99.06 41.91) (xy 118.11 41.91)
+			(xy 110.49 39.37) (xy 123.19 39.37)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c9df7189-798e-4b28-8616-39b3cfdb115f")
-	)
-	(wire
-		(pts
-			(xy 118.11 39.37) (xy 123.19 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf487b90-046e-4482-a4c4-7482908dc8d6")
 	)
 	(wire
 		(pts
@@ -2286,7 +2200,7 @@
 	)
 	(global_label "INT_tof1"
 		(shape input)
-		(at 31.75 40.64 180)
+		(at 39.37 36.83 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2296,7 +2210,7 @@
 		)
 		(uuid "1b9dee0e-1dce-4b36-b58d-53da4d06ee5d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.0844 40.64 0)
+			(at 28.7044 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2308,7 +2222,7 @@
 	)
 	(global_label "xshunt1"
 		(shape input)
-		(at 31.75 45.72 180)
+		(at 49.53 39.37 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2318,7 +2232,7 @@
 		)
 		(uuid "2a6a9fae-054a-4808-bf38-1c5cca208d42")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.3264 45.72 0)
+			(at 39.1064 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2396,7 +2310,7 @@
 	)
 	(global_label "xshunt2"
 		(shape input)
-		(at 99.06 41.91 180)
+		(at 110.49 39.37 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2406,7 +2320,7 @@
 		)
 		(uuid "7039373d-de63-4301-b24d-6eaf5f4d7166")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 89.8459 41.91 0)
+			(at 101.2759 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4069,72 +3983,6 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/8cd8413a-9ba4-4bd6-b413-2331caa50cc2"
 					(reference "Cs301")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 102.87 33.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d7ee1a30-573c-4ff1-97fd-2f4a0585161e")
-		(property "Reference" "TP305"
-			(at 98.298 28.448 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 92.964 30.988 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 107.95 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 107.95 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 102.87 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "34d2e9d0-937e-413c-98bd-0a1f5e83f7e5")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/8cd8413a-9ba4-4bd6-b413-2331caa50cc2"
-					(reference "TP305")
 					(unit 1)
 				)
 			)
