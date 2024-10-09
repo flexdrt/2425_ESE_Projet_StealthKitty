@@ -3577,7 +3577,7 @@
 			(uuid "b09fb2e8-2a33-46cb-bab9-a69883b5ba3a")
 		)
 		(instances
-			(project ""
+			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/3b52812e-304f-4912-a30c-3c03f9d89b81"
 					(reference "U1")
 					(unit 1)
