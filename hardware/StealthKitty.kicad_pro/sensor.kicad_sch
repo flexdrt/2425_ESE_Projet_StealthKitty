@@ -1529,6 +1529,12 @@
 		(uuid "ae581ff7-8256-4e46-8108-3870e6f19126")
 	)
 	(junction
+		(at 102.87 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b2f55f7d-5bf0-4773-99ac-3e10d2273ed9")
+	)
+	(junction
 		(at 157.48 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1946,7 +1952,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 36.83) (xy 123.19 36.83)
+			(xy 102.87 36.83) (xy 123.19 36.83)
 		)
 		(stroke
 			(width 0)
@@ -2006,6 +2012,16 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 36.83) (xy 102.87 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9f4b136-d607-40eb-84fb-61389c51a994")
+	)
+	(wire
+		(pts
 			(xy 110.49 29.21) (xy 110.49 34.29)
 		)
 		(stroke
@@ -2033,6 +2049,16 @@
 			(type default)
 		)
 		(uuid "c4df6800-32ef-4c4b-a420-b100873c0b97")
+	)
+	(wire
+		(pts
+			(xy 102.87 33.02) (xy 102.87 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5fb9b50-9b88-4bdf-b4a7-918674416a32")
 	)
 	(wire
 		(pts
@@ -4043,6 +4069,72 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/8cd8413a-9ba4-4bd6-b413-2331caa50cc2"
 					(reference "Cs301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 102.87 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d7ee1a30-573c-4ff1-97fd-2f4a0585161e")
+		(property "Reference" "TP305"
+			(at 98.298 28.448 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 92.964 30.988 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 107.95 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 102.87 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "34d2e9d0-937e-413c-98bd-0a1f5e83f7e5")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/8cd8413a-9ba4-4bd6-b413-2331caa50cc2"
+					(reference "TP305")
 					(unit 1)
 				)
 			)
