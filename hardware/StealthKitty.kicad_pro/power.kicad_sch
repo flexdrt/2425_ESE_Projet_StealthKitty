@@ -3201,6 +3201,16 @@
 		)
 		(uuid "9be15e44-3a3c-49e7-b3b4-185c4201bc2f")
 	)
+	(text "MP1475S!!!"
+		(exclude_from_sim no)
+		(at 87.63 51.054 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c12a0395-ab1d-45bc-94ae-4230fe500bd5")
+	)
 	(text "5V/3A"
 		(exclude_from_sim no)
 		(at 131.572 65.278 0)
