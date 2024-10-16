@@ -147,6 +147,29 @@ Nous avons revu et optimisé le placement des composants avec l'équipe en minim
 - [ ] signaux qui passe au bottom
 - [ ] scxsc
 - [ ] faire les zones de cuivres
+## Les changements effectués dans les contraintes 10/10/2024: 
+•	Largeur min d’anneau on a passé de  0.1  à  0.075
+•	Nombre min de rayon de frein thermique de  2 à 1 
+•	Isolation trou a trou de  0.25 à  0.2
+•	Isolation cuivre/contour de CI  de  0.5  à  0.3
+•	Diamètre min via passe de  0.5  à 0.3
+•	Zone d’isolation couches GND de 0.4 à 0.3 
+•	Classes equipots isolation de  0.2 à 0.15
+•	Zone d’isolation 5V passer de 0.5  à 0.3
+•	Isolation ++VBAT de 0.5 à 0.15
+
+## Remarque routage Mr Fiack après revue routage le 16/10/2024
+
+•	On fait passer 3A donc on doit mettre une piste plus grande  OK : Après utilisation outil calcul de KiCad il nous fait 1.4mm, on a fait une zone de plan (voir photo calcul sur le git)
+•	A vérifier avec  le convertisseur si la bonne empreinte que MP14 ..s  OK
+•	Entre via et via min 0.2mm pour respecter les via  OK
+•	Ajouter les sommets pour ne pas avoir des angles droits  OK
+•	Le faire sur l’autre plan de moteurs OK
+•	Les vias les mettre a  0.45/ 0.3 OK
+•	Changer empreinte  des capacités 4.7uF, 1uF en 0.6 OK
+•	Piste de la batterie a 1.7mm car tout le courant de la carte passe par là (1.7mm car c’est la taille de la pastille) OK
+•	Si on a des comportements d’antennes on mit un via sinon on supprime  une zone 
+•	Chaque fois on a un coin on utilise un via  OK
 
 
 
