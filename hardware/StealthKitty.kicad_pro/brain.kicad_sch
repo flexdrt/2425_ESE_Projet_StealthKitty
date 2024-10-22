@@ -2788,6 +2788,12 @@
 		)
 	)
 	(junction
+		(at 228.6 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "13213aa8-ed5e-4269-a760-3a31bdf79b43")
+	)
+	(junction
 		(at 36.83 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2812,16 +2818,16 @@
 		(uuid "2c1490bb-b166-4610-b12b-ea02c77bcad9")
 	)
 	(junction
-		(at 140.97 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2fc69685-0e5d-4eeb-8de4-4b6ac64d21dd")
-	)
-	(junction
 		(at 85.09 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "34cb35ac-c07c-4fb3-9697-f2dd7afefd01")
+	)
+	(junction
+		(at 238.76 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "411c3f16-762b-4aef-a173-d93ee4c2cf43")
 	)
 	(junction
 		(at 88.9 38.1)
@@ -2840,12 +2846,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "661775ab-93e2-4ca6-b531-aaeee64e7a24")
-	)
-	(junction
-		(at 127 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "70a12121-19cd-4962-857c-5bead1c5b259")
 	)
 	(junction
 		(at 107.95 76.2)
@@ -3083,7 +3083,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 77.47) (xy 127 77.47)
+			(xy 115.57 77.47) (xy 144.78 77.47)
 		)
 		(stroke
 			(width 0)
@@ -3653,13 +3653,13 @@
 	)
 	(wire
 		(pts
-			(xy 127 82.55) (xy 140.97 82.55)
+			(xy 236.22 134.62) (xy 238.76 134.62)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "81a53116-8af3-4fd1-996c-d6ef1f04976a")
+		(uuid "81ac951d-a8f2-49cc-ad77-50d39d461e80")
 	)
 	(wire
 		(pts
@@ -3700,6 +3700,16 @@
 			(type default)
 		)
 		(uuid "8758a7af-b0c6-469f-8413-91b41344a1b8")
+	)
+	(wire
+		(pts
+			(xy 238.76 129.54) (xy 238.76 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87c19eaf-0169-46fd-bd38-6e70e56feb91")
 	)
 	(wire
 		(pts
@@ -3753,6 +3763,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 134.62) (xy 231.14 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fb09ca7-4f06-4d3a-95d7-2ce0bdd9abac")
+	)
+	(wire
+		(pts
 			(xy 252.73 36.83) (xy 257.81 36.83)
 		)
 		(stroke
@@ -3790,16 +3810,6 @@
 			(type default)
 		)
 		(uuid "9865b7f6-a51c-4e0f-b0bd-7f6175e8ea2c")
-	)
-	(wire
-		(pts
-			(xy 127 77.47) (xy 140.97 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "98964b26-7ff8-4bb3-b232-91d504315e3c")
 	)
 	(wire
 		(pts
@@ -3860,16 +3870,6 @@
 			(type default)
 		)
 		(uuid "a3ce92a3-4150-4423-a8f9-414026ae8ba2")
-	)
-	(wire
-		(pts
-			(xy 144.78 86.36) (xy 140.97 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a64c162c-874c-4467-adc2-02f00c0a8e21")
 	)
 	(wire
 		(pts
@@ -3973,6 +3973,16 @@
 	)
 	(wire
 		(pts
+			(xy 238.76 121.92) (xy 238.76 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b660935f-9430-4820-bf38-eff0f4552fa6")
+	)
+	(wire
+		(pts
 			(xy 195.58 133.35) (xy 198.12 133.35)
 		)
 		(stroke
@@ -4013,7 +4023,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 121.92) (xy 238.76 121.92)
+			(xy 217.17 134.62) (xy 228.6 134.62)
 		)
 		(stroke
 			(width 0)
@@ -4093,16 +4103,6 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 82.55) (xy 140.97 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db2d2789-184d-4ec5-998f-ebcb1c5c57b0")
-	)
-	(wire
-		(pts
 			(xy 234.95 154.94) (xy 234.95 158.75)
 		)
 		(stroke
@@ -4123,7 +4123,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 121.92) (xy 257.81 121.92)
+			(xy 248.92 134.62) (xy 257.81 134.62)
 		)
 		(stroke
 			(width 0)
@@ -4475,7 +4475,7 @@
 	)
 	(text "button pour changer d'état (chat/souris)"
 		(exclude_from_sim no)
-		(at 240.792 117.094 0)
+		(at 234.696 112.268 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4506,7 +4506,7 @@
 		(uuid "2ca0f705-23df-444c-8735-11b6cee5f218")
 	)
 	(label "Button_1"
-		(at 228.6 121.92 0)
+		(at 217.17 134.62 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6103,7 +6103,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 140.97 86.36 0)
+		(at 144.78 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6112,7 +6112,7 @@
 		(fields_autoplaced yes)
 		(uuid "5b602fbe-8472-4914-af48-d6a2a043e5f6")
 		(property "Reference" "#PWR0412"
-			(at 140.97 92.71 0)
+			(at 144.78 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6121,7 +6121,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 140.97 91.44 0)
+			(at 144.78 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6129,7 +6129,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 140.97 86.36 0)
+			(at 144.78 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6138,7 +6138,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 140.97 86.36 0)
+			(at 144.78 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6147,7 +6147,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 140.97 86.36 0)
+			(at 144.78 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6227,6 +6227,72 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
 					(reference "#PWR0414")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 238.76 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "648fb052-4f38-4b12-a0f2-3427efd9f76a")
+		(property "Reference" "#PWR0423"
+			(at 238.76 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 238.76 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 238.76 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 238.76 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 238.76 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f750d5cb-8fe2-4e18-a8e2-45c598dde408")
+		)
+		(instances
+			(project ""
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "#PWR0423")
 					(unit 1)
 				)
 			)
@@ -6727,6 +6793,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 228.6 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "78cb861d-6c72-4daa-afd6-00a1ecbe4e45")
+		(property "Reference" "#PWR0424"
+			(at 228.6 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 231.902 142.748 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 228.6 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fce10ff2-8595-43fe-91cc-17c181304cbb")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "#PWR0424")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 88.9 43.18 0)
 		(unit 1)
@@ -7005,8 +7136,78 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 238.76 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9393b569-7de7-49b1-803f-eb1b075773b0")
+		(property "Reference" "R406"
+			(at 241.3 125.7299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 241.3 128.2699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 238.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 238.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 238.76 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bdc8f768-f974-450e-840a-9d7fdde9f9d1")
+		)
+		(pin "2"
+			(uuid "9ba13e60-dd1e-4031-9b1c-378426cb9d0c")
+		)
+		(instances
+			(project ""
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "R406")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 257.81 121.92 0)
+		(at 257.81 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7015,7 +7216,7 @@
 		(fields_autoplaced yes)
 		(uuid "9617ad94-ec60-44d1-9292-6462d76ebf7a")
 		(property "Reference" "#PWR0421"
-			(at 257.81 128.27 0)
+			(at 257.81 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7024,7 +7225,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 257.81 127 0)
+			(at 257.81 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7032,7 +7233,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 257.81 121.92 0)
+			(at 257.81 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7041,7 +7242,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 257.81 121.92 0)
+			(at 257.81 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7050,7 +7251,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 257.81 121.92 0)
+			(at 257.81 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7472,7 +7673,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
-		(at 243.84 121.92 0)
+		(at 243.84 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7480,7 +7681,7 @@
 		(dnp no)
 		(uuid "aa12d922-92bd-48f0-b071-567b9bd85dee")
 		(property "Reference" "SW402"
-			(at 243.84 124.46 0)
+			(at 243.84 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7488,7 +7689,7 @@
 			)
 		)
 		(property "Value" "SW_Push"
-			(at 243.84 118.11 0)
+			(at 243.84 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7497,7 +7698,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm"
-			(at 243.84 116.84 0)
+			(at 243.84 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7506,7 +7707,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 243.84 116.84 0)
+			(at 243.84 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7515,7 +7716,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 243.84 121.92 0)
+			(at 243.84 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7524,7 +7725,7 @@
 			)
 		)
 		(property "Height" "1206"
-			(at 243.84 121.92 0)
+			(at 243.84 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7542,6 +7743,83 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
 					(reference "SW402")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 233.68 134.62 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "abeecb9d-7fb2-4e66-b066-bfdba69d08a0")
+		(property "Reference" "R407"
+			(at 233.68 129.54 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 233.68 132.08 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 233.68 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 233.68 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 233.68 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "0603"
+			(at 233.68 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f5217515-875d-4b95-bfff-18fe0882b5cf")
+		)
+		(pin "2"
+			(uuid "9e0b7c73-3ceb-43b8-a9af-21ee8f1f9061")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "R407")
 					(unit 1)
 				)
 			)
@@ -7677,6 +7955,75 @@
 			(project "StealthKitty.kicad_pro"
 				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
 					(reference "#PWR0413")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 228.6 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c5137158-0ae4-49ce-a964-7d748e7d0416")
+		(property "Reference" "C412"
+			(at 221.742 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 231.14 138.4362 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 228.6 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 228.6 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 228.6 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "801fa9aa-a8e4-4943-852f-7c7427a72a6b")
+		)
+		(pin "2"
+			(uuid "1d47957e-b84f-479c-8dbb-1daa3378de98")
+		)
+		(instances
+			(project "StealthKitty.kicad_pro"
+				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
+					(reference "C412")
 					(unit 1)
 				)
 			)
@@ -8500,76 +8847,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 140.97 80.01 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ee70901f-3ec2-4765-bc89-596385b1d21c")
-		(property "Reference" "C410"
-			(at 139.7 82.042 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 138.43 78.7338 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 140.97 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 140.97 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 140.97 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8ed873b7-df29-4f13-bfc7-33bebf142988")
-		)
-		(pin "2"
-			(uuid "cd38b66b-7c3c-40f1-ad3e-a5158630779a")
-		)
-		(instances
-			(project "StealthKitty.kicad_pro"
-				(path "/23d5732b-7ccb-40aa-85a2-3b18421ac23b/80e324d5-3692-40e2-ae7b-7b2010b2e090"
-					(reference "C410")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 127 80.01 180)
+		(at 144.78 80.01 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8577,7 +8855,7 @@
 		(dnp no)
 		(uuid "ee95479c-4161-4d02-b4d4-6942fbbb4b2c")
 		(property "Reference" "C408"
-			(at 125.73 82.042 0)
+			(at 143.51 82.042 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8586,7 +8864,7 @@
 			)
 		)
 		(property "Value" "10 nF"
-			(at 124.46 78.7338 0)
+			(at 142.24 78.7338 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8595,7 +8873,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 127 80.01 0)
+			(at 144.78 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8604,7 +8882,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 127 80.01 0)
+			(at 144.78 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8613,7 +8891,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 127 80.01 0)
+			(at 144.78 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
