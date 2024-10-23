@@ -4627,7 +4627,7 @@
 		)
 		(uuid "9a4538eb-841b-4441-9c94-0978af256005")
 	)
-	(label "status_Purple"
+	(label "status_Red"
 		(at 158.75 118.11 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4682,7 +4682,7 @@
 		)
 		(uuid "d9aeecd3-6c9f-431c-8dd3-b503f4a1bf18")
 	)
-	(label "status_Orange"
+	(label "status_Blue"
 		(at 157.48 102.87 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4693,7 +4693,7 @@
 		)
 		(uuid "e7e45075-af1a-4425-b53f-d0e1862cc07a")
 	)
-	(label "status_Purple"
+	(label "status_Red"
 		(at 88.9 161.29 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4715,7 +4715,7 @@
 		)
 		(uuid "f4f3a464-588b-46ea-b3aa-a67f0cb02c45")
 	)
-	(label "status_Orange"
+	(label "status_Blue"
 		(at 88.9 158.75 180)
 		(fields_autoplaced yes)
 		(effects
