@@ -17,7 +17,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "3b52812e-304f-4912-a30c-3c03f9d89b81")
-		(property "Sheetname" "motorisation Sheet"
+		(property "Sheetname" "Motorisation Sheet"
 			(at 55.88 29.7684 0)
 			(effects
 				(font
@@ -57,7 +57,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "80e324d5-3692-40e2-ae7b-7b2010b2e090")
-		(property "Sheetname" "brain Sheet"
+		(property "Sheetname" "Brain Sheet"
 			(at 137.16 29.7684 0)
 			(effects
 				(font
@@ -97,7 +97,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "813d471c-6080-4c02-83a9-e4f8506d7616")
-		(property "Sheetname" "power Sheet"
+		(property "Sheetname" "Power Sheet"
 			(at 55.88 90.7284 0)
 			(effects
 				(font
@@ -137,7 +137,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "8cd8413a-9ba4-4bd6-b413-2331caa50cc2")
-		(property "Sheetname" "sensor Sheet"
+		(property "Sheetname" "Sensor Sheet"
 			(at 135.89 90.7284 0)
 			(effects
 				(font

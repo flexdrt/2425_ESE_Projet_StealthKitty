@@ -2385,6 +2385,16 @@
 	)
 	(wire
 		(pts
+			(xy 50.8 81.28) (xy 50.8 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09cddcd4-5431-4aa1-a62e-f6ec18ec4ef2")
+	)
+	(wire
+		(pts
 			(xy 248.92 46.99) (xy 252.73 46.99)
 		)
 		(stroke
@@ -2735,16 +2745,6 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 66.04) (xy 96.52 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7cb2e39f-2a48-4e18-8edc-7a4ea3ea4bb9")
-	)
-	(wire
-		(pts
 			(xy 100.33 88.9) (xy 100.33 77.47)
 		)
 		(stroke
@@ -2815,7 +2815,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 143.51) (xy 181.61 143.51)
+			(xy 175.26 143.51) (xy 181.61 143.51)
 		)
 		(stroke
 			(width 0)
@@ -2965,16 +2965,6 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 64.77) (xy 92.71 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aabc6066-ffc5-4caa-81dc-f6b9d8e53fc5")
-	)
-	(wire
-		(pts
 			(xy 234.95 46.99) (xy 248.92 46.99)
 		)
 		(stroke
@@ -2992,6 +2982,26 @@
 			(type default)
 		)
 		(uuid "b484158e-066b-498a-bd06-27ea9b1486b4")
+	)
+	(wire
+		(pts
+			(xy 87.63 66.04) (xy 96.52 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b52ab563-6858-490b-bffc-c24526ffb3ac")
+	)
+	(wire
+		(pts
+			(xy 87.63 66.04) (xy 87.63 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b620ce3a-a4f7-442d-882e-005ec25cc60f")
 	)
 	(wire
 		(pts
@@ -3102,16 +3112,6 @@
 			(type default)
 		)
 		(uuid "dfc81757-ffc6-43d4-8416-d2ca43ccc097")
-	)
-	(wire
-		(pts
-			(xy 92.71 64.77) (xy 92.71 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dfe5740b-9b14-4bf4-9492-587461af211d")
 	)
 	(wire
 		(pts
@@ -3314,7 +3314,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 50.8 80.01 0)
+		(at 50.8 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3322,7 +3322,7 @@
 		(dnp no)
 		(uuid "08cb7b4c-099b-4dc2-a3ef-dbfcb1776e09")
 		(property "Reference" "#PWR0503"
-			(at 50.8 86.36 0)
+			(at 50.8 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3331,7 +3331,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 48.26 82.55 0)
+			(at 47.244 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3339,7 +3339,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 50.8 80.01 0)
+			(at 50.8 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3348,7 +3348,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 50.8 80.01 0)
+			(at 50.8 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3357,7 +3357,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 50.8 80.01 0)
+			(at 50.8 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3603,7 +3603,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 19.05 64.77 0)
+			(at 19.05 64.262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4021,7 +4021,7 @@
 		(dnp no)
 		(uuid "2ebdebe0-9bd8-45ad-b915-bec7865c8e92")
 		(property "Reference" "C501"
-			(at 45.72 64.77 0)
+			(at 44.958 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4030,7 +4030,7 @@
 			)
 		)
 		(property "Value" "22uF"
-			(at 45.72 62.23 0)
+			(at 44.704 65.024 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4088,10 +4088,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "36d4b687-2158-45a4-81ac-2ef742a7e6f2")
 		(property "Reference" "C509"
-			(at 120.65 71.7614 0)
+			(at 120.396 70.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4100,7 +4099,7 @@
 			)
 		)
 		(property "Value" "22uF"
-			(at 120.65 69.2214 0)
+			(at 120.65 72.0154 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4305,7 +4304,7 @@
 		(dnp no)
 		(uuid "3b7e38fc-873e-455f-b4e3-d5c70ef12bac")
 		(property "Reference" "L501"
-			(at 105.41 60.96 90)
+			(at 106.172 60.706 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4313,7 +4312,7 @@
 			)
 		)
 		(property "Value" "4.7uH"
-			(at 105.41 63.5 90)
+			(at 106.172 63.246 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4822,7 +4821,7 @@
 		(dnp no)
 		(uuid "6ec68f70-f1b9-40d4-abd4-5a43f4680e47")
 		(property "Reference" "C505"
-			(at 87.63 63.5 0)
+			(at 89.408 63.246 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4831,7 +4830,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 87.63 64.77 0)
+			(at 89.408 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4955,7 +4954,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "8c7b24ca-6d4b-44fb-8262-ffff8673d2c0")
 		(property "Reference" "R504"
 			(at 97.79 72.39 90)
@@ -4966,7 +4964,7 @@
 			)
 		)
 		(property "Value" "16k"
-			(at 97.79 74.93 90)
+			(at 97.536 75.184 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5750,10 +5748,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "dc3f3890-0b44-42ae-a763-496930ac3e2e")
 		(property "Reference" "C507"
-			(at 109.22 71.7614 0)
+			(at 109.22 70.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5762,7 +5759,7 @@
 			)
 		)
 		(property "Value" "22uF"
-			(at 109.22 69.2214 0)
+			(at 109.22 72.0154 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5814,7 +5811,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 177.8 143.51 0)
+		(at 175.26 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5823,7 +5820,7 @@
 		(fields_autoplaced yes)
 		(uuid "df420082-79b8-42f7-9dd8-775f2f846c93")
 		(property "Reference" "#PWR0513"
-			(at 177.8 147.32 0)
+			(at 175.26 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5832,7 +5829,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 177.8 138.43 0)
+			(at 175.26 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5840,7 +5837,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 143.51 0)
+			(at 175.26 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5849,7 +5846,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.8 143.51 0)
+			(at 175.26 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5858,7 +5855,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 177.8 143.51 0)
+			(at 175.26 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6089,7 +6086,7 @@
 		(dnp no)
 		(uuid "eb674104-8cb2-4f20-82e0-e202985f97d8")
 		(property "Reference" "C503"
-			(at 56.896 64.516 0)
+			(at 58.166 61.976 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6098,7 +6095,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 58.42 62.23 0)
+			(at 58.166 65.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
