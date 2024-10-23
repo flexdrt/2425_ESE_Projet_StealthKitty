@@ -253,7 +253,7 @@ Il faut programmer les fonctions primaires des capteurs suivants
 
 3. **Communication avec l'accéléromètre (ADXL343)** :
 
-   - Code I2C pour lire les données de l'accéléromètre (accélérations sur les axes X, Y, Z).
+   - Code SPI pour lire les données de l'accéléromètre (accélérations sur les axes X, Y, Z).
    - Implémenter une logique de détection de chute basée sur ces données.
 
 4. **Contrôle des moteurs avec le driver ZXBM5210** :
