@@ -173,9 +173,114 @@ Nous avons revu et optimisé le placement des composants avec l'équipe en minim
 - •	Si on a des comportements d’antennes on mit un via sinon on supprime  une zone 
 - •	Chaque fois on a un coin on utilise un via  OK
 
+Notes PAPAZOGLOU
+
+- [x] supprimer la piste qui faisait le pourtour(5v je crois: non le 3v3) élargis le 5v en supprimant le 3v3
+
+- [ ] zone cuivre vbat trop fine, l'élargir ?
+
+- [ ] <u>plus qu'un seul via pour le 5v 3v du régul</u>
+
+- [ ] <u>quatz mettre des vias au GND tout autour pour protéger pertubations électromagnétiques</u>
+
+- [ ] mettre condensateurs à l'horizontal quand on le peut et relier directement au processeur avec le moins de via possible
+
+- [ ] vm est le signal qui consomme le plus décaler des pistes vers le bas et mettre des vias 
+
+- [ ] c202 et c206 a la verticale cote cote pour élargir la piste de motor 2  +
+
+- [ ] sck stm32 partir tout droit du pad stm puis couder
+
+- [ ] y a bouger(piste en y: mosi miso) 
+
+- [ ] 10 nF pour vdda a bouger proche de la pin20
+
+- [x] c408 coller a lapin 21 
+
+- [ ] nCs via en dessous à éviter 
+
+- [ ] c407
+
+- [x] c410 a supprimer 
+
+- [ ] Mettre une bobine ?
+
+- [x]  Suite à une réflexion on a ajouter un filtre RC sur NRST
+  lorsque on appuie bouton gpio1 : état=
+  état lorsque on appuie pas ? 
+
+  on
+
+- [ ] c
+
+- [ ] doc des leds vérifier les calculs des valeurs de résistances à partir du courant efficace de la doc 
+
+- [ ] 
+
+
+
 
 
 
 
 
 ## Software
+
+![image(1)](/home/vincent/Documents/ese_3a/projet/StealthKitty/annexes/image(1).png)
+
+
+
+Il faut programmer les fonctions primaires des capteurs suivants
+
+- ADX (accéléromètre)
+- LIDAR
+- Capteurs bordure (tof+moustaches )
+- Driver moteur( PWM)
+
+### 
+
+1. ~~**Initialisation du microcontrôleur (STM32)** :~~
+
+   - ~~Configurer les horloges du système.~~
+   - ~~Initialiser les périphériques comme les GPIO (pour les LEDs et les capteurs), l'I2C (pour l'accéléromètre), le PWM (pour les moteurs), et l'UART (pour le LiDAR).~~
+   - ~~Utiliser l'environnement STM32CubeMX pour générer la base du code~~.
+
+2. ~~**Gestion des régulateurs de tension** :~~
+
+   - ~~Assurez-vous que les régulateurs sont actifs et fournissent les bonnes tensions avant de démarrer les autres composants. Il est possible d'ajouter une vérification de l'alimentation.~~
+
+   
+
+3. **Communication avec l'accéléromètre (ADXL343)** :
+
+   - Code I2C pour lire les données de l'accéléromètre (accélérations sur les axes X, Y, Z).
+   - Implémenter une logique de détection de chute basée sur ces données.
+
+4. **Contrôle des moteurs avec le driver ZXBM5210** :
+
+   - Génération de signaux PWM pour contrôler la vitesse des moteurs.
+   - Implémentation de la logique de déplacement du robot (en avant, en arrière, tourner à gauche/droite).
+
+5. **Gestion des capteurs de bordure/détection de chute** :
+
+   - Lire les entrées des capteurs de bordure et réagir pour arrêter ou changer la direction du robot en cas de détection d'obstacle ou de chute.
+
+6. **Interfaçage avec le LiDAR YDLIDAR X4** :
+
+   - Communication UART pour lire les données du LiDAR.
+   - Traitement des données pour la détection d'obstacles (vous devrez probablement utiliser des bibliothèques spécifiques pour le YDLIDAR X4).
+
+7. **Gestion des LEDs** :
+
+   - Programmer les LEDs pour indiquer différents états du robot (par exemple : vert pour normal, rouge pour erreur, clignotement pour détection d'obstacle).
+
+8. **Fonction de sécurité et gestion d'énergie** :
+
+   - Implémenter des routines pour surveiller les niveaux d'énergie et gérer le passage à des modes de basse consommation si nécessaire.
+
+Codage comportementale et pilotage:
+
+
+
+
+
