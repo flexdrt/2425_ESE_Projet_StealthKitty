@@ -71,10 +71,12 @@ void Error_Handler(void);
 #define LIDAR_DEV_EN_GPIO_Port GPIOA
 #define SPI1_NSS_Pin GPIO_PIN_4
 #define SPI1_NSS_GPIO_Port GPIOC
-#define INT2_ADX_Pin GPIO_PIN_1
-#define INT2_ADX_GPIO_Port GPIOB
-#define INT1_ADX_Pin GPIO_PIN_2
+#define INT1_ADX_Pin GPIO_PIN_1
 #define INT1_ADX_GPIO_Port GPIOB
+#define INT1_ADX_EXTI_IRQn EXTI1_IRQn
+#define INT2_ADX_Pin GPIO_PIN_2
+#define INT2_ADX_GPIO_Port GPIOB
+#define INT2_ADX_EXTI_IRQn EXTI2_IRQn
 #define Status_Blue_Pin GPIO_PIN_13
 #define Status_Blue_GPIO_Port GPIOB
 #define Status_Red_Pin GPIO_PIN_14

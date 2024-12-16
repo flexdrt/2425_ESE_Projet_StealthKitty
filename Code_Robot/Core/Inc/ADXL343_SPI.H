@@ -14,7 +14,7 @@ static const uint8_t ADXL343_DEVICE_ID =  			0xE5;
 
 
 static const uint8_t ADXL343_REG_DEVICE_ID =     	0x00;
-static const uint8_t ADXL343_REG_THRESH_TAP =    	0x1D;
+static const uint8_t ADXL343_REG_THRESH_TAP =    	0x1D;// mettre une valeur 20
 static const uint8_t ADXL343_REG_OFSX =          	0x1E;
 static const uint8_t ADXL343_REG_OFSY =         	0x1F;
 static const uint8_t ADXL343_REG_OFSZ =          	0x20;
@@ -61,13 +61,16 @@ typedef struct
 } ADXL343;
 
 uint8_t ADXL343_initialization(SPI_HandleTypeDef *hspi, ADXL343 *dev);
-
-void ADXL343_set_offset(ADXL343 *dev);
-
+//void ADXL343_set_offset(ADXL343 *dev);
+//void ADXL343_print_norm(ADXL343 *dev, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef ADXL343_get_acc_raw(ADXL343 *dev);
 HAL_StatusTypeDef ADXL343_get_acc_norm(ADXL343 *dev);
-
 void ADXL343_print_raw(ADXL343 *dev, UART_HandleTypeDef *huart);
-void ADXL343_print_norm(ADXL343 *dev, UART_HandleTypeDef *huart);
 
+void ADXL343_set_tap_parameters(ADXL343 *dev, uint8_t threshold, uint8_t duration, uint8_t latency, uint8_t window);
+uint8_t ADXL343_read_register(SPI_HandleTypeDef *hspi, uint8_t regAddr);
+//void ADXL343_EnableInterrupts(SPI_HandleTypeDef *hspi);
+void ADXL343_EnableTapInterrupts(ADXL343 *dev);
+void ADXL343_check_tap(ADXL343 *dev) ;
+void ADXL343_set_tap_threshold(ADXL343 *dev, uint8_t threshold);
 #endif

@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -28,10 +28,16 @@
 /* USER CODE BEGIN Includes */
 
 #include "ADXL343_SPI.h"
+
 int _write(int file, char *ptr, int len) {
-    HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
-    return len;
+	HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+	return len;
 }
+
+extern SPI_HandleTypeDef hspi1;
+ADXL343 accelerometer;
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +62,15 @@ int _write(int file, char *ptr, int len) {
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
@@ -103,9 +118,12 @@ int main(void)
   MX_TIM4_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_4, GPIO_PIN_SET); // Chip Select pin High to indicate no communication
-  ADXL343 adxl343;
-  ADXL343_initialization(&hspi1, &adxl343);
+
+	ADXL343_initialization(&hspi1, &accelerometer);
+	ADXL343_EnableTapInterrupts(&accelerometer);
+	ADXL343_set_tap_parameters(&accelerometer, 20, 1, 80, 200);
+	ADXL343_SetDataFormat(&accelerometer);
+
 
 
   /* USER CODE END 2 */
@@ -114,47 +132,28 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
 
-  //
-
-  // écriture
-  // Mettre NSS à 0
-  // Transmit address sans le 0x80
-  // Receive la donnée
-  // NSS à 1
-
- //lecture :
-  // Mettre NSS à 0
-  // Transmit address (|0x80 pour spécifier un read)
-  // Receive la donnée
-  // NSS à 1
-
-  while (1)
-  {
-	  HAL_GPIO_TogglePin(GPIOB, Status_Red_Pin|Status_Blue_Pin);
-	  HAL_Delay(200);
 
 
-	  uint8_t txData = 0x80;
-	    	 uint8_t rxData;
-	    	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_4, GPIO_PIN_RESET);
-	    	  HAL_Delay(1);
-	    	  HAL_SPI_Transmit(&hspi1, &txData, 1, HAL_MAX_DELAY);
-	    	  HAL_SPI_Receive(&hspi1, &rxData, 1, HAL_MAX_DELAY);
-	    	  HAL_Delay(1);
-	    	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_4, GPIO_PIN_SET);
+
+	while (1)
+	{
+		HAL_GPIO_TogglePin(GPIOB, Status_Red_Pin|Status_Blue_Pin);
+		HAL_Delay(200);
+
+		ADXL343_get_acc_raw(&accelerometer);
+		ADXL343_get_acc_norm(&accelerometer);
+		ADXL343_print_raw(&accelerometer, &huart2);
+		//ADXL343_print_norm(&accelerometer, &huart2);
+		ADXL343_check_tap(&accelerometer);
+		HAL_Delay(1000);
 
 
-	  	  HAL_Delay(1000);
 
 
-	  	if (rxData == 0xE5) { // 0xE5 est l'ID attendu pour l'ADXL343
-	  	    printf("SPI fonctionne : Device ID = 0x%02X\r\n", rxData);
-	  	} else {
-	  	    printf("Erreur SPI : Device ID = 0x%02X\r\n", rxData);}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+	}
   /* USER CODE END 3 */
 }
 
@@ -208,11 +207,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -227,7 +226,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
