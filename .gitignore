@@ -1,0 +1,3 @@
+# Ignorer les sauvegardes KiCad (fichiers zip)
+hardware/StealthKitty.kicad_pro/StealthKitty.kicad_pro-backups/*.zip
+
