@@ -1,13 +1,13 @@
 # StealthKitty - Projet Robot Chat
 
 ## Description
-StealthKitty est un projet de système embarqué innovant basé sur un STM32. L'objectif est de développer plusieurs robots capables de se déplacer sur une table sans bordure. Un robot est désigné comme "chat" et doit attraper un autre robot, qui devient alors le nouveau "chat".Ceci est un projet de dernière année de la meilleure filière de l'ENSEA : électronique et systèmes embarqués (ESE)
+StealthKitty est un projet de système embarqué innovant basé sur un STM32. L'objectif est de développer plusieurs robots capables de se déplacer sur une table sans bordure. Un robot est désigné comme "chat" et doit attraper un autre robot, qui devient alors le nouveau "chat". Ceci est un projet de dernière année de la meilleure filière de l'ENSEA : électronique et systèmes embarqués (ESE)
 
 Les contributeurs de ce projet sont :
 
-**- Vincent LAKHMECHE**
-**- Mohamed Rafik CHAIR**
-**- Meziane Ameur**
+**- Vincent LAKHMECHE**  
+**- Mohamed Rafik CHAIR**  
+**- Meziane Ameur**  
 **- Karim JERJOUB**
 
 ![image](https://github.com/user-attachments/assets/0b8a3520-2e76-4162-91c8-48ae93badee7)
@@ -25,7 +25,7 @@ Les contributeurs de ce projet sont :
 Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA. Il vise à concevoir un système embarqué complet, de la conception électronique à l'implémentation logicielle.
 
 ## Fonctionnalités
-- Détection de bords via des capteurs ToF .
+- Détection de bords via des capteurs ToF.
 - Communication entre robots pour synchronisation.
 - Algorithme de poursuite et d'évitement.
 - Gestion des moteurs via des signaux PWM.
@@ -33,8 +33,8 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA. Il vise à conc
 ## Matériel utilisé
 - **STM32G431RB** : Microcontrôleur principal.
 - **Capteurs ToF** : Détection des bordures.
-- **LiDAR** : Cartographie de l'environnement et des detection des autres robot.
-- **Accéléromètre** : detection des chocs avec les autres robot afin de changer de role (Chat/Souris) .
+- **LiDAR** : Cartographie de l'environnement et détection des autres robots.
+- **Accéléromètre** : Détection des chocs avec les autres robots afin de changer de rôle (Chat/Souris).
 - **STM32CubeIDE** : Environnement de développement.
 
 ## Architecture
@@ -66,7 +66,6 @@ Le schéma suivant illustre l'architecture générale du projet :
 
 6. **Indicateurs d'état (LEDs)**
    - Les **LEDs** servent d'indicateurs pour visualiser l'état du robot, par exemple, lorsque le robot est en marche ou lorsqu'il détecte un obstacle.
-
 
 ### Détails des principaux outils utilisés
 
@@ -103,7 +102,6 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :
 - **Algorithmes embarqués** : Implémentation des comportements du robot (détection des bords, poursuite, et évitement).  
 
 Tout le code source et les configurations sont centralisés dans le dossier [Software](./Software).
-
 
 
 
