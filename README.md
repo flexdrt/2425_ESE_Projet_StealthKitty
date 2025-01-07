@@ -73,10 +73,13 @@ La partie matérielle a été conçue avec **KiCad 8.0** et comprend :
 - **Fichiers GERBER** : Pour la fabrication chez **JLCPCB**.
 
 ## Développement logiciel
-Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :
-- Configuration des périphériques (SPI, UART, PWM) via le fichier `.ioc`.
-- Modules logiciels pour la gestion des capteurs, moteurs, et communication.
-- Intégration d’algorithmes pour les comportements du robot.
+Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :  
+
+- **Configuration des périphériques** : SPI, UART, PWM, et autres paramètres matériels, configurés via le fichier `.ioc`.  
+- **Modules logiciels** : Gestion des capteurs, contrôle des moteurs, et communication.  
+- **Algorithmes embarqués** : Implémentation des comportements du robot (détection des bords, poursuite, et évitement).  
+
+Tout le code source et les configurations sont centralisés dans le dossier [Software](./Software).
 
 
 
