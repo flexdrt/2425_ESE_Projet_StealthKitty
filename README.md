@@ -1,23 +1,31 @@
 # StealthKitty - Projet Robot Chat
 
 ## Description
-StealthKitty est un projet de système embarqué innovant basé sur un STM32. L'objectif est de développer plusieurs robots capables de se déplacer sur une table sans bordure. Un robot est désigné comme "chat" et doit attraper un autre robot, qui devient alors le nouveau "chat".
+StealthKitty est un projet de système embarqué innovant basé sur un STM32. L'objectif est de développer plusieurs robots capables de se déplacer sur une table sans bordure. Un robot est désigné comme "chat" et doit attraper un autre robot, qui devient alors le nouveau "chat".Ceci est un projet de dernière année de la meilleure filière de l'ENSEA : électronique et systèmes embarqués (ESE)
+
+Les contributeurs de ce projet sont :
+
+**- Vincent LAKHMECHE**
+**- Mohamed Rafik CHAIR**
+**- Meziane Ameur**
+**- Karim JERJOUB**
+
+![image](https://github.com/user-attachments/assets/0b8a3520-2e76-4162-91c8-48ae93badee7)
 
 ## Table des matières
 1. [Contexte](#contexte)  
 2. [Fonctionnalités](#fonctionnalités)  
 3. [Matériel utilisé](#matériel-utilisé)  
 4. [Architecture](#architecture)  
-5. [Installation](#installation)  
-6. [Utilisation](#utilisation)  
-7. [Auteurs](#auteurs)  
-8. [Licence](#licence)
+5. [Utilisation](#utilisation)  
+6. [Auteurs](#auteurs)  
+7. [Licence](#licence)
 
 ## Contexte
 Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA. Il vise à concevoir un système embarqué complet, de la conception électronique à l'implémentation logicielle.
 
 ## Fonctionnalités
-- Détection de bords via des capteurs ToF et un LiDAR.
+- Détection de bords via des capteurs ToF .
 - Communication entre robots pour synchronisation.
 - Algorithme de poursuite et d'évitement.
 - Gestion des moteurs via des signaux PWM.
@@ -25,9 +33,8 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA. Il vise à conc
 ## Matériel utilisé
 - **STM32G431RB** : Microcontrôleur principal.
 - **Capteurs ToF** : Détection des bordures.
-- **LiDAR** : Cartographie de l'environnement.
-- **Accéléromètre** : Suivi des mouvements.
-- **LED LD2** : Contrôle de l'état via PWM.
+- **LiDAR** : Cartographie de l'environnement et des detection des autres robot.
+- **Accéléromètre** : detection des chocs avec les autres robot afin de changer de role (Chat/Souris) .
 - **STM32CubeIDE** : Environnement de développement.
 
 ## Architecture
@@ -39,24 +46,8 @@ Les composants principaux incluent le microcontrôleur STM32, des capteurs de di
 Le code est structuré en plusieurs modules :
 - Gestion des capteurs.
 - Contrôle des moteurs via PWM.
-- Communication UART et I2C.
+- Communication UART, I2C et SPI.
 
-## Installation
-1. Clonez le dépôt GitHub :  
-   `git clone https://github.com/<ton-utilisateur>/StealthKitty.git`
-2. Ouvrez le projet dans STM32CubeIDE.
-3. Configurez les dépendances matérielles et logicielles via le fichier `.ioc`.
-
-## Utilisation
-1. Chargez le firmware sur la carte STM32 via ST-Link.
-2. Connectez les capteurs et composants conformément au schéma.
-3. Lancez le robot et observez son comportement en mode "chat".
-
-## Auteurs
-- **Meziane** - Étudiant en électronique et systèmes embarqués, passionné par la R&D.
-
-## Licence
-Ce projet est sous licence MIT. Consultez le fichier [LICENSE](./LICENSE) pour plus de détails.
 
 
 
