@@ -38,15 +38,46 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA. Il vise à conc
 - **STM32CubeIDE** : Environnement de développement.
 
 ## Architecture
+### Schéma architectural
+Le schéma suivant illustre l'architecture générale du projet :  
 
-### Partie matérielle
-Les composants principaux incluent le microcontrôleur STM32, des capteurs de distance (ToF et LiDAR), et un accéléromètre pour analyser les mouvements.
+![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
 
-### Partie logicielle
-Le code est structuré en plusieurs modules :
-- Gestion des capteurs.
-- Contrôle des moteurs via PWM.
-- Communication UART, I2C et SPI.
+---
+
+### Détails des principaux outils utilisés
+
+1. **Communication avec l'accéléromètre (ADXL343)** :
+   - Utilisation du protocole SPI pour lire les données des axes X, Y et Z.
+   - Détection des chocs (taps) causés par des collisions avec d'autres robots.
+
+2. **Contrôle des moteurs avec le driver ZXBM5210** :
+   - Génération de signaux PWM pour réguler la vitesse des moteurs.
+   - Implémentation des mouvements du robot : avancer, reculer, tourner à gauche ou à droite.
+
+3. **Gestion des capteurs de bordure/détection de chute** :
+   - Lecture des entrées des capteurs pour détecter les bords de la table.
+   - Réaction immédiate pour stopper ou changer de direction afin d’éviter une chute.
+
+4. **Interfaçage avec le LiDAR YDLIDAR X4** :
+   - Communication via UART pour lire les données du LiDAR.
+   - Extraction des valeurs d’angles et de distances pour cartographier l'environnement et éviter les obstacles.
+
+---
+
+## Réalisation matérielle
+La partie matérielle a été conçue avec **KiCad 8.0** et comprend :
+- **Schéma électronique** : Disponible dans le [dossier hardware](./hardware/).
+- **PCB routé** : Les fichiers de routage sont inclus dans le dossier.
+- **BOM (Bill of Materials)** : Liste des composants nécessaires.
+- **Fichiers GERBER** : Pour la fabrication chez **JLCPCB**.
+
+## Développement logiciel
+Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :
+- Configuration des périphériques (SPI, UART, PWM) via le fichier `.ioc`.
+- Modules logiciels pour la gestion des capteurs, moteurs, et communication.
+- Intégration d’algorithmes pour les comportements du robot.
+
 
 
 
