@@ -1,0 +1,121 @@
+L'architecture des drivers est la suivante 
+
+entrées : 
+
+- FWD(forward)
+- REV(reverse)
+- VDD
+- VREF
+- VM
+- GND
+
+sorties : 
+
+- O1 (Output 1)
+
+- O2 (Output 2)
+
+  
+
+   
+
+Les pins FWD FORWARD et REV REVERSE contrôllent la direction de rotation du moteur (positive pour avancer et négative pour reculer)
+
+
+
+Il y a 4 modes de fonctionnement pour le contrôle de la direction du moteur par le driver qui controllés par les pin FOR et REV
+
+Contrôle de la direction du moteur
+
+| standby | forward | reverse | brake |
+| ------- | ------- | ------- | ----- |
+
+| Mode brake :                                                 |
+| ------------------------------------------------------------ |
+| En mode frein, les interrupteurs S2 et S4 sont activés, ce qui permet au moteur de s'arrêter rapidement. Tous les circuits de commande internes sont pleinement opérationnels. |
+| **Mode standby:**                                            |
+| En mode standby, tous les interrupteurs de commande de sortie sont éteints et les circuits internes sont également éteints pour minimiser la consommation d'énergie. La consommation d'énergie en mode d'attente est inférieure à celle du mode de freinage. Si le moteur en marche entre en mode veille, grâce aux diodes du corps, les roues libres du moteur passent à l'état de repos. les roues libres du moteur passent à l'état de repos. Lorsque le moteur entre en mode veille à partir de n'importe quel mode (sauf le mode frein), la logique de contrôle reste active dans le mode précédent pendant au moins deux minutes. reste active dans le mode précédent pendant au moins 125μs avant d'éteindre les circuits internes. Pour éviter que l'appareil n'entre en mode d'attente pendant les changements de mode de fonctionnement, les signaux de changement de mode de fonctionnement, les signaux de changement de mode doivent être achevés dans un délai de 125μs. |
+| **Mode forward:**                                            |
+| En mode forward avant, avec les interrupteurs S3(pas s1)-S2 sur ON et S3-S4 sur OFF, OUT1 est haut et OUT2 est bas. Le courant du moteur circule de OUT1 à OUT2. |
+| **Mode reverse :**                                           |
+| En mode inverse, les interrupteurs S1-S4 sont activés tandis que S1-S2 sont désactivés pour permettre au courant du moteur de circuler de OUT2 à OUT1. |
+
+ZXBM5210 a plusieurs mode de contrôle de la vitesse de rotation : 
+
+- avec une tension continue fixe Vref : **Vref speed control mode**
+- avec un signal PWM : **PWM speed control mode**
+- en ajustant la tension d'alimentation
+
+Pour contrôler la vitesse de rotation du moteur nous choisissons de contrôler la commutation des switch s1 s2 s3 s4 avec des signaux PWM :  **PWM speed control mode**
+
+**PWM speed control mode**: -Dans ce mode Vdd doit être égale à la tension nominale du moteur
+
+vdd=vbat=5v   vcc du moteur=6v
+
+-vref >= vdd=5v
+
+
+
+Dans ce mode les switch S1 et S3sont fixes tandis que  les switches low side S2 et S4 sont commutés.
+
+Mode forward: S1 fermé, S2 commuté par PWM S3, S4  ouverts
+
+Mode Reverse : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fréquence de la pwm : 
+La fréquence avant prédivision est de 16 MHz.
+
+
+
+35 kHz = (16 * 10⁶)/ (PSC+1)*(ARR+1) 
+
+Si ARR
+
+![image-20241119083539020](/home/vincent/Documents/ese_3a/reseaux_bus_de_terrain/bus_reseaux/docs_annexes/img/23_oct_18h59/image-20241119083539020.png)
+
+En entrée la fréquence ne doit pas excéder 100 kHz
+
+On a choisit une fréquence entre 20 kHz et 100 kHz soit 35 kHz.
+
+Temps mort selon les transistor : 
+
+3 ms selon la datasheet 
+
+![image-20241119083559287](/home/vincent/Documents/ese_3a/reseaux_bus_de_terrain/bus_reseaux/docs_annexes/img/23_oct_18h59/image-20241119083559287.png)
+
+
+
+
+
+
+
+Resolution minimum 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

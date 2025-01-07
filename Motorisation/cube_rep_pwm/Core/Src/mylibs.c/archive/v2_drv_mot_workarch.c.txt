@@ -1,0 +1,604 @@
+/*
+ * drv_mot.c
+ *
+ *  Created on: Dec 4, 2024
+ *      Author: vincent lkme
+ */
+
+#include "drv_mot.h"
+//#include "drv_mot_3.h"
+#include "tim.h"
+#include "stm32g4xx_hal_tim.h"
+
+// Variable statique pour stocker le handle du timer utilisé
+static TIM_HandleTypeDef *motor_timer = NULL;
+
+/**
+ * @brief Initialisation des moteurs en PWM.
+ * @param htim : Handle du timer utilisé pour les moteurs.
+ */
+//start motor in Forward
+void DRV_MOT_startMot_fwd(Motor_drv_struct *motor){
+
+	HAL_TIM_PWM_Start(&htim1, motor->motor_chan_id); //PWM -->pin FWD PWM
+	HAL_TIMEx_PWMN_Stop(&htim1, motor->motor_chan_id); //L --> PIN REV
+}
+//start motor in Reverse
+void DRV_MOT_startMot_rev(Motor_drv_struct *motor){
+
+	HAL_TIMEx_PWMN_Start(&htim1, motor->motor_chan_id); // PWM --> PIN REV L
+	HAL_TIM_PWM_Stop(&htim1, motor->motor_chan_id); // L-->pin FWD
+}
+
+// stopper un moteur
+void DRV_MOT_stoptMot (Motor_drv_struct *mtr){
+	//&mtr->alphastop;
+	uint16_t l=4;
+	//__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, (uint16_t)(l* &mtr->alphastop));
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, &mtr->alphastop);
+}
+
+//Two wheels robot same rotation sign
+//
+void DRV_MOT_bot_dualFwd(Motor_drv_struct *mtr1, Motor_drv_struct *mtr2){
+
+//Un moteur dans un sens FWD
+DRV_MOT_startMot_fwd(mtr1);
+
+//un moteur dans le sens ReV
+DRV_MOT_startMot_rev(mtr2);
+
+}
+
+void DRV_MOT_bot_dualRev(Motor_drv_struct *mtr1, Motor_drv_struct *mtr2){
+//the motors goes in direction opposite defined in fonction	DRV_MOT_bot_dualFwd
+
+//Un moteur dans un sens Rev
+DRV_MOT_startMot_fwd(mtr1);
+
+//un moteur dans le sens ReV
+DRV_MOT_startMot_rev(mtr2);
+}
+
+
+
+//a motor passed
+//a another motor passed
+//Constructor
+void DRV_MOT_Init(Motor_drv_struct *mtrinit, uint32_t mtr_chan ) {
+
+Motor_drv_struct mtr_init;
+
+	mtrinit->motor_chan_id=mtr_chan;
+}
+void DRV_MOT_SetSpeed(Motor_drv_struct *motr, uint16_t speed) {
+	// Limiter la vitesse entre 0 et 1000
+	if (speed > 2800) {
+		speed = 1000;
+	}
+	__HAL_TIM_SET_COMPARE(&htim1, motr->motor_chan_id, speed);
+
+	/*// Ajuster le PWM en fonction du moteur
+	switch (motor) {
+	case 1:
+		__HAL_TIM_SET_COMPARE(&htim1, MTR1_CHANNEL, speed);
+		break;
+	case 2:
+		__HAL_TIM_SET_COMPARE(&htim1, MTR2_CHANNEL, speed);
+		break;
+	default:
+		// Ne rien faire pour un numéro de moteur invalide
+		break;
+	}*/
+}
+
+void Bot_init (uint8_t direction)
+//bot component
+{//we create one motor
+	Motor_drv_struct mtr_left;// motor considered as the left for the bot
+	Motor_drv_struct mtr_right;//motor considered as the right for the bot
+
+	// init les deux motors (affecter un channel a chaque)
+	DRV_MOT_Init(&mtr_left,MTR1_CHANNEL);//channel1
+	DRV_MOT_Init(&mtr_left,MTR2_CHANNEL);//channel 2
+
+	//Launch in forward the bot
+// si on veut que le bot avance au début à définir
+	// si oui
+	switch (direction) {//what a music band
+		case 1:
+			DRV_MOT_bot_dualFwd(&mtr_left,&mtr_right);
+			break;
+		case 2:
+			DRV_MOT_bot_dualRev(&mtr_left,&mtr_right);
+			break;
+		default:
+			// Ne rien faire pour un numéro de moteur invalide
+			break;
+		}
+	DRV_MOT_bot_dualRev(&mtr_left,&mtr_right);
+
+	DRV_MOT_SetSpeed(&mtr_left, 2125);
+	DRV_MOT_SetSpeed(&mtr_right, 2125);
+
+
+}
+
+
+/*//instanciate
+{
+	//instanciate one motor
+
+	// motor one is Tim_channel 1
+
+	//instanciate another motor
+	//motor 2 is Tim_channel 2
+}*/
+
+
+
+
+void pwm_strt (Motor_drv_struct *mtr) {
+
+	if(&mtr->mode==1) //mode marche avant du robot
+	{
+
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); //moteur1 en sens forward
+
+		HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2); //moteur2 en sens backward
+
+	}
+
+	else{ //mode marche arriere du robot
+
+		HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+
+	}
+
+	//démarrer à la même vitesse les 2 roues
+	//le channel 1 tourne moins vite
+	//le channel 2 tourne plus vitea 500 d'arr (set compare) la vitesse mot2=~vitesse mot1
+
+	//faire tourner le "channel 1" 4 * plus vite que le "channel 2"
+	uint16_t l=4;
+	uint16_t alphacruise=500; // vitesse la plus faible a laquelle le robot doit etre idle
+	//alpha croisiere=500;
+	uint16_t alphamot2=alphacruise;
+	uint16_t alphamot1=l*alphamot2;
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 503);
+
+}
+
+void stop_alpha (Motor_drv_struct *mtr){
+	//&mtr->alphastop;
+	uint16_t l=4;
+	//__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, (uint16_t)(l* &mtr->alphastop));
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,&mtr->alphastop );
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, &mtr->alphastop);
+
+}
+
+void turn_right(){
+	//un moteur en marche
+	// un moteur à l'arrêt
+
+	//moteur droit à l'arret
+
+	//__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 45);//ne pas baisser alpha trop vite
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 35);// alpha pour être à l'arrêt
+
+	//moteur gauche rapide
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 100);
+
+}
+void turn_left()
+{
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 35);
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 35);
+
+}
+
+/*void motor_Init(Motor_drv_struct *moteur1, Motor_drv_struct *moteur2){
+	{
+
+
+
+
+		if (mode == 1) // Mode Forward
+		{
+			// démarrer les pwms avec HAL
+			//CH1 en sens fwd CH2 sens rev
+			HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+			HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+		}
+
+
+
+	}
+}*/
+
+/*//outdated/ inutile : on choisit directement de démarrer avec l'appel de start_pwm suivis en argument du mode forward(1) ou du mode reverse(0)
+void motor_Init(Motor_drv_struct *moteur1, Motor_drv_struct *moteur2){
+	//Moteur 1 configuration
+	//channel 1 pin PA8
+	//C'est pas le channel qui définit le sens de rotation mais plutôt ce qu'on envoie sur le pin fwd et rev
+
+
+	//	moteur1->Channel_Backward = TIM_CHANNEL_1;
+	//	moteur1->Channel_Forward = TIM_CHANNEL_1;
+
+
+	//Même timer (le timer 1) donc pas besoin de faire un différence = attribut htim inutile
+	//	moteur1->hTim_Backward = &htim1;
+	//	moteur1->hTim_Forward = &htim1;
+
+	//démarrer les pwm selon le mode voulut : forward (mode=1)
+
+
+
+	// Moteur 2 configuration
+	//channel 2 pin PA9
+
+
+	//	moteur2->Channel_Backward = TIM_CHANNEL_2;
+	//	moteur2->Channel_Forward = TIM_CHANNEL_2;
+	//
+	//	moteur2->hTim_Backward = &htim1;
+	//	moteur2->hTim_Forward = &htim1;
+
+
+
+	//	pwm_start(&htim1, moteur1->Channel_Forward);
+	//pwm_start_n(&htim1, moteur1->Channel_Backward);
+
+
+}*/
+void debg_pwm1(){
+
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 2125);
+
+
+
+}
+void debg_pwm2(){//sens des 2 moteurs memes : sens roues robot différent
+	//maj 3/01 les roue du robots tournent dans le meme sens après inversion du r
+
+	//sens avant
+
+	//CH1 en sens fwd
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+
+
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+	//dans la pratique
+	// mot1 tourne en forward
+	// mot2 tourne en forward au lieu du reverse
+
+	//sens arriere
+	//HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+
+	//HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 2125);
+
+
+}
+/*
+void debg_pwm2(){//sens des 2 moteurs différents : sens roues robot meme
+
+	//sens avant
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+
+	//HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+
+	//sens arriere
+	//HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+
+	//HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 1250);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,d*1250);
+	//__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 500c);
+
+
+}*/
+
+void raf_mot ()
+{
+	//*DÉBUT SECTION MOTEUR 1 driver 1
+	//	HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1);// Désactive PWM sur Reverse
+
+	//delay ?
+	//activate channel 1
+	// Active PWM sur la broche  	PA8 (Forward)
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+
+	//test 2 pwm sur les deux pins
+	//HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);// Désactive PWM sur Reverse
+
+	// Mettre PA11 (Reverse) à LOW
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET); // Forcer la broche PA11 à LOW
+
+	//démarrer la pwm à 20% --%50 de rapport cyclique
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);//1700 avant pour 25%
+
+	//raf_origin >uncommented __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2762);//1700 avant pour 25%
+
+
+	//* FIN SECTION MOTEUR 1
+
+	//* DEBUT SECTION MOTEUR 2- driver 2
+
+	HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_2);// Désactive PWM sur Reverse
+
+
+	//activate channel 1
+	// Active PWM sur la broche PA8 (Forward)
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+
+	// Mettre PA11 (Reverse) à LOW
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET); // Forcer la broche PA11 à LOW
+
+	//démarrer la pwm à 20% de rapport cyclique
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 2125);//1700 avant pour 25%
+	//raf_origin >uncommented__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 2762);//1700 avant pour 25%
+
+	//FIN SECTION MOTEUR 2
+
+	//*************************************************************************
+	//dans l'autre sens
+	/*
+
+	//{
+
+		// Forward = LOW, Reverse = PWM
+		//activate channel complementary
+
+		// Désactiver la PWM sur PA8 (Forward)
+		HAL_TIM_PWM_Stop(&htim1, chan); // Désactive PWM sur Forward
+
+
+		//delay?
+
+		// Activer PWM sur PA11 (Reverse)
+		HAL_TIMEx_PWMN_Start(&htim1, chan);  // Active la PWM sur le canal Reverse (CH1N)
+
+
+		//mettre PA8 (Forward) à à LOW
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET); // Met Forward à LOW (pin GPIO PA8 à LOW)
+
+		//démarrer la pwm à 30% de rapport cyclique
+		__HAL_TIM_SET_COMPARE(&htim1, chan, 1199);
+	//}
+
+	 */
+
+}
+
+void start_pwm(int mode, uint32_t chan){
+
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+	//HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+	//50%
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 2125);
+
+	/*
+	// ***********Nouveau code
+	// Assurez-vous que "mode" est soit FORWARD (1) soit REVERSE (0)
+
+	//PA8 FORWARD
+	//PA11 Reverse
+	if (mode == 1) // Mode Forward
+	{
+		// Forward = PWM, Reverse = LOW
+
+		//desactivate complementary channel
+		// Désactiver la PWM sur PA11 (Reverse)
+		HAL_TIMEx_PWMN_Stop(&htim1, chan);// Désactive PWM sur Reverse
+
+		//delay ?
+		//activate channel 1
+		// Active PWM sur la broche PA8 (Forward)
+		HAL_TIM_PWM_Start(&htim1, chan);
+
+		// Mettre PA11 (Reverse) à LOW
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET); // Forcer la broche PA11 à LOW
+
+		//démarrer la pwm à 30% de rapport cyclique
+		__HAL_TIM_SET_COMPARE(&htim1, chan, 1275);
+
+		//moteur 2
+	}
+	else if (mode == 0) // Mode Reverse
+	{
+
+		// Forward = LOW, Reverse = PWM
+		//activate channel complementary
+
+		// Désactiver la PWM sur PA8 (Forward)
+		HAL_TIM_PWM_Stop(&htim1, chan); // Désactive PWM sur Forward
+
+
+
+
+		// Activer PWM sur PA11 (Reverse)
+		HAL_TIMEx_PWMN_Start(&htim1, chan);  // Active la PWM sur le canal Reverse (CH1N)
+
+
+		//mettre PA8 (Forward) à à LOW
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET); // Met Forward à LOW (pin GPIO PA8 à LOW)
+
+		//démarrer la pwm à 30% de rapport cyclique
+		__HAL_TIM_SET_COMPARE(&htim1, chan, 1275);
+	}
+
+	 */
+
+}
+
+
+
+
+// Fonction pour définir le rapport cyclique sur un timer, en utilisant la structure du moteur
+//void setPWM(Motor_drv_struct *moteur) {
+//	// Appliquer alpha au registre CCR via la fonction HAL
+//	__HAL_TIM_SET_COMPARE(moteur->hTim_Forward, moteur->Channel_Forward, moteur->alpha);  // Canal avant
+//	__HAL_TIM_SET_COMPARE(moteur->hTim_Backward, moteur->Channel_Backward, moteur->alpha);  // Canal arrière
+//}
+
+/*void speed_test (){
+	//alpha 100 % = 3400
+	//alpha 75% = 2550
+	//alpha 50%
+	//30%
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 1275);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 1275);
+	HAL_Delay(3000);
+
+
+	HAL_Delay(3000);
+	//50%
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 2125);
+
+	HAL_Delay(3000);
+		//%
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, );
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, );
+
+	HAL_Delay(1500);
+
+}*/
+
+
+
+
+
+//brouillon désirable*****************************************************************************************************************************************************
+
+uint32_t duty_asserv(uint16_t e, uint32_t arr_value){
+
+	uint32_t base_arr=arr_value;
+
+	int p=0;
+	uint32_t duty_right=( (-p) * e) + base_arr;
+	uint32_t duty_left=( (+p) * e) + base_arr;
+
+	//si l'erreur est nul= pas d'obstacle
+	//on continue d'avancer
+	//on met les deux roues à la même vitesse, à fond (à rapport cylcique minimal), tout droit
+	return duty_right;
+}
+
+
+
+
+
+// brouillon indésirable***********************************************************************************************************************************************
+
+/*  A supprimer
+	int pwm_start(TIM_HandleTypeDef *htim, uint32_t Channel)
+	{
+		return HAL_TIM_PWM_Start(&htim, Channel);
+	}
+
+	int pwm_start_n(TIM_HandleTypeDef *htim, uint32_t Channel){
+
+		return HAL_TIMEx_PWMN_Start(&htim,Channel);// démarrer son complémentaire
+	}
+
+	int pwm_stop(TIM_HandleTypeDef *htim, uint32_t Channel)
+	{
+		return HAL_TIM_PWM_Stop(&htim, Channel);//stopper le channel 1
+	}
+
+	int pwm_stop_n(TIM_HandleTypeDef *htim, uint32_t Channel){
+
+		return HAL_TIMEx_PWMN_Stop(&htim,Channel);// stopper son complémentaire
+	}
+ */
+
+void motor_test(Motor_drv_struct *moteur1, Motor_drv_struct *moteur2){
+
+	uint16_t max_time = 10.0; // Durée totale montée + descente en secondes
+	uint16_t step_time = 0.1; // Pas de temps pour le contrôle
+
+	moteur1->alpha=generateAlpha(step_time, max_time);
+
+	// On utilise une variable 't' pour parcourir les étapes de 0 à max_time
+	for (uint16_t t = 0; t <= max_time; t += step_time) {
+		// Calculer 'alpha' pour chaque moteur en fonction du temps écoulé
+		moteur1->alpha = generateAlpha(t, max_time);
+		moteur2->alpha = generateAlpha(t, max_time);
+
+		// Appliquer la nouvelle valeur de 'alpha' aux moteurs
+		setPWM(moteur1);  // Met à jour PWM pour moteur1
+		setPWM(moteur2);  // Met à jour PWM pour moteur2
+
+		HAL_Delay(step_time);  // Simuler un délai (pour observer le changement, par exemple en ms)
+	}
+
+	// Phase de descente pour revenir à alpha_min après la montée
+	for (uint16_t t = max_time; t > 0; t -= step_time) {
+		// Calculer 'alpha' pour chaque moteur en fonction du temps écoulé
+		moteur1->alpha = generateAlpha(t, max_time);
+		moteur2->alpha = generateAlpha(t, max_time);
+
+		// Appliquer la nouvelle valeur de 'alpha' aux moteurs
+		setPWM(moteur1);  // Met à jour PWM pour moteur1
+		setPWM(moteur2);  // Met à jour PWM pour moteur2
+
+		HAL_Delay(step_time);  // Simuler un délai (pour observer le changement, par exemple en ms)
+
+	}
+
+}
+
+//****************codeur
+
+
+uint16_t generateAlpha(uint16_t t, uint16_t max_time) {
+	// Utilisation des macros alpha_MIN et alpha_MAX
+	if (t < max_time / 2) {
+		// Phase de montée
+		return alpha_MIN + (t * (alpha_MAX - alpha_MIN)) / (max_time / 2);
+	} else if (t < max_time) {
+		// Phase de descente
+		return alpha_MAX - ((t - max_time / 2) * (alpha_MAX - alpha_MIN)) / (max_time / 2);
+	} else {
+		// Hors plage, retour à alpha_MIN
+		return alpha_MIN;
+	}
+}
+
+
+

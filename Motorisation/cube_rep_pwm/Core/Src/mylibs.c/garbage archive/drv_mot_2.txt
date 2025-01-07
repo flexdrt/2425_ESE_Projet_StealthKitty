@@ -1,0 +1,49 @@
+/*
+ * drv_mot.c
+ *
+ *  Created on: Dec 4, 2024
+ *      Author: vincent lkme
+ */
+
+#include "drv_mot.h"
+#include "tim.h"
+#include "stm32g4xx_hal_tim.h"
+void pwm_strt (Motor_drv_struct *mtr) {//marche avant du *moteur* et arriere du moteur
+
+	if(&mtr->==1) //sens rotation moteur FWD//mode marche Forward du moteur
+	{
+
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); //pin FWD PWM
+
+		HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1); //PIN REV L
+
+		HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2); //moteur2 en sens backward - PIN REV PWM
+
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2); //PIN FWD low
+
+	}
+	else{ //mode marche arr du moteur
+
+		HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1); //PIN REV PWM
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1); //PIN FWD low
+
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);//PIN REV PWM
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2); //PIN FWD low
+
+	}
+
+	//démarrer à la même vitesse les 2 roues
+	//le channel 1 tourne moins vite
+	//le channel 2 tourne plus vitea 500 d'arr (set compare) la vitesse mot2=~vitesse mot1
+
+	//faire tourner le "channel 1" 4 * plus vite que le "channel 2"
+	uint16_t l=4;
+	uint16_t alphacruise=500; // vitesse la plus faible a laquelle le robot doit etre idle
+	//alpha croisiere=500;
+	uint16_t alphamot2=alphacruise;
+	uint16_t alphamot1=l*alphamot2;
+
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2125);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 503);
+
+}

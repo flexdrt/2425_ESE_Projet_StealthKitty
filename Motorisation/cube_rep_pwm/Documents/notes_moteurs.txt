@@ -1,0 +1,33 @@
+
+Mode CH1 CH1N
+
+PA8 : PWM_MOT1_CH1
+PA9 : PWM_MOT2_CH2
+
+
+PA11 : PWM_MOT1_CH1n 
+PA12 : PWM_MOT2_CH1n 
+
+************CHannels dispos ************
+PA8 : PWM_MOT1_CH1 TIM1_CH1d
+PA9 : PWM_MOT2_CH2 TIM1_CH2
+
+
+PA11 : PWM_MOT1_CH3 TIM1_CH4
+PA12 : PWM_MOT2_CH4 TIM16_CH1
+
+**********************
+
+MOde CH1 seul CH2 seul CH3 seul CH4 seul
+PA8 : RIGHT_MOTOR_FWD_Pin
+PA9 : RIGHT_MOTOR_REV_Pin
+PA10 : LEFT_MOTOR_FWD_Pin
+PA11 : LEFT_MOTOR_REV_Pin
+
+*************************
+Dans le code  (pour identifier le moteur lors de l'init)
+MTR1_CHANNEL1 = TIM_CHANNEL_1
+MTR2_CHANNEL2 = TIM_CHANNEL_2
+
+DRV_MOT_Init(&mtr_left,MTR1_CHANNEL);//channel1
+DRV_MOT_Init(&mtr_right,MTR2_CHANNEL);//channel 2

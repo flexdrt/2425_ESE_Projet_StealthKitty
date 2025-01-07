@@ -1,0 +1,8 @@
+../Core/Src/mylibs.c/drv_mot.c:21:6:DRV_MOT_startMot_fwd	1
+../Core/Src/mylibs.c/drv_mot.c:29:6:DRV_MOT_startMot_rev	1
+../Core/Src/mylibs.c/drv_mot.c:36:6:DRV_MOT_stoptMot	1
+../Core/Src/mylibs.c/drv_mot.c:42:6:DRV_MOT_bot_dualFwd	1
+../Core/Src/mylibs.c/drv_mot.c:52:6:DRV_MOT_bot_dualRev	1
+../Core/Src/mylibs.c/drv_mot.c:66:6:DRV_MOT_Init	1
+../Core/Src/mylibs.c/drv_mot.c:72:6:DRV_MOT_SetSpeed	6
+../Core/Src/mylibs.c/drv_mot.c:77:6:Bot_init	2
