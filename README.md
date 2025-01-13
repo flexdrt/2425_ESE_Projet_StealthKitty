@@ -102,6 +102,128 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :
 - **Algorithmes embarqués** : Implémentation des comportements du robot (détection des bords, poursuite, et évitement).  
 
 Tout le code source et les configurations sont centralisés dans le dossier [Software](./Software).
+
+
+
+
+
+# 🐱 **StealthKitty - Projet Robot Chat**  
+
+![STM32](https://img.shields.io/badge/STM32-Embedded-blue?style=for-the-badge&logo=stmicroelectronics)  
+![ENSEA](https://img.shields.io/badge/ENSEA-3A-ESE-green?style=for-the-badge&logo=bookstack)  
+![Status](https://img.shields.io/badge/Status-In_Progress-orange?style=for-the-badge)  
+
+---
+
+## 📜 **Description**  
+StealthKitty est un projet de **système embarqué innovant** basé sur un **STM32**.  
+🎯 **Objectif :** Développer plusieurs robots capables de se déplacer sur une table sans bordure.  
+- 🐾 Un robot est désigné comme **"chat"** et doit attraper un autre robot, qui devient alors le nouveau **"chat"**.  
+
+Ce projet est réalisé dans le cadre de la dernière année de la filière **électronique et systèmes embarqués (ESE)** de l'ENSEA.
+
+### **Les contributeurs :**  
+- 👨‍💻 **Vincent LAKHMECHE**  
+- 👨‍💻 **Mohamed Rafik CHAIR**  
+- 👨‍💻 **Meziane Ameur**  
+- 👨‍💻 **Karim JERJOUB**  
+
+---
+
+## 📚 **Table des matières**  
+1. [📖 Contexte](#-contexte)  
+2. [✨ Fonctionnalités](#-fonctionnalités)  
+3. [🔧 Matériel utilisé](#-matériel-utilisé)  
+4. [📐 Architecture](#-architecture)  
+5. [🚀 Utilisation](#-utilisation)  
+6. [👥 Auteurs](#-auteurs)  
+7. [📄 Licence](#-licence)  
+
+---
+
+## 📖 **Contexte**  
+Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.  
+🎯 L'objectif est de concevoir un système embarqué complet, depuis la conception électronique jusqu'à l'implémentation logicielle.
+
+---
+
+## ✨ **Fonctionnalités**  
+- 🛡️ **Détection de bords** via des capteurs ToF.  
+- 🔄 **Communication entre robots** pour synchronisation.  
+- 🎯 **Algorithme de poursuite et d'évitement.**  
+- ⚙️ **Gestion des moteurs** à l'aide de signaux PWM.  
+
+---
+
+## 🔧 **Matériel utilisé**  
+- **STM32G431RB** : Microcontrôleur principal.  
+- **Capteurs ToF** : Détection des bordures.  
+- **LiDAR** : Cartographie et détection d'autres robots.  
+- **Accéléromètre (ADXL343)** : Détection des chocs pour changer de rôle (Chat/Souris).  
+- **Environnement de développement :** STM32CubeIDE.  
+
+---
+
+## 📐 **Architecture**  
+### **Schéma architectural**  
+![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
+
+---
+
+### **Explication du système**  
+1. **⚡ Alimentation principale**  
+   - Batterie **NiMH 7.2V 1.3Ah**, connectée à des régulateurs de tension (**MP1475S**, **BU33SD5WG-TR**) pour alimenter les composants.
+
+2. **🖥️ Microcontrôleur principal - STM32G431**  
+   - Gère toute la logique du robot via SPI, UART, I2C et PWM.
+
+3. **🔍 Capteurs**  
+   - **Capteurs ToF** pour détecter les bords.  
+   - **Accéléromètre ADXL343** pour les chocs (via SPI).  
+   - **LiDAR YDLIDAR X4** pour cartographier l’environnement (via UART).  
+
+4. **⚙️ Contrôle des moteurs**  
+   - **ZXBM5210-SP-13** : Contrôle la vitesse et la direction des moteurs via PWM.
+
+5. **🌟 LEDs**  
+   - Indicateurs pour visualiser l’état du robot (en marche, détection d’obstacle, etc.).
+
+---
+
+## 🚀 **Réalisation matérielle**  
+La partie matérielle a été conçue avec **KiCad 8.0** et comprend :  
+- 📜 **Schéma électronique**  
+- 🧩 **PCB routé**  
+- 🛠️ **BOM (Bill of Materials)**  
+- 🗂️ **Fichiers GERBER** pour fabrication chez **JLCPCB**.  
+
+### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
+
+---
+
+## 🛠️ **Développement logiciel**  
+Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :  
+- 🔧 **Configuration des périphériques** (SPI, UART, PWM, etc.).  
+- 📦 **Modules logiciels** pour capteurs et moteurs.  
+- 🤖 **Algorithmes embarqués** pour les comportements du robot (poursuite, évitement, etc.).  
+
+### 📂 [Accédez au code source ici.](./Software)
+
+---
+
+## 👥 **Auteurs**  
+- **Vincent LAKHMECHE**  
+- **Mohamed Rafik CHAIR**  
+- **Meziane Ameur**  
+- **Karim JERJOUB**
+
+---
+
+## 📄 **Licence**  
+📝 Ce projet est sous licence **MIT**.  
+Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).  
+
+
 # 🚀 Utilisation de l'accéléromètre ADXL343 dans le robot chat
 
 ![STM32](https://img.shields.io/badge/STM32-Embedded-blue?style=for-the-badge&logo=stmicroelectronics)
