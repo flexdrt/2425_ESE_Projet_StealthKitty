@@ -183,8 +183,143 @@ Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).
 
 ---
 
+# Contrôle des Moteurs et Encodeurs
 
+## 🛠️ Composants utilisés
 
+Liste des composants utilisés pour le projet robot avec leurs spécifications et leurs rôles dans le système.
+
+## 🚗 Moteurs
+
+Le contrôle des moteurs est effectué à l'aide d'un driver. Ce driver contient plusieurs fonctions pour contrôler la direction et la vitesse des moteurs du robot.
+
+### Fonctionnalités du driver :
+
+- **`void init_motors(void);`** : Initialisation des moteurs.
+- **`void forward_r(uint16_t alpha);`** : Faire avancer le moteur droit.
+- **`void forward_l(uint16_t alpha);`** : Faire avancer le moteur gauche.
+- **`void reverse_r(uint16_t alpha);`** : Faire reculer le moteur droit.
+- **`void reverse_l(uint16_t alpha);`** : Faire reculer le moteur gauche.
+- **`void stop_r(void);`** : Arrêter le moteur droit.
+- **`void stop_l(void);`** : Arrêter le moteur gauche.
+
+### 🔧 Considérations mécaniques
+
+Le robot utilise deux moteurs, un pour chaque roue :
+
+- La roue droite est en **rouge** et la roue gauche est en **bleu**.
+- Les roues tournent dans des directions opposées pour permettre au robot de se déplacer en avant ou en arrière.
+
+### 🔄 Sens de marche
+
+| Moteur Gauche  | Sens de marche Robot | Moteur Droit |
+| -------------- | -------------------- | ------------ |
+| Sens **reverse** | Sens **forward** | Sens **forward** |
+
+### 🚀 Fonctionnement des moteurs
+
+#### 1. **Moteurs en marche forward**
+
+Pour que le robot se déplace en avant, les moteurs doivent tourner dans des directions opposées. Le code suivant configure le moteur droit et le moteur gauche pour aller en avant.
+
+```c
+// Fonction pour faire avancer le moteur droit
+void forward_r(uint16_t alpha) {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, alpha);  // TIM1_CH1
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);   // Démarre la PWM pour le moteur droit
+    HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1); // Arrête le canal complémentaire
+}
+
+// Fonction pour faire avancer le moteur gauche
+void forward_l(uint16_t alpha) {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, alpha);  // TIM1_CH2
+    HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);          // Démarre la PWM pour le moteur gauche
+}
+```
+2. Moteurs en marche arrière (Reverse)
+Pour que le robot se déplace en arrière, les directions des moteurs doivent être inversées :
+
+```c
+// Fonction pour faire reculer le moteur droit
+void reverse_r(uint16_t alpha) {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, alpha);  // Inverser le sens pour moteur droit
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // Arrêter le moteur droit
+    HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1); // Démarrer le moteur droit en reverse
+}
+
+// Fonction pour faire reculer le moteur gauche
+void reverse_l(uint16_t alpha) {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, alpha);  // Inverser le sens pour moteur gauche
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);   // Démarrer le moteur gauche en reverse
+}
+```
+3. Arrêt des moteurs
+Les fonctions suivantes permettent d'arrêter les moteurs :
+
+```c
+// Fonction pour arrêter le moteur droit
+void stop_r(void) {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);  // Arrêter la PWM pour moteur droit
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);          // Arrêter le moteur droit
+}
+```
+🔧 Encodeur
+Les encodeurs sont utilisés pour mesurer la position des moteurs et calculer leur vitesse.
+
+Fonctions d'encodeur
+1. Obtenir la position de l'encodeur
+```c
+// Fonction pour obtenir la position de l'encodeur
+int16_t get_encoder_position(uint8_t motor) {
+    int16_t position = 0;
+
+    if (motor == MOTOR_LEFT) {
+        position = __HAL_TIM_GET_COUNTER(&htim4);  // Lire le compteur du moteur gauche
+    } else if (motor == MOTOR_RIGHT) {
+        position = __HAL_TIM_GET_COUNTER(&htim3);  // Lire le compteur du moteur droit
+    }
+
+    return position;
+}
+```
+2. Réinitialiser la position de l'encodeur
+```c
+// Fonction pour réinitialiser la position de l'encodeur
+void reset_encoder(uint8_t motor) {
+    if (motor == MOTOR_LEFT) {
+        __HAL_TIM_SET_COUNTER(&htim4, 0);  // Réinitialiser le compteur du moteur gauche
+    } else if (motor == MOTOR_RIGHT) {
+        __HAL_TIM_SET_COUNTER(&htim3, 0);  // Réinitialiser le compteur du moteur droit
+    }
+}
+```
+3. Calculer la vitesse des moteurs
+```c
+// Fonction pour calculer la vitesse à partir de l'encodeur
+float calculate_motor_speed(uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution) {
+    static int16_t last_position_motor1 = 0;
+    static int16_t last_position_motor2 = 0;
+
+    int16_t current_position = 0;
+    int16_t delta_position = 0;
+
+    if (motor == MOTOR_LEFT) { // Moteur gauche
+        current_position = __HAL_TIM_GET_COUNTER(&htim3); // TIM3 pour moteur gauche
+        delta_position = current_position - last_position_motor1;
+        last_position_motor1 = current_position;
+    } else if (motor == MOTOR_RIGHT) { // Moteur droit
+        current_position = __HAL_TIM_GET_COUNTER(&htim4); // TIM4 pour moteur droit
+        delta_position = current_position - last_position_motor2;
+        last_position_motor2 = current_position;
+    }
+
+    // Calcul de la vitesse en tours par seconde
+    float speed = (float)delta_position / encoder_resolution; // Tours par intervalle
+    speed *= (1000.0f / delta_time_ms); // Convertir en tours par seconde
+
+    return speed;
+}
+```
 
 
 
