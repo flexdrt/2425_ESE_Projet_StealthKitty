@@ -244,10 +244,8 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).  
 
 
-# 🚀 Utilisation de l'accéléromètre ADXL343 dans le robot chat
+# 🚀 Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
 
-![STM32](https://img.shields.io/badge/STM32-Embedded-blue?style=for-the-badge&logo=stmicroelectronics)
-![FreeRTOS](https://img.shields.io/badge/FreeRTOS-Real--Time--OS-green?style=for-the-badge&logo=freertos)
 
 ---
 
