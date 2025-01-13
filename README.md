@@ -104,6 +104,46 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :
 Tout le code source et les configurations sont centralisés dans le dossier [Software](./Software).
 
 
+## Utilisation de l'accéléromètre ADXL343 dans le robot chat
+
+### 1. Objectifs principaux
+- **Détecter les tapotements** (Single Tap/Double Tap) pour changer le rôle entre le robot "chat" et "souris".
+- Lire les valeurs d'accélération sur les axes X, Y, Z (optionnel).
+
+---
+
+### 2. Configuration
+- **Plage d'accélération :** ±2 g (meilleure précision pour petits mouvements).
+- **Registres principaux :**
+  - `POWER_CTL` : Activer le mode mesure.
+  - `THRESH_TAP`, `DUR`, `INT_ENABLE` : Configurer et activer les interruptions pour les tapotements.
+  - `INT_SOURCE` : Vérifier les événements de tapotements.
+
+---
+
+### 3. Fonctionnalités implémentées
+1. **Détection des tapotements :**
+   - Vérifie les interruptions pour détecter les tapotements via le registre `INT_SOURCE`.
+   - Mise à jour d'une variable globale `tap_detected` pour signaler un événement.
+
+2. **Lecture des accélérations :**
+   - Valeurs brutes (`acc_rawX`, `acc_rawY`, `acc_rawZ`) converties en unités normalisées (g) avec un facteur de calibration.
+
+---
+
+### 4. Réactions aux tapotements
+- Activation des interruptions pour que le système réagisse en temps réel.
+- À chaque tapotement détecté, les moteurs changent de comportement (ex. changement de direction ou de rôle).
+
+---
+
+### 5. FreeRTOS
+- Création d'une tâche principale `vTaskADX` pour :
+  - Lire les données brutes et normalisées.
+  - Vérifier l'état des tapotements.
+  - Utiliser un délai pour limiter la charge CPU.
+
+---
 
 
 
