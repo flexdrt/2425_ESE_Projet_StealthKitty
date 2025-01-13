@@ -215,7 +215,7 @@ Le robot utilise deux moteurs, un pour chaque roue :
 
 
 ### 🔄 Sens de marche
-![WhatsApp Image 2025-01-13 à 14 57 42_6db506a3](https://github.com/user-attachments/assets/da1f3253-8515-4060-b0ee-387527e03121) ![WhatsApp Image 2025-01-13 à 14 57 43_9caed32a](https://github.com/user-attachments/assets/c7e67669-0d34-4c91-95f5-05cbf793ab47)
+![aaa](https://github.com/user-attachments/assets/a936be50-3f89-4b7e-88a4-d89e8650bdf3)
 
 | Moteur Gauche  | Sens de marche Robot | Moteur Droit |
 | -------------- | -------------------- | ------------ |
