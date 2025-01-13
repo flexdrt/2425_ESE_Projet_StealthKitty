@@ -102,52 +102,61 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et comprend :
 - **Algorithmes embarqués** : Implémentation des comportements du robot (détection des bords, poursuite, et évitement).  
 
 Tout le code source et les configurations sont centralisés dans le dossier [Software](./Software).
+# 🚀 Utilisation de l'accéléromètre ADXL343 dans le robot chat
 
-
-## Utilisation de l'accéléromètre ADXL343 dans le robot chat
-
-### 1. Objectifs principaux
-- **Détecter les tapotements** (Single Tap/Double Tap) pour changer le rôle entre le robot "chat" et "souris".
-- Lire les valeurs d'accélération sur les axes X, Y, Z (optionnel).
+![STM32](https://img.shields.io/badge/STM32-Embedded-blue?style=for-the-badge&logo=stmicroelectronics)
+![FreeRTOS](https://img.shields.io/badge/FreeRTOS-Real--Time--OS-green?style=for-the-badge&logo=freertos)
 
 ---
 
-### 2. Configuration
-- **Plage d'accélération :** ±2 g (meilleure précision pour petits mouvements).
-- **Registres principaux :**
-  - `POWER_CTL` : Activer le mode mesure.
-  - `THRESH_TAP`, `DUR`, `INT_ENABLE` : Configurer et activer les interruptions pour les tapotements.
-  - `INT_SOURCE` : Vérifier les événements de tapotements.
+## 🎯 Objectifs principaux
+- ✨ **Détecter les tapotements** (Single Tap/Double Tap) pour **changer de rôle** entre le robot "chat" et le robot "souris".
+- 📊 Lire les valeurs d'accélération sur les axes **X, Y, Z** *(optionnel)*.
 
 ---
 
-### 3. Fonctionnalités implémentées
-1. **Détection des tapotements :**
-   - Vérifie les interruptions pour détecter les tapotements via le registre `INT_SOURCE`.
-   - Mise à jour d'une variable globale `tap_detected` pour signaler un événement.
-
-2. **Lecture des accélérations :**
-   - Valeurs brutes (`acc_rawX`, `acc_rawY`, `acc_rawZ`) converties en unités normalisées (g) avec un facteur de calibration.
-
----
-
-### 4. Réactions aux tapotements
-- Activation des interruptions pour que le système réagisse en temps réel.
-- À chaque tapotement détecté, les moteurs changent de comportement (ex. changement de direction ou de rôle).
+## ⚙️ Configuration
+- **Plage d'accélération :** ±2 g *(précision pour petits mouvements)*.
+- **Registres utilisés :**  
+  - 🛠️ `POWER_CTL` : Activer le mode mesure.  
+  - 🎚️ `THRESH_TAP`, `DUR`, `INT_ENABLE` : Configurer les seuils et activer les interruptions pour les tapotements.  
+  - 🖥️ `INT_SOURCE` : Vérifier les événements de tapotements.
 
 ---
 
-### 5. FreeRTOS
-- Création d'une tâche principale `vTaskADX` pour :
-  - Lire les données brutes et normalisées.
-  - Vérifier l'état des tapotements.
-  - Utiliser un délai pour limiter la charge CPU.
+## 🔧 Fonctionnalités implémentées
+### ✅ Détection des tapotements
+- 🔄 Vérifie les interruptions via le registre `INT_SOURCE`.
+- 📍 Met à jour la variable globale `tap_detected` pour signaler un événement.
+
+### ✅ Lecture des accélérations
+- 📥 Récupération des valeurs brutes : `acc_rawX`, `acc_rawY`, `acc_rawZ`.
+- 🔄 Conversion des valeurs en unités normalisées (*g*) via un facteur de calibration.
 
 ---
 
+## 🔁 Réactions aux tapotements
+- ⚡ **Interruptions activées** pour permettre une réaction en temps réel.
+- 🔀 Chaque tapotement entraîne un **changement de comportement des moteurs** (ex. direction ou rôle).
 
+---
 
+## 🕒 FreeRTOS Task
+- Création d'une tâche principale **`vTaskADX`** pour :  
+  1️⃣ Lire les données d'accélération brutes et normalisées.  
+  2️⃣ Vérifier les événements de tapotement.  
+  3️⃣ Ajouter un délai pour réduire la charge CPU (`vTaskDelay`).
 
+---
+
+## 🌟 Aperçu du système
+- **Capteur :** ADXL343  
+- **Interface :** SPI  
+- **Intégration :** STM32 avec FreeRTOS  
+
+💡 **Astuce :** Adaptez les seuils et les paramètres d’interruption en fonction de votre application pour un comportement optimal.
+
+---
 
 
 
