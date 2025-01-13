@@ -204,20 +204,24 @@ Le contrôle des moteurs est effectué à l'aide d'un driver. Ce driver contient
 - **`void stop_l(void);`** : Arrêter le moteur gauche.
 
 ### 🔧 Considérations mécaniques
+![WhatsApp Image 2025-01-13 à 14 57 42_cc206d9a](https://github.com/user-attachments/assets/3b8ff71c-8f4e-4479-9174-d9f59edf99c8)
+
+
 
 Le robot utilise deux moteurs, un pour chaque roue :
 
 - La roue droite est en **rouge** et la roue gauche est en **bleu**.
 - Les roues tournent dans des directions opposées pour permettre au robot de se déplacer en avant ou en arrière.
 
+
 ### 🔄 Sens de marche
+![WhatsApp Image 2025-01-13 à 14 57 42_6db506a3](https://github.com/user-attachments/assets/da1f3253-8515-4060-b0ee-387527e03121) ![WhatsApp Image 2025-01-13 à 14 57 43_9caed32a](https://github.com/user-attachments/assets/c7e67669-0d34-4c91-95f5-05cbf793ab47)
 
 | Moteur Gauche  | Sens de marche Robot | Moteur Droit |
 | -------------- | -------------------- | ------------ |
 | Sens **reverse** | Sens **forward** | Sens **forward** |
 
 ### 🚀 Fonctionnement des moteurs
-| ![schemadriver_2](C:\Users\vince\Documents\Projet_dernier\assets\schemadriver_2-1736765823753-9.png) | ![schemadriver_1](C:\Users\vince\Documents\Projet_dernier\assets\schemadriver_1-1736765808856-7.png) |
 
 #### 1. **Moteurs en marche forward**
 
