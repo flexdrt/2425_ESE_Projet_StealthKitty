@@ -376,6 +376,8 @@ float calculate_motor_speed(uint8_t motor, uint32_t delta_time_ms, uint16_t enco
 
 
 
+Cette fonction calcule la vitesse des moteurs à partir de la différence avec la dernière position et la résolution de l'encodeur (1024). Puis on convertit en tours par seconde.
+
 
 
 
