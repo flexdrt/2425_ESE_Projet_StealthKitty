@@ -217,6 +217,7 @@ Le robot utilise deux moteurs, un pour chaque roue :
 | Sens **reverse** | Sens **forward** | Sens **forward** |
 
 ### 🚀 Fonctionnement des moteurs
+| ![schemadriver_2](C:\Users\vince\Documents\Projet_dernier\assets\schemadriver_2-1736765823753-9.png) | ![schemadriver_1](C:\Users\vince\Documents\Projet_dernier\assets\schemadriver_1-1736765808856-7.png) |
 
 #### 1. **Moteurs en marche forward**
 
@@ -263,10 +264,10 @@ void stop_r(void) {
     HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);          // Arrêter le moteur droit
 }
 ```
-🔧 Encodeur
+### 🔧 Encodeur
 Les encodeurs sont utilisés pour mesurer la position des moteurs et calculer leur vitesse.
 
-Fonctions d'encodeur
+#### Fonctions d'encodeur
 1. Obtenir la position de l'encodeur
 ```c
 // Fonction pour obtenir la position de l'encodeur
