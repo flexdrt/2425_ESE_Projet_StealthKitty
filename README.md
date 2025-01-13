@@ -149,22 +149,6 @@ Tout le code source et les configurations sont centralisés dans le dossier [Sof
 
 ---
 
-## 🌟 Aperçu du système
-- **Capteur :** ADXL343  
-- **Interface :** SPI  
-- **Intégration :** STM32 avec FreeRTOS  
-
-💡 **Astuce :** Adaptez les seuils et les paramètres d’interruption en fonction de votre application pour un comportement optimal.
-
----
-
-
-
-
-
-
-
-
 
 
 
