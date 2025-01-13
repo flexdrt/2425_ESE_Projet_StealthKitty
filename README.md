@@ -112,7 +112,7 @@ Tout le code source et les configurations sont centralisés dans le dossier [Sof
 ![STM32](https://img.shields.io/badge/STM32-Embedded-blue?style=for-the-badge&logo=stmicroelectronics)  
 [![ENSEA](https://img.shields.io/badge/ENSEA-3A--ESE-green?style=for-the-badge&logo=https://upload.wikimedia.org/wikipedia/fr/8/82/Logo_ENSEA.svg)](https://www.ensea.fr)
 ![Status](https://img.shields.io/badge/Status-Finished-orange?style=for-the-badge)  
-<img src="https://upload.wikimedia.org/wikipedia/fr/8/82/Logo_ENSEA.svg" alt="Logo ENSEA" width="200"/>
+<img src="https://upload.wikimedia.org/wikipedia/fr/8/82/Logo_ENSEA.svg" alt="Logo ENSEA" width="50"/>
 
 ---
 
