@@ -241,7 +241,7 @@ void forward_l(uint16_t alpha) {
     HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);          // Démarre la PWM pour le moteur gauche
 }
 ```
-2. Moteurs en marche arrière (Reverse)
+#### 2. Moteurs en marche arrière (Reverse)
 Pour que le robot se déplace en arrière, les directions des moteurs doivent être inversées :
 
 ```c
@@ -258,7 +258,7 @@ void reverse_l(uint16_t alpha) {
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);   // Démarrer le moteur gauche en reverse
 }
 ```
-3. Arrêt des moteurs
+#### 3. Arrêt des moteurs
 Les fonctions suivantes permettent d'arrêter les moteurs :
 
 ```c
@@ -272,7 +272,7 @@ void stop_r(void) {
 Les encodeurs sont utilisés pour mesurer la position des moteurs et calculer leur vitesse.
 
 #### Fonctions d'encodeur
-1. Obtenir la position de l'encodeur
+#### 1. Obtenir la position de l'encodeur
 ```c
 // Fonction pour obtenir la position de l'encodeur
 int16_t get_encoder_position(uint8_t motor) {
@@ -287,7 +287,7 @@ int16_t get_encoder_position(uint8_t motor) {
     return position;
 }
 ```
-2. Réinitialiser la position de l'encodeur
+#### 2. Réinitialiser la position de l'encodeur
 ```c
 // Fonction pour réinitialiser la position de l'encodeur
 void reset_encoder(uint8_t motor) {
@@ -298,7 +298,7 @@ void reset_encoder(uint8_t motor) {
     }
 }
 ```
-3. Calculer la vitesse des moteurs
+#### 3. Calculer la vitesse des moteurs
 ```c
 // Fonction pour calculer la vitesse à partir de l'encodeur
 float calculate_motor_speed(uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution) {
