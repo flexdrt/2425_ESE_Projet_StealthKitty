@@ -259,15 +259,63 @@ void reverse_l(uint16_t alpha) {
 }
 ```
 #### 3. Arrêt des moteurs
-Les fonctions suivantes permettent d'arrêter les moteurs :
 
-```c
-// Fonction pour arrêter le moteur droit
+On veut pouvoir stopper chaque moteurs individuellement. Pour stopper le moteur droit, on a coder cette fonction : 
+
+
+
+****
+
+
+
+***************************A supprimer****************
+
+
+
+```C
+// Fonction stop moteur droit
 void stop_r(void) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);  // Arrêter la PWM pour moteur droit
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);          // Arrêter le moteur droit
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);      // TIM1_CH1
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);     // TIM1_CH2N
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+
 }
 ```
+
+
+
+*********************************************************************************************
+
+Avec la fonction HAL  [Version corrigé]
+
+```c
+// Fonction stop moteur droit
+void stop_r(void) {
+    //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);      // TIM1_CH1
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);     // TIM1_CH2N
+    //HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+
+}
+```
+
+On met à 0 le compteur de la PWM du channel 2 et on stop la génération de PWM pour arrêter le moteur droit.
+
+
+
+```c
+// Fonction stop moteur gauche
+void stop_l(void) {
+    //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);      // TIM1_CH2
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);     // TIM1_CH1N
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
+    //HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+}
+```
+
+On met à 0 le compteur de la PWM du channel 1 et on stop la génération de PWM pour arrêter le moteur gauche.
+
 ### 🔧 Encodeur
 Les encodeurs sont utilisés pour mesurer la position des moteurs et calculer leur vitesse.
 
