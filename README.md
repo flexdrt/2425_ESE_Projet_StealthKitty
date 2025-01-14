@@ -279,12 +279,6 @@ La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour l
 #####  le STLink #####
 La ST-Link est un outil indispensable pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
 
-Voici les principales connexions et leur rôle :
-
-    VCC : Fournit une alimentation stable de 3,3 V à la ST-Link.
-    SWDIO et SWCLK : Ces deux broches assurent la communication entre la ST-Link et le microprocesseur, permettant le transfert de données nécessaires pour le débogage.
-    NRST : Relié au circuit de réinitialisation, ce signal permet de redémarrer le microprocesseur lors de la programmation ou en cas de besoin de reset matériel.
-
 En résumé, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
 
 
