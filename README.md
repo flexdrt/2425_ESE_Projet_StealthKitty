@@ -218,7 +218,7 @@ Le contrôle des moteurs est effectué à l'aide d'un driver. Ce driver contient
 
 Le robot utilise deux moteurs, un pour chaque roue :
 
-- La roue droite est en **rouge** et la roue gauche est en **bleu**.
+- La roue droite est en **rouge** et la roue gauche est en **bleue**.
 - Les roues tournent dans des directions opposées pour permettre au robot de se déplacer en avant ou en arrière.
 
 
