@@ -4,7 +4,7 @@
 # 🐱 **StealthKitty - Projet Robot Chat**  
 
  <img src="https://megabase.eduniversal.com/uploads/school/1155/logo.jpg?v=c7e3965d14625a3e4b5662bd550d93e0" alt="Logo ENSEA" width="30"/> ![STM32](https://img.shields.io/badge/STM32-Embedded-blue?style=for-the-badge&logo=stmicroelectronics)  
-[![ENSEA](https://img.shields.io/badge/ENSEA-3A--ESE-green?style=for-the-badge&logo=https://upload.wikimedia.org/wikipedia/fr/8/82/Logo_ENSEA.svg)](https://www.ensea.fr)
+ [![ENSEA](https://img.shields.io/badge/ENSEA-3A--ESE-green?style=for-the-badge&logo=https://upload.wikimedia.org/wikipedia/fr/8/82/Logo_ENSEA.svg)](https://www.ensea.fr)
 ![Status](https://img.shields.io/badge/Status-Finished-orange?style=for-the-badge)  
 
 
@@ -23,7 +23,6 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 - 👨‍💻 **Mohamed Rafik CHAIR**  
 - 👨‍💻 **Meziane Ameur**  
 - 👨‍💻 **Karim JERJOUB**  
-![image](https://github.com/user-attachments/assets/0b8a3520-2e76-4162-91c8-48ae93badee7)
 
 ![image-20250114141624020](./assets/image-20250114141624020.png)
 
@@ -35,8 +34,7 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 3. [🔧 Matériel utilisé](#-matériel-utilisé)  
 4. [📐 Architecture](#-architecture)  
 5. [🚀 Utilisation](#-utilisation)  
-6. [👥 Auteurs](#-auteurs)  
-7. [📄 Licence](#-licence)  
+6. [📄 Licence](#-licence)  
 
 ---
 
@@ -298,13 +296,6 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 
 ### 📂 [Accédez au code source ici.](./Software)
 
----
-
-## 👥 **Auteurs**  
-- **Vincent LAKHMECHE**  
-- **Mohamed Rafik CHAIR**  
-- **Meziane Ameur**  
-- **Karim JERJOUB**
 
 ---
 
