@@ -23,7 +23,6 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 - 👨‍💻 **Mohamed Rafik CHAIR**  
 - 👨‍💻 **Meziane Ameur**  
 - 👨‍💻 **Karim JERJOUB**  
-![image](https://github.com/user-attachments/assets/0b8a3520-2e76-4162-91c8-48ae93badee7)
 
 ![image-20250114141624020](./assets/image-20250114141624020.png)
 
