@@ -190,7 +190,7 @@ Le capteur LIDAR est un capteur qui communique par liason série UART dont les s
 
 
 
-## Motorisation du robot 
+#### Motorisation du robot ####
 
 Les composants qui s'assure déplacer le robot sont les moteurs qui sont des mcc **FIT 0520.** 
 
@@ -243,10 +243,23 @@ Nous avons placé ces signaux entre les deux signaux destinés au moteurs et con
 ![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
 
 
-## Le Cerveau du robot : le STM32
+#### Le Cerveau du robot : le STM32 & cie #### 
 
 Dans cette feuille, nous avons connecter les composants suivants, le STM32, le STlink, le Quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
 ![brain_sheet](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/brain_sheet_only_page-0001.jpg)  
+
+#####  le STM32  #####
+
+résistance de tirage bus I2C
+
+découplage alim stm32 à dire 
+#####  le quartz #####
+découplage OSC_In OSC_OUT du quartz 
+
+#####  le STLink #####
+
+#####  les boutons #####
+
 
 
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
