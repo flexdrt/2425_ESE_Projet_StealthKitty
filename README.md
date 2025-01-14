@@ -242,6 +242,13 @@ Nous avons placé ces signaux entre les deux signaux destinés au moteurs et con
 
 ![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
 
+
+## Le Cerveau du robot : le STM32
+
+Dans cette feuille, nous avons connecter les composants suivants, le STM32, le STlink, le Quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
+![brain_sheet](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/brain_sheet_only_page-0001.jpg)  
+
+
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
 
 ---
