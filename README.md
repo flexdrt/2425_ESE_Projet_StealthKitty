@@ -212,6 +212,7 @@ Le contrôle des moteurs est effectué à l'aide d'un driver. Ce driver contient
 
 ### 🔧 Considérations mécaniques
 ![WhatsApp Image 2025-01-13 à 14 57 42_cc206d9a](https://github.com/user-attachments/assets/3b8ff71c-8f4e-4479-9174-d9f59edf99c8)
+(https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/repr%C3%A9sentation%20robot.png)
 
 
 
