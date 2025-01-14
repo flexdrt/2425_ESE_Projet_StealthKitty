@@ -222,6 +222,8 @@ Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxiè
 ![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
 
 
+Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs, pour cela il faut préparer, l 'alimentation et les signaux dont ils ont besoin un connecteur jst en l'occurrence.  
+![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
 
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
 
