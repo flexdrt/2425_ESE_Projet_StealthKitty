@@ -24,9 +24,12 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 - 👨‍💻 **Meziane Ameur**  
 - 👨‍💻 **Karim JERJOUB**  
 ![image](https://github.com/user-attachments/assets/0b8a3520-2e76-4162-91c8-48ae93badee7)
+
+![image-20250114141624020](./assets/image-20250114141624020.png)
+
 ---
 
-## 📚 **Table des matières**  
+## 📚 **Table des matières**  A REECRIRE
 1. [📖 Contexte](#-contexte)  
 2. [✨ Fonctionnalités](#-fonctionnalités)  
 3. [🔧 Matériel utilisé](#-matériel-utilisé)  
