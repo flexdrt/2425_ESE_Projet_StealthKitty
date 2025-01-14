@@ -805,8 +805,20 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 
 
+**Réalisation du routage du  PCB**  
 
- 
+Le PCB à été conçu afin de respecter le cahier des charges en termes de dimension afin de pouvoir l'intégrer facilement au robot.
+
+![Capture d'écran 2025-01-15 002802](https://github.com/user-attachments/assets/1958b6cb-7456-49f0-a244-b26298ce3cdc)
+
+**Répartition des couches du PCB**  
+1. **Couche 1 (Front)** : Support de tous nos composants, majoritairement CMS, avec des connecteurs traversants. La majorité des pistes  y sont tracées également sur cette couche, tandis qu’une partie passe par la couche 4 (bottom) pour préserver l’homogénéité des plans de masse (couche 2) et d’alimentation (couche 3).
+2. **Couche 2** : Plan de masse, avec des vias espacés pour éviter les coupures.  
+
+3. **Couche 3** : Plan d’alimentation pour les composants à forte consommation, optimisant la dissipation thermique.  
+
+4. **Couche 4 (Bottom)** : On retrouve les pistes de données issues principalement de la couche 1 pour garder l'integralité des signaux . Nous avons également évités de croiser les discontinuités des plans d'alimentation ( couche 3 )
+  
 
 
 
