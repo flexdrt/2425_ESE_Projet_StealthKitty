@@ -67,7 +67,7 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.
 ### **Schéma architectural**  
 ![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
 
-Ce shéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
+Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
 
 ## Explication du fonctionnement du système
 
@@ -117,6 +117,111 @@ La partie matérielle a été conçue avec **KiCad 8.0** et comprend :
 - 🧩 **PCB routé**  
 - 🛠️ **BOM (Bill of Materials)**  
 - 🗂️ **Fichiers GERBER** pour fabrication chez **JLCPCB**.  
+
+Pour construire notre carte électronique, il nous a fallut commencer par designer sous kikad le schéma électrique de notre système électronique, ce que l'on appelle schematic dans kikad. Nous allons maintenant détaillé les différentes parties du schematic (les sheets du projet kikad).
+
+### Schéma électronique ### 
+#### Capteurs du robot #####
+
+Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur LIDAR, et un capteur accéléromètre.
+
+Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est la stm32. L'avantage de cette communication est qu'elle permet une évolutivité si on a besoin d'ajouter d'autres composants matériel par la suite. Seulement pour cela il faut prévoir une résistance de pull-up (tirage) pour le bus I2C.
+
+
+
+Les signaux nécessaires pour implémenter en I2C ce capteur sont les suivants : 
+
+- SDA
+- SCL
+- int_tof1
+- xshunt1
+- GND
+
+Ces signaux sont représentés sur le connecteur JST de la figure ci-dessous.
+
+ 
+
+![image-20250113151649896](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/tof-image-20250113151649896.png)
+
+
+Le capteur Accéléromètre  est un capteur qui communique lui en SPI, tout comme le capteur TOF , il utilise un bus de communication qui nécessite une résistance de pull-up (tirage).
+
+![image-20250114095447270](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/adx-image--20250114095447270.png) 
+
+Les signaux nécessaires pour implémenter en SPI ce capteur sont les suivants : 
+
+- MISO
+
+- MOSI
+
+- SCK
+
+- nCS
+
+- Interruption n°1 ADX
+
+- Interruption n°2 ADX
+
+- +5V
+
+- GND
+
+  
+
+  
+
+Comme on peut le voir, pour des raisons CEM nous avons placé une capacité de 1µF et une capacité de 0.1 µF pour découpler les deux alimentations en +3.3V.
+
+Afin de pouvoir débugger le capteur, nous avons également placé des points de test TestPoint.
+
+
+
+Le capteur LIDAR est un capteur qui communique par liason série UART dont les signaux sont les suivants :
+
+![image-20250114095520915](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/lidar%20-image-lidar-20250114095520915.png)
+
+- M_EN
+- DEV_EN
+- M_SCTR
+- RX_lidar
+- TX_lidar
+- +5V
+- GND
+
+
+
+## Motorisation du robot 
+
+Les composants qui s'assure déplacer le robot sont les moteurs qui sont des mcc **FIT 0520.** 
+
+Pour commander ces moteurs nous avons besoin de driver, ce sont eux qui vont envoyer les signaux de commande au moteur (des PWM). 
+
+Les drivers utilisés sont les ZXBM5210-S-13. 
+
+![image-driver20250114113650516](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver%20motor-%20image-20250114113650516.png)
+
+
+
+Voici le schéma du composant. Les sorties out 1 et out 2  sont connectés au moteur  par Motor1+ et  Motor 1-.
+
+Comme ce sont les signaux de commande PWM, nous avons découplé ces signaux avec des capacités de 100nF.
+
+Quant aux signaux d'alimentation nous découplons la tension de la batterie avec une capacité de 10µF pour le signal Vm et une capacité de 1µF pour 
+
+
+
+Le signal PWM_MOT1_CH1 est le signal PWM généré par le STM32 en direction du pin FWD du composant .
+Le signal PWM_MOT1_CH2 est le signal PWM généré par le STM32  en direction du pin REV du composant.
+
+
+
+D'après le tableau de la datasheet, si on envoie un signal PWM pour contrôler le driver en mode "PWM control mode". 
+
+Il faut alors envoyer un signal PWM en entré sur un des pins FWD ou REV. Ce qui donnera naissance à un signal PWM en sortie sur out1-out2 de fréquence égale à celle en entrée du pin qui reçoit le signal PWM.   
+Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxième driver : 
+![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
+
+
 
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
 
