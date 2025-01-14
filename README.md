@@ -222,7 +222,24 @@ Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxiè
 ![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
 
 
-Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs, pour cela il faut préparer, l 'alimentation et les signaux dont ils ont besoin un connecteur jst en l'occurrence.  
+Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs. Pour cela il faut préparer, l'alimentation et les signaux dont ils ont besoin dans un connecteur (jst en l'occurrence).
+  
+
+
+
+D'après la documentation des moteur/encodeurs, les signaux sont placés de la façon suivante sur le brochage : 
+
+![signaux encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeur_signaux_sur_moteurs.png)
+
+On peut lire sur cette image que les signaux de l'encodeur sont les suivants : 
+ - alimentation 3V3
+ - ground GND
+ - codeurX_PH1 [pour la phase A]
+ - codeurX_PH2 [pour la phase B]
+
+
+Nous avons placé ces signaux entre les deux signaux destinés au moteurs et conservé l'ordre d'affectation des broches de la doumention, ce qui donne ce schéma de connector : 
+
 ![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
 
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
