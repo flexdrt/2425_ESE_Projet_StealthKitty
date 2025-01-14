@@ -255,14 +255,41 @@ Ensuite nous avons connecté l'USART4 du LIDAR (et ses connectiques) puis l'USAR
 résistance de tirage bus I2C : 
 Nous avons ajouté une résistance de pull-up sur le signal SDA et SCL respectivement de 3.3 kOhms et 2.2 kOhms  
 
+
+###### Découplage du STM32 ######
+Les microcontrôleurs STM32 nécessitent un découplage efficace pour garantir leur fonctionnement stable et fiable. Ce découplage est réalisé à l’aide de condensateurs judicieusement choisis et placés. Lors des transitions rapides des circuits internes du microcontrôleur, comme celles générées par les horloges et les commutations d’état des broches, des variations soudaines de courant peuvent se produire. Ces fluctuations génèrent des perturbations haute fréquence qui risquent de déstabiliser l'alimentation. Les condensateurs de 100 nF, placés aussi près que possible des broches d'alimentation (VDD, VDDA), jouent un rôle clé en filtrant ces perturbations haute fréquence, agissant ainsi comme un réservoir d'énergie pour combler les besoins instantanés.
+
+Pour stabiliser davantage l’alimentation, un condensateur de capacité plus élevée, comme un 4,7 µF, est ajouté. Celui-ci répond aux variations de courant plus lentes et de plus grande amplitude. Par ailleurs, des broches spécifiques comme VDDA et VREF+, utilisées pour des fonctions sensibles telles que les convertisseurs analogiques-numériques (ADC), exigent une alimentation particulièrement propre. Un condensateur de 1 µF y est ajouté pour minimiser tout bruit électrique. Enfin, le bon fonctionnement de l’oscillateur externe, crucial pour la précision de l’horloge, est assuré par des condensateurs appropriés (par exemple, de 10 pF) placés autour du quartz.
+
+Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur tout en réduisant les effets des perturbations électriques.
 découplage alim stm32 à dire 
 #####  le quartz #####
-découplage OSC_In OSC_OUT du quartz 
+Afin d'avoir
+Le quartz agit comme un résonateur, amplifiant les signaux à sa fréquence naturelle. Si les signaux d'entrée et de sortie ne sont pas correctement découplés, il peut y avoir des rétroactions indésirables, perturbant le fonctionnement normal de l'oscillateur. 
+Une capacité de découplage permet d'isoler les parties du circuit, minimisant les perturbations provenant des variations de tension ou d'autres signaux non désirés.
+Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
+Les circuits connectés au quartz, notamment l'entrée de l'amplificateur et le réseau de charge, peuvent avoir des impédances différentes. Le découplage capacitif permet d'adapter l'impédance, garantissant une transmission optimale de l'énergie oscillante.
+Les signaux électriques OSC_In et OSC_OUT peuvent parfois inclure des pics de tension ou des variations transitoires. Un découplage capacitif agit comme une barrière, protégeant le quartz de ces stress électriques, augmentant ainsi sa durée de vie.
+
+En résumé, le découplage par une capacité assure une meilleure isolation, stabilité, et performance du circuit oscillateur. Cela garantit que le quartz peut fonctionner à sa fréquence de résonance avec un minimum de perturbations et de pertes, ce qui est essentiel pour des applications nécessitant une précision temporelle élevée, comme les horloges et les communications électroniques.
+
+La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour la sortie du quartz.
+
 
 #####  le STLink #####
+La ST-Link est un outil indispensable pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
+
+Voici les principales connexions et leur rôle :
+
+    VCC : Fournit une alimentation stable de 3,3 V à la ST-Link.
+    SWDIO et SWCLK : Ces deux broches assurent la communication entre la ST-Link et le microprocesseur, permettant le transfert de données nécessaires pour le débogage.
+    NRST : Relié au circuit de réinitialisation, ce signal permet de redémarrer le microprocesseur lors de la programmation ou en cas de besoin de reset matériel.
+
+En résumé, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
+
 
 #####  les boutons #####
-
+Le PCB est consituté de deux boutons : le premier NRST sert à reset le code qui a été téléversé sur la carte. Le deuxième permet au robot de changer d'état entre souris et chat. 
 
 
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
