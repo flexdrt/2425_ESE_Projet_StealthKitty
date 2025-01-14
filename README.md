@@ -118,9 +118,9 @@ La partie matérielle a été conçue avec **KiCad 8.0** et comprend :
 - 🛠️ **BOM (Bill of Materials)**  
 - 🗂️ **Fichiers GERBER** pour fabrication chez **JLCPCB**.  
 
-Pour construire notre carte électronique, il nous a fallut commencer par designer sous kikad le schéma électrique de notre système électronique, ce que l'on appelle schematic dans kikad. Nous allons maintenant détaillé les différentes parties du schematic (les sheets du projet kikad).
+Pour construire notre carte électronique, il nous a fallut commencer par designer sous KiCad le schéma électrique de notre système électronique, ce que l'on appelle schematic dans KiCad. Nous allons maintenant détaillé les différentes parties du schematic (les sheets du projet KiCad).
 
-### Schéma électronique ### 
+## Schéma électronique ## 
 #### Capteurs du robot #####
 
 Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur LIDAR, et un capteur accéléromètre.
