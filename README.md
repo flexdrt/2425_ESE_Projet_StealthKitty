@@ -13,7 +13,8 @@
 ## 📜 **Description**  
 StealthKitty est un projet de **système embarqué innovant** basé sur un **STM32**.  
 🎯 **Objectif :** Développer plusieurs robots capables de se déplacer sur une table sans bordure.  
-- 🐾 Un robot est désigné comme **"chat"** et doit attraper un autre robot, qui devient alors le nouveau **"chat"**.  
+
+- 🐾 Un robot est désigné comme chat et doit attraper un autre robot, qui devient alors le nouveau chat.  
 
 Ce projet est réalisé dans le cadre de la dernière année de la filière **électronique et systèmes embarqués (ESE)** de l'ENSEA.
 
@@ -46,7 +47,7 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.
 - 🛡️ **Détection de bords** via des capteurs ToF.  
 - 🔄 **Communication entre robots** pour synchronisation.  
 - 🎯 **Algorithme de poursuite et d'évitement.**  
-- ⚙️ **Gestion des moteurs** à l'aide de signaux PWM.  
+- ⚙️ **Gestion des moteurs**  
 
 ---
 
@@ -62,6 +63,9 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.
 ## 📐 **Architecture**  
 ### **Schéma architectural**  
 ![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
+
+Ce shéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
+
 ## Explication du fonctionnement du système
 
 1. **⚡ Alimentation principale**
@@ -380,10 +384,266 @@ Cette fonction calcule la vitesse des moteurs à partir de la différence avec l
 
 
 
+# 🚀 Utilisation du YDLIDAR X4 dans le robot
+
+**🎯 Caractéristiques techniques**
+* 📡 **Range Frequency :** 5000Hz
+* 📏 **Range Distance :** 0.12-10m 
+* 📐 **Angle Resolution :** 0.43-0.86°
+* 🔄 **Scan Frequency :** 6-12Hz
+* 🌟 **Scan Angle :** 360°
+* 📦 **Size :** Φ65.6 * 58.39 * 101.7mm
+
+**⚙️ Communication et trames**
+* 🔌 **Interface :** UART (DMA)
+* 📦 **Structure des trames :**
+  * 🏁 Start Sign : 0xA5 0x5A
+  * 📊 Package Length
+  * 🔍 Mode & Type Code
+  * 📐 FSA (First Scan Angle)
+  * 📐 LSA (Last Scan Angle)
+  * ✅ CS (Checksum)
+  * 📝 Packet Data
+
+**🔧 Traitement des données**
+* **Parser de trames :**
+```c
+if(i==frame_start){
+    dev_handle.processing.PH=dev_handle.raw_data[i];
+} else if(i==frame_start+1){
+    dev_handle.processing.PH |= (dev_handle.raw_data[i]<<8);
+}
+// etc...
+```
+
+**📊 Analyse des données**
+* 🔍 **Détection d'objets :**
+  * Filtrage des distances (0-2000mm)
+  * Calcul des centres de masse (assimilable à  du clustering de points par paquets)
+  * Identification des clusters
+* 🎯 **Tracking :**
+  * Suivi de l'objet le plus proche
+  * Calcul angle moyen et distance
+
+------
+
+**💾 Structure de données**
+```c
+typedef struct data_proc_struct {
+    uint16_t PH;        // Package Header
+    uint8_t CT;         // Package Type
+    uint8_t LSN;        // Sample Quantity
+    uint16_t FSA;       // First Scan Angle
+    uint16_t LSA;       // Last Scan Angle
+    uint16_t CS;        // CheckSum
+    // etc...
+} data_proc_t;
+```
+
+**⚡ Performances**
+* 🔄 **Temps réel :** Acquisition et traitement via DMA pour ne pas saturé la RAM
+* 📊 **Résolution :** ~0.5° en rotation
+* 📏 **Précision distance :** ±1% sur plage optimale
+* ⏱️ **Latence :** <100ms pour détection et réaction(idéalement)
+
+**🔁 Cycle de fonctionnement**
+1. 📡 Réception trame DMA
+2. 🔍 Validation checksum et headers
+3. 📊 Parsing des données
+4. 🎯 Détection objets et calcul distances
+5. 🎮 Application asservissement moteurs vu ultérieurement
+
+**🛠️ Fonctions clés du driver**
+```c
+sns_begin()        // Démarrage acquisition
+sns_parse_data()   // Traitement trame
+smooth_data()      // Filtrage données
+detect_objects()   // Détection objets
+```
+
+**⚠️ Points critiques**
+* Gestion buffer circulaire DMA
+* Validation intégrité trames
+* Filtrage données aberrantes
+* Asservissement progressif détaillé ultérieurement
+
+
+
+## 🕒 FreeRTOS Task du LIDAR
+
+​     
+
+- ## 📦 Détection et Validation En-tête (i==0)
+
+  - Vérification séquence 7 octets :
+
+    - 0xA5 0x5A (Start Sign)
+    - 0x05 0x00
+    - 0x00 0x40
+    - 0x81
+
+    
+
+  ## 📝 Parsing de Trame (Machine à États)
+
+  - frame_start : Package Header bas
+  - frame_start+1 : Package Header haut
+  - frame_start+2 : Type de paquet
+  - frame_start+3 : Nombre d'échantillons
+  - frame_start+4/5 : Angle de début (FSA)
+  - frame_start+6/7 : Angle de fin (LSA)
+  - frame_start+8/9 : Checksum
+
+  
+
+  ## 🎯 Traitement des Données
+
+  - Si fin de trame (i==frame_end) :
+
+    - Stockage dernière donnée
+    - Parse des données brutes
+    - Lissage des données
+    - Détection des objets
+    - Reset des index pour trame suivante
+
+    
+
+  ## 📊 Analyse Finale
+
+  - Recherche de l'objet le plus proche :
+
+    - Distance minimale non nulle
+    - Mise à jour dist_min et idx_min
+
+  - Affichage données :
+
+    - Pour chaque objet : angle et distance
+    - Détails de l'objet le plus proche
+
+    
+
+  ## ⚙️ Gestion des Indices
+
+  - Ajustement frame_start et frame_end
+  - Gestion du buffer circulaire
+  - Maintien de la synchronisation des trames
 
 
 
 
+
+# Théorie de l'asservissement angulaire du robot
+
+## 1. Définition du système
+
+### Variables d'état
+- θ_mesure : Angle mesuré par le LIDAR du cluster le plus proche (en degrés)
+- θ_consigne : Angle désiré (0° dans notre cas)
+- e(t) : Erreur en angle
+- u(t) : Signal de commande (correction)
+- v_g : Vitesse du moteur gauche
+- v_d : Vitesse du moteur droit
+
+### Équations fondamentales
+
+1. Calcul de l'erreur :
+```
+e(t) = θ_consigne - θ_mesure
+```
+
+2. Loi de commande proportionnelle :
+```
+u(t) = Kp × e(t)
+```
+où Kp est le gain proportionnel
+
+3. Vitesses des moteurs :
+```
+v_g = v_base + u(t)
+v_d = v_base - u(t)
+```
+où v_base est la vitesse nominale
+
+## 2. Normalisation de l'angle
+
+Pour avoir un comportement symétrique, l'angle mesuré est normalisé dans l'intervalle [-180°, 180°] :
+```
+Si θ_mesure > 180° :
+    θ_normalisé = θ_mesure - 360°
+Sinon :
+    θ_normalisé = θ_mesure
+```
+
+## 3. Fonction de transfert
+
+Dans le domaine de Laplace, la fonction de transfert du système peut être approximée par :
+
+```
+G(s) = K / (1 + τs)
+```
+où :
+- K est le gain statique du système
+- τ est la constante de temps du système
+- s est la variable de Laplace
+
+
+
+## 4. Stabilité du système
+
+Le système en boucle fermée a une fonction de transfert :
+```
+H(s) = (K × Kp) / (1 + τs + K × Kp)
+```
+
+La stabilité est assurée si :
+```
+0 < Kp < 1/(K × τ)
+```
+
+
+
+## 5. Considérations de mise en œuvre
+
+1. Choix du gain Kp :
+- Trop faible : réponse lente
+- Trop élevé : oscillations
+- Optimal : compromis entre rapidité et stabilité
+
+
+
+**Conversion en commandes moteurs** (alpha1 et alpha2) :
+
+- Si la cible est à droite :
+
+  - On augmente la vitesse du moteur gauche (alpha1)
+
+  - On diminue la vitesse du moteur droit (alpha2)
+
+    → Le robot tourne à droite
+
+
+
+- Si la cible est à gauche :
+
+  - On augmente la vitesse du moteur droit (alpha2)
+
+  - On diminue la vitesse du moteur gauche (alpha1)
+
+    → Le robot tourne à gauche
+
+
+
+A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pas pu tester cet asservissement angulaire sur notre robot bien qu'une ébauche du code soit implémentée dans la tache du Lidar TaskLIDAR.
+
+
+
+
+
+
+
+
+
+ 
 
 
 
