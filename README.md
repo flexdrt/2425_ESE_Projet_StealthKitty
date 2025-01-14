@@ -128,7 +128,6 @@ Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur 
 Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est la stm32. L'avantage de cette communication est qu'elle permet une évolutivité si on a besoin d'ajouter d'autres composants matériel par la suite. Seulement pour cela il faut prévoir une résistance de pull-up (tirage) pour le bus I2C.
 
 
-
 Les signaux nécessaires pour implémenter en I2C ce capteur sont les suivants : 
 
 - SDA
@@ -165,8 +164,6 @@ Les signaux nécessaires pour implémenter en SPI ce capteur sont les suivants :
 - +5V
 
 - GND
-
-  
 
   
 
@@ -250,7 +247,13 @@ Dans cette feuille, nous avons connecter les composants suivants, le STM32, le S
 
 #####  le STM32  #####
 
-résistance de tirage bus I2C
+###### Explications assignations signaux-pins du STM32 ######
+Pour assigner les pins du STM32, nous avons pris positionné d'abord le GPIO du timer 1 pour les signaux PWM, puis les signaux des encodeurs. Les encodeurs ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode" à une fréquence plus basse que les signaux PWM, ils ne peuvent donc pas être sur le même timer que les PWM.  
+Ensuite nous avons connecté l'USART4 du LIDAR (et ses connectiques) puis l'USART2 du STLINK. On a placé les connexions SPI pour l'accéléromètre et les connexions I2C du capteur TOF.   
+
+
+résistance de tirage bus I2C : 
+Nous avons ajouté une résistance de pull-up sur le signal SDA et SCL respectivement de 3.3 kOhms et 2.2 kOhms  
 
 découplage alim stm32 à dire 
 #####  le quartz #####
@@ -442,31 +445,31 @@ void stop_r(void) {
 Avec la fonction HAL  [Version corrigé]
 
 ```c
-// Fonction stop moteur droit
+// Fonction stop moteur droit - CHANNEL 1
 void stop_r(void) {
-    //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);      // TIM1_CH1
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);     // TIM1_CH2N
-    //HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);      // TIM1_CH1
+    // *a_supprimer*__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);     // TIM1_CH2N
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
+    // *a_supprimer*HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
 
-}
+}//On met à 0 le compteur de la PWM du channel 1 et on stop la génération de PWM pour arrêter le moteur droit.
 ```
 
-On met à 0 le compteur de la PWM du channel 2 et on stop la génération de PWM pour arrêter le moteur droit.
+
 
 
 
 ```c
-// Fonction stop moteur gauche
+// Fonction stop moteur gauche - CHANNEL 2
 void stop_l(void) {
-    //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);      // TIM1_CH2
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);     // TIM1_CH1N
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
-    //HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
-}
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);      // TIM1_CH2
+     // *a_supprimer*__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);     // TIM1_CH1N
+     // *a_supprimer*HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+}//On met à 0 le compteur de la PWM du channel 2 et on stop la génération de PWM pour arrêter le moteur gauche.
 ```
 
-On met à 0 le compteur de la PWM du channel 1 et on stop la génération de PWM pour arrêter le moteur gauche.
+
 
 ### 🔧 Encodeur
 Les encodeurs sont utilisés pour mesurer la position des moteurs et calculer leur vitesse.
