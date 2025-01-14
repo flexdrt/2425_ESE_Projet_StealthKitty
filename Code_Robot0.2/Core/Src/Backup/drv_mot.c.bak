@@ -1,0 +1,242 @@
+/*
+ * drv_mot.c
+ *
+ *  Created on: Dec 4, 2024
+ *      Author: vincent lkme
+ */
+
+#include "drv_mot.h"
+//#include "drv_mot_3.h"
+#include "tim.h"
+#include "stm32g4xx_hal_tim.h"
+
+// Variable statique pour stocker le handle du timer utilisé
+static TIM_HandleTypeDef *motor_timer = NULL;
+
+/**
+ * @brief Initialisation des moteurs en PWM.
+ * @param htim : Handle du timer utilisé pour les moteurs.
+ */
+
+
+void Motor_StopAndTurn(void) {
+    Motor_drv_struct motor_left;
+    Motor_drv_struct motor_right;
+
+    // Initialisation des moteurs
+    DRV_MOT_Init(&motor_left, MTR1_CHANNEL);
+    DRV_MOT_Init(&motor_right, MTR2_CHANNEL);
+
+    printf("Interruption détectée ! Exécution de Motor_StopAndTurn...\n");
+
+    // Arrêter le moteur gauche
+    DRV_MOT_stoptMot(&motor_left);
+    printf("Moteur gauche arrêté.\n");
+
+    // Faire tourner le moteur droit pour un pivot
+    DRV_MOT_startMot_fwd(&motor_right);
+    DRV_MOT_SetSpeed(&motor_right, 500); // Ajustez la vitesse du pivot
+    printf("Moteur droit en marche (pivot)...\n");
+
+    // Pause pour exécuter le pivot
+    HAL_Delay(1000);
+
+    // Arrêter le moteur droit après le pivot
+    DRV_MOT_stoptMot(&motor_right);
+    printf("Moteur droit arrêté.\n");
+
+    printf("Pivot terminé.\n");
+}
+
+
+
+//start motor in Forward
+void DRV_MOT_startMot_fwd(Motor_drv_struct *motor){
+
+	/*CH1*/	HAL_TIM_PWM_Start(&htim1, motor->motor_chan_id); //PWM -->pin FWD PWM
+	/*CH1n*/	HAL_TIMEx_PWMN_Stop(&htim1, motor->motor_chan_id); //L --> PIN REV
+	/*
+	//PIN complémentaires
+	HAL_TIMEx_PWMN_Stop(&htim1, motor->motor_chan_id); //L --> PIN REV
+	HAL_TIM_PWM_Start(&htim1, motor->motor_chan_id); //PWM -->pin FWD PWM*/
+
+}
+//start motor in Reverse
+void DRV_MOT_startMot_rev(Motor_drv_struct *motor){
+
+	HAL_TIMEx_PWMN_Start(&htim1, motor->motor_chan_id); // PWM --> PIN REV L
+	HAL_TIM_PWM_Stop(&htim1, motor->motor_chan_id); // L-->pin FWD
+}
+
+// stopper un moteur
+void DRV_MOT_stoptMot (Motor_drv_struct *mtr){
+	//&mtr->alphastop;
+	//uint16_t l=4;
+	//__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, (uint16_t)(l* &mtr->alphastop));
+
+	//__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, &mtr->alphastop);
+	 __HAL_TIM_SET_COMPARE(&htim1, mtr->motor_chan_id, 0);
+	    HAL_TIM_PWM_Stop(&htim1, mtr->motor_chan_id); // Arrêter le PWM
+	    HAL_TIMEx_PWMN_Stop(&htim1, mtr->motor_chan_id); // Arrêter le complémentaire
+	    printf("Moteur sur canal %ld arrêté.\n", mtr->motor_chan_id);
+}
+
+//Two wheels robot same rotation sign
+//
+void DRV_MOT_bot_dualFwd(Motor_drv_struct *mtr1, Motor_drv_struct *mtr2){
+
+	//Un moteur dans un sens FWD
+	DRV_MOT_startMot_fwd(mtr1);
+
+	//un moteur dans le sens ReV
+	DRV_MOT_startMot_rev(mtr2);
+
+}
+
+void DRV_MOT_bot_dualRev(Motor_drv_struct *mtr1, Motor_drv_struct *mtr2){
+	//the motors goes in direction opposite defined in fonction	DRV_MOT_bot_dualFwd
+
+	//Un moteur dans un sens Rev
+	DRV_MOT_startMot_rev(mtr1);
+
+	//un moteur dans le sens ReV
+	DRV_MOT_startMot_fwd(mtr2);
+}
+
+
+
+//2 motors passed as arguments
+//Constructor
+void DRV_MOT_Init(Motor_drv_struct *mtrinit, uint32_t mtr_chan/*, uint16_t max_speed*/) {
+
+	Motor_drv_struct mtr_init;
+
+	mtrinit->motor_chan_id=mtr_chan;
+	/*mtrinit->max_speed=max_speed;//optionnal*/
+
+}
+
+void DRV_MOT_SetSpeed(Motor_drv_struct *motr, uint16_t speed) {
+
+	uint16_t pulse;
+	uint16_t n_speed = speed;
+
+
+	__HAL_TIM_SET_COMPARE(&htim1, motr->motor_chan_id, speed);
+
+
+}
+
+void Bot_init (uint8_t direction,uint16_t pulsePercent)
+//bot component
+{//we create one motor
+	Motor_drv_struct mtr_left;// motor considered as the left for the bot
+	Motor_drv_struct mtr_right;//motor considered as the right for the bot
+
+	/*
+	uint16_t vmax_RIGHT=355;//à déterminer
+	uint16_t vmax_LEFT=447;//à déterminer
+	 */
+
+	// init les deux motors (affecter un channel a chaque)
+
+
+	DRV_MOT_Init(&mtr_left,MTR1_CHANNEL);//channel1
+	DRV_MOT_Init(&mtr_right,MTR2_CHANNEL);//channel 2
+
+	/*
+
+	DRV_MOT_Init(&mtr_left,MTR1_CHANNEL,vmax_LEFT);//channel1
+	DRV_MOT_Init(&mtr_right,MTR2_CHANNEL,vmax_RIGHT);//channel 2
+	 */
+
+	//Launch in forward the bot
+
+	// si on veut que le bot avance au début à définir
+	// si oui
+
+	//uint16_t pulse;
+
+	//Convertir le rapport cyclique from  percent to ARR
+
+	// Récupération de la valeur maximale (ARR) du timer
+	uint32_t ARR = __HAL_TIM_GET_AUTORELOAD(&htim1);
+
+	// Conversion du pourcentage en valeur ARR utilisable
+	uint32_t pulse;
+
+	pulse = (pulsePercent * ARR) / 100;
+
+
+	//rapport cyclique fixe
+	//pulse=2125;
+
+	if(direction==1){
+		DRV_MOT_bot_dualFwd(&mtr_left,&mtr_right);
+		//To update the speed when the direction change, some direction may need different speed
+
+		//		DRV_MOT_SetSpeed(&mtr_left, 2125);
+		//		DRV_MOT_SetSpeed(&mtr_right,2125);
+
+//correct
+			DRV_MOT_SetSpeed(&mtr_left,pulse);
+			DRV_MOT_SetSpeed(&mtr_right, adapt_RATIO * pulse);//adaptation sur moteur + rapide motor right
+//wrong
+//			DRV_MOT_SetSpeed(&mtr_left, adapt_RATIO * pulse);//moteur le plus  rapide theorie
+//				DRV_MOT_SetSpeed(&mtr_right, pulse);
+	}
+
+	else{//si on veut qu'il recule
+		DRV_MOT_bot_dualRev(&mtr_left,&mtr_right);
+		//Update speed, idem
+		//put adapt_RATIO on the fastest motor
+
+
+		//		DRV_MOT_SetSpeed(&mtr_left, 2125);
+		//		DRV_MOT_SetSpeed(&mtr_right,2125);
+
+		DRV_MOT_SetSpeed(&mtr_left, adapt_RATIO * pulse);
+		DRV_MOT_SetSpeed(&mtr_right, pulse);
+
+	}
+
+
+
+	//Manual testing please comment Switch case
+	/* en avant */		//DRV_MOT_bot_dualFwd(&mtr_left,&mtr_right);
+	/* en arrière */	//DRV_MOT_bot_dualRev(&mtr_left,&mtr_right);
+
+	//DRV_MOT_SetSpeed(&mtr_left, 2125);
+	//DRV_MOT_SetSpeed(&mtr_right, 2125);
+
+
+}
+
+
+
+
+
+
+//brouillon désirable*****************************************************************************************************************************************************
+
+uint32_t duty_asserv(uint16_t e, uint32_t arr_value){
+
+	uint32_t base_arr=arr_value;
+
+	int p=0;
+	uint32_t duty_right=( (-p) * e) + base_arr;
+	uint32_t duty_left=( (+p) * e) + base_arr;
+
+	//si l'erreur est nul= pas d'obstacle
+	//on continue d'avancer
+	//on met les deux roues à la même vitesse, à fond (à rapport cylcique minimal), tout droit
+	return duty_right;
+}
+
+
+
+
+
+
+
+

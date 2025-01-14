@@ -1,0 +1,10 @@
+../Core/Src/vl53l1_platform.c:28:8:VL53L1_RdByte	2
+../Core/Src/vl53l1_platform.c:35:8:VL53L1_RdWord	2
+../Core/Src/vl53l1_platform.c:44:8:VL53L1_RdDWord	2
+../Core/Src/vl53l1_platform.c:53:8:VL53L1_ReadMulti	2
+../Core/Src/vl53l1_platform.c:60:8:VL53L1_WrByte	2
+../Core/Src/vl53l1_platform.c:67:8:VL53L1_WrWord	2
+../Core/Src/vl53l1_platform.c:75:8:VL53L1_WrDWord	2
+../Core/Src/vl53l1_platform.c:83:8:VL53L1_WriteMulti	2
+../Core/Src/vl53l1_platform.c:125:9:VL53L1__Init	9
+../Core/Src/vl53l1_platform.c:213:10:VL53L1__GetDistance	5

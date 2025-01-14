@@ -1,0 +1,115 @@
+#ifndef DRV_SENSOR_H_
+#define DRV_SENSOR_H_
+
+#include <stdint.h>
+#include "math.h"
+
+// Tailles des buffers
+#define INFO_BUFF_SIZE 27
+#define HEALTH_BUFF_SIZE 10
+#define CMD_LEN 2
+#define BUFFER_SIZE 2000
+#define PACKET_SIZE 90
+#define SCAN_SIZE 360
+#define NB_DEGRES 360
+#define DETECT_THRESHOLD 150
+
+typedef enum device_command_enum
+{
+    CMD_HEADER  = 0xA5,
+    CMD_INIT    = 0x60,
+    CMD_HALT    = 0x65,
+    CMD_STATUS  = 0x90,
+    CMD_DIAG    = 0x91,
+    CMD_RESET   = 0x80
+} device_command_t;
+
+// Fonctions driver série
+typedef int (* sns_transmit_t)(uint8_t *p_data, uint16_t size);
+typedef int (* sns_it_transmit_t)(uint8_t *p_data, uint16_t size);
+typedef int (* sns_dma_transmit_t)(uint8_t *p_data, uint16_t size);
+typedef int (* sns_poll_receive_t)(uint8_t *p_data, uint16_t size);
+typedef int (* sns_it_receive_t)(uint8_t *p_data, uint16_t size);
+typedef int (* sns_dma_receive_t)(uint8_t *p_data, uint16_t size);
+
+typedef struct serial_driver_struct
+{
+    sns_transmit_t transmit;
+    sns_transmit_t it_transmit;
+    sns_transmit_t dma_transmit;
+    sns_poll_receive_t poll_receive;
+    sns_it_receive_t it_receive;
+    sns_dma_receive_t dma_receive;
+} serial_driver_t;
+
+typedef struct dev_health_struct
+{
+    uint16_t start_sign;
+    uint32_t lenght;
+    uint8_t mode;
+    uint8_t type_code;
+    uint8_t status_code;
+    uint16_t error_code;
+} dev_health_t;
+
+typedef struct dev_info_struct
+{
+    uint16_t start_sign;
+    uint32_t lenght;
+    uint8_t mode;
+    uint8_t type_code;
+    uint8_t model;
+    char firmware[6];
+    uint8_t hardware;
+    char serial[17];
+} dev_info_t;
+
+typedef struct object_data_struct {
+    int angle_moyen;
+    int distance_moyenne;
+    int count;
+} object_data_t;
+
+typedef struct data_proc_struct
+{
+    uint16_t PH;
+    uint8_t CT;
+    uint8_t LSN;
+    uint16_t FSA;
+    uint16_t LSA;
+    uint16_t CS;
+    uint8_t idx;
+
+    uint8_t receive_buff[BUFFER_SIZE];
+    uint8_t packet_data[PACKET_SIZE];
+    int scan_data[SCAN_SIZE];
+    int clean_data[SCAN_SIZE];
+    object_data_t objects[100];
+    int obj_count;
+} data_proc_t;
+
+typedef struct sensor_handle_struct
+{
+    serial_driver_t serial_drv;
+    dev_health_t health_stat;
+    dev_info_t dev_info;
+
+    uint8_t status_data[INFO_BUFF_SIZE];
+    uint8_t diag_data[HEALTH_BUFF_SIZE];
+    uint8_t raw_data[BUFFER_SIZE];
+
+    data_proc_t processing;
+} sensor_handle_t;
+
+// Prototypes des fonctions
+int sns_begin(sensor_handle_t * dev);
+int sns_end(sensor_handle_t * dev);
+int sns_query_status(sensor_handle_t * dev);
+int sns_check_health(sensor_handle_t * dev);
+int sns_reset(sensor_handle_t * dev);
+void sns_parse_data(sensor_handle_t *dev);
+int calc_avg_dist(int distances[], int debut, int fin);
+void detect_objects(sensor_handle_t * dev);
+void smooth_data(sensor_handle_t * dev);
+
+#endif /* DRV_SENSOR_H_ */

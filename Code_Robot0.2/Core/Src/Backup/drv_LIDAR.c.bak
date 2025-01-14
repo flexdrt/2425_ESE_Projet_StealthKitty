@@ -1,0 +1,164 @@
+#include "drv_LIDAR.h"
+#include "stdio.h"
+
+int sns_begin(sensor_handle_t * dev){
+    uint8_t cmd_buff[CMD_LEN]={CMD_HEADER,CMD_INIT};
+    dev->serial_drv.dma_receive(dev->raw_data,BUFFER_SIZE);
+    dev->serial_drv.transmit(cmd_buff,CMD_LEN);
+    return 0;
+}
+
+int sns_end(sensor_handle_t * dev){
+    uint8_t cmd_buff[CMD_LEN]={CMD_HEADER,CMD_HALT};
+    dev->serial_drv.transmit(cmd_buff,CMD_LEN);
+    return 0;
+}
+
+int sns_query_status(sensor_handle_t * dev){
+    uint8_t cmd_buff[CMD_LEN]={CMD_HEADER,CMD_STATUS};
+    dev->serial_drv.transmit(cmd_buff,CMD_LEN);
+    dev->serial_drv.poll_receive(dev->status_data,INFO_BUFF_SIZE);
+
+    dev->dev_info.start_sign=(dev->status_data[0]<<8)|dev->status_data[1];
+    dev->dev_info.lenght=(dev->status_data[2])|(dev->status_data[3]<<8)|(dev->status_data[4]<<16);
+    dev->dev_info.mode=dev->status_data[5];
+    dev->dev_info.type_code=dev->status_data[6];
+    dev->dev_info.model=dev->status_data[7];
+    snprintf(dev->dev_info.firmware,6,"%d.%d",dev->status_data[8],dev->status_data[9]);
+    dev->dev_info.hardware=dev->status_data[10];
+    snprintf(dev->dev_info.serial,17,"%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x",
+             dev->status_data[11],dev->status_data[12],dev->status_data[13],
+             dev->status_data[14],dev->status_data[15],dev->status_data[16],
+             dev->status_data[17],dev->status_data[18],dev->status_data[19],
+             dev->status_data[20],dev->status_data[21],dev->status_data[22],
+             dev->status_data[23],dev->status_data[24],dev->status_data[25],
+             dev->status_data[26]);
+
+    printf("Start sign : %x\r\n",dev->dev_info.start_sign);
+    printf("Length : %ld\r\n",dev->dev_info.lenght);
+    printf("Mode : %x\r\n",dev->dev_info.mode);
+    printf("Type code : %x\r\n",dev->dev_info.type_code);
+    printf("Model %x\r\n",dev->dev_info.model);
+    printf("Firmware version : %s\r\n",dev->dev_info.firmware);
+    printf("Hardware version : %d\r\n",dev->dev_info.hardware);
+    printf("Serial number : %s\r\n",dev->dev_info.serial);
+
+    return 0;
+}
+
+int sns_check_health(sensor_handle_t * dev){
+    uint8_t cmd_buff[CMD_LEN]={CMD_HEADER,CMD_DIAG};
+    dev->serial_drv.transmit(cmd_buff,2);
+    dev->serial_drv.poll_receive(dev->diag_data,HEALTH_BUFF_SIZE);
+
+    dev->health_stat.start_sign=(dev->diag_data[0]<<8)|dev->diag_data[1];
+    dev->health_stat.lenght=(dev->diag_data[2])|(dev->diag_data[3]<<8)|(dev->diag_data[4]<<16);
+    dev->health_stat.mode=dev->diag_data[5];
+    dev->health_stat.type_code=dev->diag_data[6];
+    dev->health_stat.status_code=dev->diag_data[7];
+    dev->health_stat.error_code=dev->diag_data[8]|(dev->diag_data[9]<<8);
+
+    printf("Start sign : %x\r\n",dev->health_stat.start_sign);
+    printf("Length : %ld\r\n",dev->health_stat.lenght);
+    printf("Mode : %x\r\n",dev->health_stat.mode);
+    printf("Type code : %x\r\n",dev->health_stat.type_code);
+    printf("Status code : %x\r\n",dev->health_stat.status_code);
+    printf("Error code : %x\r\n",dev->health_stat.error_code);
+
+    return 0;
+}
+
+int sns_reset(sensor_handle_t * dev){
+    uint8_t cmd_buff[CMD_LEN]={CMD_HEADER,CMD_RESET};
+    dev->serial_drv.transmit(cmd_buff,CMD_LEN);
+    return 0;
+}
+
+void sns_parse_data(sensor_handle_t * dev){
+    uint16_t Si;
+    int Di;
+    int Ai;
+    int AngleFSA=(dev->processing.FSA>>1);
+    int AngleLSA=(dev->processing.LSA>>1);
+    int index;
+    for(int i=0;i<dev->processing.idx/2;i++){
+        Si=dev->processing.packet_data[2*i]|(dev->processing.packet_data[2*i+1]<<8);
+        Di=Si/4;
+        Ai=AngleFSA/64+i*(AngleLSA-AngleFSA)/64/(dev->processing.LSN-1);
+        index = round(Ai);
+
+        if(Di>1500){
+            dev->processing.scan_data[index]=0;
+        }
+        else if(Di<40){
+            dev->processing.scan_data[index]=0;
+        }
+        else{
+            dev->processing.scan_data[index]=Di;
+        }
+    }
+}
+
+int calc_avg_dist(int distances[], int debut, int fin) {
+    int somme = 0;
+    for (int i = debut; i <= fin; i++) {
+        somme += distances[i];
+    }
+    return somme / (fin - debut + 1);
+}
+
+void detect_objects(sensor_handle_t * dev) {
+    int * distances=dev->processing.clean_data;
+    int obj_count = 0;
+    int debut_cluster = 0;
+
+    for (int i = 1; i < NB_DEGRES; i++) {
+        if (fabs(distances[i] - distances[i - 1]) > DETECT_THRESHOLD) {
+            int distance_moyenne = calc_avg_dist(distances, debut_cluster, i - 1);
+            int angle_moyen = (debut_cluster + i - 1) / 2;
+
+            dev->processing.objects[obj_count].angle_moyen = angle_moyen;
+            dev->processing.objects[obj_count].distance_moyenne = distance_moyenne;
+            dev->processing.objects[obj_count].count = i - debut_cluster;
+
+            debut_cluster = i;
+            obj_count++;
+        }
+    }
+
+    int distance_moyenne = calc_avg_dist(distances, debut_cluster, NB_DEGRES - 1);
+    int angle_moyen = (debut_cluster + NB_DEGRES - 1) / 2;
+    dev->processing.objects[obj_count].angle_moyen = angle_moyen;
+    dev->processing.objects[obj_count].distance_moyenne = distance_moyenne;
+    dev->processing.objects[obj_count].count = NB_DEGRES - debut_cluster;
+    obj_count++;
+    dev->processing.obj_count=obj_count;
+}
+
+void smooth_data(sensor_handle_t * dev) {
+    int * signal=dev->processing.scan_data;
+    int signal_length=NB_DEGRES;
+    int window[5];
+    int i, j, k, middle;
+    middle = 5 / 2;
+
+    for (i = 0; i < signal_length; i++) {
+        for (j = 0; j < 5; j++) {
+            int index = i - middle + j;
+            if (index < 0) index = 0;
+            if (index >= signal_length) index = signal_length - 1;
+            window[j] = signal[index];
+        }
+
+        for (j = 0; j < 5; j++) {
+            for (k = j + 1; k < 5; k++) {
+                if (window[j] > window[k]) {
+                    int temp = window[j];
+                    window[j] = window[k];
+                    window[k] = temp;
+                }
+            }
+        }
+        dev->processing.clean_data[i] = window[middle];
+    }
+}

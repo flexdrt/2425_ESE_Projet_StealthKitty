@@ -1,0 +1,813 @@
+/* USER CODE BEGIN Header */
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "cmsis_os.h"
+#include "dma.h"
+#include "i2c.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "stdio.h"
+#include "vl53l1_platform.h"
+#include "VL53L1X_api.h"
+#include "drv_mot.h"
+#include "drv_LIDAR.h"
+#include "string.h"
+#include "moteur.h"
+#include "ADXL343_SPI.h"
+
+int _write(int file, char *ptr, int len) {
+	HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+	return len;
+}
+
+extern SPI_HandleTypeDef hspi1;
+ADXL343 accelerometer;
+
+//Motor_drv_struct motor_left;
+//Motor_drv_struct motor_right;
+
+void vTaskADX(void *argument) {
+
+	ADXL343_initialization(&hspi1, &accelerometer);
+	ADXL343_EnableTapInterrupts(&accelerometer);
+	ADXL343_set_tap_parameters(&accelerometer, 20, 1, 80, 200);
+	ADXL343_SetDataFormat(&accelerometer);
+
+	while (1)
+	{
+		//ADXL343_get_acc_raw(&accelerometer);
+		//ADXL343_get_acc_norm(&accelerometer);
+		//ADXL343_print_raw(&accelerometer, &huart2);
+		ADXL343_check_tap(&accelerometer);
+		vTaskDelay(pdMS_TO_TICKS(500));
+	}
+}
+
+
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define STACK_SIZE 256
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+TaskHandle_t h_task_bord = NULL;
+
+sensor_handle_t dev_handle;
+
+int frame_start = 0;
+int frame_end = 0;
+
+int dist_min = 0;
+int idx_min = 0;
+
+SemaphoreHandle_t SemHalfCallBack;
+SemaphoreHandle_t SemClpCallBack;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
+/* USER CODE BEGIN PFP */
+int uart_transmit(uint8_t *p_data, uint16_t size){
+    HAL_UART_Transmit(&huart4, p_data, size, HAL_MAX_DELAY);
+    return 0;
+}
+
+int uart_it_transmit(uint8_t *p_data, uint16_t size){
+    HAL_UART_Transmit_IT(&huart4, p_data, size);
+    return 0;
+}
+
+int uart_dma_transmit(uint8_t *p_data, uint16_t size){
+    HAL_UART_Transmit_DMA(&huart4, p_data, size);
+    return 0;
+}
+
+int uart_poll_receive(uint8_t *p_data, uint16_t size){
+    HAL_UART_Receive(&huart4, p_data, size, HAL_MAX_DELAY);
+    return 0;
+}
+
+int uart_it_receive(uint8_t *p_data, uint16_t size){
+    HAL_UART_Receive_IT(&huart4, p_data, size);
+    return 0;
+}
+
+int uart_dma_receive(uint8_t *p_data, uint16_t size){
+    HAL_UART_Receive_DMA(&huart4, p_data, size);
+    return 0;
+}
+void Task_MotorControl(void *argument);
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+/*int __io_putchar(int ch)
+{
+	HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, HAL_MAX_DELAY);
+	return ch;
+}*/
+
+/*void I2C_Scan() {
+	printf("Scan du bus I2C...\n");
+	for (uint8_t addr = 0x28; addr <= 0x2A; addr++) { // Scanner 0x28 à 0x2A
+		if (HAL_I2C_IsDeviceReady(&hi2c1, (addr << 1), 1, HAL_MAX_DELAY) == HAL_OK) {
+			printf("Périphérique trouvé à l'adresse 0x%02X\n", addr);
+		}
+	}
+
+}*/
+void task_Bord(void * unused)
+{
+	printf("task_Bord démarrée.\n");
+	for(;;) {
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		VL53L1X_ClearInterrupt(TOF_ADDR);
+		printf(" Attention, seuil franchi !\n");
+		VL53L1X_ClearInterrupt(TOF_ADDR);
+	}
+}
+
+void task_SensorMeasurement(void *unused) {
+	printf("task_SensorMeasurement démarrée.\n");
+	uint16_t distance ;
+	uint8_t rangeStatus = 0;
+
+	while (1) {
+		VL53L1X_CheckForDataReady(TOF_ADDR, &rangeStatus);
+		if (rangeStatus == 0) {
+			VL53L1X_GetDistance(TOF_ADDR, &distance);
+			printf("Distance mesurée : %d mm\n", distance);
+		}
+		vTaskDelay(pdMS_TO_TICKS(500));
+	}
+}
+
+
+void TaskSensorProcess(void * pvParameters){
+//	// Structures moteurs
+//	    Motor_drv_struct motor_left;
+//	    Motor_drv_struct motor_right;
+//
+//	    // Variables d'asservissement
+//	    uint16_t alpha1 = 0, alpha2 = 0;
+//	    uint16_t angle = 0, vitesse = 0;
+//
+//	    // Variables de verrouillage de cible
+//	    uint32_t lock_start_time = 0;
+//	    uint16_t locked_angle = 0;
+//	    uint16_t locked_distance = 0;
+//	    const uint32_t LOCK_DURATION = 8000;
+//	    int target_locked = 0;                  // Changé bool en int pour compatibilité
+//	    const uint16_t ANGLE_TOLERANCE = 20;
+//
+//	    // Variable pour calcul de différence d'angle
+//	    int16_t angle_diff = 0;                 // Pour les calculs de différence d'angle
+//
+//	    // Initialisation des moteurs
+//	    DRV_MOT_Init(&motor_left, MTR1_CHANNEL);
+//	    DRV_MOT_Init(&motor_right, MTR2_CHANNEL);
+//
+//	    printf("Démarrage de la tâche d'asservissement sur LIDAR avec verrouillage\r\n");
+//
+
+
+
+
+	    for(;;){
+        xSemaphoreTake(SemHalfCallBack, portMAX_DELAY);
+        for(int i=0; i<BUFFER_SIZE; i++){
+            if(i==BUFFER_SIZE/2){
+                xSemaphoreTake(SemClpCallBack, portMAX_DELAY);
+            }
+
+            if(i==0){
+                if((dev_handle.raw_data[i]==0xA5) && (dev_handle.raw_data[i+1]==0x5A) &&
+                   (dev_handle.raw_data[i+2]==0x05) && (dev_handle.raw_data[i+3]==0x00) &&
+                   (dev_handle.raw_data[i+4]==0x00) && (dev_handle.raw_data[i+5]==0x40) &&
+                   (dev_handle.raw_data[i+6]==0x81)){
+                    printf("Device Response Received\r\n");
+                    dev_handle.processing.idx=0;
+                    i=6;
+                    frame_start=7;
+                    frame_end=frame_start+4;
+                }
+            }
+
+            if(i==frame_start){
+                dev_handle.processing.PH=dev_handle.raw_data[i];
+            }
+            else if(i==frame_start+1){
+                dev_handle.processing.PH=dev_handle.processing.PH|(dev_handle.raw_data[i]<<8);
+            }
+            else if(i==frame_start+2){
+                dev_handle.processing.CT=dev_handle.raw_data[i];
+            }
+            else if(i==frame_start+3){
+                frame_end=frame_start+9+2*dev_handle.raw_data[i];
+                dev_handle.processing.LSN=dev_handle.raw_data[i];
+            }
+            else if(i==frame_start+4){
+                dev_handle.processing.FSA=dev_handle.raw_data[i];
+            }
+            else if(i==frame_start+5){
+                dev_handle.processing.FSA=dev_handle.processing.FSA|(dev_handle.raw_data[i]<<8);
+            }
+            else if(i==frame_start+6){
+                dev_handle.processing.LSA=dev_handle.raw_data[i];
+            }
+            else if(i==frame_start+7){
+                dev_handle.processing.LSA=dev_handle.processing.LSA|(dev_handle.raw_data[i]<<8);
+            }
+            else if(i==frame_start+8){
+                dev_handle.processing.CS=dev_handle.raw_data[i];
+            }
+            else if(i==frame_start+9){
+                dev_handle.processing.CS=dev_handle.processing.CS|(dev_handle.raw_data[i]<<8);
+            }
+            else if(i==frame_end){
+                dev_handle.processing.packet_data[dev_handle.processing.idx++]=dev_handle.raw_data[i];
+                if(frame_end-frame_start>11){
+                    sns_parse_data(&dev_handle);
+                    smooth_data(&dev_handle);
+                    detect_objects(&dev_handle);
+                }
+                dev_handle.processing.idx=0;
+                frame_start=frame_end+1;
+                frame_end=frame_start+5;
+            }
+            else{
+                dev_handle.processing.packet_data[dev_handle.processing.idx++]=dev_handle.raw_data[i];
+            }
+        }
+        frame_start=frame_start-BUFFER_SIZE;
+        frame_end=frame_end-BUFFER_SIZE;
+
+        printf("#\r\n");
+        dist_min=2000;
+        for(int i=0 ; i<dev_handle.processing.obj_count ; i++){
+            printf("%d,%d\r\n",
+                   dev_handle.processing.objects[i].angle_moyen,
+                   dev_handle.processing.objects[i].distance_moyenne);
+            if(dev_handle.processing.objects[i].distance_moyenne<dist_min &&
+               dev_handle.processing.objects[i].distance_moyenne !=0){
+                dist_min=dev_handle.processing.objects[i].distance_moyenne;
+                idx_min=i;
+            }
+        }
+        printf("%d,%d\r\n",
+               dev_handle.processing.objects[idx_min].angle_moyen,
+               dev_handle.processing.objects[idx_min].distance_moyenne);
+
+
+
+
+
+
+
+
+//        // Gestion du verrouillage de cible
+//                uint32_t current_time = HAL_GetTick();
+//
+//                if(!target_locked) {
+//                    locked_angle = dev_handle.processing.objects[idx_min].angle_moyen;
+//                    locked_distance = dev_handle.processing.objects[idx_min].distance_moyenne;
+//                    lock_start_time = current_time;
+//                    target_locked = 1;  // Utilisation de 1 au lieu de true
+//                    printf("Nouvelle cible verrouillée - Angle: %d°, Distance: %dmm\r\n",
+//                           locked_angle, locked_distance);
+//                }
+//                else {
+//                    if(current_time - lock_start_time >= LOCK_DURATION) {
+//                        target_locked = 0;  // Utilisation de 0 au lieu de false
+//                        printf("Fin du verrouillage de cible\r\n");
+//                        continue;
+//                    }
+//
+//                    int best_match_idx = -1;
+//                    uint16_t min_angle_diff = 360;
+//
+//                    for(int i = 0; i < dev_handle.processing.obj_count; i++) {
+//                        uint16_t current_angle = dev_handle.processing.objects[i].angle_moyen;
+//                        angle_diff = abs(current_angle - locked_angle);
+//
+//                        if(angle_diff < min_angle_diff &&
+//                           angle_diff < ANGLE_TOLERANCE &&
+//                           dev_handle.processing.objects[i].distance_moyenne != 0) {
+//                            min_angle_diff = angle_diff;
+//                            best_match_idx = i;
+//                        }
+//                    }
+//
+//                    if(best_match_idx != -1) {
+//                        angle = dev_handle.processing.objects[best_match_idx].angle_moyen;
+//                        vitesse = dev_handle.processing.objects[best_match_idx].distance_moyenne;
+//                        locked_angle = angle;
+//
+//                        printf("Suivi cible - Angle: %d°, Distance: %dmm\r\n", angle, vitesse);
+//
+//                        if(angle > 180) {
+//                            alpha1 = (180 - angle)*2 + 400 + vitesse;
+//                            alpha2 = 300 + vitesse/3;
+//                            if(alpha1 > 900) alpha1 = 900;
+//                        } else {
+//                            alpha2 = (angle-180)*2 + 400 + vitesse;
+//                            alpha1 = 300 + vitesse/3;
+//                            if(alpha2 > 900) alpha2 = 900;
+//                        }
+//
+//                        DRV_MOT_startMot_fwd(&motor_right);
+//                        DRV_MOT_startMot_rev(&motor_left);
+//                        DRV_MOT_SetSpeed(&motor_left, alpha1);
+//                        DRV_MOT_SetSpeed(&motor_right, alpha2);
+//    }
+//}
+}
+}
+
+void Task_MotorControl(void *argument)
+{
+	printf("Tâche MotorControl démarrée.\n");
+	// Choisissez un alpha adapté à la PWM
+	uint16_t alpha = 1200;  // 30% de 8500
+	uint16_t distance = 0; // Distance mesurée par le capteur
+	//const uint32_t delta_time_ms = 100;  // Intervalle de temps pour le calcul
+	//const uint16_t encoder_resolution = 1024;  // Nombre d'impulsions par tour
+
+	for (;;) {
+	        // Lire la distance avec VL53L1X
+	        if (VL53L1X_GetDistance(TOF_ADDR, &distance) == 0) {
+	            printf("Distance mesurée : %d mm\n", distance);
+
+	            // Vérifier si la distance dépasse le seuil critique
+	            if (distance > 75) {
+	                // Arrêter les moteurs
+	                stop_r();
+	                stop_l();
+	                printf("Danger détecté : moteur arrêté. Pivot arrière en cours...\n");
+
+	                // Effectuer un pivot en arrière
+	                reverse_r(alpha);       // Moteur droit recule
+	                reverse_l(alpha+ 3050);   // Moteur gauche recule plus lentement pour pivoter
+	                vTaskDelay(pdMS_TO_TICKS(1500)); // Pivot pendant 1 seconde
+
+	                // Arrêter les moteurs après le pivot
+	                stop_r();
+	                stop_l();
+	                printf("Pivot terminé, moteurs arrêtés.\n");
+	            } else {
+	                // Faire avancer les moteurs
+	                forward_r(alpha + 2350);
+	                forward_l(alpha);
+	                printf("Les moteurs avancent.\n");
+	            }
+	        } else {
+	            printf("Erreur : lecture de la distance impossible.\n");
+	        }
+
+		// Pause pour limiter la charge CPU
+		vTaskDelay(pdMS_TO_TICKS(100)); // Vérification toutes les 100 ms
+	}
+}
+
+/*for (;;)
+	{
+		// 1) Avancer les deux moteurs
+		//printf("Avance des deux moteurs (alpha = %u)\n", alpha);
+		forward_r(alpha+2450);  // Moteur droit
+		forward_l(alpha);  // Moteur gauche*/
+
+/*		for (int i = 0; i < 50; i++)  // Mesurer pendant 5 secondes (50 * 100 ms)
+		{
+			float speed_left = calculate_motor_speed(MOTOR_LEFT, delta_time_ms, encoder_resolution);
+			float speed_right = calculate_motor_speed(MOTOR_RIGHT, delta_time_ms, encoder_resolution);
+
+			printf("Vitesse moteur gauche : %.2f tours/s\n", speed_left);
+			printf("Vitesse moteur droit : %.2f tours/s\n", speed_right);
+
+			vTaskDelay(pdMS_TO_TICKS(delta_time_ms));  // Attendre 100 ms
+		}
+
+		// Maintenir l'avance pendant 3 secondes (3000 ms)
+		vTaskDelay(pdMS_TO_TICKS(5000));
+
+		// 2) Arrêter les deux moteurs
+		printf("Arrêt des deux moteurs.\n");
+		stop_r();
+		stop_l();
+		//Attendre 2 secondes à l'arrêt
+		vTaskDelay(pdMS_TO_TICKS(2000));
+
+		printf("Recule des deux moteurs (alpha = %u)\n", alpha);
+		reverse_r(alpha);  // Moteur droit
+		reverse_l(alpha+2450);  // Moteur gauche
+		vTaskDelay(pdMS_TO_TICKS(5000));
+
+		printf("Arrêt des deux moteurs.\n");
+		stop_r();
+		stop_l();
+		//Attendre 2 secondes à l'arrêt
+		vTaskDelay(pdMS_TO_TICKS(2000));
+
+	}*/
+
+
+void Task_FallPrevention(void *argument) {
+	uint16_t distance = 0;
+
+	while (1) {
+		// Lire la distance du capteur TOF
+		if (VL53L1X_GetDistance(TOF_ADDR, &distance) == 0) {
+			// Vérifier si la distance est inférieure au seuil critique
+			if (distance > 75) {
+				// Arrêter les moteurs en cas de danger
+				stop_r();
+				stop_l();
+				printf("Danger détecté : distance = %d mm, moteurs arrêtés.\n", distance);
+			}
+		}
+
+		// Réinitialiser l'interruption du capteur
+		VL53L1X_ClearInterrupt(TOF_ADDR);
+
+		// Petite pause pour éviter de surcharger la CPU
+		vTaskDelay(pdMS_TO_TICKS(100));
+	}
+}
+
+/*void task_GPIO_Status(void *unused) {
+	uint8_t gpio_status = 0;
+	while (1) {
+		// Lire le registre GPIO__TIO_HV_STATUS
+		VL53L1X_ERROR status = VL53L1_RdByte(TOF_ADDR, GPIO__TIO_HV_STATUS, &gpio_status);
+		if (status == 0) {
+			printf("Statut GPIO VL53L1X : 0x%02X\n", gpio_status);
+		} else {
+			printf("Erreur de lecture du statut GPIO : %d\n", status);
+		}
+
+		vTaskDelay(pdMS_TO_TICKS(500)); // Attente de 500 ms entre chaque lecture
+	}
+}*/
+
+
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+	TaskHandle_t xHandleSensor = NULL;  // Renamed from xHandleLIDAR
+	BaseType_t ret;
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_I2C1_Init();
+  MX_SPI1_Init();
+  MX_USART2_UART_Init();
+  MX_TIM1_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_UART4_Init();
+  /* USER CODE BEGIN 2 */
+
+
+
+
+  dev_handle.serial_drv.transmit=uart_transmit;
+  dev_handle.serial_drv.it_transmit=uart_it_transmit;
+  dev_handle.serial_drv.dma_transmit=uart_dma_transmit;
+  dev_handle.serial_drv.poll_receive=uart_poll_receive;
+  dev_handle.serial_drv.it_receive=uart_it_receive;
+  dev_handle.serial_drv.dma_receive=uart_dma_receive;
+
+  printf("\r\n===== LIDAR Driver Init =====\r\n");
+
+  sns_end(&dev_handle);
+  HAL_Delay(1000);
+  sns_query_status(&dev_handle);
+  //printf("OK\r\n");
+  sns_check_health(&dev_handle);
+
+  ret = xTaskCreate(TaskSensorProcess, "TaskSensor", STACK_SIZE,
+				   (void *) NULL, 7, &xHandleSensor);
+  if (ret != pdPASS)
+  {
+	  printf("Error creating TaskSensor\r\n");
+	  Error_Handler();
+  }
+
+  printf("Task Sensor created\r\n");
+
+  SemHalfCallBack = xSemaphoreCreateBinary();
+  SemClpCallBack = xSemaphoreCreateBinary();
+
+  //xPrintMutex = xSemaphoreCreateMutex();
+
+
+  sns_begin(&dev_handle);
+  HAL_UART_Receive_DMA(&huart4, dev_handle.raw_data, BUFFER_SIZE);
+
+
+
+
+
+
+
+
+	//uint8_t msg[] = "Test UART\n";
+	//HAL_UART_Transmit(&huart2, msg, sizeof(msg), HAL_MAX_DELAY);
+
+
+      init_motors();
+      /*uint16_t alpha = 1200;  // 30% de 8500
+
+      	// Faire avancer les deux moteurs
+      	// forward_r(alpha+2450);  // Moteur droit
+      	// forward_l(alpha);  // Moteur gauche
+
+      	reverse_r(alpha);  // Moteur droit
+      	reverse_l(alpha+2450);  // Moteur gauche
+
+      	// Arrêter les moteurs
+      	// stop_r();
+      	//  stop_l();*/
+
+	/*I2C_Scan();*/
+	//VL53L1__Init();
+
+	printf("Initialisation du système STM32 terminée.\n");
+
+	VL53L1X_StartRanging (TOF_ADDR);
+	VL53L1X_SetDistanceThreshold(TOF_ADDR, 10, 150, 1, 0) ;
+	VL53L1X_SetInterruptPolarity(TOF_ADDR, 1) ;
+	VL53L1X_ClearInterrupt(TOF_ADDR);
+
+
+	ADXL343_initialization(&hspi1, &accelerometer);
+	ADXL343_EnableTapInterrupts(&accelerometer);
+	ADXL343_set_tap_parameters(&accelerometer, 20, 1, 80, 200);
+	ADXL343_SetDataFormat(&accelerometer);
+
+
+	//xTaskCreate(task_GPIO_Status, "GPIO_Status", 256, NULL, 3, NULL);
+//	xTaskCreate(task_Bord, "Bord", 128, NULL, 5, &h_task_bord);
+//	xTaskCreate(vTaskADX, "TaskADX",256, NULL, 4, NULL);
+//	//xTaskCreate(Task_FallPrevention, "FallPrevention", 256, NULL, 5, &h_task_bord);
+//	//xTaskCreate(Task_MotorInterrupt, "MotorInterrupt", 256, NULL, 4, &h_task_bord);
+//	xTaskCreate(Task_MotorControl, "MotorControl", 256, NULL, 4, NULL);
+//	xTaskCreate(task_SensorMeasurement, "SensorMeasurement", 256, NULL, 4, NULL);
+//
+
+
+
+
+
+  /* USER CODE END 2 */
+
+  /* Call init function for freertos objects (in cmsis_os2.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+
+
+
+
+
+	while (1)
+	{
+		/*HAL_GPIO_TogglePin(GPIOB, Status_Red_Pin|Status_Blue_Pin);
+		HAL_Delay(200);
+		ADXL343_get_acc_raw(&accelerometer);
+		ADXL343_get_acc_norm(&accelerometer);
+		ADXL343_print_raw(&accelerometer, &huart2);
+		//ADXL343_print_norm(&accelerometer, &huart2);
+		ADXL343_check_tap(&accelerometer);*/
+
+		uint16_t distance;
+
+		// Lecture de la distance avec vérification d'erreur
+		if (VL53L1X_GetDistance(TOF_ADDR, &distance) == 0) {
+			printf("Distance mesurée : %d mm\n", distance);
+		} else {
+			printf("Erreur lors de la mesure.\n");
+		}
+
+		//VL53L1__test();
+
+		HAL_Delay(500);
+
+
+
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+	}
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV4;
+  RCC_OscInitStruct.PLL.PLLN = 85;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/* USER CODE BEGIN 4 */
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    xSemaphoreGiveFromISR(SemHalfCallBack, &xHigherPriorityTaskWoken);
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    xSemaphoreGiveFromISR(SemClpCallBack, &xHigherPriorityTaskWoken);
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if (GPIO_Pin == INT_TOF2_Pin) {
+		printf("Interruption détectée sur le capteur TOF.\n");
+		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+		vTaskNotifyGiveFromISR(h_task_bord, &xHigherPriorityTaskWoken);
+		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+
+	}
+}
+/*void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	VL53L1X_ClearInterrupt(TOF_ADDR);
+	printf("Tu tombe \n") ;
+	VL53L1X_ClearInterrupt(TOF_ADDR);
+
+}*/
+/* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM6 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM6) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+	/* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

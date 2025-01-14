@@ -1,0 +1,10 @@
+../Core/Src/ADXL343_SPI.c:29:9:ADXL343_initialization	24	static
+../Core/Src/ADXL343_SPI.c:75:6:ADXL343_write_register	24	static
+../Core/Src/ADXL343_SPI.c:99:9:ADXL343_read_register	24	static
+../Core/Src/ADXL343_SPI.c:115:19:ADXL343_get_acc_raw	32	static
+../Core/Src/ADXL343_SPI.c:141:19:ADXL343_get_acc_norm	24	static
+../Core/Src/ADXL343_SPI.c:152:6:ADXL343_print_raw	16	static
+../Core/Src/ADXL343_SPI.c:166:6:ADXL343_set_tap_parameters	16	static
+../Core/Src/ADXL343_SPI.c:224:6:ADXL343_EnableTapInterrupts	24	static
+../Core/Src/ADXL343_SPI.c:247:5:ADXL343_check_tap	24	static
+../Core/Src/ADXL343_SPI.c:269:6:ADXL343_SetDataFormat	24	static
