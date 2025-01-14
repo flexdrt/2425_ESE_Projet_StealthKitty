@@ -35,8 +35,7 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 3. [🔧 Matériel utilisé](#-matériel-utilisé)  
 4. [📐 Architecture](#-architecture)  
 5. [🚀 Utilisation](#-utilisation)  
-6. [👥 Auteurs](#-auteurs)  
-7. [📄 Licence](#-licence)  
+6. [📄 Licence](#-licence)  
 
 ---
 
@@ -298,13 +297,6 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 
 ### 📂 [Accédez au code source ici.](./Software)
 
----
-
-## 👥 **Auteurs**  
-- **Vincent LAKHMECHE**  
-- **Mohamed Rafik CHAIR**  
-- **Meziane Ameur**  
-- **Karim JERJOUB**
 
 ---
 
