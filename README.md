@@ -744,7 +744,7 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 
 ## 🔧 **Matériel utilisé**  
-- **STM32G431RB** : Microcontrôleur principal.  
+- **STM32G431CBU6** : Microcontrôleur principal.  
 - **Capteurs ToF** : Détection des bordures.  
 - **LiDAR** : Cartographie et détection d'autres robots.  
 - **Accéléromètre (ADXL343)** : Détection des chocs pour changer de rôle (Chat/Souris).  
