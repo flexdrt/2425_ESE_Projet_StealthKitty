@@ -28,7 +28,7 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 
 ---
 
-## 📚 **Table des matières**  A REECRIRE
+## 📚 **Table des matières**
 1. [📖 Contexte](#-contexte)
 2. [📐 Architecture](#-architecture)  
 3. [✨ Fonctionnalités](#-fonctionnalités)
@@ -813,7 +813,7 @@ Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxiè
 
 
 Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs. Pour cela il faut préparer, l'alimentation et les signaux dont ils ont besoin dans un connecteur (jst en l'occurrence).
-  
+
 
 
 
@@ -882,11 +882,44 @@ Les leds servent d'indicateurs pour visualiser l'état du robot, il y a une led 
 
 ![leds](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/leds_robot.png)
 
+Alimentation et Gestion d'Énergie :
+
+- Le système est alimenté par une batterie  avec un switch ON/OFF  qui permet deux modes :
+  1. Mode charge : Lorsque le chargeur est connecté, la batterie se recharge
+  2. Mode fonctionnement : Alimentation du robot
+- Un circuit de conversion de tension à plusieurs étages :
+  - 7,2V (batterie) → 5V/3A via MP1475DJ-LF-P
+  - 5V → 3.3V/150mA via BU33SD5WG-TR
+
+![Capture d'écran 2025-01-14 161015](./assets/Capture%20d%27%C3%A9cran%202025-01-14%20161015.png)
+
+![Capture d'écran 2025-01-14 161147](./assets/Capture%20d%27%C3%A9cran%202025-01-14%20161147.png)
+
+![Capture d'écran 2025-01-14 161208](./assets/Capture%20d%27%C3%A9cran%202025-01-14%20161208.png)
+
+Points d'Attention :
+
+1. Pour la partie alimentation :
+
+- Respecter la polarité de la batterie
+- Les condensateurs de filtrage sont essentiels pour stabiliser l'alimentation
+- Les soudures du switch, point critique de fiabilité
+
+1. Pour le convertisseur 7,2V→5V :
+
+- La self 4.7µH doit supporter le courant nominal de 3A
+- Le placement des condensateurs doit être proche du régulateur
+- Le réseau de feedback doit être précis pour maintenir la tension de sortie
+
+1. Pour le convertisseur 5V→3.3V :
+
+- Les condensateurs C504 et C506 sont critiques pour la stabilité
+- Le pin STBY doit être correctement connecté pour le fonctionnement
 
 </details>
 
 
- 
+
 - 🧩 **PCB routé**  
 
 <details>
@@ -1015,5 +1048,4 @@ Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).
 
 
 ![WhatsApp Image 2025-01-15 at 17 13 14](https://github.com/user-attachments/assets/e5d0c000-c651-4bc7-af08-2dedcab15b06)
-
 
