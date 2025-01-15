@@ -860,7 +860,7 @@ Ci-dessous un exemple pour le signal  Motor+ qui a son propre plan pour assurer 
 
 ## 5. Plans d’Alimentation
 ### a. Plan 5V
-<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="400"/>
+<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="550"/>
 
 ### b. Plan VBAT
 <img src="https://github.com/user-attachments/assets/3b930f0b-2913-4636-b335-293db4ca7967" alt="plan vbat" width="400"/>
