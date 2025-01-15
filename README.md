@@ -818,7 +818,69 @@ Le PCB à été conçu afin de respecter le cahier des charges en termes de dime
 3. **Couche 3** : Plan d’alimentation pour les composants à forte consommation, optimisant la dissipation thermique.  
 
 4. **Couche 4 (Bottom)** : On retrouve les pistes de données issues principalement de la couche 1 pour garder l'integralité des signaux . Nous avons également évités de croiser les discontinuités des plans d'alimentation ( couche 3 )
-  
+# Routage de la Carte
 
+Le routage de la carte a été conçu avec soin pour garantir des performances optimales. Voici les optimisations principales réalisées, illustrées avec des images.
 
+## 1. Positionnement des Vias
+Les vias ont été placés **aussi proches que possible des pastilles** des composants.
 
+<img src="https://github.com/user-attachments/assets/01dcf596-1c17-4e1c-b858-94de7c3fdb74" alt="via tout prés possible des pastille" width="500"/>
+
+---
+
+## 2. Protection du Quartz
+Un **mur de vias** entoure l’oscillateur externe pour le protéger des **interférences électromagnétiques**.
+
+<img src="https://github.com/user-attachments/assets/8bcbf64b-0a08-48d7-a43d-08ff70925e22" alt="protection du quartz par des via" width="500"/>
+
+---
+
+## 3. Réduction des Problèmes d’Antenne
+Des vias ont été placés dans les zones où des **antennes indésirables** pourraient se former.
+
+<img src="https://github.com/user-attachments/assets/a6eaa5c0-fce8-479c-8fc4-19a674a71f75" alt="probleme antenne" width="500"/>
+
+---
+
+## 4. Zones pour Signaux Importants
+Des **plans dédiés** ont été créés pour les signaux critiques.
+
+<img src="https://github.com/user-attachments/assets/cdbda439-fe63-4df9-9f69-62f41dc960fc" alt="zone de plan signaux important" width="500"/>
+
+---
+
+## 5. Plans d’Alimentation
+### a. Plan 5V
+<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="500"/>
+
+### b. Plan VBAT
+<img src="https://github.com/user-attachments/assets/3b930f0b-2913-4636-b335-293db4ca7967" alt="plan vbat" width="500"/>
+
+---
+
+## 6. Dissipation Thermique
+Des **vias thermiques** ont été ajoutés pour améliorer la dissipation de chaleur.
+
+<img src="https://github.com/user-attachments/assets/e79a1d80-92c4-4edf-9f98-900dd3defe3d" alt="des via pour des composant avec grande surface pour une meilleur dissipation" width="500"/>
+
+---
+
+## 7. Condensateurs de Découplage
+Les **condensateurs de découplage** ont été positionnés **au plus près des broches d’alimentation**.
+
+<img src="https://github.com/user-attachments/assets/c4432fc9-8f2d-4697-9603-607fb518d908" alt="capa decouplage a coté des alim" width="500"/>
+
+---
+
+## 8. Adaptation des Pistes
+La largeur des pistes a été ajustée pour correspondre aux pastilles des composants.
+
+<img src="https://github.com/user-attachments/assets/51d0b688-313c-4247-bf0d-8a986fbfdd5b" alt="piste a la largeur des" width="500"/>
+
+---
+
+## 9. Points de Test
+Des **points de test accessibles** ont été placés pour faciliter le débogage.
+
+<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="500"/>
