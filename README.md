@@ -749,7 +749,7 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 ## 🚀 **Réalisation matérielle**  
 La partie matérielle a été conçue avec **KiCad 8.0** et comprend :  
-![image-20250114141624020](./assets/image-20250114141624020.png)
+
 
 - 📜 **Schéma électronique**
 
@@ -931,7 +931,9 @@ Points d'Attention :
 
 
 
-- 🧩 **PCB routé**  
+- 🧩 **PCB routé**
+
+![image-20250114141624020](./assets/image-20250114141624020.png)
 
 <details>
 <summary> Détail sur le routage du PCB </summary>
