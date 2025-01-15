@@ -31,9 +31,9 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 ## 📚 **Table des matières**  A REECRIRE
 1. [📖 Contexte](#-contexte)  
 2. [✨ Fonctionnalités](#-fonctionnalités)
-3. [📚 Explication Technique](#-Explication-Technique). 
-4. [🔧 Matériel utilisé](#-matériel-utilisé)  
-5. [📐 Architecture](#-architecture)  
+3. [📐 Architecture](#-architecture)  
+4. [📚 Explication Technique](#-Explication-Technique). 
+5. [🔧 Matériel utilisé](#-matériel-utilisé)  
 6. [🚀 Utilisation](#-utilisation)  
 7. [📄 Licence](#-licence)  
 
@@ -42,6 +42,55 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 ## 📖 **Contexte**  
 Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.  
 🎯 L'objectif est de concevoir un système embarqué complet, depuis la conception électronique jusqu'à l'implémentation logicielle.
+
+
+---
+
+## 📐 **Architecture**  
+### **Schéma architectural**  
+![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
+
+Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
+
+## Explication du fonctionnement du système
+
+1. **⚡ Alimentation principale**
+   - La **batterie NiMH 7.2V 1.3Ah** alimente l'ensemble du système. Elle est connectée à des régulateurs de tension pour fournir les différentes tensions nécessaires aux composants :
+     - **MP1475S** : Régulateur 5V pour alimenter les moteurs et certains capteurs.
+     - **BU33SD5WG-TR** : Régulateur 3.3V pour alimenter le microcontrôleur STM32G431, l'accéléromètre et le LiDAR.
+
+2. **🖥️ Microcontrôleur principal - STM32G431**
+   - Le **STM32G431** gère toute la logique du robot et communique avec les différents composants via des bus tels que SPI, UART, I2C et PWM.
+   - Il est relié à un **quartz 16 MHz** pour la gestion de l'horloge système et dispose d'un connecteur **SWD** pour la programmation et le débogage.
+
+3. **🔍 Capteurs**
+   - **Capteurs ToF** : Utilisés pour détecter les bords ou les chutes du robot.
+   - **ADXL343 (Accéléromètre)** : Détecte les impacts ou les tapotements, utilisé pour détecter les collisions avec d'autres robots, et connecté au bus **SPI**.
+   - **LiDAR YDLIDAR X4** : Permet de détecter les obstacles à l'aide de la communication **UART** pour transmettre les données de distance et d'angle.
+
+4. **⚙️ Contrôle des moteurs**
+   - **ZXBM5210-SP-13 (Driver de moteur)** : Utilisé pour contrôler la direction et la vitesse des moteurs à l'aide de signaux **PWM**. Le microcontrôleur STM32 contrôle les moteurs via le driver pour ajuster la vitesse et la direction du robot.
+
+5. **🌟 Indicateurs d'état (LEDs)**
+   - Les **LEDs** servent d'indicateurs pour visualiser l'état du robot, par exemple, lorsqu'il est en marche ou lorsqu'il détecte un obstacle.
+
+### Détails des principaux outils utilisés
+
+1. **Communication avec l'accéléromètre (ADXL343)**
+   - Utilisation du protocole **SPI** pour lire les données des axes X, Y et Z.
+   - Détection des chocs (taps) causés par des collisions avec d'autres robots.
+
+2. **Contrôle des moteurs avec le driver ZXBM5210**
+   - Génération de signaux **PWM** pour réguler la vitesse des moteurs.
+   - Implémentation des mouvements du robot : avancer, reculer, tourner à gauche ou à droite.
+
+3. **Gestion des capteurs de bordure/détection de chute**
+   - Lecture des entrées des capteurs pour détecter les bords de la table.
+   - Réaction immédiate pour stopper ou changer de direction afin d’éviter une chute.
+
+4. **Interfaçage avec le LiDAR YDLIDAR X4**
+   - Communication via **UART** pour lire les données du LiDAR.
+   - Extraction des valeurs d’angles et de distances pour cartographier l'environnement et éviter les obstacles.
 
 ---
 
@@ -73,6 +122,7 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.
 
 ---
 
+
 ## 🔧 Fonctionnalités implémentées
 ### ✅ Détection des tapotements
 - 🔄 Vérifie les interruptions via le registre `INT_SOURCE`.
@@ -103,7 +153,7 @@ https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
 ---
 
 
-# Utilisation du capteur ToF VL53L1X dans le robot
+# Utilisation du capteur ToF VL53L1X pour détection des bords
 
 ## 🌟 Caractéristiques techniques
 
@@ -294,7 +344,6 @@ https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
 
 
 ---
-
 
 
 # Contrôle des Moteurs et Encodeurs
@@ -670,53 +719,7 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 ---
 
-## 📐 **Architecture**  
-### **Schéma architectural**  
-![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
 
-Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
-
-## Explication du fonctionnement du système
-
-1. **⚡ Alimentation principale**
-   - La **batterie NiMH 7.2V 1.3Ah** alimente l'ensemble du système. Elle est connectée à des régulateurs de tension pour fournir les différentes tensions nécessaires aux composants :
-     - **MP1475S** : Régulateur 5V pour alimenter les moteurs et certains capteurs.
-     - **BU33SD5WG-TR** : Régulateur 3.3V pour alimenter le microcontrôleur STM32G431, l'accéléromètre et le LiDAR.
-
-2. **🖥️ Microcontrôleur principal - STM32G431**
-   - Le **STM32G431** gère toute la logique du robot et communique avec les différents composants via des bus tels que SPI, UART, I2C et PWM.
-   - Il est relié à un **quartz 16 MHz** pour la gestion de l'horloge système et dispose d'un connecteur **SWD** pour la programmation et le débogage.
-
-3. **🔍 Capteurs**
-   - **Capteurs ToF** : Utilisés pour détecter les bords ou les chutes du robot.
-   - **ADXL343 (Accéléromètre)** : Détecte les impacts ou les tapotements, utilisé pour détecter les collisions avec d'autres robots, et connecté au bus **SPI**.
-   - **LiDAR YDLIDAR X4** : Permet de détecter les obstacles à l'aide de la communication **UART** pour transmettre les données de distance et d'angle.
-
-4. **⚙️ Contrôle des moteurs**
-   - **ZXBM5210-SP-13 (Driver de moteur)** : Utilisé pour contrôler la direction et la vitesse des moteurs à l'aide de signaux **PWM**. Le microcontrôleur STM32 contrôle les moteurs via le driver pour ajuster la vitesse et la direction du robot.
-
-5. **🌟 Indicateurs d'état (LEDs)**
-   - Les **LEDs** servent d'indicateurs pour visualiser l'état du robot, par exemple, lorsqu'il est en marche ou lorsqu'il détecte un obstacle.
-
-### Détails des principaux outils utilisés
-
-1. **Communication avec l'accéléromètre (ADXL343)**
-   - Utilisation du protocole **SPI** pour lire les données des axes X, Y et Z.
-   - Détection des chocs (taps) causés par des collisions avec d'autres robots.
-
-2. **Contrôle des moteurs avec le driver ZXBM5210**
-   - Génération de signaux **PWM** pour réguler la vitesse des moteurs.
-   - Implémentation des mouvements du robot : avancer, reculer, tourner à gauche ou à droite.
-
-3. **Gestion des capteurs de bordure/détection de chute**
-   - Lecture des entrées des capteurs pour détecter les bords de la table.
-   - Réaction immédiate pour stopper ou changer de direction afin d’éviter une chute.
-
-4. **Interfaçage avec le LiDAR YDLIDAR X4**
-   - Communication via **UART** pour lire les données du LiDAR.
-   - Extraction des valeurs d’angles et de distances pour cartographier l'environnement et éviter les obstacles.
-
----
 
 ## 🚀 **Réalisation matérielle**  
 La partie matérielle a été conçue avec **KiCad 8.0** et comprend :  
