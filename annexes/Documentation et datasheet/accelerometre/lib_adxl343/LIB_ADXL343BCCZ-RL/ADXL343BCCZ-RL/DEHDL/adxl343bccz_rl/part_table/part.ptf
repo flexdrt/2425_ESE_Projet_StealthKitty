@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'ADXL343BCCZ_RL'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Analog Devices", "ADXL343BCCZ-RL" (!) = "", "ADXL343BCCZRL", "Other", "584-ADXL343BCCZ-R", "https://www.mouser.co.uk/ProductDetail/Analog-Devices/ADXL343BCCZ-RL?qs=WIvQP4zGaniHpowyrbt1Aw%3D%3D", "ADXL343BCCZ-RL", "https://www.arrow.com/en/products/adxl343bccz-rl/analog-devices?region=nac", "Accelerometer X, Y, Z Axis +/-2g, 4g, 8g, 16g 0.05Hz ~ 1.6kHz 14-LGA (3x5)", "https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL343.pdf", "1 mm"
+END_PART
+
+END.
