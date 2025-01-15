@@ -1,0 +1,111 @@
+\doxysection{Référence de la structure Queue\+Definition}
+\hypertarget{struct_queue_definition}{}\label{struct_queue_definition}\index{QueueDefinition@{QueueDefinition}}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_queue_definition_adfa75f7bc22a3a58a907676c0164a1c1}{pc\+Head}}
+\item 
+int8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_queue_definition_aa018576801d60d3a78ffacab53dc8b79}{pc\+Write\+To}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{queue_8c_afa576747932ccf4c923633fc6a46a0d8}{QueuePointers\_t}} \mbox{\hyperlink{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}{xQueue}}\\
+\>\mbox{\hyperlink{queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{SemaphoreData\_t}} \mbox{\hyperlink{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}{xSemaphore}}\\
+\} \mbox{\hyperlink{struct_queue_definition_ae780ffaaba61aaa023049dacc1ad843b}{u}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a5cfd8ae6db5da134ed16405043a0d898}{x\+Tasks\+Waiting\+To\+Send}}
+\item 
+\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a8ad185d9d83713c774e6a897580d8313}{x\+Tasks\+Waiting\+To\+Receive}}
+\item 
+volatile \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_afb61b3f2247402ed3b8b159311c408b7}{ux\+Messages\+Waiting}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a619169da78e43281a73fbdf13f9eddfb}{ux\+Length}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{struct_queue_definition_a216cc99516d7f82573f6cb19f5a9f626}{ux\+Item\+Size}}
+\item 
+volatile int8\+\_\+t \mbox{\hyperlink{struct_queue_definition_a2017e9e2e81e1fd301fa88236614653e}{c\+Rx\+Lock}}
+\item 
+volatile int8\+\_\+t \mbox{\hyperlink{struct_queue_definition_a77c52e94671f477fd2942db97e20838b}{c\+Tx\+Lock}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct_queue_definition_a2017e9e2e81e1fd301fa88236614653e}\index{QueueDefinition@{QueueDefinition}!cRxLock@{cRxLock}}
+\index{cRxLock@{cRxLock}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{cRxLock}{cRxLock}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a2017e9e2e81e1fd301fa88236614653e} 
+volatile int8\+\_\+t c\+Rx\+Lock}
+
+\Hypertarget{struct_queue_definition_a77c52e94671f477fd2942db97e20838b}\index{QueueDefinition@{QueueDefinition}!cTxLock@{cTxLock}}
+\index{cTxLock@{cTxLock}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{cTxLock}{cTxLock}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a77c52e94671f477fd2942db97e20838b} 
+volatile int8\+\_\+t c\+Tx\+Lock}
+
+\Hypertarget{struct_queue_definition_adfa75f7bc22a3a58a907676c0164a1c1}\index{QueueDefinition@{QueueDefinition}!pcHead@{pcHead}}
+\index{pcHead@{pcHead}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{pcHead}{pcHead}}
+{\footnotesize\ttfamily \label{struct_queue_definition_adfa75f7bc22a3a58a907676c0164a1c1} 
+int8\+\_\+t\texorpdfstring{$\ast$}{*} pc\+Head}
+
+\Hypertarget{struct_queue_definition_aa018576801d60d3a78ffacab53dc8b79}\index{QueueDefinition@{QueueDefinition}!pcWriteTo@{pcWriteTo}}
+\index{pcWriteTo@{pcWriteTo}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{pcWriteTo}{pcWriteTo}}
+{\footnotesize\ttfamily \label{struct_queue_definition_aa018576801d60d3a78ffacab53dc8b79} 
+int8\+\_\+t\texorpdfstring{$\ast$}{*} pc\+Write\+To}
+
+\Hypertarget{struct_queue_definition_ae780ffaaba61aaa023049dacc1ad843b}\index{QueueDefinition@{QueueDefinition}!u@{u}}
+\index{u@{u}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{[union]}{[union]}}
+{\footnotesize\ttfamily \label{struct_queue_definition_ae780ffaaba61aaa023049dacc1ad843b} 
+union  \{ ... \}  u}
+
+\Hypertarget{struct_queue_definition_a216cc99516d7f82573f6cb19f5a9f626}\index{QueueDefinition@{QueueDefinition}!uxItemSize@{uxItemSize}}
+\index{uxItemSize@{uxItemSize}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{uxItemSize}{uxItemSize}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a216cc99516d7f82573f6cb19f5a9f626} 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Item\+Size}
+
+\Hypertarget{struct_queue_definition_a619169da78e43281a73fbdf13f9eddfb}\index{QueueDefinition@{QueueDefinition}!uxLength@{uxLength}}
+\index{uxLength@{uxLength}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{uxLength}{uxLength}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a619169da78e43281a73fbdf13f9eddfb} 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Length}
+
+\Hypertarget{struct_queue_definition_afb61b3f2247402ed3b8b159311c408b7}\index{QueueDefinition@{QueueDefinition}!uxMessagesWaiting@{uxMessagesWaiting}}
+\index{uxMessagesWaiting@{uxMessagesWaiting}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{uxMessagesWaiting}{uxMessagesWaiting}}
+{\footnotesize\ttfamily \label{struct_queue_definition_afb61b3f2247402ed3b8b159311c408b7} 
+volatile \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Messages\+Waiting}
+
+\Hypertarget{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca}\index{QueueDefinition@{QueueDefinition}!xQueue@{xQueue}}
+\index{xQueue@{xQueue}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xQueue}{xQueue}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a8524458af6a7e0aed9e736bd8596b7ca} 
+\mbox{\hyperlink{queue_8c_afa576747932ccf4c923633fc6a46a0d8}{Queue\+Pointers\+\_\+t}} x\+Queue}
+
+\Hypertarget{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c}\index{QueueDefinition@{QueueDefinition}!xSemaphore@{xSemaphore}}
+\index{xSemaphore@{xSemaphore}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xSemaphore}{xSemaphore}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a86b298a751a8295a991a263ada8e6b6c} 
+\mbox{\hyperlink{queue_8c_a8806dcfc511df585a0b4daf54a9a909a}{Semaphore\+Data\+\_\+t}} x\+Semaphore}
+
+\Hypertarget{struct_queue_definition_a8ad185d9d83713c774e6a897580d8313}\index{QueueDefinition@{QueueDefinition}!xTasksWaitingToReceive@{xTasksWaitingToReceive}}
+\index{xTasksWaitingToReceive@{xTasksWaitingToReceive}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xTasksWaitingToReceive}{xTasksWaitingToReceive}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a8ad185d9d83713c774e6a897580d8313} 
+\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} x\+Tasks\+Waiting\+To\+Receive}
+
+\Hypertarget{struct_queue_definition_a5cfd8ae6db5da134ed16405043a0d898}\index{QueueDefinition@{QueueDefinition}!xTasksWaitingToSend@{xTasksWaitingToSend}}
+\index{xTasksWaitingToSend@{xTasksWaitingToSend}!QueueDefinition@{QueueDefinition}}
+\doxysubsubsection{\texorpdfstring{xTasksWaitingToSend}{xTasksWaitingToSend}}
+{\footnotesize\ttfamily \label{struct_queue_definition_a5cfd8ae6db5da134ed16405043a0d898} 
+\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}} x\+Tasks\+Waiting\+To\+Send}
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{queue_8c}{queue.\+c}}\end{DoxyCompactItemize}

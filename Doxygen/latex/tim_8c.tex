@@ -1,0 +1,94 @@
+\doxysection{Référence du fichier tim.\+c}
+\hypertarget{tim_8c}{}\label{tim_8c}\index{tim.c@{tim.c}}
+
+
+This file provides code for the configuration of the TIM instances.  
+
+
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tim_8c_ad1f9d42690163f73f73e5b820c81ca14}{MX\+\_\+\+TIM1\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_a7912f2916786a2c33cb6fb8259ade58c}{MX\+\_\+\+TIM3\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_aef1e0b132b1af1c923cc420a57180c67}{MX\+\_\+\+TIM4\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{group___t_i_m___exported___functions___group1_ga818f4d5d1e2f417438d281b4ac9efb9c}{HAL\+\_\+\+TIM\+\_\+\+Base\+\_\+\+Msp\+Init}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}tim\+\_\+base\+Handle)
+\item 
+void \mbox{\hyperlink{group___t_i_m___exported___functions___group6_ga1a8e1103bfcc56c2626ed5cf546391d1}{HAL\+\_\+\+TIM\+\_\+\+Encoder\+\_\+\+Msp\+Init}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}tim\+\_\+encoder\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}{HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}tim\+Handle)
+\item 
+void \mbox{\hyperlink{group___t_i_m___exported___functions___group1_ga13352a6c9cb3225511e5f29dbb894e84}{HAL\+\_\+\+TIM\+\_\+\+Base\+\_\+\+Msp\+De\+Init}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}tim\+\_\+base\+Handle)
+\item 
+void \mbox{\hyperlink{group___t_i_m___exported___functions___group6_ga77c8216735a5b1374ea948737eed8a18}{HAL\+\_\+\+TIM\+\_\+\+Encoder\+\_\+\+Msp\+De\+Init}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}tim\+\_\+encoder\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{tim_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{tim_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{tim_8c_a85788cec5a97ee377e4ee2e74f026484}{htim4}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides code for the configuration of the TIM instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}\index{tim.c@{tim.c}!HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}}
+\index{HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_MspPostInit()}{HAL\_TIM\_MspPostInit()}}
+{\footnotesize\ttfamily \label{tim_8c_a708f19bbc41b292fccf38f2d9796c46a} 
+void HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{tim\+Handle}{}\end{DoxyParamCaption})}
+
+TIM1 GPIO Configuration PA8 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1 PA9 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2 PA10 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH3 PA11 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1N PA12 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2N\Hypertarget{tim_8c_ad1f9d42690163f73f73e5b820c81ca14}\index{tim.c@{tim.c}!MX\_TIM1\_Init@{MX\_TIM1\_Init}}
+\index{MX\_TIM1\_Init@{MX\_TIM1\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM1\_Init()}{MX\_TIM1\_Init()}}
+{\footnotesize\ttfamily \label{tim_8c_ad1f9d42690163f73f73e5b820c81ca14} 
+void MX\+\_\+\+TIM1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{tim_8c_a7912f2916786a2c33cb6fb8259ade58c}\index{tim.c@{tim.c}!MX\_TIM3\_Init@{MX\_TIM3\_Init}}
+\index{MX\_TIM3\_Init@{MX\_TIM3\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM3\_Init()}{MX\_TIM3\_Init()}}
+{\footnotesize\ttfamily \label{tim_8c_a7912f2916786a2c33cb6fb8259ade58c} 
+void MX\+\_\+\+TIM3\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{tim_8c_aef1e0b132b1af1c923cc420a57180c67}\index{tim.c@{tim.c}!MX\_TIM4\_Init@{MX\_TIM4\_Init}}
+\index{MX\_TIM4\_Init@{MX\_TIM4\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM4\_Init()}{MX\_TIM4\_Init()}}
+{\footnotesize\ttfamily \label{tim_8c_aef1e0b132b1af1c923cc420a57180c67} 
+void MX\+\_\+\+TIM4\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{tim_8c_a25fc663547539bc49fecc0011bd76ab5}\index{tim.c@{tim.c}!htim1@{htim1}}
+\index{htim1@{htim1}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily \label{tim_8c_a25fc663547539bc49fecc0011bd76ab5} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim1}
+
+\Hypertarget{tim_8c_aac3d2c59ee0e3bbae1b99529a154eb62}\index{tim.c@{tim.c}!htim3@{htim3}}
+\index{htim3@{htim3}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim3}{htim3}}
+{\footnotesize\ttfamily \label{tim_8c_aac3d2c59ee0e3bbae1b99529a154eb62} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim3}
+
+\Hypertarget{tim_8c_a85788cec5a97ee377e4ee2e74f026484}\index{tim.c@{tim.c}!htim4@{htim4}}
+\index{htim4@{htim4}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim4}{htim4}}
+{\footnotesize\ttfamily \label{tim_8c_a85788cec5a97ee377e4ee2e74f026484} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim4}
+

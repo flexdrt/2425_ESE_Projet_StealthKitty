@@ -1,0 +1,73 @@
+\doxysection{Référence de la structure TIMEx\+\_\+\+Encoder\+Index\+Config\+Type\+Def}
+\hypertarget{struct_t_i_m_ex___encoder_index_config_type_def}{}\label{struct_t_i_m_ex___encoder_index_config_type_def}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+
+
+TIM Encoder index configuration.  
+
+
+
+
+{\ttfamily \#include $<$stm32g4xx\+\_\+hal\+\_\+tim\+\_\+ex.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m_ex___encoder_index_config_type_def_aa8163c013b720459c0e6a92c84d5bef9}{Polarity}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m_ex___encoder_index_config_type_def_affb82025da5b8d4a06e61f1690460f4d}{Prescaler}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m_ex___encoder_index_config_type_def_aedf8a9093e5cb06013bfdb5f63613bc8}{Filter}}
+\item 
+\mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State}} \mbox{\hyperlink{struct_t_i_m_ex___encoder_index_config_type_def_af1f543d9fa99edbd7374b72acf7eb759}{First\+Index\+Enable}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m_ex___encoder_index_config_type_def_a5d7260aacf04af2b6342224bf5f7125d}{Position}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m_ex___encoder_index_config_type_def_ab94410c1333b512e271b1c135fe50916}{Direction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+TIM Encoder index configuration. 
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct_t_i_m_ex___encoder_index_config_type_def_ab94410c1333b512e271b1c135fe50916}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}!Direction@{Direction}}
+\index{Direction@{Direction}!TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily \label{struct_t_i_m_ex___encoder_index_config_type_def_ab94410c1333b512e271b1c135fe50916} 
+uint32\+\_\+t Direction}
+
+Specifies in which counter direction the index event resets the counter.\+This parameter can be a value of \doxylink{group___t_i_m_ex___encoder___index___direction}{TIM Extended Encoder index direction} \Hypertarget{struct_t_i_m_ex___encoder_index_config_type_def_aedf8a9093e5cb06013bfdb5f63613bc8}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}!Filter@{Filter}}
+\index{Filter@{Filter}!TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{Filter}{Filter}}
+{\footnotesize\ttfamily \label{struct_t_i_m_ex___encoder_index_config_type_def_aedf8a9093e5cb06013bfdb5f63613bc8} 
+uint32\+\_\+t Filter}
+
+TIM Encoder index filter.\+This parameter can be a number between Min\+\_\+\+Data = 0x0 and Max\+\_\+\+Data = 0xF \Hypertarget{struct_t_i_m_ex___encoder_index_config_type_def_af1f543d9fa99edbd7374b72acf7eb759}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}!FirstIndexEnable@{FirstIndexEnable}}
+\index{FirstIndexEnable@{FirstIndexEnable}!TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{FirstIndexEnable}{FirstIndexEnable}}
+{\footnotesize\ttfamily \label{struct_t_i_m_ex___encoder_index_config_type_def_af1f543d9fa99edbd7374b72acf7eb759} 
+\mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State}} First\+Index\+Enable}
+
+Specifies whether or not the encoder first index is enabled.\+This parameter value can be ENABLE or DISABLE. \Hypertarget{struct_t_i_m_ex___encoder_index_config_type_def_aa8163c013b720459c0e6a92c84d5bef9}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}!Polarity@{Polarity}}
+\index{Polarity@{Polarity}!TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{Polarity}{Polarity}}
+{\footnotesize\ttfamily \label{struct_t_i_m_ex___encoder_index_config_type_def_aa8163c013b720459c0e6a92c84d5bef9} 
+uint32\+\_\+t Polarity}
+
+TIM Encoder index polarity.\+This parameter can be a value of \doxylink{group___t_i_m_ex___encoder___index___polarity}{TIM Extended Encoder index polarity} \Hypertarget{struct_t_i_m_ex___encoder_index_config_type_def_a5d7260aacf04af2b6342224bf5f7125d}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}!Position@{Position}}
+\index{Position@{Position}!TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{Position}{Position}}
+{\footnotesize\ttfamily \label{struct_t_i_m_ex___encoder_index_config_type_def_a5d7260aacf04af2b6342224bf5f7125d} 
+uint32\+\_\+t Position}
+
+Specifies in which AB input configuration the index event resets the counter.\+This parameter can be a value of \doxylink{group___t_i_m_ex___encoder___index___position}{TIM Extended Encoder index position} \Hypertarget{struct_t_i_m_ex___encoder_index_config_type_def_affb82025da5b8d4a06e61f1690460f4d}\index{TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}!Prescaler@{Prescaler}}
+\index{Prescaler@{Prescaler}!TIMEx\_EncoderIndexConfigTypeDef@{TIMEx\_EncoderIndexConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{Prescaler}{Prescaler}}
+{\footnotesize\ttfamily \label{struct_t_i_m_ex___encoder_index_config_type_def_affb82025da5b8d4a06e61f1690460f4d} 
+uint32\+\_\+t Prescaler}
+
+TIM Encoder index prescaler.\+This parameter can be a value of \doxylink{group___t_i_m_ex___encoder___index___prescaler}{TIM Extended Encodder index prescaler} 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32g4xx__hal__tim__ex_8h}{stm32g4xx\+\_\+hal\+\_\+tim\+\_\+ex.\+h}}\end{DoxyCompactItemize}

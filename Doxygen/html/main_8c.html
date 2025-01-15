@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: Référence du fichier main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('main_8c.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier main.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>: Main program body  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cmsis__os_8h_source.html">cmsis_os.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dma_8h_source.html">dma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="i2c_8h_source.html">i2c.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="spi_8h_source.html">spi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tim_8h_source.html">tim.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="usart_8h_source.html">usart.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
+<code>#include &quot;stdio.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="vl53l1__platform_8h_source.html">vl53l1_platform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_v_l53_l1_x__api_8h_source.html">VL53L1X_api.h</a>&quot;</code><br />
+<code>#include &quot;string.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="moteur_8h_source.html">moteur.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_a_d_x_l343___s_p_i_8_h_source.html">ADXL343_SPI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="drv___l_i_d_a_r_8h_source.html">drv_LIDAR.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:acdc7844fbd4d45737d4aa56834d37829" id="r_acdc7844fbd4d45737d4aa56834d37829"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdc7844fbd4d45737d4aa56834d37829">MAX_OBJECTS</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:acdc7844fbd4d45737d4aa56834d37829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6423a880df59733d2d9b509c7718d3a9" id="r_a6423a880df59733d2d9b509c7718d3a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6423a880df59733d2d9b509c7718d3a9">STACK_SIZE</a>&#160;&#160;&#160;256</td></tr>
+<tr class="separator:a6423a880df59733d2d9b509c7718d3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aa025a12d45f60c7d0eae249e61f0c7f9" id="r_aa025a12d45f60c7d0eae249e61f0c7f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa025a12d45f60c7d0eae249e61f0c7f9">_write</a> (int file, char *ptr, int len)</td></tr>
+<tr class="memdesc:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redirects printf to UART2 for debugging purposes.  <br /></td></tr>
+<tr class="separator:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70af21c671abfcc773614a9a4f63d920" id="r_a70af21c671abfcc773614a9a4f63d920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a> (void)</td></tr>
+<tr class="memdesc:a70af21c671abfcc773614a9a4f63d920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the system clock.  <br /></td></tr>
+<tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abade755e13d07c10889ae83143656158" id="r_abade755e13d07c10889ae83143656158"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abade755e13d07c10889ae83143656158">MX_FREERTOS_Init</a> (void)</td></tr>
+<tr class="memdesc:abade755e13d07c10889ae83143656158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes FreeRTOS objects.  <br /></td></tr>
+<tr class="separator:abade755e13d07c10889ae83143656158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55fc6522d1dbe0c47e80ac4d17444856" id="r_a55fc6522d1dbe0c47e80ac4d17444856"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55fc6522d1dbe0c47e80ac4d17444856">uart_it_transmit_local</a> (uint8_t *p_data, uint16_t size)</td></tr>
+<tr class="separator:a55fc6522d1dbe0c47e80ac4d17444856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fbbcfa6f268a526362e161c743577a0" id="r_a2fbbcfa6f268a526362e161c743577a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fbbcfa6f268a526362e161c743577a0">uart_dma_transmit_local</a> (uint8_t *p_data, uint16_t size)</td></tr>
+<tr class="separator:a2fbbcfa6f268a526362e161c743577a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f798a30aba06f1d51cf32cf813cdeb4" id="r_a6f798a30aba06f1d51cf32cf813cdeb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f798a30aba06f1d51cf32cf813cdeb4">uart_poll_receive_local</a> (uint8_t *p_data, uint16_t size)</td></tr>
+<tr class="separator:a6f798a30aba06f1d51cf32cf813cdeb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9e3b9321c82a7ab300b8d2bd746fd9" id="r_aae9e3b9321c82a7ab300b8d2bd746fd9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae9e3b9321c82a7ab300b8d2bd746fd9">uart_it_receive_local</a> (uint8_t *p_data, uint16_t size)</td></tr>
+<tr class="separator:aae9e3b9321c82a7ab300b8d2bd746fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8808d14a4a917e6689791ab4afb6fa9f" id="r_a8808d14a4a917e6689791ab4afb6fa9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8808d14a4a917e6689791ab4afb6fa9f">vTaskADX</a> (void *argument)</td></tr>
+<tr class="memdesc:a8808d14a4a917e6689791ab4afb6fa9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task to manage the <a class="el" href="struct_a_d_x_l343.html">ADXL343</a> accelerometer.  <br /></td></tr>
+<tr class="separator:a8808d14a4a917e6689791ab4afb6fa9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3dc641b8c9cd4cdafa5d7fbf8dbf166" id="r_ab3dc641b8c9cd4cdafa5d7fbf8dbf166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3dc641b8c9cd4cdafa5d7fbf8dbf166">vTaskToF</a> (void *argument)</td></tr>
+<tr class="memdesc:ab3dc641b8c9cd4cdafa5d7fbf8dbf166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task for the VL53L1X ToF sensor.  <br /></td></tr>
+<tr class="separator:ab3dc641b8c9cd4cdafa5d7fbf8dbf166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46242b93b930a56eaf9544b22267766e" id="r_a46242b93b930a56eaf9544b22267766e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46242b93b930a56eaf9544b22267766e">TaskLIDAR</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:a46242b93b930a56eaf9544b22267766e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tâche pour gérer le LIDAR et les moteurs.  <br /></td></tr>
+<tr class="separator:a46242b93b930a56eaf9544b22267766e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <br /></td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1884970cc493d8efba5aec28c0d526e7" id="r_ga1884970cc493d8efba5aec28c0d526e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___exported___functions___group2.html#ga1884970cc493d8efba5aec28c0d526e7">HAL_UART_RxHalfCpltCallback</a> (<a class="el" href="group___u_a_r_t___exported___types.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *huart)</td></tr>
+<tr class="separator:ga1884970cc493d8efba5aec28c0d526e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae494a9643f29b87d6d81e5264e60e57b" id="r_gae494a9643f29b87d6d81e5264e60e57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___exported___functions___group2.html#gae494a9643f29b87d6d81e5264e60e57b">HAL_UART_RxCpltCallback</a> (<a class="el" href="group___u_a_r_t___exported___types.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *huart)</td></tr>
+<tr class="separator:gae494a9643f29b87d6d81e5264e60e57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cd91fd3a9608559c2a87a8ba6cba55f" id="r_ga0cd91fd3a9608559c2a87a8ba6cba55f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___exported___functions___group2.html#ga0cd91fd3a9608559c2a87a8ba6cba55f">HAL_GPIO_EXTI_Callback</a> (uint16_t GPIO_Pin)</td></tr>
+<tr class="separator:ga0cd91fd3a9608559c2a87a8ba6cba55f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a3b0ad512a6e6c6157440b68d395eac" id="r_ga8a3b0ad512a6e6c6157440b68d395eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_i_m___exported___functions___group9.html#ga8a3b0ad512a6e6c6157440b68d395eac">HAL_TIM_PeriodElapsedCallback</a> (<a class="el" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a> *htim)</td></tr>
+<tr class="memdesc:ga8a3b0ad512a6e6c6157440b68d395eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Period elapsed callback in non blocking mode.  <br /></td></tr>
+<tr class="separator:ga8a3b0ad512a6e6c6157440b68d395eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
+<tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
+<tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9c6222bae4d0328dd843ae099623b40b" id="r_a9c6222bae4d0328dd843ae099623b40b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___s_p_i___exported___types.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c6222bae4d0328dd843ae099623b40b">hspi1</a></td></tr>
+<tr class="separator:a9c6222bae4d0328dd843ae099623b40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e6adc40f9d2248e1c18b1a9d869bc1" id="r_ab3e6adc40f9d2248e1c18b1a9d869bc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_a_d_x_l343.html">ADXL343</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3e6adc40f9d2248e1c18b1a9d869bc1">accelerometer</a></td></tr>
+<tr class="separator:ab3e6adc40f9d2248e1c18b1a9d869bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef98403db56f0b54d9d86a760349db2d" id="r_gaef98403db56f0b54d9d86a760349db2d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___global___buffers.html#gaef98403db56f0b54d9d86a760349db2d">g_raw_data</a> [<a class="el" href="group___buffer___sizes.html#ga6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>]</td></tr>
+<tr class="separator:gaef98403db56f0b54d9d86a760349db2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec6b9c72fbd5ad668a1f616857991306" id="r_gaec6b9c72fbd5ad668a1f616857991306"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___processing___data.html#gaec6b9c72fbd5ad668a1f616857991306">g_current_idx</a></td></tr>
+<tr class="separator:gaec6b9c72fbd5ad668a1f616857991306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae63ff3ac66611014b6604cd5f4b7495f" id="r_ae63ff3ac66611014b6604cd5f4b7495f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae63ff3ac66611014b6604cd5f4b7495f">g_PH</a></td></tr>
+<tr class="separator:ae63ff3ac66611014b6604cd5f4b7495f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a202fec40a16952027ad95f08700e97de" id="r_a202fec40a16952027ad95f08700e97de"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a202fec40a16952027ad95f08700e97de">g_CT</a></td></tr>
+<tr class="separator:a202fec40a16952027ad95f08700e97de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c5f41cebc683c9f0ecb7e80ece2280" id="r_a56c5f41cebc683c9f0ecb7e80ece2280"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56c5f41cebc683c9f0ecb7e80ece2280">g_LSN</a></td></tr>
+<tr class="separator:a56c5f41cebc683c9f0ecb7e80ece2280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0db59ac8813f68ab00fb4090903ed39e" id="r_ga0db59ac8813f68ab00fb4090903ed39e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___frame___data.html#ga0db59ac8813f68ab00fb4090903ed39e">g_start_angle</a></td></tr>
+<tr class="separator:ga0db59ac8813f68ab00fb4090903ed39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba28155333139df4763dee45a6f781ae" id="r_gaba28155333139df4763dee45a6f781ae"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___frame___data.html#gaba28155333139df4763dee45a6f781ae">g_end_angle</a></td></tr>
+<tr class="separator:gaba28155333139df4763dee45a6f781ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga099671b7af4477d131cbdad2df08dff1" id="r_ga099671b7af4477d131cbdad2df08dff1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___global___buffers.html#ga099671b7af4477d131cbdad2df08dff1">g_packet_data</a> [<a class="el" href="group___buffer___sizes.html#gaebdc7d8ca8e25ed8efc90bb88ef7ef5b">PACKET_SIZE</a>]</td></tr>
+<tr class="separator:ga099671b7af4477d131cbdad2df08dff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d7e014466e671bc6194aa91b663b6d7" id="r_ga3d7e014466e671bc6194aa91b663b6d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___object___detection.html#ga3d7e014466e671bc6194aa91b663b6d7">g_object_angles</a> [<a class="el" href="group___buffer___sizes.html#gacdc7844fbd4d45737d4aa56834d37829">MAX_OBJECTS</a>]</td></tr>
+<tr class="separator:ga3d7e014466e671bc6194aa91b663b6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab95b347e1089d477ba25ef330fc69abe" id="r_gab95b347e1089d477ba25ef330fc69abe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___object___detection.html#gab95b347e1089d477ba25ef330fc69abe">g_object_distances</a> [<a class="el" href="group___buffer___sizes.html#gacdc7844fbd4d45737d4aa56834d37829">MAX_OBJECTS</a>]</td></tr>
+<tr class="separator:gab95b347e1089d477ba25ef330fc69abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83bc47484591e20d4d93d0ebf7b9837f" id="r_a83bc47484591e20d4d93d0ebf7b9837f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83bc47484591e20d4d93d0ebf7b9837f">g_obj_count</a></td></tr>
+<tr class="separator:a83bc47484591e20d4d93d0ebf7b9837f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72ea517fff252b0eb1b1788d342bf4a" id="r_ae72ea517fff252b0eb1b1788d342bf4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae72ea517fff252b0eb1b1788d342bf4a">h_task_bord</a> = NULL</td></tr>
+<tr class="separator:ae72ea517fff252b0eb1b1788d342bf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d1400fe0a4219a8bea2b8c727c60c0" id="r_a57d1400fe0a4219a8bea2b8c727c60c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57d1400fe0a4219a8bea2b8c727c60c0">frame_start</a> = 0</td></tr>
+<tr class="separator:a57d1400fe0a4219a8bea2b8c727c60c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0fe53a65ce2dd51bdc8bb9ee14bf824" id="r_ad0fe53a65ce2dd51bdc8bb9ee14bf824"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0fe53a65ce2dd51bdc8bb9ee14bf824">frame_end</a> = 0</td></tr>
+<tr class="separator:ad0fe53a65ce2dd51bdc8bb9ee14bf824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9927783dfa3116bfabb9e26b1550f303" id="r_a9927783dfa3116bfabb9e26b1550f303"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9927783dfa3116bfabb9e26b1550f303">dist_min</a> = 0</td></tr>
+<tr class="separator:a9927783dfa3116bfabb9e26b1550f303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9909f976ca0dd06702dfce28394c71be" id="r_a9909f976ca0dd06702dfce28394c71be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9909f976ca0dd06702dfce28394c71be">idx_min</a> = 0</td></tr>
+<tr class="separator:a9909f976ca0dd06702dfce28394c71be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a3ed5959d2542a3390ab3f07fccd86" id="r_a78a3ed5959d2542a3390ab3f07fccd86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="semphr_8h.html#ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78a3ed5959d2542a3390ab3f07fccd86">SemHalfCallBack</a></td></tr>
+<tr class="separator:a78a3ed5959d2542a3390ab3f07fccd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae991b331d08d1c1e2fac9295fbdec5b3" id="r_ae991b331d08d1c1e2fac9295fbdec5b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="semphr_8h.html#ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae991b331d08d1c1e2fac9295fbdec5b3">SemClpCallBack</a></td></tr>
+<tr class="separator:ae991b331d08d1c1e2fac9295fbdec5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>: Main program body </p>
+<dl class="section attention"><dt>Attention</dt><dd>Author: StealthKitty Copyright (c) 2024 STMicroelectronics. All rights reserved.</dd></dl>
+<p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="acdc7844fbd4d45737d4aa56834d37829" name="acdc7844fbd4d45737d4aa56834d37829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdc7844fbd4d45737d4aa56834d37829">&#9670;&#160;</a></span>MAX_OBJECTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_OBJECTS&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6423a880df59733d2d9b509c7718d3a9" name="a6423a880df59733d2d9b509c7718d3a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6423a880df59733d2d9b509c7718d3a9">&#9670;&#160;</a></span>STACK_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STACK_SIZE&#160;&#160;&#160;256</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aa025a12d45f60c7d0eae249e61f0c7f9" name="aa025a12d45f60c7d0eae249e61f0c7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa025a12d45f60c7d0eae249e61f0c7f9">&#9670;&#160;</a></span>_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int _write </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Redirects printf to UART2 for debugging purposes. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Unused parameter for file descriptor. </td></tr>
+    <tr><td class="paramname">ptr</td><td>Pointer to the buffer containing the data to send. </td></tr>
+    <tr><td class="paramname">len</td><td>Length of the data to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>The number of characters sent. </dd></dl>
+
+</div>
+</div>
+<a id="a1730ffe1e560465665eb47d9264826f9" name="a1730ffe1e560465665eb47d9264826f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1730ffe1e560465665eb47d9264826f9">&#9670;&#160;</a></span>Error_Handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Error_Handler </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is executed in case of error occurrence. </p>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The application entry point. </p>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abade755e13d07c10889ae83143656158" name="abade755e13d07c10889ae83143656158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abade755e13d07c10889ae83143656158">&#9670;&#160;</a></span>MX_FREERTOS_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_FREERTOS_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes FreeRTOS objects. </p>
+<p>Initializes FreeRTOS objects.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a70af21c671abfcc773614a9a4f63d920" name="a70af21c671abfcc773614a9a4f63d920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70af21c671abfcc773614a9a4f63d920">&#9670;&#160;</a></span>SystemClock_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SystemClock_Config </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configures the system clock. </p>
+<p>System Clock Configuration.</p>
+<dl class="retval"><dt>Valeurs retournées</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Configure the main internal regulator output voltage</p>
+<p>Initializes the RCC Oscillators according to the specified parameters in the <a class="el" href="struct_r_c_c___osc_init_type_def.html" title="RCC Internal/External Oscillator (HSE, HSI, LSE and LSI) configuration structure definition.">RCC_OscInitTypeDef</a> structure.</p>
+<p>Initializes the CPU, AHB and APB buses clocks</p>
+
+</div>
+</div>
+<a id="a46242b93b930a56eaf9544b22267766e" name="a46242b93b930a56eaf9544b22267766e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46242b93b930a56eaf9544b22267766e">&#9670;&#160;</a></span>TaskLIDAR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskLIDAR </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tâche pour gérer le LIDAR et les moteurs. </p>
+
+</div>
+</div>
+<a id="a2fbbcfa6f268a526362e161c743577a0" name="a2fbbcfa6f268a526362e161c743577a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fbbcfa6f268a526362e161c743577a0">&#9670;&#160;</a></span>uart_dma_transmit_local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int uart_dma_transmit_local </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>p_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae9e3b9321c82a7ab300b8d2bd746fd9" name="aae9e3b9321c82a7ab300b8d2bd746fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae9e3b9321c82a7ab300b8d2bd746fd9">&#9670;&#160;</a></span>uart_it_receive_local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int uart_it_receive_local </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>p_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55fc6522d1dbe0c47e80ac4d17444856" name="a55fc6522d1dbe0c47e80ac4d17444856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55fc6522d1dbe0c47e80ac4d17444856">&#9670;&#160;</a></span>uart_it_transmit_local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int uart_it_transmit_local </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>p_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f798a30aba06f1d51cf32cf813cdeb4" name="a6f798a30aba06f1d51cf32cf813cdeb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f798a30aba06f1d51cf32cf813cdeb4">&#9670;&#160;</a></span>uart_poll_receive_local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int uart_poll_receive_local </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>p_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8808d14a4a917e6689791ab4afb6fa9f" name="a8808d14a4a917e6689791ab4afb6fa9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8808d14a4a917e6689791ab4afb6fa9f">&#9670;&#160;</a></span>vTaskADX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vTaskADX </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>argument</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Task to manage the <a class="el" href="struct_a_d_x_l343.html">ADXL343</a> accelerometer. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argument</td><td>Pointer to the task arguments (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab3dc641b8c9cd4cdafa5d7fbf8dbf166" name="ab3dc641b8c9cd4cdafa5d7fbf8dbf166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3dc641b8c9cd4cdafa5d7fbf8dbf166">&#9670;&#160;</a></span>vTaskToF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vTaskToF </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>argument</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Task for the VL53L1X ToF sensor. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argument</td><td>Pointer to the task arguments (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="ab3e6adc40f9d2248e1c18b1a9d869bc1" name="ab3e6adc40f9d2248e1c18b1a9d869bc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3e6adc40f9d2248e1c18b1a9d869bc1">&#9670;&#160;</a></span>accelerometer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_a_d_x_l343.html">ADXL343</a> accelerometer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9927783dfa3116bfabb9e26b1550f303" name="a9927783dfa3116bfabb9e26b1550f303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9927783dfa3116bfabb9e26b1550f303">&#9670;&#160;</a></span>dist_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dist_min = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Minimum detected distance. </p>
+
+</div>
+</div>
+<a id="ad0fe53a65ce2dd51bdc8bb9ee14bf824" name="ad0fe53a65ce2dd51bdc8bb9ee14bf824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0fe53a65ce2dd51bdc8bb9ee14bf824">&#9670;&#160;</a></span>frame_end</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int frame_end = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>End index of the LIDAR frame. </p>
+
+</div>
+</div>
+<a id="a57d1400fe0a4219a8bea2b8c727c60c0" name="a57d1400fe0a4219a8bea2b8c727c60c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d1400fe0a4219a8bea2b8c727c60c0">&#9670;&#160;</a></span>frame_start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int frame_start = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start index of the LIDAR frame. </p>
+
+</div>
+</div>
+<a id="a202fec40a16952027ad95f08700e97de" name="a202fec40a16952027ad95f08700e97de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a202fec40a16952027ad95f08700e97de">&#9670;&#160;</a></span>g_CT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t g_CT</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56c5f41cebc683c9f0ecb7e80ece2280" name="a56c5f41cebc683c9f0ecb7e80ece2280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c5f41cebc683c9f0ecb7e80ece2280">&#9670;&#160;</a></span>g_LSN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t g_LSN</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83bc47484591e20d4d93d0ebf7b9837f" name="a83bc47484591e20d4d93d0ebf7b9837f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83bc47484591e20d4d93d0ebf7b9837f">&#9670;&#160;</a></span>g_obj_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int g_obj_count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae63ff3ac66611014b6604cd5f4b7495f" name="ae63ff3ac66611014b6604cd5f4b7495f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae63ff3ac66611014b6604cd5f4b7495f">&#9670;&#160;</a></span>g_PH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t g_PH</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae72ea517fff252b0eb1b1788d342bf4a" name="ae72ea517fff252b0eb1b1788d342bf4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72ea517fff252b0eb1b1788d342bf4a">&#9670;&#160;</a></span>h_task_bord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> h_task_bord = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Task handle for managing a specific task. </p>
+
+</div>
+</div>
+<a id="a9c6222bae4d0328dd843ae099623b40b" name="a9c6222bae4d0328dd843ae099623b40b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c6222bae4d0328dd843ae099623b40b">&#9670;&#160;</a></span>hspi1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___s_p_i___exported___types.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Global variables </p>
+
+</div>
+</div>
+<a id="a9909f976ca0dd06702dfce28394c71be" name="a9909f976ca0dd06702dfce28394c71be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9909f976ca0dd06702dfce28394c71be">&#9670;&#160;</a></span>idx_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int idx_min = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Index of the closest detected object. </p>
+
+</div>
+</div>
+<a id="ae991b331d08d1c1e2fac9295fbdec5b3" name="ae991b331d08d1c1e2fac9295fbdec5b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae991b331d08d1c1e2fac9295fbdec5b3">&#9670;&#160;</a></span>SemClpCallBack</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="semphr_8h.html#ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</a> SemClpCallBack</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Semaphore for complete DMA transfer. </p>
+
+</div>
+</div>
+<a id="a78a3ed5959d2542a3390ab3f07fccd86" name="a78a3ed5959d2542a3390ab3f07fccd86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78a3ed5959d2542a3390ab3f07fccd86">&#9670;&#160;</a></span>SemHalfCallBack</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="semphr_8h.html#ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</a> SemHalfCallBack</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Semaphore for half DMA completion. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3f518afa9cd3fb3827c2fc92cfe15e71.html">Core</a></li><li class="navelem"><a class="el" href="dir_72cf26035c7930b7d9277d42b969a9bb.html">Src</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

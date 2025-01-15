@@ -1,0 +1,45 @@
+\doxysection{v\+Task\+Get\+Info}
+\hypertarget{group__v_task_get_info}{}\label{group__v_task_get_info}\index{vTaskGetInfo@{vTaskGetInfo}}
+task. h 
+\begin{DoxyPre}void \doxylink{task_8h_ac08c26d037d0dc685740eec9b2028715}{vTaskGetInfo( TaskHandle\_t xTask, TaskStatus\_t *pxTaskStatus, BaseType\_t xGetFreeStackSpace, eTaskState eState )};\end{DoxyPre}
+
+
+config\+USE\+\_\+\+TRACE\+\_\+\+FACILITY must be defined as 1 for this function to be available. See the configuration section for more information.
+
+Populates a \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure with information about a task.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x\+Task} & Handle of the task being queried. If x\+Task is NULL then information will be returned about the calling task.\\
+\hline
+{\em px\+Task\+Status} & A pointer to the \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure that will be filled with information about the task referenced by the handle passed using the x\+Task parameter.\\
+\hline
+\end{DoxyParams}
+@x\+Get\+Free\+Stack\+Space The \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure contains a member to report the stack high water mark of the task being queried. Calculating the stack high water mark takes a relatively long time, and can make the system temporarily unresponsive -\/ so the x\+Get\+Free\+Stack\+Space parameter is provided to allow the high water mark checking to be skipped. The high watermark value will only be written to the \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure if x\+Get\+Free\+Stack\+Space is not set to pd\+FALSE;
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e\+State} & The \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure contains a member to report the state of the task being queried. Obtaining the task state is not as fast as a simple assignment -\/ so the e\+State parameter is provided to allow the state information to be omitted from the \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure. To obtain state information then set e\+State to e\+Invalid -\/ otherwise the value passed in e\+State will be reported as the task state in the \doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t} structure.\\
+\hline
+\end{DoxyParams}
+Example usage\+: 
+\begin{DoxyPre}
+void vAFunction( void )
+\{
+\doxylink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{TaskHandle\_t} xHandle;
+\doxylink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{TaskStatus\_t} xTaskDetails;
+
+   // Obtain the handle of a task from its name.
+   xHandle = xTaskGetHandle( "{}Task\_Name"{} );
+
+   // Check the handle is not NULL.
+   \doxylink{_free_r_t_o_s_config_8h_a228c70cd48927d6ab730ed1a6dfbe35f}{configASSERT( xHandle )};
+
+   // Use the handle to obtain further information about the task.
+   vTaskGetInfo( xHandle,
+                 \&xTaskDetails,
+                 pdTRUE, // Include the high water mark in xTaskDetails.
+                 eInvalid ); // Include the task state in xTaskDetails.
+\}
+  \end{DoxyPre}
+ 

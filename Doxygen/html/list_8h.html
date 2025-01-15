@@ -1,0 +1,825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: Référence du fichier list.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('list_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier list.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="list_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structx_l_i_s_t___i_t_e_m.html">xLIST_ITEM</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structx_m_i_n_i___l_i_s_t___i_t_e_m.html">xMINI_LIST_ITEM</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structx_l_i_s_t.html">xLIST</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2d5de557c5561c8980d1bf51d87d8cba" id="r_a2d5de557c5561c8980d1bf51d87d8cba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d5de557c5561c8980d1bf51d87d8cba">configLIST_VOLATILE</a></td></tr>
+<tr class="separator:a2d5de557c5561c8980d1bf51d87d8cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3611bd5d5d87cb26ac1dc7a4852b94a0" id="r_a3611bd5d5d87cb26ac1dc7a4852b94a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3611bd5d5d87cb26ac1dc7a4852b94a0">listFIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE</a></td></tr>
+<tr class="separator:a3611bd5d5d87cb26ac1dc7a4852b94a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf45f853974db484cd7df434bd006e98" id="r_abf45f853974db484cd7df434bd006e98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf45f853974db484cd7df434bd006e98">listSECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE</a></td></tr>
+<tr class="separator:abf45f853974db484cd7df434bd006e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a52b5a4f70d3a07e37a5814a23ba880" id="r_a3a52b5a4f70d3a07e37a5814a23ba880"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a52b5a4f70d3a07e37a5814a23ba880">listFIRST_LIST_INTEGRITY_CHECK_VALUE</a></td></tr>
+<tr class="separator:a3a52b5a4f70d3a07e37a5814a23ba880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dc70c22e3ff0eba560d6f357472634" id="r_a87dc70c22e3ff0eba560d6f357472634"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87dc70c22e3ff0eba560d6f357472634">listSECOND_LIST_INTEGRITY_CHECK_VALUE</a></td></tr>
+<tr class="separator:a87dc70c22e3ff0eba560d6f357472634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e65118e1baa7ab805cdfb37e580501d" id="r_a0e65118e1baa7ab805cdfb37e580501d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e65118e1baa7ab805cdfb37e580501d">listSET_FIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE</a>(pxItem)</td></tr>
+<tr class="separator:a0e65118e1baa7ab805cdfb37e580501d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b9d912bdcfdb5544f373d2a94268b2" id="r_ac8b9d912bdcfdb5544f373d2a94268b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8b9d912bdcfdb5544f373d2a94268b2">listSET_SECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE</a>(pxItem)</td></tr>
+<tr class="separator:ac8b9d912bdcfdb5544f373d2a94268b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d68b1187d09c64d6ee329786cb0289b" id="r_a5d68b1187d09c64d6ee329786cb0289b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d68b1187d09c64d6ee329786cb0289b">listSET_LIST_INTEGRITY_CHECK_1_VALUE</a>(pxList)</td></tr>
+<tr class="separator:a5d68b1187d09c64d6ee329786cb0289b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b40c6e61534ef41229bd912dacab48" id="r_a83b40c6e61534ef41229bd912dacab48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83b40c6e61534ef41229bd912dacab48">listSET_LIST_INTEGRITY_CHECK_2_VALUE</a>(pxList)</td></tr>
+<tr class="separator:a83b40c6e61534ef41229bd912dacab48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b994725c299cdc81c74efc16210cc6" id="r_a95b994725c299cdc81c74efc16210cc6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95b994725c299cdc81c74efc16210cc6">listTEST_LIST_ITEM_INTEGRITY</a>(pxItem)</td></tr>
+<tr class="separator:a95b994725c299cdc81c74efc16210cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337d6137e0a4d37321efc5c2f31dba22" id="r_a337d6137e0a4d37321efc5c2f31dba22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a337d6137e0a4d37321efc5c2f31dba22">listTEST_LIST_INTEGRITY</a>(pxList)</td></tr>
+<tr class="separator:a337d6137e0a4d37321efc5c2f31dba22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc01a08e534b54fe438847ef02e5060a" id="r_acc01a08e534b54fe438847ef02e5060a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc01a08e534b54fe438847ef02e5060a">listSET_LIST_ITEM_OWNER</a>(pxListItem,  pxOwner)</td></tr>
+<tr class="separator:acc01a08e534b54fe438847ef02e5060a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9469bd061a44b4f75d30c6175f66d5c" id="r_aa9469bd061a44b4f75d30c6175f66d5c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9469bd061a44b4f75d30c6175f66d5c">listGET_LIST_ITEM_OWNER</a>(pxListItem)</td></tr>
+<tr class="separator:aa9469bd061a44b4f75d30c6175f66d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e95e61652f032fdc26aa622f5e2610" id="r_a83e95e61652f032fdc26aa622f5e2610"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83e95e61652f032fdc26aa622f5e2610">listSET_LIST_ITEM_VALUE</a>(pxListItem,  xValue)</td></tr>
+<tr class="separator:a83e95e61652f032fdc26aa622f5e2610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50d09950abc602741d7ebe8387f4e1a" id="r_aa50d09950abc602741d7ebe8387f4e1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa50d09950abc602741d7ebe8387f4e1a">listGET_LIST_ITEM_VALUE</a>(pxListItem)</td></tr>
+<tr class="separator:aa50d09950abc602741d7ebe8387f4e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63742b27958b959ac9ab69d8e9aed241" id="r_a63742b27958b959ac9ab69d8e9aed241"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63742b27958b959ac9ab69d8e9aed241">listGET_ITEM_VALUE_OF_HEAD_ENTRY</a>(pxList)</td></tr>
+<tr class="separator:a63742b27958b959ac9ab69d8e9aed241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987cb2766e509022c23b654907cea199" id="r_a987cb2766e509022c23b654907cea199"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a987cb2766e509022c23b654907cea199">listGET_HEAD_ENTRY</a>(pxList)</td></tr>
+<tr class="separator:a987cb2766e509022c23b654907cea199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf78d3f24ba56ac1d0bf0179438b960" id="r_aabf78d3f24ba56ac1d0bf0179438b960"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabf78d3f24ba56ac1d0bf0179438b960">listGET_NEXT</a>(pxListItem)</td></tr>
+<tr class="separator:aabf78d3f24ba56ac1d0bf0179438b960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96cb0919f02e5c0d8e41ded0e65197a3" id="r_a96cb0919f02e5c0d8e41ded0e65197a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96cb0919f02e5c0d8e41ded0e65197a3">listGET_END_MARKER</a>(pxList)</td></tr>
+<tr class="separator:a96cb0919f02e5c0d8e41ded0e65197a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaba6eb05d67ebc8026bea29193eca28f" id="r_aaba6eb05d67ebc8026bea29193eca28f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</a>(pxList)</td></tr>
+<tr class="separator:aaba6eb05d67ebc8026bea29193eca28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b4aded515bdc512017ea6e677a13bb" id="r_a18b4aded515bdc512017ea6e677a13bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a>(pxList)</td></tr>
+<tr class="separator:a18b4aded515bdc512017ea6e677a13bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a275d9855e9b71652e2b8f6e2ed62aadd" id="r_a275d9855e9b71652e2b8f6e2ed62aadd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a275d9855e9b71652e2b8f6e2ed62aadd">listGET_OWNER_OF_NEXT_ENTRY</a>(pxTCB,  pxList)</td></tr>
+<tr class="separator:a275d9855e9b71652e2b8f6e2ed62aadd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a715561302af8cb5b74416b23ce4e999d" id="r_a715561302af8cb5b74416b23ce4e999d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a715561302af8cb5b74416b23ce4e999d">listGET_OWNER_OF_HEAD_ENTRY</a>(pxList)</td></tr>
+<tr class="separator:a715561302af8cb5b74416b23ce4e999d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60302b468d21f8c53d13987372acb8fa" id="r_a60302b468d21f8c53d13987372acb8fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60302b468d21f8c53d13987372acb8fa">listIS_CONTAINED_WITHIN</a>(pxList,  pxListItem)</td></tr>
+<tr class="separator:a60302b468d21f8c53d13987372acb8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4dff11380cd843ed0b6a8dc065916b" id="r_a7c4dff11380cd843ed0b6a8dc065916b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c4dff11380cd843ed0b6a8dc065916b">listLIST_ITEM_CONTAINER</a>(pxListItem)</td></tr>
+<tr class="separator:a7c4dff11380cd843ed0b6a8dc065916b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e17f81438dd0bd705714267a611ff28" id="r_a7e17f81438dd0bd705714267a611ff28"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e17f81438dd0bd705714267a611ff28">listLIST_IS_INITIALISED</a>(pxList)</td></tr>
+<tr class="separator:a7e17f81438dd0bd705714267a611ff28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a1a62d469392f9bfe2443e7efab9c8398" id="r_a1a62d469392f9bfe2443e7efab9c8398"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structx_l_i_s_t___i_t_e_m.html">xLIST_ITEM</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a></td></tr>
+<tr class="separator:a1a62d469392f9bfe2443e7efab9c8398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a542a8d55e98bc407593979e61f83cd02" id="r_a542a8d55e98bc407593979e61f83cd02"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structx_m_i_n_i___l_i_s_t___i_t_e_m.html">xMINI_LIST_ITEM</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a542a8d55e98bc407593979e61f83cd02">MiniListItem_t</a></td></tr>
+<tr class="separator:a542a8d55e98bc407593979e61f83cd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad14d7e3de1350e459c7c23c6f59c902a" id="r_ad14d7e3de1350e459c7c23c6f59c902a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structx_l_i_s_t.html">xLIST</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a></td></tr>
+<tr class="separator:ad14d7e3de1350e459c7c23c6f59c902a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:adeef7734d7d6d9a3eea642a70c106919" id="r_adeef7734d7d6d9a3eea642a70c106919"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adeef7734d7d6d9a3eea642a70c106919">vListInitialise</a> (<a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *const pxList) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
+<tr class="separator:adeef7734d7d6d9a3eea642a70c106919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91611baae53be209a05d211f55f5395" id="r_ab91611baae53be209a05d211f55f5395"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab91611baae53be209a05d211f55f5395">vListInitialiseItem</a> (<a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const pxItem) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
+<tr class="separator:ab91611baae53be209a05d211f55f5395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa129290da5cbda47dffb7bf877b2f02a" id="r_aa129290da5cbda47dffb7bf877b2f02a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa129290da5cbda47dffb7bf877b2f02a">vListInsert</a> (<a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *const pxList, <a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const pxNewListItem) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
+<tr class="separator:aa129290da5cbda47dffb7bf877b2f02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a6a6099b3cbd8f90539aabe5c9e572" id="r_a71a6a6099b3cbd8f90539aabe5c9e572"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71a6a6099b3cbd8f90539aabe5c9e572">vListInsertEnd</a> (<a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *const pxList, <a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const pxNewListItem) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
+<tr class="separator:a71a6a6099b3cbd8f90539aabe5c9e572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb1558482076fff8cafc63419c2d34a" id="r_a2eb1558482076fff8cafc63419c2d34a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eb1558482076fff8cafc63419c2d34a">uxListRemove</a> (<a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const pxItemToRemove) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
+<tr class="separator:a2eb1558482076fff8cafc63419c2d34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a2d5de557c5561c8980d1bf51d87d8cba" name="a2d5de557c5561c8980d1bf51d87d8cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d5de557c5561c8980d1bf51d87d8cba">&#9670;&#160;</a></span>configLIST_VOLATILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define configLIST_VOLATILE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18b4aded515bdc512017ea6e677a13bb" name="a18b4aded515bdc512017ea6e677a13bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b4aded515bdc512017ea6e677a13bb">&#9670;&#160;</a></span>listCURRENT_LIST_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listCURRENT_LIST_LENGTH</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxList )-&gt;uxNumberOfItems )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3a52b5a4f70d3a07e37a5814a23ba880" name="a3a52b5a4f70d3a07e37a5814a23ba880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a52b5a4f70d3a07e37a5814a23ba880">&#9670;&#160;</a></span>listFIRST_LIST_INTEGRITY_CHECK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listFIRST_LIST_INTEGRITY_CHECK_VALUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3611bd5d5d87cb26ac1dc7a4852b94a0" name="a3611bd5d5d87cb26ac1dc7a4852b94a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3611bd5d5d87cb26ac1dc7a4852b94a0">&#9670;&#160;</a></span>listFIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listFIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96cb0919f02e5c0d8e41ded0e65197a3" name="a96cb0919f02e5c0d8e41ded0e65197a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96cb0919f02e5c0d8e41ded0e65197a3">&#9670;&#160;</a></span>listGET_END_MARKER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_END_MARKER</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( <a class="code hl_typedef" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> <span class="keyword">const</span> * ) ( &amp;( ( pxList )-&gt;xListEnd ) ) )</div>
+<div class="ttc" id="alist_8h_html_a1a62d469392f9bfe2443e7efab9c8398"><div class="ttname"><a href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a></div><div class="ttdeci">struct xLIST_ITEM ListItem_t</div><div class="ttdef"><b>Definition</b> list.h:150</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a987cb2766e509022c23b654907cea199" name="a987cb2766e509022c23b654907cea199"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987cb2766e509022c23b654907cea199">&#9670;&#160;</a></span>listGET_HEAD_ENTRY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_HEAD_ENTRY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( ( pxList )-&gt;xListEnd ).pxNext )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a63742b27958b959ac9ab69d8e9aed241" name="a63742b27958b959ac9ab69d8e9aed241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63742b27958b959ac9ab69d8e9aed241">&#9670;&#160;</a></span>listGET_ITEM_VALUE_OF_HEAD_ENTRY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_ITEM_VALUE_OF_HEAD_ENTRY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( ( pxList )-&gt;xListEnd ).pxNext-&gt;xItemValue )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa9469bd061a44b4f75d30c6175f66d5c" name="aa9469bd061a44b4f75d30c6175f66d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9469bd061a44b4f75d30c6175f66d5c">&#9670;&#160;</a></span>listGET_LIST_ITEM_OWNER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_LIST_ITEM_OWNER</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxListItem )-&gt;pvOwner )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa50d09950abc602741d7ebe8387f4e1a" name="aa50d09950abc602741d7ebe8387f4e1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50d09950abc602741d7ebe8387f4e1a">&#9670;&#160;</a></span>listGET_LIST_ITEM_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_LIST_ITEM_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxListItem )-&gt;xItemValue )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aabf78d3f24ba56ac1d0bf0179438b960" name="aabf78d3f24ba56ac1d0bf0179438b960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf78d3f24ba56ac1d0bf0179438b960">&#9670;&#160;</a></span>listGET_NEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_NEXT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxListItem )-&gt;pxNext )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a715561302af8cb5b74416b23ce4e999d" name="a715561302af8cb5b74416b23ce4e999d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a715561302af8cb5b74416b23ce4e999d">&#9670;&#160;</a></span>listGET_OWNER_OF_HEAD_ENTRY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_OWNER_OF_HEAD_ENTRY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( (&amp;( ( pxList )-&gt;xListEnd ))-&gt;pxNext-&gt;pvOwner )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a275d9855e9b71652e2b8f6e2ed62aadd" name="a275d9855e9b71652e2b8f6e2ed62aadd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a275d9855e9b71652e2b8f6e2ed62aadd">&#9670;&#160;</a></span>listGET_OWNER_OF_NEXT_ENTRY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listGET_OWNER_OF_NEXT_ENTRY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxTCB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">{                                                                                           \</div>
+<div class="line"><a class="code hl_typedef" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> * <span class="keyword">const</span> pxConstList = ( pxList );                                                  \</div>
+<div class="line">    <span class="comment">/* Increment the index to the next item and return the item, ensuring */</span>                \</div>
+<div class="line">    <span class="comment">/* we don&#39;t return the marker used at the end of the list.  */</span>                          \</div>
+<div class="line">    ( pxConstList )-&gt;pxIndex = ( pxConstList )-&gt;pxIndex-&gt;pxNext;                            \</div>
+<div class="line">    if( ( <span class="keywordtype">void</span> * ) ( pxConstList )-&gt;pxIndex == ( <span class="keywordtype">void</span> * ) &amp;( ( pxConstList )-&gt;xListEnd ) )  \</div>
+<div class="line">    {                                                                                       \</div>
+<div class="line">        ( pxConstList )-&gt;pxIndex = ( pxConstList )-&gt;pxIndex-&gt;pxNext;                        \</div>
+<div class="line">    }                                                                                       \</div>
+<div class="line">    ( pxTCB ) = ( pxConstList )-&gt;pxIndex-&gt;pvOwner;                                          \</div>
+<div class="line">}</div>
+<div class="ttc" id="alist_8h_html_ad14d7e3de1350e459c7c23c6f59c902a"><div class="ttname"><a href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a></div><div class="ttdeci">struct xLIST List_t</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a60302b468d21f8c53d13987372acb8fa" name="a60302b468d21f8c53d13987372acb8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60302b468d21f8c53d13987372acb8fa">&#9670;&#160;</a></span>listIS_CONTAINED_WITHIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listIS_CONTAINED_WITHIN</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( ( pxListItem )-&gt;pxContainer == ( pxList ) ) ? ( <a class="code hl_define" href="projdefs_8h.html#af268cf937960eb029256bd9c4d949fbe">pdTRUE</a> ) : ( <a class="code hl_define" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a> ) )</div>
+<div class="ttc" id="aprojdefs_8h_html_aa56260e937e7e203026707e5ba944273"><div class="ttname"><a href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></div><div class="ttdeci">#define pdFALSE</div><div class="ttdef"><b>Definition</b> projdefs.h:43</div></div>
+<div class="ttc" id="aprojdefs_8h_html_af268cf937960eb029256bd9c4d949fbe"><div class="ttname"><a href="projdefs_8h.html#af268cf937960eb029256bd9c4d949fbe">pdTRUE</a></div><div class="ttdeci">#define pdTRUE</div><div class="ttdef"><b>Definition</b> projdefs.h:44</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aaba6eb05d67ebc8026bea29193eca28f" name="aaba6eb05d67ebc8026bea29193eca28f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba6eb05d67ebc8026bea29193eca28f">&#9670;&#160;</a></span>listLIST_IS_EMPTY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listLIST_IS_EMPTY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( ( pxList )-&gt;uxNumberOfItems == ( <a class="code hl_typedef" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0 ) ? <a class="code hl_define" href="projdefs_8h.html#af268cf937960eb029256bd9c4d949fbe">pdTRUE</a> : <a class="code hl_define" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a> )</div>
+<div class="ttc" id="aportmacro_8h_html_a646f89d4298e4f5afd522202b11cb2e6"><div class="ttname"><a href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a></div><div class="ttdeci">unsigned long UBaseType_t</div><div class="ttdef"><b>Definition</b> portmacro.h:57</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7e17f81438dd0bd705714267a611ff28" name="a7e17f81438dd0bd705714267a611ff28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e17f81438dd0bd705714267a611ff28">&#9670;&#160;</a></span>listLIST_IS_INITIALISED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listLIST_IS_INITIALISED</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxList )-&gt;xListEnd.xItemValue == <a class="code hl_define" href="portmacro_8h.html#a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</a> )</div>
+<div class="ttc" id="aportmacro_8h_html_a72723ba1e4a85ca14f25c2b9e066613d"><div class="ttname"><a href="portmacro_8h.html#a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</a></div><div class="ttdeci">#define portMAX_DELAY</div><div class="ttdef"><b>Definition</b> portmacro.h:64</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7c4dff11380cd843ed0b6a8dc065916b" name="a7c4dff11380cd843ed0b6a8dc065916b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4dff11380cd843ed0b6a8dc065916b">&#9670;&#160;</a></span>listLIST_ITEM_CONTAINER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listLIST_ITEM_CONTAINER</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxListItem )-&gt;pxContainer )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a87dc70c22e3ff0eba560d6f357472634" name="a87dc70c22e3ff0eba560d6f357472634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87dc70c22e3ff0eba560d6f357472634">&#9670;&#160;</a></span>listSECOND_LIST_INTEGRITY_CHECK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSECOND_LIST_INTEGRITY_CHECK_VALUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf45f853974db484cd7df434bd006e98" name="abf45f853974db484cd7df434bd006e98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf45f853974db484cd7df434bd006e98">&#9670;&#160;</a></span>listSECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e65118e1baa7ab805cdfb37e580501d" name="a0e65118e1baa7ab805cdfb37e580501d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e65118e1baa7ab805cdfb37e580501d">&#9670;&#160;</a></span>listSET_FIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSET_FIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d68b1187d09c64d6ee329786cb0289b" name="a5d68b1187d09c64d6ee329786cb0289b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d68b1187d09c64d6ee329786cb0289b">&#9670;&#160;</a></span>listSET_LIST_INTEGRITY_CHECK_1_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSET_LIST_INTEGRITY_CHECK_1_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83b40c6e61534ef41229bd912dacab48" name="a83b40c6e61534ef41229bd912dacab48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83b40c6e61534ef41229bd912dacab48">&#9670;&#160;</a></span>listSET_LIST_INTEGRITY_CHECK_2_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSET_LIST_INTEGRITY_CHECK_2_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc01a08e534b54fe438847ef02e5060a" name="acc01a08e534b54fe438847ef02e5060a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc01a08e534b54fe438847ef02e5060a">&#9670;&#160;</a></span>listSET_LIST_ITEM_OWNER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSET_LIST_ITEM_OWNER</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxOwner</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxListItem )-&gt;pvOwner = ( <span class="keywordtype">void</span> * ) ( pxOwner ) )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a83e95e61652f032fdc26aa622f5e2610" name="a83e95e61652f032fdc26aa622f5e2610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e95e61652f032fdc26aa622f5e2610">&#9670;&#160;</a></span>listSET_LIST_ITEM_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSET_LIST_ITEM_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxListItem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>xValue</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">( ( pxListItem )-&gt;xItemValue = ( xValue ) )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac8b9d912bdcfdb5544f373d2a94268b2" name="ac8b9d912bdcfdb5544f373d2a94268b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8b9d912bdcfdb5544f373d2a94268b2">&#9670;&#160;</a></span>listSET_SECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listSET_SECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a337d6137e0a4d37321efc5c2f31dba22" name="a337d6137e0a4d37321efc5c2f31dba22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a337d6137e0a4d37321efc5c2f31dba22">&#9670;&#160;</a></span>listTEST_LIST_INTEGRITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listTEST_LIST_INTEGRITY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95b994725c299cdc81c74efc16210cc6" name="a95b994725c299cdc81c74efc16210cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b994725c299cdc81c74efc16210cc6">&#9670;&#160;</a></span>listTEST_LIST_ITEM_INTEGRITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define listTEST_LIST_ITEM_INTEGRITY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pxItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="ad14d7e3de1350e459c7c23c6f59c902a" name="ad14d7e3de1350e459c7c23c6f59c902a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad14d7e3de1350e459c7c23c6f59c902a">&#9670;&#160;</a></span>List_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structx_l_i_s_t.html">xLIST</a> <a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a62d469392f9bfe2443e7efab9c8398" name="a1a62d469392f9bfe2443e7efab9c8398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a62d469392f9bfe2443e7efab9c8398">&#9670;&#160;</a></span>ListItem_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structx_l_i_s_t___i_t_e_m.html">xLIST_ITEM</a> <a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a542a8d55e98bc407593979e61f83cd02" name="a542a8d55e98bc407593979e61f83cd02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a542a8d55e98bc407593979e61f83cd02">&#9670;&#160;</a></span>MiniListItem_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structx_m_i_n_i___l_i_s_t___i_t_e_m.html">xMINI_LIST_ITEM</a> <a class="el" href="#a542a8d55e98bc407593979e61f83cd02">MiniListItem_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a2eb1558482076fff8cafc63419c2d34a" name="a2eb1558482076fff8cafc63419c2d34a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb1558482076fff8cafc63419c2d34a">&#9670;&#160;</a></span>uxListRemove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxListRemove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxItemToRemove</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adeef7734d7d6d9a3eea642a70c106919" name="adeef7734d7d6d9a3eea642a70c106919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeef7734d7d6d9a3eea642a70c106919">&#9670;&#160;</a></span>vListInitialise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vListInitialise </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxList</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab91611baae53be209a05d211f55f5395" name="ab91611baae53be209a05d211f55f5395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91611baae53be209a05d211f55f5395">&#9670;&#160;</a></span>vListInitialiseItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vListInitialiseItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxItem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa129290da5cbda47dffb7bf877b2f02a" name="aa129290da5cbda47dffb7bf877b2f02a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa129290da5cbda47dffb7bf877b2f02a">&#9670;&#160;</a></span>vListInsert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vListInsert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxNewListItem</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71a6a6099b3cbd8f90539aabe5c9e572" name="a71a6a6099b3cbd8f90539aabe5c9e572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a6a6099b3cbd8f90539aabe5c9e572">&#9670;&#160;</a></span>vListInsertEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vListInsertEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</a> *const</td>          <td class="paramname"><span class="paramname"><em>pxNewListItem</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3b0744bff46dacb4db3adb67c036e1ce.html">Middlewares</a></li><li class="navelem"><a class="el" href="dir_2db6865b6aa537d5568b942cf0687305.html">Third_Party</a></li><li class="navelem"><a class="el" href="dir_a9ac12b00284883ec72fecd55155373e.html">FreeRTOS</a></li><li class="navelem"><a class="el" href="dir_0f7e64a1f575f65499fc56657e489592.html">Source</a></li><li class="navelem"><a class="el" href="dir_0ca34f5dc007747c6e57f8c355d0d636.html">include</a></li><li class="navelem"><a class="el" href="list_8h.html">list.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

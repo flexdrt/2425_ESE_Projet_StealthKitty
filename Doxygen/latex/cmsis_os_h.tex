@@ -1,0 +1,69 @@
+\chapter{Header File Template\+: cmsis\+\_\+os.\+h}
+\hypertarget{cmsis_os_h}{}\label{cmsis_os_h}\index{Header File Template: cmsis\_os.h@{Header File Template: cmsis\_os.h}}
+The file {\bfseries{\doxylink{cmsis__os_8h}{cmsis\+\_\+os.\+h}}} is a template header file for a CMSIS-\/\+RTOS compliant Real-\/\+Time Operating System (RTOS). Each RTOS that is compliant with CMSIS-\/\+RTOS shall provide a specific {\bfseries{\doxylink{cmsis__os_8h}{cmsis\+\_\+os.\+h}}} header file that represents its implementation.
+
+The file \doxylink{cmsis__os_8h}{cmsis\+\_\+os.\+h} contains\+:
+\begin{DoxyItemize}
+\item CMSIS-\/\+RTOS API function definitions
+\item struct definitions for parameters and return types
+\item status and priority values used by CMSIS-\/\+RTOS API functions
+\item macros for defining threads and other kernel objects
+\end{DoxyItemize}
+
+{\bfseries{Name conventions and header file modifications}}
+
+All definitions are prefixed with {\bfseries{os}} to give an unique name space for CMSIS-\/\+RTOS functions. Definitions that are prefixed {\bfseries{os\+\_\+}} are not used in the application code but local to this header file. All definitions and functions that belong to a module are grouped and have a common prefix, i.\+e. {\bfseries{os\+Thread}}.
+
+Definitions that are marked with {\bfseries{CAN BE CHANGED}} can be adapted towards the needs of the actual CMSIS-\/\+RTOS implementation. These definitions can be specific to the underlying RTOS kernel.
+
+Definitions that are marked with {\bfseries{MUST REMAIN UNCHANGED}} cannot be altered. Otherwise the CMSIS-\/\+RTOS implementation is no longer compliant to the standard. Note that some functions are optional and need not to be provided by every CMSIS-\/\+RTOS implementation.
+
+{\bfseries{Function calls from interrupt service routines}}
+
+The following CMSIS-\/\+RTOS functions can be called from threads and interrupt service routines (ISR)\+:
+\begin{DoxyItemize}
+\item \doxylink{cmsis__os_8c_a029340f7007656c06fdb8eeeae7b056e}{os\+Signal\+Set}
+\item \doxylink{cmsis__os_8c_ab108914997c49e14d8ff1ae0d1988ca0}{os\+Semaphore\+Release}
+\item \doxylink{cmsis__os_8c_aa0b2994f1a866c19e0d11e6e0d44f543}{os\+Pool\+Alloc}, \doxylink{cmsis__os_8c_a9f129fcad4730fbd1048ad4fa262f36a}{os\+Pool\+CAlloc}, \doxylink{cmsis__os_8c_a4a861e9c469c9d0daf5721bf174f8e54}{os\+Pool\+Free}
+\item \doxylink{cmsis__os_8c_ac0dcf462fc92de8ffaba6cc004514a6d}{os\+Message\+Put}, \doxylink{cmsis__os_8c_a6c6892b8f2296cca6becd57ca2d7e1ae}{os\+Message\+Get}
+\item \doxylink{cmsis__os_8c_adf5ce811bd6a56e617e902a1db6c2194}{os\+Mail\+Alloc}, \doxylink{cmsis__os_8c_a8fde74f6fe5b9e88f75cc5eb8f2124fd}{os\+Mail\+CAlloc}, \doxylink{cmsis__os_8c_ac6ad7e6e7d6c4a80e60da22c57a42ccd}{os\+Mail\+Get}, \doxylink{cmsis__os_8c_a485ef6f81854ebda8ffbce4832181e02}{os\+Mail\+Put}, \doxylink{cmsis__os_8c_a27c1060cf21393f96b4fd1ed1c0167cc}{os\+Mail\+Free}
+\end{DoxyItemize}
+
+Functions that cannot be called from an ISR are verifying the interrupt status and return in case that they are called from an ISR context the status code {\bfseries{os\+Error\+ISR}}. In some implementations this condition might be caught using the HARD FAULT vector.
+
+Some CMSIS-\/\+RTOS implementations support CMSIS-\/\+RTOS function calls from multiple ISR at the same time. If this is impossible, the CMSIS-\/\+RTOS rejects calls by nested ISR functions with the status code {\bfseries{os\+Error\+ISRRecursive}}.
+
+{\bfseries{Define and reference object definitions}}
+
+With {\bfseries{\#define os\+Objects\+External}} objects are defined as external symbols. This allows to create a consistent header file that is used throughout a project as shown below\+:
+
+{\itshape Header File} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{cmsis__os_8h}{cmsis\_os.h}}>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CMSIS\ RTOS\ header\ file}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Thread\ definition}}
+\DoxyCodeLine{\textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ thread\_sample\ (\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}\ *argument);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ function\ prototype}}
+\DoxyCodeLine{\mbox{\hyperlink{cmsis__os_8h_a1537e80813785bebbc3cbab3226eb04f}{osThreadDef}}\ (thread\_sample,\ \mbox{\hyperlink{cmsis__os_8h_a7f2b42f1983b9107775ec2a1c69a849aa193b650117c209b4a203954542bcc3e6}{osPriorityBelowNormal}},\ 1,\ 100);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Pool\ definition}}
+\DoxyCodeLine{\mbox{\hyperlink{cmsis__os_8h_a87b471d4fe2d5dbd0040708edd52771b}{osPoolDef}}(MyPool,\ 10,\ \textcolor{keywordtype}{long});}
+
+\end{DoxyCode}
+
+
+This header file defines all objects when included in a C/\+C++ source file. When {\bfseries{\#define os\+Objects\+External}} is present before the header file, the objects are defined as external symbols. A single consistent header file can therefore be used throughout the whole project.
+
+{\itshape Example} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}osObjects.h"{}}\ \ \ \ \ \textcolor{comment}{//\ Definition\ of\ the\ CMSIS-\/RTOS\ objects}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ osObjectExternal\ \ \ }\textcolor{comment}{//\ Objects\ will\ be\ defined\ as\ external\ symbols}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}osObjects.h"{}}\ \ \ \ \ \textcolor{comment}{//\ Reference\ to\ the\ CMSIS-\/RTOS\ objects}}
+
+\end{DoxyCode}
+ 

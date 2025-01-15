@@ -1,0 +1,123 @@
+\doxysection{Référence du fichier drv\+\_\+\+LIDAR.\+h}
+\hypertarget{drv___l_i_d_a_r_8h}{}\label{drv___l_i_d_a_r_8h}\index{drv\_LIDAR.h@{drv\_LIDAR.h}}
+
+
+Header du driver LIDAR.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_ga8c8dd361b7cfe9a2950071de99c77377}{INFO\+\_\+\+BUFF\+\_\+\+SIZE}}~27
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_gacc276d20f0ac6e4f76844461d22c0455}{HEALTH\+\_\+\+BUFF\+\_\+\+SIZE}}~10
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_ga6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}~2000
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_gaebdc7d8ca8e25ed8efc90bb88ef7ef5b}{PACKET\+\_\+\+SIZE}}~90
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_ga8bb1e974805d788a45e5b153bb468d61}{SCAN\+\_\+\+SIZE}}~360
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_ga046e77b9815d0d4355a747c1ffde39f7}{NB\+\_\+\+DEGRES}}~360
+\item 
+\#define \mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\+\_\+\+OBJECTS}}~100
+\item 
+\#define \mbox{\hyperlink{group___thresholds_gac6aef84b78610b6ac525e0ebe6c1fbc6}{DETECT\+\_\+\+THRESHOLD}}~150
+\item 
+\#define \mbox{\hyperlink{group___thresholds_ga549d41dcf9444ed7d6df1da3c73e7d16}{MIN\+\_\+\+DISTANCE}}~100
+\item 
+\#define \mbox{\hyperlink{group___thresholds_ga08e4da5f3d0c7936fa52467f40e4b6aa}{MAX\+\_\+\+DISTANCE}}~2000
+\item 
+\#define \mbox{\hyperlink{group___commands_gab4a27d508ec92796491800d56e24e80b}{CMD\+\_\+\+HEADER}}~0x\+A5
+\item 
+\#define \mbox{\hyperlink{group___commands_ga2677fc43f8393bcf3bafc8bbface003f}{CMD\+\_\+\+INIT}}~0x60
+\item 
+\#define \mbox{\hyperlink{group___commands_ga565ec1390b7b34a6ac42039ecb299455}{CMD\+\_\+\+HALT}}~0x65
+\item 
+\#define \mbox{\hyperlink{group___commands_ga25e21625c1e6a3d5fefce646e33344e8}{CMD\+\_\+\+STATUS}}~0x90
+\item 
+\#define \mbox{\hyperlink{group___commands_ga8752dbf255ad047209ede89f92592137}{CMD\+\_\+\+DIAG}}~0x91
+\item 
+\#define \mbox{\hyperlink{group___commands_gafe1dd8546b0a8cd30b19a0229205c8df}{CMD\+\_\+\+RESET}}~0x80
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group___driver___functions_gaae13282156665437c96f895dd45bc954}{lidar\+\_\+begin}} (void)
+\begin{DoxyCompactList}\small\item\em Démarre le scan LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_ga4f4948353e434a11b465fb1a4c8a309c}{lidar\+\_\+end}} (void)
+\begin{DoxyCompactList}\small\item\em Arrête le scan LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_ga70ca3b7f361c8b0e44f40e2a9210a93e}{lidar\+\_\+query\+\_\+status}} (void)
+\begin{DoxyCompactList}\small\item\em Interroge le statut du LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_gacb4320bb6f0785d3ca86bdd26b4c3a11}{lidar\+\_\+check\+\_\+health}} (void)
+\begin{DoxyCompactList}\small\item\em Vérifie l\textquotesingle{}état de santé du LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_ga14502162256fc53461967a9ceba8a0a4}{lidar\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em Réinitialise le LIDAR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___driver___functions_gae30698586cf1f2ad080580688d3fd323}{lidar\+\_\+parse\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Parse les données brutes en distances et angles. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_gaf3225e50d67930032f62d9dc757668f2}{calc\+\_\+avg\+\_\+dist}} (int debut, int fin)
+\begin{DoxyCompactList}\small\item\em Calcule la distance moyenne sur un segment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___driver___functions_gafae7be7b4627bd1a071c68283ff25cbb}{smooth\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Lisse les données par filtrage adaptatif. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___driver___functions_ga22fa86951e4167e303013997448d1d3f}{detect\+\_\+objects}} (void)
+\begin{DoxyCompactList}\small\item\em Détecte les objets dans le scan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___global___buffers_gaef98403db56f0b54d9d86a760349db2d}{g\+\_\+raw\+\_\+data}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_ga6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___global___buffers_gaf2b37f4bcc4fed1c94b8f76d514f319d}{g\+\_\+status\+\_\+data}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_ga8c8dd361b7cfe9a2950071de99c77377}{INFO\+\_\+\+BUFF\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___global___buffers_gaae5aae25c1a3b5581c8821bc34e63944}{g\+\_\+diag\+\_\+data}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_gacc276d20f0ac6e4f76844461d22c0455}{HEALTH\+\_\+\+BUFF\+\_\+\+SIZE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___global___buffers_ga099671b7af4477d131cbdad2df08dff1}{g\+\_\+packet\+\_\+data}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_gaebdc7d8ca8e25ed8efc90bb88ef7ef5b}{PACKET\+\_\+\+SIZE}}\mbox{]}
+\item 
+int \mbox{\hyperlink{group___processing___data_gaf62649b70f5730856ee43d1a1b7a1a07}{g\+\_\+scan\+\_\+data}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_ga8bb1e974805d788a45e5b153bb468d61}{SCAN\+\_\+\+SIZE}}\mbox{]}
+\item 
+int \mbox{\hyperlink{group___processing___data_gabb678d3500765f398c8c484dcc1d6131}{g\+\_\+clean\+\_\+data}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_ga8bb1e974805d788a45e5b153bb468d61}{SCAN\+\_\+\+SIZE}}\mbox{]}
+\item 
+int \mbox{\hyperlink{group___processing___data_gaec6b9c72fbd5ad668a1f616857991306}{g\+\_\+current\+\_\+idx}}
+\item 
+int \mbox{\hyperlink{group___object___detection_ga3d7e014466e671bc6194aa91b663b6d7}{g\+\_\+object\+\_\+angles}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\+\_\+\+OBJECTS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{group___object___detection_gab95b347e1089d477ba25ef330fc69abe}{g\+\_\+object\+\_\+distances}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\+\_\+\+OBJECTS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{group___object___detection_ga6d0e5d10521cc583b65291b262e36ba3}{g\+\_\+object\+\_\+points}} \mbox{[}\mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\+\_\+\+OBJECTS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{group___object___detection_ga1678b34476cf28d52ee5e016357bbe53}{g\+\_\+object\+\_\+count}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___frame___data_ga57bd31d28abc158ca1d7128200345e7c}{g\+\_\+frame\+\_\+header}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___frame___data_gaaf31cf62fa6a02c8b87f84d1f51ee183}{g\+\_\+frame\+\_\+length}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___frame___data_ga375aff5565d519cb7b9accf09c17f501}{g\+\_\+frame\+\_\+type}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___frame___data_ga0db59ac8813f68ab00fb4090903ed39e}{g\+\_\+start\+\_\+angle}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___frame___data_gaba28155333139df4763dee45a6f781ae}{g\+\_\+end\+\_\+angle}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___frame___data_ga7c8f8416bad4cb2c2edb22fe4914cb86}{g\+\_\+checksum}}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___communication___callbacks_ga3cd26e048feff23ed1766512a00d86d8}{uart\+\_\+transmit}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+data, uint16\+\_\+t size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___communication___callbacks_ga2a8524a5dc75afddbbd27b08abf10f7c}{uart\+\_\+it\+\_\+transmit}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+data, uint16\+\_\+t size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___communication___callbacks_ga4e363d42ae599e6e80941b43bbf278c9}{uart\+\_\+dma\+\_\+transmit}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+data, uint16\+\_\+t size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___communication___callbacks_ga650949b66417c5dea7816273b145e111}{uart\+\_\+poll\+\_\+receive}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+data, uint16\+\_\+t size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___communication___callbacks_ga2a636afe102496224cbb59c4a4f8498e}{uart\+\_\+it\+\_\+receive}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+data, uint16\+\_\+t size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___communication___callbacks_ga5eba61a3e61007d52aa3e255cf7f1a49}{uart\+\_\+dma\+\_\+receive}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+data, uint16\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header du driver LIDAR. 
+
+\begin{DoxyDate}{Date}
+2024
+\end{DoxyDate}
+Ce fichier définit les constantes, variables globales et prototypes des fonctions pour le pilotage du LIDAR 

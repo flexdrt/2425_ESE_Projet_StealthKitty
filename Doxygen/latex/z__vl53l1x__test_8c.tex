@@ -1,0 +1,151 @@
+\doxysection{Référence du fichier z\+\_\+vl53l1x\+\_\+test.\+c}
+\hypertarget{z__vl53l1x__test_8c}{}\label{z__vl53l1x__test_8c}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+{\ttfamily \#include "{}vl53l1\+\_\+platform.\+h"{}}\newline
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{z__vl53l1x__test_8c_a14df6345e8d840e0fa519bea201e4988}{DIM\+\_\+\+ARR}}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{z__vl53l1x__test_8c_a03928b0a24d7f6c4719ee98a56c976fc}{VL53\+L1\+\_\+\+\_\+test}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_a23eaf4ad03dd3ea6ccca26824b589ba1}{Distance}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_a850e4e5b2c2319b8168134e8397f69f0}{Range\+Status}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_ae0e1cab1c8d7bc781ec32fffee47dec4}{Signal\+Rate}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_ae9883292894ff2fabeea816fa0487cca}{Ambient\+Rate}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_abafcbdae32d0e890623e3c43e0b33afc}{Signal\+Per\+Spad}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_adaa0bc111b1e10351bb55566a2b5ce5b}{Ambient\+Per\+Spad}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_ac59106b4c004961b1bc62f7e05b16a2c}{Timing\+Budget}} =\mbox{\hyperlink{vl53l1__platform_8h_a9185a399bbb7fe5fe82192611a310da7}{VL53\+L1\+\_\+\+\_\+\+TIMING\+\_\+\+BUDGET}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_aac41a7948e7297c7e10a989bb9fa52ed}{Calib\+Offset}} =\mbox{\hyperlink{vl53l1__platform_8h_aaed0db200f0c6f5bffacc9c6b672944f}{VL53\+L1\+\_\+\+\_\+\+CALIB\+\_\+\+OFFSET}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_a750af56cecd795f4492807bf7b8d2264}{Distance\+Mode}} =\mbox{\hyperlink{vl53l1__platform_8h_abe4fdcb5c3fc3d125497e417ff23e5f6}{VL53\+L1\+\_\+\+\_\+\+DISTANCE\+\_\+\+MODE}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_a1459d9b758a3fe8080e595d9904f8ec2}{Error\+Perc}} =0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_aed1fc84ecdc50e67f8f8e523e570947a}{numerrors}} =0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{z__vl53l1x__test_8c_a5ac9f67bca34dd0dbcbc44a43b422fda}{read\+Counter}} =0
+\item 
+float \mbox{\hyperlink{z__vl53l1x__test_8c_a1af261344ec9d438bf2f6504a8b1dafd}{avg\+Dist}}
+\item 
+float \mbox{\hyperlink{z__vl53l1x__test_8c_a1245bd8b012c0b49ec389e631081ffe5}{Std\+Dev}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{z__vl53l1x__test_8c_a14df6345e8d840e0fa519bea201e4988}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!DIM\_ARR@{DIM\_ARR}}
+\index{DIM\_ARR@{DIM\_ARR}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{DIM\_ARR}{DIM\_ARR}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a14df6345e8d840e0fa519bea201e4988} 
+\#define DIM\+\_\+\+ARR~100}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{z__vl53l1x__test_8c_a03928b0a24d7f6c4719ee98a56c976fc}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!VL53L1\_\_test@{VL53L1\_\_test}}
+\index{VL53L1\_\_test@{VL53L1\_\_test}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{VL53L1\_\_test()}{VL53L1\_\_test()}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a03928b0a24d7f6c4719ee98a56c976fc} 
+void VL53\+L1\+\_\+\+\_\+test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{z__vl53l1x__test_8c_adaa0bc111b1e10351bb55566a2b5ce5b}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!AmbientPerSpad@{AmbientPerSpad}}
+\index{AmbientPerSpad@{AmbientPerSpad}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{AmbientPerSpad}{AmbientPerSpad}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_adaa0bc111b1e10351bb55566a2b5ce5b} 
+uint16\+\_\+t Ambient\+Per\+Spad}
+
+\Hypertarget{z__vl53l1x__test_8c_ae9883292894ff2fabeea816fa0487cca}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!AmbientRate@{AmbientRate}}
+\index{AmbientRate@{AmbientRate}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{AmbientRate}{AmbientRate}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_ae9883292894ff2fabeea816fa0487cca} 
+uint16\+\_\+t Ambient\+Rate}
+
+\Hypertarget{z__vl53l1x__test_8c_a1af261344ec9d438bf2f6504a8b1dafd}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!avgDist@{avgDist}}
+\index{avgDist@{avgDist}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{avgDist}{avgDist}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a1af261344ec9d438bf2f6504a8b1dafd} 
+float avg\+Dist}
+
+\Hypertarget{z__vl53l1x__test_8c_aac41a7948e7297c7e10a989bb9fa52ed}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!CalibOffset@{CalibOffset}}
+\index{CalibOffset@{CalibOffset}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{CalibOffset}{CalibOffset}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_aac41a7948e7297c7e10a989bb9fa52ed} 
+int16\+\_\+t Calib\+Offset =\mbox{\hyperlink{vl53l1__platform_8h_aaed0db200f0c6f5bffacc9c6b672944f}{VL53\+L1\+\_\+\+\_\+\+CALIB\+\_\+\+OFFSET}}}
+
+\Hypertarget{z__vl53l1x__test_8c_a23eaf4ad03dd3ea6ccca26824b589ba1}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!Distance@{Distance}}
+\index{Distance@{Distance}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{Distance}{Distance}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a23eaf4ad03dd3ea6ccca26824b589ba1} 
+uint16\+\_\+t Distance}
+
+\Hypertarget{z__vl53l1x__test_8c_a750af56cecd795f4492807bf7b8d2264}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!DistanceMode@{DistanceMode}}
+\index{DistanceMode@{DistanceMode}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{DistanceMode}{DistanceMode}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a750af56cecd795f4492807bf7b8d2264} 
+uint16\+\_\+t Distance\+Mode =\mbox{\hyperlink{vl53l1__platform_8h_abe4fdcb5c3fc3d125497e417ff23e5f6}{VL53\+L1\+\_\+\+\_\+\+DISTANCE\+\_\+\+MODE}}}
+
+\Hypertarget{z__vl53l1x__test_8c_a1459d9b758a3fe8080e595d9904f8ec2}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!ErrorPerc@{ErrorPerc}}
+\index{ErrorPerc@{ErrorPerc}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{ErrorPerc}{ErrorPerc}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a1459d9b758a3fe8080e595d9904f8ec2} 
+uint8\+\_\+t Error\+Perc =0}
+
+\Hypertarget{z__vl53l1x__test_8c_aed1fc84ecdc50e67f8f8e523e570947a}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!numerrors@{numerrors}}
+\index{numerrors@{numerrors}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{numerrors}{numerrors}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_aed1fc84ecdc50e67f8f8e523e570947a} 
+uint32\+\_\+t numerrors =0}
+
+\Hypertarget{z__vl53l1x__test_8c_a850e4e5b2c2319b8168134e8397f69f0}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!RangeStatus@{RangeStatus}}
+\index{RangeStatus@{RangeStatus}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{RangeStatus}{RangeStatus}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a850e4e5b2c2319b8168134e8397f69f0} 
+uint8\+\_\+t Range\+Status}
+
+\Hypertarget{z__vl53l1x__test_8c_a5ac9f67bca34dd0dbcbc44a43b422fda}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!readCounter@{readCounter}}
+\index{readCounter@{readCounter}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{readCounter}{readCounter}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a5ac9f67bca34dd0dbcbc44a43b422fda} 
+uint32\+\_\+t read\+Counter =0}
+
+\Hypertarget{z__vl53l1x__test_8c_abafcbdae32d0e890623e3c43e0b33afc}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!SignalPerSpad@{SignalPerSpad}}
+\index{SignalPerSpad@{SignalPerSpad}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{SignalPerSpad}{SignalPerSpad}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_abafcbdae32d0e890623e3c43e0b33afc} 
+uint16\+\_\+t Signal\+Per\+Spad}
+
+\Hypertarget{z__vl53l1x__test_8c_ae0e1cab1c8d7bc781ec32fffee47dec4}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!SignalRate@{SignalRate}}
+\index{SignalRate@{SignalRate}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{SignalRate}{SignalRate}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_ae0e1cab1c8d7bc781ec32fffee47dec4} 
+uint16\+\_\+t Signal\+Rate}
+
+\Hypertarget{z__vl53l1x__test_8c_a1245bd8b012c0b49ec389e631081ffe5}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!StdDev@{StdDev}}
+\index{StdDev@{StdDev}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{StdDev}{StdDev}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_a1245bd8b012c0b49ec389e631081ffe5} 
+float Std\+Dev}
+
+\Hypertarget{z__vl53l1x__test_8c_ac59106b4c004961b1bc62f7e05b16a2c}\index{z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}!TimingBudget@{TimingBudget}}
+\index{TimingBudget@{TimingBudget}!z\_vl53l1x\_test.c@{z\_vl53l1x\_test.c}}
+\doxysubsubsection{\texorpdfstring{TimingBudget}{TimingBudget}}
+{\footnotesize\ttfamily \label{z__vl53l1x__test_8c_ac59106b4c004961b1bc62f7e05b16a2c} 
+uint16\+\_\+t Timing\+Budget =\mbox{\hyperlink{vl53l1__platform_8h_a9185a399bbb7fe5fe82192611a310da7}{VL53\+L1\+\_\+\+\_\+\+TIMING\+\_\+\+BUDGET}}}
+

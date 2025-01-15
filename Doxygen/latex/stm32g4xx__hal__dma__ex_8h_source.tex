@@ -1,0 +1,170 @@
+\doxysection{stm32g4xx\+\_\+hal\+\_\+dma\+\_\+ex.\+h}
+\hypertarget{stm32g4xx__hal__dma__ex_8h_source}{}\label{stm32g4xx__hal__dma__ex_8h_source}\index{stm32g4xx\_hal\_dma\_ex.h@{stm32g4xx\_hal\_dma\_ex.h}}
+\mbox{\hyperlink{stm32g4xx__hal__dma__ex_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32G4xx\_HAL\_DMA\_EX\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \_\_STM32G4xx\_HAL\_DMA\_EX\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32g4xx__hal__def_8h}{stm32g4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def_a4ef93606c67966acc563bf0310deb41a}{SyncSignalID}};\ \ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def_a37e1815fbee67df61d816d67b25862b0}{SyncPolarity}};\ \ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def_ac2b94fdec06b819485f9e2d5460458b9}{SyncEnable}};\ \ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def_a5ee470a808913e5869eb96c47a72d714}{EventEnable}};\ \ \ \ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def_aa98130d429e9c3f42fc783fa8d70a00f}{RequestNumber}};\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def}{HAL\_DMA\_MuxSyncConfigTypeDef}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_request_generator_config_type_def_a87987c676e576d350e77f0fbc51391e2}{SignalID}};\ \ \ \ \ \ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_request_generator_config_type_def_aa8163c013b720459c0e6a92c84d5bef9}{Polarity}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_request_generator_config_type_def_aa98130d429e9c3f42fc783fa8d70a00f}{RequestNumber}};\ \ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \}\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_request_generator_config_type_def}{HAL\_DMA\_MuxRequestGeneratorConfigTypeDef}};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI11\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 11U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI12\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 12U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI13\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 13U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI14\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 14U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_EXTI15\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 15U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_DMAMUX1\_CH0\_EVT\ \ \ \ \ \ \ \ \ \ \ 16U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_DMAMUX1\_CH1\_EVT\ \ \ \ \ \ \ \ \ \ \ 17U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_DMAMUX1\_CH2\_EVT\ \ \ \ \ \ \ \ \ \ \ 18U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_DMAMUX1\_CH3\_EVT\ \ \ \ \ \ \ \ \ \ \ 19U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_SYNC\_LPTIM1\_OUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 20U\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_SYNC\_NO\_EVENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_SYNC\_RISING\ \ \ \ \ ((uint32\_t)DMAMUX\_CxCR\_SPOL\_0)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_SYNC\_FALLING\ \ \ \ ((uint32\_t)DMAMUX\_CxCR\_SPOL\_1)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_SYNC\_RISING\_FALLING\ ((uint32\_t)DMAMUX\_CxCR\_SPOL)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI10\ \ \ \ \ \ \ \ \ \ \ \ \ \ 10U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI11\ \ \ \ \ \ \ \ \ \ \ \ \ \ 11U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI12\ \ \ \ \ \ \ \ \ \ \ \ \ \ 12U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI13\ \ \ \ \ \ \ \ \ \ \ \ \ \ 13U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI14\ \ \ \ \ \ \ \ \ \ \ \ \ \ 14U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_EXTI15\ \ \ \ \ \ \ \ \ \ \ \ \ \ 15U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_DMAMUX1\_CH0\_EVT\ \ \ \ \ 16U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_DMAMUX1\_CH1\_EVT\ \ \ \ \ 17U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_DMAMUX1\_CH2\_EVT\ \ \ \ \ 18U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_DMAMUX1\_CH3\_EVT\ \ \ \ \ 19U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX1\_REQ\_GEN\_LPTIM1\_OUT\ \ \ \ \ \ \ \ \ \ 20U\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_REQ\_GEN\_NO\_EVENT\ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_REQ\_GEN\_RISING\ \ \ \ \ \ \ \ \ \ \ DMAMUX\_RGxCR\_GPOL\_0\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_REQ\_GEN\_FALLING\ \ \ \ \ \ \ \ \ \ DMAMUX\_RGxCR\_GPOL\_1\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ HAL\_DMAMUX\_REQ\_GEN\_RISING\_FALLING\ \ \ DMAMUX\_RGxCR\_GPOL\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{/*\ IO\ operation\ functions\ *****************************************************/}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ REQUEST\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00197\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___d_m_a_ex___exported___functions___group1_gaf0ce6122a4aae8570d7998abbcf808c2}{HAL\_DMAEx\_ConfigMuxRequestGenerator}}(\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_request_generator_config_type_def}{HAL\_DMA\_MuxRequestGeneratorConfigTypeDef}}\ *pRequestGeneratorConfig);}
+\DoxyCodeLine{00199\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___d_m_a_ex___exported___functions___group1_ga786b1f03f07515586bafd9f5a2ef44e8}{HAL\_DMAEx\_EnableMuxRequestGenerator}}(\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma);}
+\DoxyCodeLine{00200\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___d_m_a_ex___exported___functions___group1_ga073619d9b9501a03c6c95e558f17c0cf}{HAL\_DMAEx\_DisableMuxRequestGenerator}}(\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma);}
+\DoxyCodeLine{00201\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ SYNCHRO\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00204\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___d_m_a_ex___exported___functions___group1_gad719bdb39e95faa2070b64ce85682d7e}{HAL\_DMAEx\_ConfigMuxSync}}(\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma,\ \mbox{\hyperlink{struct_h_a_l___d_m_a___mux_sync_config_type_def}{HAL\_DMA\_MuxSyncConfigTypeDef}}\ *pSyncConfig);}
+\DoxyCodeLine{00205\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___d_m_a_ex___exported___functions___group1_ga2ed4f769237d01666549b6b1cc1902c7}{HAL\_DMAEx\_MUX\_IRQHandler}}(\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_SYNC\_SIGNAL\_ID(SIGNAL\_ID)\ ((SIGNAL\_ID)\ <=\ HAL\_DMAMUX1\_SYNC\_LPTIM1\_OUT)}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_SYNC\_REQUEST\_NUMBER(REQUEST\_NUMBER)\ (((REQUEST\_NUMBER)\ >\ 0U)\ \&\&\ ((REQUEST\_NUMBER)\ <=\ 32U))}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_SYNC\_POLARITY(POLARITY)\ (((POLARITY)\ ==\ HAL\_DMAMUX\_SYNC\_NO\_EVENT)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((POLARITY)\ ==\ HAL\_DMAMUX\_SYNC\_RISING)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((POLARITY)\ ==\ HAL\_DMAMUX\_SYNC\_FALLING)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((POLARITY)\ ==\ HAL\_DMAMUX\_SYNC\_RISING\_FALLING))}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_SYNC\_STATE(SYNC)\ (((SYNC)\ ==\ DISABLE)\ \ \ ||\ ((SYNC)\ ==\ ENABLE))}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_SYNC\_EVENT(EVENT)\ (((EVENT)\ ==\ DISABLE)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((EVENT)\ ==\ ENABLE))}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_REQUEST\_GEN\_SIGNAL\_ID(SIGNAL\_ID)\ ((SIGNAL\_ID)\ <=\ HAL\_DMAMUX1\_REQ\_GEN\_LPTIM1\_OUT)}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_REQUEST\_GEN\_REQUEST\_NUMBER(REQUEST\_NUMBER)\ (((REQUEST\_NUMBER)\ >\ 0U)\ \&\&\ ((REQUEST\_NUMBER)\ <=\ 32U))}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ IS\_DMAMUX\_REQUEST\_GEN\_POLARITY(POLARITY)\ (((POLARITY)\ ==\ HAL\_DMAMUX\_REQ\_GEN\_NO\_EVENT)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((POLARITY)\ ==\ HAL\_DMAMUX\_REQ\_GEN\_RISING)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((POLARITY)\ ==\ HAL\_DMAMUX\_REQ\_GEN\_FALLING)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((POLARITY)\ ==\ HAL\_DMAMUX\_REQ\_GEN\_RISING\_FALLING))}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00260\ \}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_STM32G4xx\_HAL\_DMA\_EX\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00264\ }
+
+\end{DoxyCode}

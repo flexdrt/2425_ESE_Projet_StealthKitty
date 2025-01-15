@@ -36,6 +36,9 @@
 #include "ADXL343_SPI.h"
 #include "drv_LIDAR.h"
 
+
+
+
 /**
  * @brief Redirects printf to UART2 for debugging purposes.
  * @param file: Unused parameter for file descriptor.
@@ -53,7 +56,18 @@ int _write(int file, char *ptr, int len) {
  */
 extern SPI_HandleTypeDef hspi1;
 ADXL343 accelerometer;
-
+#define MAX_OBJECTS 100
+extern uint8_t g_raw_data[BUFFER_SIZE];
+extern int g_current_idx;
+extern uint16_t g_PH;
+extern uint8_t g_CT;
+extern uint8_t g_LSN;
+extern uint16_t g_start_angle;
+extern uint16_t g_end_angle;
+extern uint8_t g_packet_data[PACKET_SIZE];
+extern int g_object_angles[MAX_OBJECTS];
+extern int g_object_distances[MAX_OBJECTS];
+extern int g_obj_count;
 
 
 
@@ -82,7 +96,7 @@ ADXL343 accelerometer;
 /* USER CODE BEGIN PV */
 
 TaskHandle_t h_task_bord = NULL; /**< Task handle for managing a specific task. */
-sensor_handle_t dev_handle; /**< Handle for managing the sensor. */
+
 
 int frame_start = 0; /**< Start index of the LIDAR frame. */
 int frame_end = 0; /**< End index of the LIDAR frame. */
@@ -105,73 +119,25 @@ void SystemClock_Config(void);
  */
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
-
-/**
- * @brief Transmits data using UART synchronously.
- * @param p_data: Pointer to the data buffer.
- * @param size: Size of the data to transmit.
- * @return 0 on success.
- */
-int uart_transmit(uint8_t *p_data, uint16_t size){
-	HAL_UART_Transmit(&huart4, p_data, size, HAL_MAX_DELAY);
-	return 0;
+int uart_it_transmit_local(uint8_t *p_data, uint16_t size) {
+    HAL_UART_Transmit_IT(&huart4, p_data, size);
+    return 0;
 }
 
-/**
- * @brief Transmits data using UART with interrupt mode.
- * @param p_data: Pointer to the data buffer.
- * @param size: Size of the data to transmit.
- * @return 0 on success.
- */
-int uart_it_transmit(uint8_t *p_data, uint16_t size){
-	HAL_UART_Transmit_IT(&huart4, p_data, size);
-	return 0;
+int uart_dma_transmit_local(uint8_t *p_data, uint16_t size) {
+    HAL_UART_Transmit_DMA(&huart4, p_data, size);
+    return 0;
 }
 
-/**
- * @brief Transmits data using UART with DMA.
- * @param p_data: Pointer to the data buffer.
- * @param size: Size of the data to transmit.
- * @return 0 on success.
- */
-int uart_dma_transmit(uint8_t *p_data, uint16_t size){
-	HAL_UART_Transmit_DMA(&huart4, p_data, size);
-	return 0;
+int uart_poll_receive_local(uint8_t *p_data, uint16_t size) {
+    HAL_UART_Receive(&huart4, p_data, size, HAL_MAX_DELAY);
+    return 0;
 }
 
-/**
- * @brief Receives data using UART in polling mode.
- * @param p_data: Pointer to the buffer to store received data.
- * @param size: Size of the data to receive.
- * @return 0 on success.
- */
-int uart_poll_receive(uint8_t *p_data, uint16_t size){
-	HAL_UART_Receive(&huart4, p_data, size, HAL_MAX_DELAY);
-	return 0;
+int uart_it_receive_local(uint8_t *p_data, uint16_t size) {
+    HAL_UART_Receive_IT(&huart4, p_data, size);
+    return 0;
 }
-
-/**
- * @brief Receives data using UART with interrupt mode.
- * @param p_data: Pointer to the buffer to store received data.
- * @param size: Size of the data to receive.
- * @return 0 on success.
- */
-int uart_it_receive(uint8_t *p_data, uint16_t size){
-	HAL_UART_Receive_IT(&huart4, p_data, size);
-	return 0;
-}
-
-/**
- * @brief Receives data using UART with DMA.
- * @param p_data: Pointer to the buffer to store received data.
- * @param size: Size of the data to receive.
- * @return 0 on success.
- */
-int uart_dma_receive(uint8_t *p_data, uint16_t size){
-	HAL_UART_Receive_DMA(&huart4, p_data, size);
-	return 0;
-}
-
 //void Task_MotorControl(void *argument);
 /* USER CODE END PFP */
 
@@ -295,17 +261,17 @@ void vTaskADX(void *argument)
 		vTaskDelay(pdMS_TO_TICKS(500));
 
 		// Si un tap est détecté
-		        if (ADXL343_check_tap(&accelerometer)) {
-		            // Alterner les LEDs
-		            if (led_state == 0) {
-		                HAL_GPIO_WritePin(GPIOB, Status_Red_Pin, GPIO_PIN_SET);    // LED rouge ON
-		                HAL_GPIO_WritePin(GPIOB, Status_Blue_Pin, GPIO_PIN_RESET); // LED bleue OFF
-		                led_state = 1;
-		            } else {
-		                HAL_GPIO_WritePin(GPIOB, Status_Red_Pin, GPIO_PIN_RESET); // LED rouge OFF
-		                HAL_GPIO_WritePin(GPIOB, Status_Blue_Pin, GPIO_PIN_SET);  // LED bleue ON
-		                led_state = 0;
-		            }
+		if (ADXL343_check_tap(&accelerometer)) {
+			// Alterner les LEDs
+			if (led_state == 0) {
+				HAL_GPIO_WritePin(GPIOB, Status_Red_Pin, GPIO_PIN_SET);    // LED rouge ON
+				HAL_GPIO_WritePin(GPIOB, Status_Blue_Pin, GPIO_PIN_RESET); // LED bleue OFF
+				led_state = 1;
+			} else {
+				HAL_GPIO_WritePin(GPIOB, Status_Red_Pin, GPIO_PIN_RESET); // LED rouge OFF
+				HAL_GPIO_WritePin(GPIOB, Status_Blue_Pin, GPIO_PIN_SET);  // LED bleue ON
+				led_state = 0;
+			}
 
 			// Alterner le mode moteur
 			if (motor_mode == 0)
@@ -354,473 +320,460 @@ void vTaskToF(void *argument) {
 /**
  * @brief Tâche pour gérer le LIDAR et les moteurs.
  */
-
-void TaskLIDAR(void * pvParameters){
+void TaskLIDAR(void * pvParameters) {
 
 	// Paramètres d'asservissement
-	const int VITESSE_BASE = 400;     // Vitesse nominale
-	const int VITESSE_MAX = 800;      // Vitesse maximale
-	const float Kp = 2.0;             // Gain proportionnel
+//	const int VITESSE_BASE = 400;     // Vitesse nominale
+//	const int VITESSE_MAX = 800;      // Vitesse maximale
+//	const float Kp = 2.0;             // Gain proportionnel
+//
+//	// Variables de contrôle
+//	uint16_t alpha1 = 0, alpha2 = 0;  // Commandes moteurs
+//	uint16_t angle = 0;               // Angle mesuré
+//	uint16_t vitesse = 0;             // Distance mesurée
+//	int16_t erreur_angle = 0;         // Erreur en angle
+//	int16_t correction = 0;           // Correction à appliquer
+//	const uint8_t cat = 1;            // 1 = mode chat, 0 = mode souris
 
-	// Variables de contrôle
-	uint16_t alpha1 = 0, alpha2 = 0 ;  // Commandes moteurs
-	uint16_t angle = 0;                // Angle mesuré
-	uint16_t vitesse = 0;              // Distance mesurée
-	int16_t erreur_angle = 0;         // Erreur en angle
-	int16_t correction = 0;           // Correction à appliquer
-	const uint8_t cat = 1;           // 1 = mode chat, 0 = mode souris
+	// Variables de traitement de trame
+	int frame_start = 0;
+	int frame_end = 0;
+	int dist_min = 0;
+	int idx_min = 0;
 
+	// Initialisation des moteurs
+//	DRV_MOT_Init(&motor_left, MTR1_CHANNEL);
+//	DRV_MOT_Init(&motor_right, MTR2_CHANNEL);
 
-	printf("Démarrage de la tâche d'asservissement sur LIDAR avec verrouillage\r\n");
+	printf("Démarrage de la tâche d'asservissement sur LIDAR\r\n");
 
-
-
-
-
-	for(;;){
-		// Attente du signal indiquant que la première moitié du buffer DMA est remplie
+	for(;;) {
+		// Attente du signal de demi-buffer DMA rempli
 		xSemaphoreTake(SemHalfCallBack, portMAX_DELAY);
 
 		// Parcours du buffer complet
-		for(int i=0; i<BUFFER_SIZE; i++){
-			// Quand on atteint la moitié du buffer, on attend que la seconde moitié soit remplie
-			if(i==BUFFER_SIZE/2){
+		for(int i=0; i<BUFFER_SIZE; i++) {
+			// Attente seconde moitié buffer
+			if(i == BUFFER_SIZE/2) {
 				xSemaphoreTake(SemClpCallBack, portMAX_DELAY);
 			}
 
-			// Au début du buffer, on cherche l'en-tête de trame
-			if(i==0){
-				// Vérification de la séquence d'en-tête (7 octets)
-				if((dev_handle.raw_data[i]==0xA5) && (dev_handle.raw_data[i+1]==0x5A) &&
-						(dev_handle.raw_data[i+2]==0x05) && (dev_handle.raw_data[i+3]==0x00) &&
-						(dev_handle.raw_data[i+4]==0x00) && (dev_handle.raw_data[i+5]==0x40) &&
-						(dev_handle.raw_data[i+6]==0x81)){
+			// Détection en-tête de trame
+			if(i == 0) {
+				if((g_raw_data[i] == 0xA5) && (g_raw_data[i+1] == 0x5A) &&
+						(g_raw_data[i+2] == 0x05) && (g_raw_data[i+3] == 0x00) &&
+						(g_raw_data[i+4] == 0x00) && (g_raw_data[i+5] == 0x40) &&
+						(g_raw_data[i+6] == 0x81)) {
 					printf("Device Response Received\r\n");
-					dev_handle.processing.idx=0;    // Réinitialisation de l'index de traitement
-					i=6;                            // On saute les octets d'en-tête déjà vérifiés
-					frame_start=7;                  // Le début des données commence après l'en-tête
-					frame_end=frame_start+4;        // Position initiale de fin de trame
+					g_current_idx = 0;
+					i = 6;
+					frame_start = 7;
+					frame_end = frame_start + 4;
 				}
 			}
 
-			// Machine à états pour le parsing de la trame
-			if(i==frame_start){
-				// Octet bas du Package Header (PH)
-				dev_handle.processing.PH=dev_handle.raw_data[i];
+			// Machine à états pour le parsing
+			if(i == frame_start) {
+				g_PH = g_raw_data[i];  // Octet bas PH
 			}
-			else if(i==frame_start+1){
-				// Octet haut du PH, combiné avec l'octet bas
-				dev_handle.processing.PH=dev_handle.processing.PH|(dev_handle.raw_data[i]<<8);
+			else if(i == frame_start + 1) {
+				g_PH |= (g_raw_data[i] << 8);  // Octet haut PH
 			}
-			else if(i==frame_start+2){
-				// Type de paquet (CT)
-				dev_handle.processing.CT=dev_handle.raw_data[i];
+			else if(i == frame_start + 2) {
+				g_CT = g_raw_data[i];  // Type de paquet
 			}
-			else if(i==frame_start+3){
-				// Nombre d'échantillons (LSN) et calcul de la fin de trame
-				frame_end=frame_start+9+2*dev_handle.raw_data[i]; // 9 octets d'en-tête + 2 octets par échantillon
-				dev_handle.processing.LSN=dev_handle.raw_data[i];
+			else if(i == frame_start + 3) {
+				frame_end = frame_start + 9 + 2*g_raw_data[i];
+				g_LSN = g_raw_data[i];  // Nombre d'échantillons
 			}
-			else if(i==frame_start+4){
-				// Octet bas de l'angle de début (FSA)
-				dev_handle.processing.FSA=dev_handle.raw_data[i];
+			else if(i == frame_start + 4) {
+				g_start_angle = g_raw_data[i];  // Angle début bas
 			}
-			else if(i==frame_start+5){
-				// Octet haut du FSA
-				dev_handle.processing.FSA=dev_handle.processing.FSA|(dev_handle.raw_data[i]<<8);
+			else if(i == frame_start + 5) {
+				g_start_angle |= (g_raw_data[i] << 8);  // Angle début haut
 			}
-			else if(i==frame_start+6){
-				// Octet bas de l'angle de fin (LSA)
-				dev_handle.processing.LSA=dev_handle.raw_data[i];
+			else if(i == frame_start + 6) {
+				g_end_angle = g_raw_data[i];  // Angle fin bas
 			}
-			else if(i==frame_start+7){
-				// Octet haut du LSA
-				dev_handle.processing.LSA=dev_handle.processing.LSA|(dev_handle.raw_data[i]<<8);
+			else if(i == frame_start + 7) {
+				g_end_angle |= (g_raw_data[i] << 8);  // Angle fin haut
 			}
-			else if(i==frame_start+8){
-				// Octet bas du checksum (CS)
-				dev_handle.processing.CS=dev_handle.raw_data[i];
-			}
-			else if(i==frame_start+9){
-				// Octet haut du CS
-				dev_handle.processing.CS=dev_handle.processing.CS|(dev_handle.raw_data[i]<<8);
-			}
-			else if(i==frame_end){
-				// On atteint la fin de la trame
-				dev_handle.processing.packet_data[dev_handle.processing.idx++]=dev_handle.raw_data[i];
+			else if(i == frame_end) {
+				g_packet_data[g_current_idx++] = g_raw_data[i];
 
-				// Si on a une trame valide (plus de 11 octets)
-				if(frame_end-frame_start>11){
-					sns_parse_data(&dev_handle);    // Conversion des données brutes
-					smooth_data(&dev_handle);       // Filtrage des données
-					detect_objects(&dev_handle);    // Détection des objets
+				// Traitement trame complète
+				if(frame_end - frame_start > 11) {
+					lidar_parse_data();
+					smooth_data();
+					detect_objects();
 				}
 
-				// Préparation pour la prochaine trame
-				dev_handle.processing.idx=0;
-				frame_start=frame_end+1;
-				frame_end=frame_start+5;
+				// Préparation prochaine trame
+				g_current_idx = 0;
+				frame_start = frame_end + 1;
+				frame_end = frame_start + 4;
 			}
-			else{
-				// Stockage des données intermédiaires
-				dev_handle.processing.packet_data[dev_handle.processing.idx++]=dev_handle.raw_data[i];
+			else {
+				// Stockage données intermédiaires
+				g_packet_data[g_current_idx++] = g_raw_data[i];
 			}
 		}
 
-		// Ajustement des indices pour le prochain cycle
-		frame_start=frame_start-BUFFER_SIZE;
-		frame_end=frame_end-BUFFER_SIZE;
+		// Ajustement indices pour prochain cycle
+		frame_start -= BUFFER_SIZE;
+		frame_end -= BUFFER_SIZE;
 
-		// Traitement final et affichage des résultats
+		// Recherche objet le plus proche
 		printf("#\r\n");
-		dist_min=2000;
+		dist_min = 2000;
+		idx_min = 0;
 
-		// Recherche de l'objet le plus proche
-		for(int i=0 ; i<dev_handle.processing.obj_count ; i++){
-			printf("%d,%d\r\n",
-					dev_handle.processing.objects[i].angle_moyen,
-					dev_handle.processing.objects[i].distance_moyenne);
-			if(dev_handle.processing.objects[i].distance_moyenne<dist_min &&
-					dev_handle.processing.objects[i].distance_moyenne !=0){
-				dist_min=dev_handle.processing.objects[i].distance_moyenne;
-				idx_min=i;
+		for(int i=0; i < g_obj_count; i++) {
+			printf("%d,%d\r\n", g_object_angles[i], g_object_distances[i]);
+
+			if(g_object_distances[i] < dist_min && g_object_distances[i] != 0) {
+				dist_min = g_object_distances[i];
+				idx_min = i;
 			}
 		}
 
-		// Affichage de l'objet le plus proche
-		printf("%d,%d\r\n",
-				dev_handle.processing.objects[idx_min].angle_moyen,
-				dev_handle.processing.objects[idx_min].distance_moyenne);
+		//        // Récupération données objet le plus proche
+		//        vitesse = g_object_distances[idx_min];
+		//        angle = g_object_angles[idx_min];
+		//
+		//        printf("Objet Cible - Angle: %d°, Distance: %dmm\r\n", angle, vitesse);
+		//
+		//        if(cat) {
+		//            // Mode CHAT : Poursuite de cible
+		//            // Normalisation angle [-180°, 180°]
+		//            if(angle > 180) {
+		//                erreur_angle = angle - 360;
+		//            } else {
+		//                erreur_angle = angle;
+		//            }
+		//
+		//            // Calcul correction proportionnelle
+		//            correction = (int)(Kp * erreur_angle);
+		//
+		//            // Calcul vitesses moteurs
+		//            alpha1 = VITESSE_BASE + correction;
+		//            alpha2 = VITESSE_BASE - correction;
+		//
+		//            // Limitation vitesses
+		//            if(alpha1 > VITESSE_MAX) alpha1 = VITESSE_MAX;
+		//            if(alpha2 > VITESSE_MAX) alpha2 = VITESSE_MAX;
+		//            if(alpha1 < 0) alpha1 = 0;
+		//            if(alpha2 < 0) alpha2 = 0;
+		//
+		//            // Configuration sens rotation
+		//            DRV_MOT_startMot_fwd(&motor_right);
+		//            DRV_MOT_startMot_rev(&motor_left);
+		//
+		//            printf("Mode CHAT - Poursuite de la cible\r\n");
+		//        } else {
+		//            // Mode SOURIS : Fuite
+		//            angle = (angle + 180) % 360;
+		//
+		//            if(angle > 180) {
+		//                erreur_angle = angle - 360;
+		//            } else {
+		//                erreur_angle = angle;
+		//            }
+		//
+		//            correction = (int)(Kp * erreur_angle);
+		//
+		//            alpha1 = VITESSE_BASE + correction;
+		//            alpha2 = VITESSE_BASE - correction;
+		//
+		//            if(alpha1 > VITESSE_MAX) alpha1 = VITESSE_MAX;
+		//            if(alpha2 > VITESSE_MAX) alpha2 = VITESSE_MAX;
+		//            if(alpha1 < 0) alpha1 = 0;
+		//            if(alpha2 < 0) alpha2 = 0;
+		//
+		//            DRV_MOT_startMot_rev(&motor_right);
+		//            DRV_MOT_startMot_fwd(&motor_left);
+		//
+		//            printf("Mode SOURIS - Fuite de la cible\r\n");
+		//        }
+		//
+		//        // Application vitesses aux moteurs
+		//        DRV_MOT_SetSpeed(&motor_left, alpha1);
+		//        DRV_MOT_SetSpeed(&motor_right, alpha2);
+		//
+		//        HAL_Delay(100);
+		//
+		//        printf("Commandes moteurs - Gauche: %d, Droite: %d\r\n", alpha1, alpha2);
+	}
+}
 
-		// Récupération des données du LIDAR pour l'objet le plus proche
-		vitesse = dev_handle.processing.objects[idx_min].distance_moyenne;
-		angle = dev_handle.processing.objects[idx_min].angle_moyen;
+
+/* USER CODE END 0 */
+
+/**
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void)
+{
+
+	/* USER CODE BEGIN 1 */
+	TaskHandle_t xHandleSensor = NULL;
+	BaseType_t ret;
+	/* USER CODE END 1 */
+
+	/* MCU Configuration--------------------------------------------------------*/
+
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
+
+	/* USER CODE BEGIN Init */
+
+	/* USER CODE END Init */
+
+	/* Configure the system clock */
+	SystemClock_Config();
+
+	/* USER CODE BEGIN SysInit */
+
+	/* USER CODE END SysInit */
+
+	/* Initialize all configured peripherals */
+	MX_GPIO_Init();
+	MX_DMA_Init();
+	MX_I2C1_Init();
+	MX_SPI1_Init();
+	MX_USART2_UART_Init();
+	MX_TIM1_Init();
+	MX_TIM3_Init();
+	MX_TIM4_Init();
+	MX_UART4_Init();
+
+	/* USER CODE BEGIN 2 */
+
+	// Configuration des callbacks de communication
+	// Assigner les fonctions UART aux pointeurs globaux
+	extern int (*uart_transmit)(uint8_t *p_data, uint16_t size);
+	extern int (*uart_poll_receive)(uint8_t *p_data, uint16_t size);
+	extern int (*uart_it_receive)(uint8_t *p_data, uint16_t size);
+	extern int (*uart_dma_receive)(uint8_t *p_data, uint16_t size);
+	extern int (*uart_it_transmit)(uint8_t *p_data, uint16_t size);
+	extern int (*uart_dma_transmit)(uint8_t *p_data, uint16_t size);
+
+	// Initialisation des pointeurs
+	uart_it_transmit = uart_it_transmit_local;
+	uart_dma_transmit = uart_dma_transmit_local;
+	uart_poll_receive = uart_poll_receive_local;
+	uart_it_receive = uart_it_receive_local;
+
+	// Démarrage du LIDAR et configuration DMA
+	lidar_begin();
+	HAL_UART_Receive_DMA(&huart4, g_raw_data, BUFFER_SIZE);
+
+	// Initialisation du LIDAR
+	lidar_end();
+	lidar_query_status();
+	lidar_check_health();
 
 
-
-		printf("Objet Cible - Angle: %d°, Distance: %dmm\r\n", angle, vitesse);
-
-		if(cat) {
-			// Mode CHAT : Poursuite de la cible
-
-			// Normalisation de l'angle entre -180° et 180°
-			if(angle > 180) {
-				erreur_angle = angle - 360;
-			} else {
-				erreur_angle = angle;
-			}
-
-			// Calcul de la correction proportionnelle
-			correction = (int)(Kp * erreur_angle);
-
-			// Calcul des vitesses des moteurs
-			alpha1 = VITESSE_BASE + correction;    // Moteur gauche
-			alpha2 = VITESSE_BASE - correction;    // Moteur droit
-
-			// Limitation des vitesses
-			if(alpha1 > VITESSE_MAX) alpha1 = VITESSE_MAX;
-			if(alpha2 > VITESSE_MAX) alpha2 = VITESSE_MAX;
-			if(alpha1 < 0) alpha1 = 0;
-			if(alpha2 < 0) alpha2 = 0;
-
-			motorcontrol_predateur(); // Poursuite avec comportement défini
-
-			printf("Mode CHAT - Poursuite de la cible\r\n");
-
-		} else {
-			// Mode SOURIS : Fuite dans la direction opposée
-			angle = (angle + 180) % 360;  // Inversion de l'angle
-
-			// Même logique d'asservissement mais pour la fuite
-			if(angle > 180) {
-				erreur_angle = angle - 360;
-			} else {
-				erreur_angle = angle;
-			}
-
-			correction = (int)(Kp * erreur_angle);
-
-			alpha1 = VITESSE_BASE + correction;
-			alpha2 = VITESSE_BASE - correction;
-
-			// Limitation des vitesses
-			if(alpha1 > VITESSE_MAX) alpha1 = VITESSE_MAX;
-			if(alpha2 > VITESSE_MAX) alpha2 = VITESSE_MAX;
-			if(alpha1 < 0) alpha1 = 0;
-			if(alpha2 < 0) alpha2 = 0;
-
-			motorcontrol_souris(); // Fuite avec comportement défini
-
-			printf("Mode SOURIS - Fuite de la cible\r\n");
-		}
-		// Attendre la prochaine interruption ou délai
-		vTaskDelay(pdMS_TO_TICKS(100));
+	// Création de la tâche LIDAR
+	ret = xTaskCreate(TaskLIDAR, "TaskLIDAR", STACK_SIZE,
+			(void *) NULL, 1, &xHandleSensor);// Tache Neutralisée car asser en angle pas fonctionnel
+	if (ret != pdPASS)
+	{
+		printf("Error creating TaskSensor\r\n");
+		Error_Handler();
 	}
 
 
+	// Création des sémaphores pour la synchronisation DMA
+	SemHalfCallBack = xSemaphoreCreateBinary();
+	SemClpCallBack = xSemaphoreCreateBinary();
+	init_motors();
 
-	/* USER CODE END 0 */
+	//I2C_Scan();
 
-	/**
-	 * @brief  The application entry point.
-	 * @retval int
-	 */
-	int main(void)
+
+	VL53L1__Init();
+	printf("Initialisation du système STM32 terminée.\n");
+
+	VL53L1X_StartRanging(TOF_ADDR); // Démarrer le capteur
+	VL53L1X_SetDistanceThreshold(TOF_ADDR, 10, 250, 1, 0); // Définir le seuil de distance
+	VL53L1X_SetInterruptPolarity(TOF_ADDR, 1); // Configurer la polarité de l'interruption
+	VL53L1X_ClearInterrupt(TOF_ADDR); // Effacer les interruptions en attente
+
+
+	// Créer les tâches FreeRTOS
+	xTaskCreate(vTaskADX, "TaskADX", 256, NULL, 2, NULL);
+	xTaskCreate(vTaskToF, "TaskToF", 256, NULL, 5, NULL);
+	//xTaskCreate(TaskLIDAR, "TaskLIDAR", 256, NULL, 5, NULL);
+
+
+	//xTaskCreate(task_Bord, "Bord", 128, NULL, 8, &h_task_bord);
+	//xTaskCreate(task_SensorMeasurement, "SensorMeasurement", 256, NULL, 4, NULL);
+
+
+
+
+
+
+
+
+	/* USER CODE END 2 */
+
+	/* Call init function for freertos objects (in cmsis_os2.c) */
+	MX_FREERTOS_Init();
+
+	/* Start scheduler */
+	osKernelStart();
+
+	/* We should never get here as control is now taken by the scheduler */
+
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
+
+
+
+
+
+	while (1)
 	{
 
-		/* USER CODE BEGIN 1 */
-		TaskHandle_t xHandleSensor = NULL;  // Renamed from xHandleLIDAR
-		BaseType_t ret;
-		/* USER CODE END 1 */
-
-		/* MCU Configuration--------------------------------------------------------*/
-
-		/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-		HAL_Init();
-
-		/* USER CODE BEGIN Init */
-
-		/* USER CODE END Init */
-
-		/* Configure the system clock */
-		SystemClock_Config();
-
-		/* USER CODE BEGIN SysInit */
-
-		/* USER CODE END SysInit */
-
-		/* Initialize all configured peripherals */
-		MX_GPIO_Init();
-		MX_DMA_Init();
-		MX_I2C1_Init();
-		MX_SPI1_Init();
-		MX_USART2_UART_Init();
-		MX_TIM1_Init();
-		MX_TIM3_Init();
-		MX_TIM4_Init();
-		MX_UART4_Init();
-
-		/* USER CODE BEGIN 2 */
-
-		dev_handle.serial_drv.transmit=uart_transmit;
-		dev_handle.serial_drv.it_transmit=uart_it_transmit;
-		dev_handle.serial_drv.dma_transmit=uart_dma_transmit;
-		dev_handle.serial_drv.poll_receive=uart_poll_receive;
-		dev_handle.serial_drv.it_receive=uart_it_receive;
-		dev_handle.serial_drv.dma_receive=uart_dma_receive;
-
-		printf("\r\n===== LIDAR Driver Init =====\r\n");
-
-		sns_end(&dev_handle);
-		HAL_Delay(1000);
-		sns_query_status(&dev_handle);
-		//printf("OK\r\n");
-		sns_check_health(&dev_handle);
-
-		ret = xTaskCreate(TaskLIDAR, "TaskLIDAR", STACK_SIZE,
-				(void *) NULL, 2, &xHandleSensor);
-		if (ret != pdPASS)
-		{
-			printf("Error creating TaskSensor\r\n");
-			Error_Handler();
-		}
-
-		printf("Task Sensor created\r\n");
-
-		SemHalfCallBack = xSemaphoreCreateBinary();
-		SemClpCallBack = xSemaphoreCreateBinary();
-
-		//xPrintMutex = xSemaphoreCreateMutex();
-
-
-		sns_begin(&dev_handle);
-		HAL_UART_Receive_DMA(&huart4, dev_handle.raw_data, BUFFER_SIZE);
-		init_motors();
-
-		//I2C_Scan();
-
-
-		VL53L1__Init();
-		printf("Initialisation du système STM32 terminée.\n");
-
-		VL53L1X_StartRanging(TOF_ADDR); // Démarrer le capteur
-		VL53L1X_SetDistanceThreshold(TOF_ADDR, 10, 250, 1, 0); // Définir le seuil de distance
-		VL53L1X_SetInterruptPolarity(TOF_ADDR, 1); // Configurer la polarité de l'interruption
-		VL53L1X_ClearInterrupt(TOF_ADDR); // Effacer les interruptions en attente
-
-
-		// Créer les tâches FreeRTOS
-		xTaskCreate(vTaskADX, "TaskADX", 256, NULL, 2, NULL);
-		xTaskCreate(vTaskToF, "TaskToF", 256, NULL, 5, NULL);
-		//xTaskCreate(TaskLIDAR, "TaskLIDAR", 256, NULL, 5, NULL);
-
-
-		//xTaskCreate(task_Bord, "Bord", 128, NULL, 8, &h_task_bord);
-		//xTaskCreate(task_SensorMeasurement, "SensorMeasurement", 256, NULL, 4, NULL);
-
-
-
-
-
-
-
-
-		/* USER CODE END 2 */
-
-		/* Call init function for freertos objects (in cmsis_os2.c) */
-		MX_FREERTOS_Init();
-
-		/* Start scheduler */
-		osKernelStart();
-
-		/* We should never get here as control is now taken by the scheduler */
-
-		/* Infinite loop */
-		/* USER CODE BEGIN WHILE */
-
-
-
-
-
-		while (1)
-		{
-
-			//uint16_t distance;
-			// Lecture de la distance avec vérification d'erreur
-			/*if (VL53L1X_GetDistance(TOF_ADDR, &distance) == 0) {
+		//uint16_t distance;
+		// Lecture de la distance avec vérification d'erreur
+		/*if (VL53L1X_GetDistance(TOF_ADDR, &distance) == 0) {
 		   printf("Distance mesurée : %d mm\n", distance);
 		   } else {
 		   printf("Erreur lors de la mesure.\n");
 		   }*/
 
-			//VL53L1__test();
+		//VL53L1__test();
 
-			HAL_Delay(500);
+		HAL_Delay(500);
 
 
 
-			/* USER CODE END WHILE */
+		/* USER CODE END WHILE */
 
-			/* USER CODE BEGIN 3 */
-		}
-		/* USER CODE END 3 */
+		/* USER CODE BEGIN 3 */
 	}
+	/* USER CODE END 3 */
+}
 
-	/**
-	 * @brief System Clock Configuration
-	 * @retval None
+/**
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void)
+{
+	RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+	RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+	/** Configure the main internal regulator output voltage
 	 */
-	void SystemClock_Config(void)
+	HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
+
+	/** Initializes the RCC Oscillators according to the specified parameters
+	 * in the RCC_OscInitTypeDef structure.
+	 */
+	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+	RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+	RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV4;
+	RCC_OscInitStruct.PLL.PLLN = 85;
+	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+	RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+	RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
 	{
-		RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-		RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
-		/** Configure the main internal regulator output voltage
-		 */
-		HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
-
-		/** Initializes the RCC Oscillators according to the specified parameters
-		 * in the RCC_OscInitTypeDef structure.
-		 */
-		RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-		RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-		RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-		RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-		RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV4;
-		RCC_OscInitStruct.PLL.PLLN = 85;
-		RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-		RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
-		RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-		if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-		{
-			Error_Handler();
-		}
-
-		/** Initializes the CPU, AHB and APB buses clocks
-		 */
-		RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-				|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-		RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-		RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-		RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-		RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-
-		if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
-		{
-			Error_Handler();
-		}
+		Error_Handler();
 	}
 
-	/* USER CODE BEGIN 4 */
-	void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+	/** Initializes the CPU, AHB and APB buses clocks
+	 */
+	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+			|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
 	{
-		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-		xSemaphoreGiveFromISR(SemHalfCallBack, &xHigherPriorityTaskWoken);
-		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+		Error_Handler();
 	}
+}
 
-	void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-	{
-		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-		xSemaphoreGiveFromISR(SemClpCallBack, &xHigherPriorityTaskWoken);
-		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+/* USER CODE BEGIN 4 */
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+	xSemaphoreGiveFromISR(SemHalfCallBack, &xHigherPriorityTaskWoken);
+	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+	xSemaphoreGiveFromISR(SemClpCallBack, &xHigherPriorityTaskWoken);
+	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if (GPIO_Pin == INT_TOF2_Pin) {
+		printf("Interruption détectée sur le capteur TOF.\n");
+
+		// Effacer l'interruption immédiatement
+		VL53L1X_ClearInterrupt(TOF_ADDR);
 	}
+}
 
-	void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-	{
-		if (GPIO_Pin == INT_TOF2_Pin) {
-			printf("Interruption détectée sur le capteur TOF.\n");
-
-			// Effacer l'interruption immédiatement
-			VL53L1X_ClearInterrupt(TOF_ADDR);
-		}
-	}
-
-	/*void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+/*void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	VL53L1X_ClearInterrupt(TOF_ADDR);
 	printf("Tu tombe \n") ;
 	VL53L1X_ClearInterrupt(TOF_ADDR);
 
 }*/
-	/* USER CODE END 4 */
+/* USER CODE END 4 */
 
-	/**
-	 * @brief  Period elapsed callback in non blocking mode
-	 * @note   This function is called  when TIM6 interrupt took place, inside
-	 * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
-	 * a global variable "uwTick" used as application time base.
-	 * @param  htim : TIM handle
-	 * @retval None
-	 */
-	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-	{
-		/* USER CODE BEGIN Callback 0 */
+/**
+ * @brief  Period elapsed callback in non blocking mode
+ * @note   This function is called  when TIM6 interrupt took place, inside
+ * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+ * a global variable "uwTick" used as application time base.
+ * @param  htim : TIM handle
+ * @retval None
+ */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	/* USER CODE BEGIN Callback 0 */
 
-		/* USER CODE END Callback 0 */
-		if (htim->Instance == TIM6) {
-			HAL_IncTick();
-		}
-		/* USER CODE BEGIN Callback 1 */
-
-		/* USER CODE END Callback 1 */
+	/* USER CODE END Callback 0 */
+	if (htim->Instance == TIM6) {
+		HAL_IncTick();
 	}
+	/* USER CODE BEGIN Callback 1 */
 
-	/**
-	 * @brief  This function is executed in case of error occurrence.
-	 * @retval None
-	 */
-	void Error_Handler(void)
-	{
-		/* USER CODE BEGIN Error_Handler_Debug */
-		/* User can add his own implementation to report the HAL error return state */
-		__disable_irq();
-		while (1)
-		{
-		}
-		/* USER CODE END Error_Handler_Debug */
-	}
+	/* USER CODE END Callback 1 */
 }
+
+/**
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void)
+{
+	/* USER CODE BEGIN Error_Handler_Debug */
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
+	/* USER CODE END Error_Handler_Debug */
+}
+
 
 #ifdef  USE_FULL_ASSERT
 /**

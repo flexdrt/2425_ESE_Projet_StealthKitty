@@ -1,0 +1,205 @@
+\doxysection{portable.\+h}
+\hypertarget{portable_8h_source}{}\label{portable_8h_source}\index{portable.h@{portable.h}}
+\mbox{\hyperlink{portable_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ FreeRTOS\ Kernel\ V10.3.1}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2020\ Amazon.com,\ Inc.\ or\ its\ affiliates.\ \ All\ Rights\ Reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal\ in}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies\ of}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,\ FITNESS}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ http://www.FreeRTOS.org}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ http://aws.amazon.com/freertos}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ 1\ tab\ ==\ 4\ spaces!}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Portable\ layer\ API.\ \ Each\ function\ must\ be\ defined\ for\ each\ port.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ PORTABLE\_H}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ PORTABLE\_H}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/*\ Each\ FreeRTOS\ port\ has\ a\ unique\ portmacro.h\ header\ file.\ \ Originally\ a}}
+\DoxyCodeLine{00036\ \textcolor{comment}{pre-\/processor\ definition\ was\ used\ to\ ensure\ the\ pre-\/processor\ found\ the\ correct}}
+\DoxyCodeLine{00037\ \textcolor{comment}{portmacro.h\ file\ for\ the\ port\ being\ used.\ \ That\ scheme\ was\ deprecated\ in\ favour}}
+\DoxyCodeLine{00038\ \textcolor{comment}{of\ setting\ the\ compiler's\ include\ path\ such\ that\ it\ found\ the\ correct}}
+\DoxyCodeLine{00039\ \textcolor{comment}{portmacro.h\ file\ -\/\ removing\ the\ need\ for\ the\ constant\ and\ allowing\ the}}
+\DoxyCodeLine{00040\ \textcolor{comment}{portmacro.h\ file\ to\ be\ located\ anywhere\ in\ relation\ to\ the\ port\ being\ used.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{Purely\ for\ reasons\ of\ backward\ compatibility\ the\ old\ method\ is\ still\ valid,\ but}}
+\DoxyCodeLine{00042\ \textcolor{comment}{to\ make\ it\ clear\ that\ new\ projects\ should\ not\ use\ it,\ support\ for\ the\ port}}
+\DoxyCodeLine{00043\ \textcolor{comment}{specific\ constants\ has\ been\ moved\ into\ the\ deprecated\_definitions.h\ header}}
+\DoxyCodeLine{00044\ \textcolor{comment}{file.\ */}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deprecated__definitions_8h}{deprecated\_definitions.h}}"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*\ If\ portENTER\_CRITICAL\ is\ not\ defined\ then\ including\ deprecated\_definitions.h}}
+\DoxyCodeLine{00048\ \textcolor{comment}{did\ not\ result\ in\ a\ portmacro.h\ header\ file\ being\ included\ -\/\ and\ it\ should\ be}}
+\DoxyCodeLine{00049\ \textcolor{comment}{included\ here.\ \ In\ this\ case\ the\ path\ to\ the\ correct\ portmacro.h\ header\ file}}
+\DoxyCodeLine{00050\ \textcolor{comment}{must\ be\ set\ in\ the\ compiler's\ include\ path.\ */}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifndef\ portENTER\_CRITICAL}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{portmacro_8h}{portmacro.h}}"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#if\ portBYTE\_ALIGNMENT\ ==\ 32}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \#define\ portBYTE\_ALIGNMENT\_MASK\ (\ 0x001f\ )}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#if\ portBYTE\_ALIGNMENT\ ==\ 16}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \#define\ portBYTE\_ALIGNMENT\_MASK\ (\ 0x000f\ )}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#if\ portBYTE\_ALIGNMENT\ ==\ 8}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\ \ \ \ \#define\ portBYTE\_ALIGNMENT\_MASK\ (\ 0x0007\ )}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#if\ portBYTE\_ALIGNMENT\ ==\ 4}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \#define\ portBYTE\_ALIGNMENT\_MASK\ (\ 0x0003\ )}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#if\ portBYTE\_ALIGNMENT\ ==\ 2}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \#define\ portBYTE\_ALIGNMENT\_MASK\ (\ 0x0001\ )}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#if\ portBYTE\_ALIGNMENT\ ==\ 1}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \#define\ portBYTE\_ALIGNMENT\_MASK\ (\ 0x0000\ )}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#ifndef\ portBYTE\_ALIGNMENT\_MASK}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}Invalid\ portBYTE\_ALIGNMENT\ definition"{}}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifndef\ portNUM\_CONFIGURABLE\_REGIONS}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ portNUM\_CONFIGURABLE\_REGIONS\ 1}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifndef\ portHAS\_STACK\_OVERFLOW\_CHECKING}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \#define\ portHAS\_STACK\_OVERFLOW\_CHECKING\ 0}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#ifndef\ portARCH\_NAME}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \#define\ portARCH\_NAME\ NULL}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00096\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mpu__wrappers_8h}{mpu\_wrappers.h}}"{}}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ *\ Setup\ the\ stack\ of\ a\ new\ task\ so\ it\ is\ ready\ to\ be\ placed\ under\ the}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *\ scheduler\ control.\ \ The\ registers\ have\ to\ be\ placed\ on\ the\ stack\ in}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *\ the\ order\ that\ the\ port\ expects\ to\ find\ them.}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#if(\ portUSING\_MPU\_WRAPPERS\ ==\ 1\ )}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \#if(\ portHAS\_STACK\_OVERFLOW\_CHECKING\ ==\ 1\ )}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}(\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxTopOfStack,\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxEndOfStack,\ \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}}\ pxCode,\ \textcolor{keywordtype}{void}\ *pvParameters,\ \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}}\ xRunPrivileged\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}(\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxTopOfStack,\ \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}}\ pxCode,\ \textcolor{keywordtype}{void}\ *pvParameters,\ \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}}\ xRunPrivileged\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \#if(\ portHAS\_STACK\_OVERFLOW\_CHECKING\ ==\ 1\ )}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}(\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxTopOfStack,\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxEndOfStack,\ \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}}\ pxCode,\ \textcolor{keywordtype}{void}\ *pvParameters\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}(\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxTopOfStack,\ \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}}\ pxCode,\ \textcolor{keywordtype}{void}\ *pvParameters\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{comment}{/*\ Used\ by\ heap\_5.c\ to\ define\ the\ start\ address\ and\ size\ of\ each\ memory\ region}}
+\DoxyCodeLine{00122\ \textcolor{comment}{that\ together\ comprise\ the\ total\ FreeRTOS\ heap\ space.\ */}}
+\DoxyCodeLine{00123\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_heap_region}{HeapRegion}}}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ uint8\_t\ *\mbox{\hyperlink{struct_heap_region_a9d602a97428bd849298f05391a13968e}{pucStartAddress}};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_heap_region_ab0ed41976d9901576b117bc7981f6c98}{xSizeInBytes}};}
+\DoxyCodeLine{00127\ \}\ \mbox{\hyperlink{portable_8h_acce46e1bf21496c11f2b1e49ded2882b}{HeapRegion\_t}};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{/*\ Used\ to\ pass\ information\ about\ the\ heap\ out\ of\ vPortGetHeapStats().\ */}}
+\DoxyCodeLine{00130\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structx_heap_stats}{xHeapStats}}}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_ad4e14df6ef39189dc1433fdc8fe2f12f}{xAvailableHeapSpaceInBytes}};\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ total\ heap\ size\ currently\ available\ -\/\ this\ is\ the\ sum\ of\ all\ the\ free\ blocks,\ not\ the\ largest\ block\ that\ can\ be\ allocated.\ */}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_a05869a79ab985b6979a75a2d45874633}{xSizeOfLargestFreeBlockInBytes}};\ \ \ \ \textcolor{comment}{/*\ The\ maximum\ size,\ in\ bytes,\ of\ all\ the\ free\ blocks\ within\ the\ heap\ at\ the\ time\ vPortGetHeapStats()\ is\ called.\ */}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_a6078df3caa60a6c7e8f2504a82ab6dc7}{xSizeOfSmallestFreeBlockInBytes}};\ \textcolor{comment}{/*\ The\ minimum\ size,\ in\ bytes,\ of\ all\ the\ free\ blocks\ within\ the\ heap\ at\ the\ time\ vPortGetHeapStats()\ is\ called.\ */}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_aac6e3b4785ec6ca732b8c7724deb2b22}{xNumberOfFreeBlocks}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ number\ of\ free\ memory\ blocks\ within\ the\ heap\ at\ the\ time\ vPortGetHeapStats()\ is\ called.\ */}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_ae88e8dc4d81326f752232a0a39eb119f}{xMinimumEverFreeBytesRemaining}};\ \ \ \ \textcolor{comment}{/*\ The\ minimum\ amount\ of\ total\ free\ memory\ (sum\ of\ all\ free\ blocks)\ there\ has\ been\ in\ the\ heap\ since\ the\ system\ booted.\ */}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_ae3227bcff0d20b136deb25d5e757fa70}{xNumberOfSuccessfulAllocations}};\ \ \ \ \textcolor{comment}{/*\ The\ number\ of\ calls\ to\ pvPortMalloc()\ that\ have\ returned\ a\ valid\ memory\ block.\ */}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structx_heap_stats_a5ce01319c6e92026d88fae7badbc5b71}{xNumberOfSuccessfulFrees}};\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ number\ of\ calls\ to\ vPortFree()\ that\ has\ successfully\ freed\ a\ block\ of\ memory.\ */}}
+\DoxyCodeLine{00139\ \}\ \mbox{\hyperlink{portable_8h_aebfa6771f45f6a5ac026e91ee2fd57f4}{HeapStats\_t}};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ *\ Used\ to\ define\ multiple\ heap\ regions\ for\ use\ by\ heap\_5.c.\ \ This\ function}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ *\ must\ be\ called\ before\ any\ calls\ to\ pvPortMalloc()\ -\/\ not\ creating\ a\ task,}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ *\ queue,\ semaphore,\ mutex,\ software\ timer,\ event\ group,\ etc.\ will\ result\ in}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ *\ pvPortMalloc\ being\ called.}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ *\ pxHeapRegions\ passes\ in\ an\ array\ of\ HeapRegion\_t\ structures\ -\/\ each\ of\ which}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ *\ defines\ a\ region\ of\ memory\ that\ can\ be\ used\ as\ the\ heap.\ \ The\ array\ is}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ *\ terminated\ by\ a\ HeapRegions\_t\ structure\ that\ has\ a\ size\ of\ 0.\ \ The\ region}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ *\ with\ the\ lowest\ start\ address\ must\ appear\ first\ in\ the\ array.}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{portable_8h_a4f3a75726f448c4170d9d6565bdef636}{vPortDefineHeapRegions}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{portable_8h_acce46e1bf21496c11f2b1e49ded2882b}{HeapRegion\_t}}\ *\ \textcolor{keyword}{const}\ pxHeapRegions\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ *\ Returns\ a\ HeapStats\_t\ structure\ filled\ with\ information\ about\ the\ current}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ *\ heap\ state.}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{portable_8h_abbecc6cff952357f60cce5014ecbe470}{vPortGetHeapStats}}(\ \mbox{\hyperlink{portable_8h_aebfa6771f45f6a5ac026e91ee2fd57f4}{HeapStats\_t}}\ *pxHeapStats\ );}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ *\ Map\ to\ the\ memory\ management\ routines\ required\ for\ the\ port.}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{portable_8h_a7aaf584d8f548d7f03d6a46280c9e877}{pvPortMalloc}}(\ \textcolor{keywordtype}{size\_t}\ xSize\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{portable_8h_a735cd3085bb7ba06ff8e47565bfd7016}{vPortFree}}(\ \textcolor{keywordtype}{void}\ *pv\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{portable_8h_a846b5ebdaf2b51fe707efb4a0974f676}{vPortInitialiseBlocks}}(\ \textcolor{keywordtype}{void}\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00166\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{portable_8h_a8f72fbee5c25c956bda528299ce6dd02}{xPortGetFreeHeapSize}}(\ \textcolor{keywordtype}{void}\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{portable_8h_a6195704430323f2e97ea4deab7a4eece}{xPortGetMinimumEverFreeHeapSize}}(\ \textcolor{keywordtype}{void}\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ *\ Setup\ the\ hardware\ ready\ for\ the\ scheduler\ to\ take\ control.\ \ This\ generally}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ *\ sets\ up\ a\ tick\ interrupt\ and\ sets\ timers\ for\ the\ correct\ tick\ frequency.}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00173\ \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}}\ \mbox{\hyperlink{portable_8h_a4f3b1bb7590996f2fa1e0456dda961ff}{xPortStartScheduler}}(\ \textcolor{keywordtype}{void}\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ *\ Undo\ any\ hardware/ISR\ setup\ that\ was\ performed\ by\ xPortStartScheduler()\ so}}
+\DoxyCodeLine{00177\ \textcolor{comment}{\ *\ the\ hardware\ is\ left\ in\ its\ original\ condition\ after\ the\ scheduler\ stops}}
+\DoxyCodeLine{00178\ \textcolor{comment}{\ *\ executing.}}
+\DoxyCodeLine{00179\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00180\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{portable_8h_aa356b7baaa9089490321aa919542dd6c}{vPortEndScheduler}}(\ \textcolor{keywordtype}{void}\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ *\ The\ structures\ and\ methods\ of\ manipulating\ the\ MPU\ are\ contained\ within\ the}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ *\ port\ layer.}}
+\DoxyCodeLine{00185\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ *\ Fills\ the\ xMPUSettings\ structure\ with\ the\ memory\ region\ information}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ *\ contained\ in\ xRegions.}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#if(\ portUSING\_MPU\_WRAPPERS\ ==\ 1\ )}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structx_m_e_m_o_r_y___r_e_g_i_o_n}{xMEMORY\_REGION}};}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{void}\ vPortStoreTaskMPUSettings(\ xMPU\_SETTINGS\ *xMPUSettings,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structx_m_e_m_o_r_y___r_e_g_i_o_n}{xMEMORY\_REGION}}\ *\ \textcolor{keyword}{const}\ xRegions,\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ *pxBottomOfStack,\ uint32\_t\ ulStackDepth\ )\ \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00195\ \}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PORTABLE\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00199\ }
+
+\end{DoxyCode}

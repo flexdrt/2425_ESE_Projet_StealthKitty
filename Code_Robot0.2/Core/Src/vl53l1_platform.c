@@ -125,7 +125,7 @@ int8_t VL53L1_WaitMs(uint16_t dev, int32_t wait_ms){
 uint8_t VL53L1__Init(){
 	uint8_t refRegs[4] = {0,0,0,0};
 	uint8_t status =0;
-	printf("Verification du capteur via I2C...\n");
+	//printf("Verification du capteur via I2C...\n");
 	// Enable VL53L1 sensor waiting for a complete boot sequence
 	/*status |= VL53L1__Xshut(1);
 	if (status)

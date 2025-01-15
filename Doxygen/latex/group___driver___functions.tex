@@ -1,0 +1,154 @@
+\doxysection{Fonctions du driver}
+\hypertarget{group___driver___functions}{}\label{group___driver___functions}\index{Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group___driver___functions_gaae13282156665437c96f895dd45bc954}{lidar\+\_\+begin}} (void)
+\begin{DoxyCompactList}\small\item\em Démarre le scan LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_ga4f4948353e434a11b465fb1a4c8a309c}{lidar\+\_\+end}} (void)
+\begin{DoxyCompactList}\small\item\em Arrête le scan LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_ga70ca3b7f361c8b0e44f40e2a9210a93e}{lidar\+\_\+query\+\_\+status}} (void)
+\begin{DoxyCompactList}\small\item\em Interroge le statut du LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_gacb4320bb6f0785d3ca86bdd26b4c3a11}{lidar\+\_\+check\+\_\+health}} (void)
+\begin{DoxyCompactList}\small\item\em Vérifie l\textquotesingle{}état de santé du LIDAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_ga14502162256fc53461967a9ceba8a0a4}{lidar\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em Réinitialise le LIDAR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___driver___functions_gae30698586cf1f2ad080580688d3fd323}{lidar\+\_\+parse\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Parse les données brutes en distances et angles. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___driver___functions_gaf3225e50d67930032f62d9dc757668f2}{calc\+\_\+avg\+\_\+dist}} (int debut, int fin)
+\begin{DoxyCompactList}\small\item\em Calcule la distance moyenne sur un segment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___driver___functions_gafae7be7b4627bd1a071c68283ff25cbb}{smooth\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Lisse les données par filtrage adaptatif. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___driver___functions_ga22fa86951e4167e303013997448d1d3f}{detect\+\_\+objects}} (void)
+\begin{DoxyCompactList}\small\item\em Détecte les objets dans le scan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{group___driver___functions_gaf3225e50d67930032f62d9dc757668f2}\index{Fonctions du driver@{Fonctions du driver}!calc\_avg\_dist@{calc\_avg\_dist}}
+\index{calc\_avg\_dist@{calc\_avg\_dist}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{calc\_avg\_dist()}{calc\_avg\_dist()}}
+{\footnotesize\ttfamily \label{group___driver___functions_gaf3225e50d67930032f62d9dc757668f2} 
+int calc\+\_\+avg\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{debut}{, }\item[{int}]{fin}{}\end{DoxyParamCaption})}
+
+
+
+Calcule la distance moyenne sur un segment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em debut} & Index de début du segment \\
+\hline
+{\em fin} & Index de fin du segment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Distance moyenne en mm 
+\end{DoxyReturn}
+\Hypertarget{group___driver___functions_ga22fa86951e4167e303013997448d1d3f}\index{Fonctions du driver@{Fonctions du driver}!detect\_objects@{detect\_objects}}
+\index{detect\_objects@{detect\_objects}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{detect\_objects()}{detect\_objects()}}
+{\footnotesize\ttfamily \label{group___driver___functions_ga22fa86951e4167e303013997448d1d3f} 
+void detect\+\_\+objects (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Détecte les objets dans le scan. 
+
+Identifie les clusters et calcule leurs caractéristiques \Hypertarget{group___driver___functions_gaae13282156665437c96f895dd45bc954}\index{Fonctions du driver@{Fonctions du driver}!lidar\_begin@{lidar\_begin}}
+\index{lidar\_begin@{lidar\_begin}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{lidar\_begin()}{lidar\_begin()}}
+{\footnotesize\ttfamily \label{group___driver___functions_gaae13282156665437c96f895dd45bc954} 
+int lidar\+\_\+begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Démarre le scan LIDAR. 
+
+\begin{DoxyReturn}{Renvoie}
+0 si succès 
+\end{DoxyReturn}
+\Hypertarget{group___driver___functions_gacb4320bb6f0785d3ca86bdd26b4c3a11}\index{Fonctions du driver@{Fonctions du driver}!lidar\_check\_health@{lidar\_check\_health}}
+\index{lidar\_check\_health@{lidar\_check\_health}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{lidar\_check\_health()}{lidar\_check\_health()}}
+{\footnotesize\ttfamily \label{group___driver___functions_gacb4320bb6f0785d3ca86bdd26b4c3a11} 
+int lidar\+\_\+check\+\_\+health (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Vérifie l\textquotesingle{}état de santé du LIDAR. 
+
+Récupère les codes de diagnostic et d\textquotesingle{}erreur \begin{DoxyReturn}{Renvoie}
+0 si succès
+
+0 si succès 
+\end{DoxyReturn}
+\Hypertarget{group___driver___functions_ga4f4948353e434a11b465fb1a4c8a309c}\index{Fonctions du driver@{Fonctions du driver}!lidar\_end@{lidar\_end}}
+\index{lidar\_end@{lidar\_end}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{lidar\_end()}{lidar\_end()}}
+{\footnotesize\ttfamily \label{group___driver___functions_ga4f4948353e434a11b465fb1a4c8a309c} 
+int lidar\+\_\+end (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Arrête le scan LIDAR. 
+
+\begin{DoxyReturn}{Renvoie}
+0 si succès 
+\end{DoxyReturn}
+\Hypertarget{group___driver___functions_gae30698586cf1f2ad080580688d3fd323}\index{Fonctions du driver@{Fonctions du driver}!lidar\_parse\_data@{lidar\_parse\_data}}
+\index{lidar\_parse\_data@{lidar\_parse\_data}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{lidar\_parse\_data()}{lidar\_parse\_data()}}
+{\footnotesize\ttfamily \label{group___driver___functions_gae30698586cf1f2ad080580688d3fd323} 
+void lidar\+\_\+parse\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Parse les données brutes en distances et angles. 
+
+Convertit les données binaires en distances (mm) et angles (degrés) \Hypertarget{group___driver___functions_ga70ca3b7f361c8b0e44f40e2a9210a93e}\index{Fonctions du driver@{Fonctions du driver}!lidar\_query\_status@{lidar\_query\_status}}
+\index{lidar\_query\_status@{lidar\_query\_status}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{lidar\_query\_status()}{lidar\_query\_status()}}
+{\footnotesize\ttfamily \label{group___driver___functions_ga70ca3b7f361c8b0e44f40e2a9210a93e} 
+int lidar\+\_\+query\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Interroge le statut du LIDAR. 
+
+Récupère et affiche\+:
+\begin{DoxyItemize}
+\item Version firmware/hardware
+\item Numéro de série
+\item Mode de fonctionnement \begin{DoxyReturn}{Renvoie}
+0 si succès
+
+0 si succès 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{group___driver___functions_ga14502162256fc53461967a9ceba8a0a4}\index{Fonctions du driver@{Fonctions du driver}!lidar\_reset@{lidar\_reset}}
+\index{lidar\_reset@{lidar\_reset}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{lidar\_reset()}{lidar\_reset()}}
+{\footnotesize\ttfamily \label{group___driver___functions_ga14502162256fc53461967a9ceba8a0a4} 
+int lidar\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Réinitialise le LIDAR. 
+
+\begin{DoxyReturn}{Renvoie}
+0 si succès 
+\end{DoxyReturn}
+\Hypertarget{group___driver___functions_gafae7be7b4627bd1a071c68283ff25cbb}\index{Fonctions du driver@{Fonctions du driver}!smooth\_data@{smooth\_data}}
+\index{smooth\_data@{smooth\_data}!Fonctions du driver@{Fonctions du driver}}
+\doxysubsubsection{\texorpdfstring{smooth\_data()}{smooth\_data()}}
+{\footnotesize\ttfamily \label{group___driver___functions_gafae7be7b4627bd1a071c68283ff25cbb} 
+void smooth\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Lisse les données par filtrage adaptatif. 
+
+Applique un filtre gaussien avec détection d\textquotesingle{}outliers 

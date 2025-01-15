@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: xQueueSend</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__x_queue_send.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">xQueueSend</div></div>
+</div><!--header-->
+<div class="contents">
+<p>queue. h </p><pre>
+<a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xQueueSendToToFront(
+                               QueueHandle_t    xQueue,
+                               const void       *pvItemToQueue,
+                               TickType_t       xTicksToWait
+                           );
+  </pre><p>Post an item to the front of a queue. The item is queued by copy, not by reference. This function must not be called from an interrupt service routine. See xQueueSendFromISR () for an alternative which may be used in an ISR.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xQueue</td><td>The handle to the queue on which the item is to be posted.</td></tr>
+    <tr><td class="paramname">pvItemToQueue</td><td>A pointer to the item that is to be placed on the queue. The size of the items the queue will hold was defined when the queue was created, so this many bytes will be copied from pvItemToQueue into the queue storage area.</td></tr>
+    <tr><td class="paramname">xTicksToWait</td><td>The maximum amount of time the task should block waiting for space to become available on the queue, should it already be full. The call will return immediately if this is set to 0 and the queue is full. The time is defined in tick periods so the constant portTICK_PERIOD_MS should be used to convert to real time if this is required.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pdTRUE if the item was successfully posted, otherwise errQUEUE_FULL.</dd></dl>
+<p>Example usage: </p><pre>
+struct AMessage
+{
+   char ucMessageID;
+   char ucData[ 20 ];
+} xMessage;
+
+uint32_t ulVar = 10UL;
+
+void vATask( void *pvParameters )
+{
+<a class="el" href="queue_8h.html#a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</a> xQueue1, xQueue2;
+struct AMessage *pxMessage;
+
+   // Create a queue capable of containing 10 uint32_t values.
+   xQueue1 = xQueueCreate( 10, sizeof( uint32_t ) );
+
+   // Create a queue capable of containing 10 pointers to AMessage structures.
+   // These should be passed by pointer as they contain a lot of data.
+   xQueue2 = xQueueCreate( 10, sizeof( struct AMessage * ) );
+
+   // ...
+
+   if( xQueue1 != 0 )
+   {
+    // Send an uint32_t.  Wait for 10 ticks for space to become
+    // available if necessary.
+    if( xQueueSendToFront( xQueue1, ( void * ) &amp;ulVar, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 10 ) != pdPASS )
+    {
+        // Failed to post the message, even after 10 ticks.
+    }
+   }
+
+   if( xQueue2 != 0 )
+   {
+    // Send a pointer to a struct AMessage object.  Don't block if the
+    // queue is already full.
+    pxMessage = &amp; xMessage;
+    xQueueSendToFront( xQueue2, ( void * ) &amp;pxMessage, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0 );
+   }
+
+   // ... Rest of task code.
+}
+</pre><p>queue. h </p><pre>
+<a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> <a class="el" href="queue_8h.html#a81d24a2c1199d58efb76fbee15853112">xQueueSendToBack(
+                               QueueHandle_t    xQueue,
+                               const void       *pvItemToQueue,
+                               TickType_t       xTicksToWait
+                           )</a>;
+  </pre><p>This is a macro that calls <a class="el" href="queue_8h.html#a7ce86d1026e0c3055a523935bf53c0b3">xQueueGenericSend()</a>.</p>
+<p>Post an item to the back of a queue. The item is queued by copy, not by reference. This function must not be called from an interrupt service routine. See xQueueSendFromISR () for an alternative which may be used in an ISR.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xQueue</td><td>The handle to the queue on which the item is to be posted.</td></tr>
+    <tr><td class="paramname">pvItemToQueue</td><td>A pointer to the item that is to be placed on the queue. The size of the items the queue will hold was defined when the queue was created, so this many bytes will be copied from pvItemToQueue into the queue storage area.</td></tr>
+    <tr><td class="paramname">xTicksToWait</td><td>The maximum amount of time the task should block waiting for space to become available on the queue, should it already be full. The call will return immediately if this is set to 0 and the queue is full. The time is defined in tick periods so the constant portTICK_PERIOD_MS should be used to convert to real time if this is required.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pdTRUE if the item was successfully posted, otherwise errQUEUE_FULL.</dd></dl>
+<p>Example usage: </p><pre>
+struct AMessage
+{
+   char ucMessageID;
+   char ucData[ 20 ];
+} xMessage;
+
+uint32_t ulVar = 10UL;
+
+void vATask( void *pvParameters )
+{
+<a class="el" href="queue_8h.html#a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</a> xQueue1, xQueue2;
+struct AMessage *pxMessage;
+
+   // Create a queue capable of containing 10 uint32_t values.
+   xQueue1 = xQueueCreate( 10, sizeof( uint32_t ) );
+
+   // Create a queue capable of containing 10 pointers to AMessage structures.
+   // These should be passed by pointer as they contain a lot of data.
+   xQueue2 = xQueueCreate( 10, sizeof( struct AMessage * ) );
+
+   // ...
+
+   if( xQueue1 != 0 )
+   {
+    // Send an uint32_t.  Wait for 10 ticks for space to become
+    // available if necessary.
+    if( xQueueSendToBack( xQueue1, ( void * ) &amp;ulVar, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 10 ) != pdPASS )
+    {
+        // Failed to post the message, even after 10 ticks.
+    }
+   }
+
+   if( xQueue2 != 0 )
+   {
+    // Send a pointer to a struct AMessage object.  Don't block if the
+    // queue is already full.
+    pxMessage = &amp; xMessage;
+    xQueueSendToBack( xQueue2, ( void * ) &amp;pxMessage, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0 );
+   }
+
+   // ... Rest of task code.
+}
+</pre><p>queue. h </p><pre>
+<a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> <a class="el" href="queue_8h.html#af7eb49d3249351176992950d9185abe9">xQueueSend(
+                          QueueHandle_t xQueue,
+                          const void * pvItemToQueue,
+                          TickType_t xTicksToWait
+                     )</a>;
+  </pre><p>This is a macro that calls <a class="el" href="queue_8h.html#a7ce86d1026e0c3055a523935bf53c0b3">xQueueGenericSend()</a>. It is included for backward compatibility with versions of FreeRTOS.org that did not include the <a class="el" href="queue_8h.html#aa612fcc2b1ceee0200f34b942e300b41">xQueueSendToFront()</a> and <a class="el" href="queue_8h.html#a81d24a2c1199d58efb76fbee15853112">xQueueSendToBack()</a> macros. It is equivalent to <a class="el" href="queue_8h.html#a81d24a2c1199d58efb76fbee15853112">xQueueSendToBack()</a>.</p>
+<p>Post an item on a queue. The item is queued by copy, not by reference. This function must not be called from an interrupt service routine. See xQueueSendFromISR () for an alternative which may be used in an ISR.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xQueue</td><td>The handle to the queue on which the item is to be posted.</td></tr>
+    <tr><td class="paramname">pvItemToQueue</td><td>A pointer to the item that is to be placed on the queue. The size of the items the queue will hold was defined when the queue was created, so this many bytes will be copied from pvItemToQueue into the queue storage area.</td></tr>
+    <tr><td class="paramname">xTicksToWait</td><td>The maximum amount of time the task should block waiting for space to become available on the queue, should it already be full. The call will return immediately if this is set to 0 and the queue is full. The time is defined in tick periods so the constant portTICK_PERIOD_MS should be used to convert to real time if this is required.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pdTRUE if the item was successfully posted, otherwise errQUEUE_FULL.</dd></dl>
+<p>Example usage: </p><pre>
+struct AMessage
+{
+   char ucMessageID;
+   char ucData[ 20 ];
+} xMessage;
+
+uint32_t ulVar = 10UL;
+
+void vATask( void *pvParameters )
+{
+<a class="el" href="queue_8h.html#a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</a> xQueue1, xQueue2;
+struct AMessage *pxMessage;
+
+   // Create a queue capable of containing 10 uint32_t values.
+   xQueue1 = xQueueCreate( 10, sizeof( uint32_t ) );
+
+   // Create a queue capable of containing 10 pointers to AMessage structures.
+   // These should be passed by pointer as they contain a lot of data.
+   xQueue2 = xQueueCreate( 10, sizeof( struct AMessage * ) );
+
+   // ...
+
+   if( xQueue1 != 0 )
+   {
+    // Send an uint32_t.  Wait for 10 ticks for space to become
+    // available if necessary.
+    if( xQueueSend( xQueue1, ( void * ) &amp;ulVar, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 10 ) != pdPASS )
+    {
+        // Failed to post the message, even after 10 ticks.
+    }
+   }
+
+   if( xQueue2 != 0 )
+   {
+    // Send a pointer to a struct AMessage object.  Don't block if the
+    // queue is already full.
+    pxMessage = &amp; xMessage;
+    xQueueSend( xQueue2, ( void * ) &amp;pxMessage, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0 );
+   }
+
+   // ... Rest of task code.
+}
+</pre><p>queue. h </p><pre>
+<a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xQueueGenericSend(
+                                QueueHandle_t xQueue,
+                                const void * pvItemToQueue,
+                                TickType_t xTicksToWait
+                                BaseType_t xCopyPosition
+                            );
+  </pre><p>It is preferred that the macros <a class="el" href="queue_8h.html#af7eb49d3249351176992950d9185abe9">xQueueSend()</a>, <a class="el" href="queue_8h.html#aa612fcc2b1ceee0200f34b942e300b41">xQueueSendToFront()</a> and <a class="el" href="queue_8h.html#a81d24a2c1199d58efb76fbee15853112">xQueueSendToBack()</a> are used in place of calling this function directly.</p>
+<p>Post an item on a queue. The item is queued by copy, not by reference. This function must not be called from an interrupt service routine. See xQueueSendFromISR () for an alternative which may be used in an ISR.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xQueue</td><td>The handle to the queue on which the item is to be posted.</td></tr>
+    <tr><td class="paramname">pvItemToQueue</td><td>A pointer to the item that is to be placed on the queue. The size of the items the queue will hold was defined when the queue was created, so this many bytes will be copied from pvItemToQueue into the queue storage area.</td></tr>
+    <tr><td class="paramname">xTicksToWait</td><td>The maximum amount of time the task should block waiting for space to become available on the queue, should it already be full. The call will return immediately if this is set to 0 and the queue is full. The time is defined in tick periods so the constant portTICK_PERIOD_MS should be used to convert to real time if this is required.</td></tr>
+    <tr><td class="paramname">xCopyPosition</td><td>Can take the value queueSEND_TO_BACK to place the item at the back of the queue, or queueSEND_TO_FRONT to place the item at the front of the queue (for high priority messages).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pdTRUE if the item was successfully posted, otherwise errQUEUE_FULL.</dd></dl>
+<p>Example usage: </p><pre>
+struct AMessage
+{
+   char ucMessageID;
+   char ucData[ 20 ];
+} xMessage;
+
+uint32_t ulVar = 10UL;
+
+void vATask( void *pvParameters )
+{
+<a class="el" href="queue_8h.html#a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</a> xQueue1, xQueue2;
+struct AMessage *pxMessage;
+
+   // Create a queue capable of containing 10 uint32_t values.
+   xQueue1 = xQueueCreate( 10, sizeof( uint32_t ) );
+
+   // Create a queue capable of containing 10 pointers to AMessage structures.
+   // These should be passed by pointer as they contain a lot of data.
+   xQueue2 = xQueueCreate( 10, sizeof( struct AMessage * ) );
+
+   // ...
+
+   if( xQueue1 != 0 )
+   {
+    // Send an uint32_t.  Wait for 10 ticks for space to become
+    // available if necessary.
+    if( xQueueGenericSend( xQueue1, ( void * ) &amp;ulVar, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 10, queueSEND_TO_BACK ) != pdPASS )
+    {
+        // Failed to post the message, even after 10 ticks.
+    }
+   }
+
+   if( xQueue2 != 0 )
+   {
+    // Send a pointer to a struct AMessage object.  Don't block if the
+    // queue is already full.
+    pxMessage = &amp; xMessage;
+    xQueueGenericSend( xQueue2, ( void * ) &amp;pxMessage, ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0, queueSEND_TO_BACK );
+   }
+
+   // ... Rest of task code.
+}
+</pre> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

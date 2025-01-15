@@ -1,0 +1,812 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty:  Fichier source de stm32g4xx_ll_system.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('stm32g4xx__ll__system_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">stm32g4xx_ll_system.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="stm32g4xx__ll__system_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/* Define to prevent recursive inclusion -------------------------------------*/</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#ifndef __STM32G4xx_LL_SYSTEM_H</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define __STM32G4xx_LL_SYSTEM_H</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/* Includes ------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="stm32g4xx_8h.html">stm32g4xx.h</a>&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#if defined (FLASH) || defined (SYSCFG) || defined (DBGMCU) || defined (VREFBUF)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/* Private types -------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/* Private variables ---------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/* Private constants ---------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/* Defines used for position in the register */</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#define DBGMCU_REVID_POSITION         (uint32_t)POSITION_VAL(DBGMCU_IDCODE_REV_ID)</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#define FLASH_PDKEY1                  0x04152637U </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#define FLASH_PDKEY2                  0xFAFBFCFDU </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/* Private macros ------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/* Exported types ------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/* Exported constants --------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#define LL_SYSCFG_REMAP_FLASH              0x00000000U                                           </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#define LL_SYSCFG_REMAP_SYSTEMFLASH        SYSCFG_MEMRMP_MEM_MODE_0                              </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#define LL_SYSCFG_REMAP_SRAM               (SYSCFG_MEMRMP_MEM_MODE_1 | SYSCFG_MEMRMP_MEM_MODE_0) </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#if defined(FMC_Bank1_R)</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#define LL_SYSCFG_REMAP_FMC                SYSCFG_MEMRMP_MEM_MODE_1                              </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span><span class="comment">/* FMC_Bank1_R */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#define LL_SYSCFG_REMAP_QUADSPI            (SYSCFG_MEMRMP_MEM_MODE_2 | SYSCFG_MEMRMP_MEM_MODE_1) </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#if defined(SYSCFG_MEMRMP_FB_MODE)</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#define LL_SYSCFG_BANKMODE_BANK1           0x00000000U               </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#define LL_SYSCFG_BANKMODE_BANK2           SYSCFG_MEMRMP_FB_MODE     </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#endif </span><span class="comment">/* SYSCFG_MEMRMP_FB_MODE */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_PB6     SYSCFG_CFGR1_I2C_PB6_FMP  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_PB7     SYSCFG_CFGR1_I2C_PB7_FMP  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#if defined(SYSCFG_CFGR1_I2C_PB8_FMP)</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_PB8     SYSCFG_CFGR1_I2C_PB8_FMP  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif </span><span class="comment">/* SYSCFG_CFGR1_I2C_PB8_FMP */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#if defined(SYSCFG_CFGR1_I2C_PB9_FMP)</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_PB9     SYSCFG_CFGR1_I2C_PB9_FMP  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif </span><span class="comment">/* SYSCFG_CFGR1_I2C_PB9_FMP */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_I2C1    SYSCFG_CFGR1_I2C1_FMP     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#if defined(I2C2)</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_I2C2    SYSCFG_CFGR1_I2C2_FMP     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif </span><span class="comment">/* I2C2 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_I2C3    SYSCFG_CFGR1_I2C3_FMP     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#if defined(I2C4)</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#define LL_SYSCFG_I2C_FASTMODEPLUS_I2C4    SYSCFG_CFGR1_I2C4_FMP     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#endif </span><span class="comment">/* I2C4 */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTA               0U                        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTB               1U                        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTC               2U                        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTD               3U                        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTE               4U                        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTF               5U                        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#define LL_SYSCFG_EXTI_PORTG               6U                        </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE0               (uint32_t)((0x000FU &lt;&lt; 16U) | 0U)  </span><span class="comment">/* !&lt; EXTI_POSITION_0  | EXTICR[0] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE1               (uint32_t)((0x00F0U &lt;&lt; 16U) | 0U)  </span><span class="comment">/* !&lt; EXTI_POSITION_4  | EXTICR[0] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE2               (uint32_t)((0x0F00U &lt;&lt; 16U) | 0U)  </span><span class="comment">/* !&lt; EXTI_POSITION_8  | EXTICR[0] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE3               (uint32_t)((0xF000U &lt;&lt; 16U) | 0U)  </span><span class="comment">/* !&lt; EXTI_POSITION_12 | EXTICR[0] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE4               (uint32_t)((0x000FU &lt;&lt; 16U) | 1U)  </span><span class="comment">/* !&lt; EXTI_POSITION_0  | EXTICR[1] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE5               (uint32_t)((0x00F0U &lt;&lt; 16U) | 1U)  </span><span class="comment">/* !&lt; EXTI_POSITION_4  | EXTICR[1] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE6               (uint32_t)((0x0F00U &lt;&lt; 16U) | 1U)  </span><span class="comment">/* !&lt; EXTI_POSITION_8  | EXTICR[1] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE7               (uint32_t)((0xF000U &lt;&lt; 16U) | 1U)  </span><span class="comment">/* !&lt; EXTI_POSITION_12 | EXTICR[1] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE8               (uint32_t)((0x000FU &lt;&lt; 16U) | 2U)  </span><span class="comment">/* !&lt; EXTI_POSITION_0  | EXTICR[2] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE9               (uint32_t)((0x00F0U &lt;&lt; 16U) | 2U)  </span><span class="comment">/* !&lt; EXTI_POSITION_4  | EXTICR[2] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE10              (uint32_t)((0x0F00U &lt;&lt; 16U) | 2U)  </span><span class="comment">/* !&lt; EXTI_POSITION_8  | EXTICR[2] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE11              (uint32_t)((0xF000U &lt;&lt; 16U) | 2U)  </span><span class="comment">/* !&lt; EXTI_POSITION_12 | EXTICR[2] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE12              (uint32_t)((0x000FU &lt;&lt; 16U) | 3U)  </span><span class="comment">/* !&lt; EXTI_POSITION_0  | EXTICR[3] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE13              (uint32_t)((0x00F0U &lt;&lt; 16U) | 3U)  </span><span class="comment">/* !&lt; EXTI_POSITION_4  | EXTICR[3] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE14              (uint32_t)((0x0F00U &lt;&lt; 16U) | 3U)  </span><span class="comment">/* !&lt; EXTI_POSITION_8  | EXTICR[3] */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#define LL_SYSCFG_EXTI_LINE15              (uint32_t)((0xF000U &lt;&lt; 16U) | 3U)  </span><span class="comment">/* !&lt; EXTI_POSITION_12 | EXTICR[3] */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#define LL_SYSCFG_TIMBREAK_ECC             SYSCFG_CFGR2_ECCL  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#define LL_SYSCFG_TIMBREAK_PVD             SYSCFG_CFGR2_PVDL  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#define LL_SYSCFG_TIMBREAK_SRAM_PARITY     SYSCFG_CFGR2_SPL   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#define LL_SYSCFG_TIMBREAK_LOCKUP          SYSCFG_CFGR2_CLL   </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE0         SYSCFG_SWPR_PAGE0  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE1         SYSCFG_SWPR_PAGE1  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE2         SYSCFG_SWPR_PAGE2  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE3         SYSCFG_SWPR_PAGE3  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE4         SYSCFG_SWPR_PAGE4  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE5         SYSCFG_SWPR_PAGE5  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE6         SYSCFG_SWPR_PAGE6  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE7         SYSCFG_SWPR_PAGE7  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE8         SYSCFG_SWPR_PAGE8  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE9         SYSCFG_SWPR_PAGE9  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">#if defined(SYSCFG_SWPR_PAGE10)</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE10        SYSCFG_SWPR_PAGE10 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE11        SYSCFG_SWPR_PAGE11 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE12        SYSCFG_SWPR_PAGE12 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE13        SYSCFG_SWPR_PAGE13 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE14        SYSCFG_SWPR_PAGE14 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE15        SYSCFG_SWPR_PAGE15 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE16        SYSCFG_SWPR_PAGE16 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE17        SYSCFG_SWPR_PAGE17 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE18        SYSCFG_SWPR_PAGE18 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE19        SYSCFG_SWPR_PAGE19 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#endif </span><span class="comment">/* SYSCFG_SWPR_PAGE10 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">#if defined(SYSCFG_SWPR_PAGE20)</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE20        SYSCFG_SWPR_PAGE20 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE21        SYSCFG_SWPR_PAGE21 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE22        SYSCFG_SWPR_PAGE22 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE23        SYSCFG_SWPR_PAGE23 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE24        SYSCFG_SWPR_PAGE24 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE25        SYSCFG_SWPR_PAGE25 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE26        SYSCFG_SWPR_PAGE26 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE27        SYSCFG_SWPR_PAGE27 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE28        SYSCFG_SWPR_PAGE28 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE29        SYSCFG_SWPR_PAGE29 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE30        SYSCFG_SWPR_PAGE30 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">#define LL_SYSCFG_CCMSRAMWRP_PAGE31        SYSCFG_SWPR_PAGE31 </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="preprocessor">#endif </span><span class="comment">/* SYSCFG_SWPR_PAGE20 */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="preprocessor">#define LL_DBGMCU_TRACE_NONE               0x00000000U                                     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#define LL_DBGMCU_TRACE_ASYNCH             DBGMCU_CR_TRACE_IOEN                            </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">#define LL_DBGMCU_TRACE_SYNCH_SIZE1        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_0) </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">#define LL_DBGMCU_TRACE_SYNCH_SIZE2        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_1) </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">#define LL_DBGMCU_TRACE_SYNCH_SIZE4        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE)   </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_TIM2_STOP      DBGMCU_APB1FZR1_DBG_TIM2_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">#if defined(TIM3)</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_TIM3_STOP      DBGMCU_APB1FZR1_DBG_TIM3_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">#endif </span><span class="comment">/* TIM3 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="preprocessor">#if defined(TIM4)</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_TIM4_STOP      DBGMCU_APB1FZR1_DBG_TIM4_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="preprocessor">#endif </span><span class="comment">/* TIM4 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="preprocessor">#if defined(TIM5)</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_TIM5_STOP      DBGMCU_APB1FZR1_DBG_TIM5_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">#endif </span><span class="comment">/* TIM5 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_TIM6_STOP      DBGMCU_APB1FZR1_DBG_TIM6_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="preprocessor">#if defined(TIM7)</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_TIM7_STOP      DBGMCU_APB1FZR1_DBG_TIM7_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">#endif </span><span class="comment">/* TIM7 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_RTC_STOP       DBGMCU_APB1FZR1_DBG_RTC_STOP    </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_WWDG_STOP      DBGMCU_APB1FZR1_DBG_WWDG_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_IWDG_STOP      DBGMCU_APB1FZR1_DBG_IWDG_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_I2C1_STOP      DBGMCU_APB1FZR1_DBG_I2C1_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">#if defined(I2C2)</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_I2C2_STOP      DBGMCU_APB1FZR1_DBG_I2C2_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="preprocessor">#endif </span><span class="comment">/* I2C2 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">#if defined(I2C3)</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_I2C3_STOP      DBGMCU_APB1FZR1_DBG_I2C3_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="preprocessor">#endif </span><span class="comment">/* I2C3 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP1_LPTIM1_STOP    DBGMCU_APB1FZR1_DBG_LPTIM1_STOP </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">#if defined(I2C4)</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#define LL_DBGMCU_APB1_GRP2_I2C4_STOP      DBGMCU_APB1FZR2_DBG_I2C4_STOP   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">#endif </span><span class="comment">/* I2C4 */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_TIM1_STOP      DBGMCU_APB2FZ_DBG_TIM1_STOP     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="preprocessor">#if defined(TIM8)</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_TIM8_STOP      DBGMCU_APB2FZ_DBG_TIM8_STOP     </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">#endif </span><span class="comment">/* TIM8 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_TIM15_STOP     DBGMCU_APB2FZ_DBG_TIM15_STOP    </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_TIM16_STOP     DBGMCU_APB2FZ_DBG_TIM16_STOP    </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">#if defined(TIM17)</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_TIM17_STOP     DBGMCU_APB2FZ_DBG_TIM17_STOP    </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="preprocessor">#endif </span><span class="comment">/* TIM17 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">#if defined(TIM20)</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_TIM20_STOP     DBGMCU_APB2FZ_DBG_TIM20_STOP    </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="preprocessor">#endif </span><span class="comment">/* TIM20 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="preprocessor">#if defined(HRTIM1)</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">#define LL_DBGMCU_APB2_GRP1_HRTIM1_STOP     DBGMCU_APB2FZ_DBG_HRTIM1_STOP    </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">#endif </span><span class="comment">/* HRTIM1 */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="preprocessor">#if defined(VREFBUF)</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="preprocessor">#define LL_VREFBUF_VOLTAGE_SCALE0          ((uint32_t)0x00000000) </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="preprocessor">#define LL_VREFBUF_VOLTAGE_SCALE1          VREFBUF_CSR_VRS_0      </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="preprocessor">#define LL_VREFBUF_VOLTAGE_SCALE2          VREFBUF_CSR_VRS_1      </span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="preprocessor">#endif </span><span class="comment">/* VREFBUF */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="preprocessor">#define LL_FLASH_LATENCY_0                 FLASH_ACR_LATENCY_0WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="preprocessor">#define LL_FLASH_LATENCY_1                 FLASH_ACR_LATENCY_1WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="preprocessor">#define LL_FLASH_LATENCY_2                 FLASH_ACR_LATENCY_2WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="preprocessor">#define LL_FLASH_LATENCY_3                 FLASH_ACR_LATENCY_3WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="preprocessor">#define LL_FLASH_LATENCY_4                 FLASH_ACR_LATENCY_4WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="preprocessor">#if defined(FLASH_ACR_LATENCY_5WS)</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="preprocessor">#define LL_FLASH_LATENCY_5                 FLASH_ACR_LATENCY_5WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="preprocessor">#define LL_FLASH_LATENCY_6                 FLASH_ACR_LATENCY_6WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="preprocessor">#define LL_FLASH_LATENCY_7                 FLASH_ACR_LATENCY_7WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="preprocessor">#define LL_FLASH_LATENCY_8                 FLASH_ACR_LATENCY_8WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">#define LL_FLASH_LATENCY_9                 FLASH_ACR_LATENCY_9WS   </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="preprocessor">#define LL_FLASH_LATENCY_10                FLASH_ACR_LATENCY_10WS  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">#define LL_FLASH_LATENCY_11                FLASH_ACR_LATENCY_11WS  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="preprocessor">#define LL_FLASH_LATENCY_12                FLASH_ACR_LATENCY_12WS  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor">#define LL_FLASH_LATENCY_13                FLASH_ACR_LATENCY_13WS  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">#define LL_FLASH_LATENCY_14                FLASH_ACR_LATENCY_14WS  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="preprocessor">#define LL_FLASH_LATENCY_15                FLASH_ACR_LATENCY_15WS  </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="preprocessor">#endif </span><span class="comment">/* FLASH_ACR_LATENCY_5WS */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment">/* Exported macro ------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment">/* Exported functions --------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_SetRemapMemory(uint32_t Memory)</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>{</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;MEMRMP, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga3c05039ec67573c00da29f58b914f258">SYSCFG_MEMRMP_MEM_MODE</a>, Memory);</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>}</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_GetRemapMemory(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>{</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;MEMRMP, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga3c05039ec67573c00da29f58b914f258">SYSCFG_MEMRMP_MEM_MODE</a>));</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>}</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span><span class="preprocessor">#if defined(SYSCFG_MEMRMP_FB_MODE)</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_SetFlashBankMode(uint32_t Bank)</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>{</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;MEMRMP, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gabd7765535faf23de1a7038d97d44f014">SYSCFG_MEMRMP_FB_MODE</a>, Bank);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>}</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span></div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_GetFlashBankMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>{</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;MEMRMP, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gabd7765535faf23de1a7038d97d44f014">SYSCFG_MEMRMP_FB_MODE</a>));</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>}</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span><span class="preprocessor">#endif </span><span class="comment">/* SYSCFG_MEMRMP_FB_MODE */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableAnalogBooster(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>{</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga948471b86a4c7bf56000670b10b203ab">SYSCFG_CFGR1_BOOSTEN</a>);</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>}</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span></div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableAnalogBooster(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>{</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga948471b86a4c7bf56000670b10b203ab">SYSCFG_CFGR1_BOOSTEN</a>);</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>}</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span></div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableFastModePlus(uint32_t ConfigFastModePlus)</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>{</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, ConfigFastModePlus);</div>
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>}</div>
+<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span></div>
+<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableFastModePlus(uint32_t ConfigFastModePlus)</div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>{</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, ConfigFastModePlus);</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>}</div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span></div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableIT_FPU_IOC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>{</div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gabed60c67f0551da302b2fcbf7a45d56c">SYSCFG_CFGR1_FPU_IE_0</a>);</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>}</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span></div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableIT_FPU_DZC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>{</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga35f8d70bddd719864e4ee1cfa871217a">SYSCFG_CFGR1_FPU_IE_1</a>);</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>}</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span></div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableIT_FPU_UFC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>{</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga7707762bd4192fee7875ec7d5f1f27a1">SYSCFG_CFGR1_FPU_IE_2</a>);</div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>}</div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span></div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableIT_FPU_OFC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>{</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf085379d759b80ce28d1672eb4a8a69f">SYSCFG_CFGR1_FPU_IE_3</a>);</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>}</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span></div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableIT_FPU_IDC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>{</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8838d130a5c7a34402c789f98d812828">SYSCFG_CFGR1_FPU_IE_4</a>);</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>}</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span></div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableIT_FPU_IXC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>{</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8ebd31d4d65b65a38f34b7dd2915679f">SYSCFG_CFGR1_FPU_IE_5</a>);</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>}</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span></div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableIT_FPU_IOC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>{</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gabed60c67f0551da302b2fcbf7a45d56c">SYSCFG_CFGR1_FPU_IE_0</a>);</div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>}</div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span></div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableIT_FPU_DZC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>{</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga35f8d70bddd719864e4ee1cfa871217a">SYSCFG_CFGR1_FPU_IE_1</a>);</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>}</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span></div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableIT_FPU_UFC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>{</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga7707762bd4192fee7875ec7d5f1f27a1">SYSCFG_CFGR1_FPU_IE_2</a>);</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>}</div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span></div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableIT_FPU_OFC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>{</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf085379d759b80ce28d1672eb4a8a69f">SYSCFG_CFGR1_FPU_IE_3</a>);</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>}</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span></div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableIT_FPU_IDC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>{</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8838d130a5c7a34402c789f98d812828">SYSCFG_CFGR1_FPU_IE_4</a>);</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>}</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span></div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_DisableIT_FPU_IXC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>{</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8ebd31d4d65b65a38f34b7dd2915679f">SYSCFG_CFGR1_FPU_IE_5</a>);</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>}</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span></div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsEnabledIT_FPU_IOC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>{</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gabed60c67f0551da302b2fcbf7a45d56c">SYSCFG_CFGR1_FPU_IE_0</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gabed60c67f0551da302b2fcbf7a45d56c">SYSCFG_CFGR1_FPU_IE_0</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>}</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span></div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsEnabledIT_FPU_DZC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>{</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga35f8d70bddd719864e4ee1cfa871217a">SYSCFG_CFGR1_FPU_IE_1</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga35f8d70bddd719864e4ee1cfa871217a">SYSCFG_CFGR1_FPU_IE_1</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>}</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span></div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsEnabledIT_FPU_UFC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>{</div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga7707762bd4192fee7875ec7d5f1f27a1">SYSCFG_CFGR1_FPU_IE_2</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga7707762bd4192fee7875ec7d5f1f27a1">SYSCFG_CFGR1_FPU_IE_2</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>}</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span></div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsEnabledIT_FPU_OFC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>{</div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf085379d759b80ce28d1672eb4a8a69f">SYSCFG_CFGR1_FPU_IE_3</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf085379d759b80ce28d1672eb4a8a69f">SYSCFG_CFGR1_FPU_IE_3</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>}</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span></div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsEnabledIT_FPU_IDC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>{</div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8838d130a5c7a34402c789f98d812828">SYSCFG_CFGR1_FPU_IE_4</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8838d130a5c7a34402c789f98d812828">SYSCFG_CFGR1_FPU_IE_4</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>}</div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span></div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsEnabledIT_FPU_IXC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>{</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR1, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8ebd31d4d65b65a38f34b7dd2915679f">SYSCFG_CFGR1_FPU_IE_5</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga8ebd31d4d65b65a38f34b7dd2915679f">SYSCFG_CFGR1_FPU_IE_5</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>}</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span></div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_SetEXTISource(uint32_t Port, uint32_t Line)</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>{</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;EXTICR[Line &amp; 0x3U], (Line &gt;&gt; 16U), Port &lt;&lt; (<a class="code hl_define" href="group___exported__macros.html#ga47a8870d71d55cefb3df47cd8c815ec8">POSITION_VAL</a>((Line &gt;&gt; 16U)) &amp; 0x1FU) );</div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>}</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span></div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_GetEXTISource(uint32_t Line)</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>{</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;EXTICR[Line &amp; 0x3U], (Line &gt;&gt; 16U)) &gt;&gt; (<a class="code hl_define" href="group___exported__macros.html#ga47a8870d71d55cefb3df47cd8c815ec8">POSITION_VAL</a>(Line &gt;&gt; 16U) &amp; 0x1FU));</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>}</div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span></div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableCCMSRAMErase(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>{</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>  <span class="comment">/* Starts a hardware CCMSRAM erase operation*/</span></div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;SCSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gae03ce77d50b0a70c5436ccdaac83a75d">SYSCFG_SCSR_CCMER</a>);</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>}</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span></div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsCCMSRAMEraseOngoing(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>{</div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;SCSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gadbbcb571cb43923c7237d3bceb4043d9">SYSCFG_SCSR_CCMBSY</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gadbbcb571cb43923c7237d3bceb4043d9">SYSCFG_SCSR_CCMBSY</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>}</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span></div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_SetTIMBreakInputs(uint32_t Break)</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>{</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR2, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga37867c85a6455883bf60424879a281f4">SYSCFG_CFGR2_CLL</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gacbf387c6e12d90c012dd85636c5dc31b">SYSCFG_CFGR2_SPL</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gac8ca8fa7bb3ae856eb5fc3102cc0ff21">SYSCFG_CFGR2_PVDL</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gae75e85c4c032560b4db88cd8fcb3aaf9">SYSCFG_CFGR2_ECCL</a>, Break);</div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>}</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span></div>
+<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_GetTIMBreakInputs(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>{</div>
+<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR2, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga37867c85a6455883bf60424879a281f4">SYSCFG_CFGR2_CLL</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gacbf387c6e12d90c012dd85636c5dc31b">SYSCFG_CFGR2_SPL</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gac8ca8fa7bb3ae856eb5fc3102cc0ff21">SYSCFG_CFGR2_PVDL</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gae75e85c4c032560b4db88cd8fcb3aaf9">SYSCFG_CFGR2_ECCL</a>));</div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>}</div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span></div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_SYSCFG_IsActiveFlag_SP(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>{</div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR2, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga155014fba33b6dc281892ec1ff27e4da">SYSCFG_CFGR2_SPF</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga155014fba33b6dc281892ec1ff27e4da">SYSCFG_CFGR2_SPF</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>}</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span></div>
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_ClearFlag_SP(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>{</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;CFGR2, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga155014fba33b6dc281892ec1ff27e4da">SYSCFG_CFGR2_SPF</a>);</div>
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>}</div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span></div>
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_EnableCCMSRAMPageWRP(uint32_t CCMSRAMWRP)</div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>{</div>
+<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;SWPR, CCMSRAMWRP);</div>
+<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>}</div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span></div>
+<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_LockCCMSRAMWRP(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>{</div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>  <span class="comment">/* Writing a wrong key reactivates the write protection */</span></div>
+<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;SKR, 0x00);</div>
+<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>}</div>
+<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span></div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_SYSCFG_UnlockCCMSRAMWRP(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>{</div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>  <span class="comment">/* unlock the write protection of the CCMER bit */</span></div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;SKR, 0xCA);</div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a>-&gt;SKR, 0x53);</div>
+<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>}</div>
+<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span> </div>
+<div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span></div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span></div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_DBGMCU_GetDeviceID(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>{</div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;IDCODE, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gafd961fcddc40341a817a9ec85b7c80ac">DBGMCU_IDCODE_DEV_ID</a>));</div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>}</div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span></div>
+<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_DBGMCU_GetRevisionID(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>{</div>
+<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;IDCODE, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga887eb26364a8693355024ca203323165">DBGMCU_IDCODE_REV_ID</a>) &gt;&gt; (DBGMCU_REVID_POSITION &amp; 0x1FU));</div>
+<div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span>}</div>
+<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span></div>
+<div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_EnableDBGSleepMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span>{</div>
+<div class="line"><a id="l00946" name="l00946"></a><span class="lineno">  946</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga037c80fe1d7308cee68245715ef6cd9a">DBGMCU_CR_DBG_SLEEP</a>);</div>
+<div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span>}</div>
+<div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span></div>
+<div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_DisableDBGSleepMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span>{</div>
+<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga037c80fe1d7308cee68245715ef6cd9a">DBGMCU_CR_DBG_SLEEP</a>);</div>
+<div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span>}</div>
+<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span></div>
+<div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_EnableDBGStopMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00965" name="l00965"></a><span class="lineno">  965</span>{</div>
+<div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf511f21a8de5b0b66c862915eee8bf75">DBGMCU_CR_DBG_STOP</a>);</div>
+<div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span>}</div>
+<div class="line"><a id="l00968" name="l00968"></a><span class="lineno">  968</span></div>
+<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_DisableDBGStopMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span>{</div>
+<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf511f21a8de5b0b66c862915eee8bf75">DBGMCU_CR_DBG_STOP</a>);</div>
+<div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span>}</div>
+<div class="line"><a id="l00978" name="l00978"></a><span class="lineno">  978</span></div>
+<div class="line"><a id="l00984" name="l00984"></a><span class="lineno">  984</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_EnableDBGStandbyMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>{</div>
+<div class="line"><a id="l00986" name="l00986"></a><span class="lineno">  986</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga107a9396d63c892a8e614897c9d0b132">DBGMCU_CR_DBG_STANDBY</a>);</div>
+<div class="line"><a id="l00987" name="l00987"></a><span class="lineno">  987</span>}</div>
+<div class="line"><a id="l00988" name="l00988"></a><span class="lineno">  988</span></div>
+<div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_DisableDBGStandbyMode(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>{</div>
+<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga107a9396d63c892a8e614897c9d0b132">DBGMCU_CR_DBG_STANDBY</a>);</div>
+<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>}</div>
+<div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span></div>
+<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_SetTracePinAssignment(uint32_t PinAssignment)</div>
+<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>{</div>
+<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga9034b6eb9d4dceadffc6a1d1959056c9">DBGMCU_CR_TRACE_IOEN</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaa1395189e10bdbc37bce9ea480e22d10">DBGMCU_CR_TRACE_MODE</a>, PinAssignment);</div>
+<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>}</div>
+<div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span></div>
+<div class="line"><a id="l01027" name="l01027"></a><span class="lineno"> 1027</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_DBGMCU_GetTracePinAssignment(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span>{</div>
+<div class="line"><a id="l01029" name="l01029"></a><span class="lineno"> 1029</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;CR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga9034b6eb9d4dceadffc6a1d1959056c9">DBGMCU_CR_TRACE_IOEN</a> | <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaa1395189e10bdbc37bce9ea480e22d10">DBGMCU_CR_TRACE_MODE</a>));</div>
+<div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span>}</div>
+<div class="line"><a id="l01031" name="l01031"></a><span class="lineno"> 1031</span></div>
+<div class="line"><a id="l01053" name="l01053"></a><span class="lineno"> 1053</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_APB1_GRP1_FreezePeriph(uint32_t Periphs)</div>
+<div class="line"><a id="l01054" name="l01054"></a><span class="lineno"> 1054</span>{</div>
+<div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;APB1FZR1, Periphs);</div>
+<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>}</div>
+<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span></div>
+<div class="line"><a id="l01067" name="l01067"></a><span class="lineno"> 1067</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_APB1_GRP2_FreezePeriph(uint32_t Periphs)</div>
+<div class="line"><a id="l01068" name="l01068"></a><span class="lineno"> 1068</span>{</div>
+<div class="line"><a id="l01069" name="l01069"></a><span class="lineno"> 1069</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;APB1FZR2, Periphs);</div>
+<div class="line"><a id="l01070" name="l01070"></a><span class="lineno"> 1070</span>}</div>
+<div class="line"><a id="l01071" name="l01071"></a><span class="lineno"> 1071</span></div>
+<div class="line"><a id="l01093" name="l01093"></a><span class="lineno"> 1093</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_APB1_GRP1_UnFreezePeriph(uint32_t Periphs)</div>
+<div class="line"><a id="l01094" name="l01094"></a><span class="lineno"> 1094</span>{</div>
+<div class="line"><a id="l01095" name="l01095"></a><span class="lineno"> 1095</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;APB1FZR1, Periphs);</div>
+<div class="line"><a id="l01096" name="l01096"></a><span class="lineno"> 1096</span>}</div>
+<div class="line"><a id="l01097" name="l01097"></a><span class="lineno"> 1097</span></div>
+<div class="line"><a id="l01107" name="l01107"></a><span class="lineno"> 1107</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_APB1_GRP2_UnFreezePeriph(uint32_t Periphs)</div>
+<div class="line"><a id="l01108" name="l01108"></a><span class="lineno"> 1108</span>{</div>
+<div class="line"><a id="l01109" name="l01109"></a><span class="lineno"> 1109</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;APB1FZR2, Periphs);</div>
+<div class="line"><a id="l01110" name="l01110"></a><span class="lineno"> 1110</span>}</div>
+<div class="line"><a id="l01111" name="l01111"></a><span class="lineno"> 1111</span></div>
+<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_APB2_GRP1_FreezePeriph(uint32_t Periphs)</div>
+<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>{</div>
+<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;APB2FZ, Periphs);</div>
+<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span>}</div>
+<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span></div>
+<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_DBGMCU_APB2_GRP1_UnFreezePeriph(uint32_t Periphs)</div>
+<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>{</div>
+<div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a>-&gt;APB2FZ, Periphs);</div>
+<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>}</div>
+<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span></div>
+<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span> </div>
+<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span><span class="preprocessor">#if defined(VREFBUF)</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span></div>
+<div class="line"><a id="l01166" name="l01166"></a><span class="lineno"> 1166</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_VREFBUF_Enable(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01167" name="l01167"></a><span class="lineno"> 1167</span>{</div>
+<div class="line"><a id="l01168" name="l01168"></a><span class="lineno"> 1168</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga20bab4e4f333ddecff9bf922c7d93a02">VREFBUF_CSR_ENVR</a>);</div>
+<div class="line"><a id="l01169" name="l01169"></a><span class="lineno"> 1169</span>}</div>
+<div class="line"><a id="l01170" name="l01170"></a><span class="lineno"> 1170</span></div>
+<div class="line"><a id="l01176" name="l01176"></a><span class="lineno"> 1176</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_VREFBUF_Disable(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01177" name="l01177"></a><span class="lineno"> 1177</span>{</div>
+<div class="line"><a id="l01178" name="l01178"></a><span class="lineno"> 1178</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga20bab4e4f333ddecff9bf922c7d93a02">VREFBUF_CSR_ENVR</a>);</div>
+<div class="line"><a id="l01179" name="l01179"></a><span class="lineno"> 1179</span>}</div>
+<div class="line"><a id="l01180" name="l01180"></a><span class="lineno"> 1180</span></div>
+<div class="line"><a id="l01186" name="l01186"></a><span class="lineno"> 1186</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_VREFBUF_EnableHIZ(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01187" name="l01187"></a><span class="lineno"> 1187</span>{</div>
+<div class="line"><a id="l01188" name="l01188"></a><span class="lineno"> 1188</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga13d4cf5943c63ae8ff694e1446266bcc">VREFBUF_CSR_HIZ</a>);</div>
+<div class="line"><a id="l01189" name="l01189"></a><span class="lineno"> 1189</span>}</div>
+<div class="line"><a id="l01190" name="l01190"></a><span class="lineno"> 1190</span></div>
+<div class="line"><a id="l01196" name="l01196"></a><span class="lineno"> 1196</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_VREFBUF_DisableHIZ(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01197" name="l01197"></a><span class="lineno"> 1197</span>{</div>
+<div class="line"><a id="l01198" name="l01198"></a><span class="lineno"> 1198</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga13d4cf5943c63ae8ff694e1446266bcc">VREFBUF_CSR_HIZ</a>);</div>
+<div class="line"><a id="l01199" name="l01199"></a><span class="lineno"> 1199</span>}</div>
+<div class="line"><a id="l01200" name="l01200"></a><span class="lineno"> 1200</span></div>
+<div class="line"><a id="l01210" name="l01210"></a><span class="lineno"> 1210</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_VREFBUF_SetVoltageScaling(uint32_t Scale)</div>
+<div class="line"><a id="l01211" name="l01211"></a><span class="lineno"> 1211</span>{</div>
+<div class="line"><a id="l01212" name="l01212"></a><span class="lineno"> 1212</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gad4670ed4900a7abf116f8f13378ea6a8">VREFBUF_CSR_VRS</a>, Scale);</div>
+<div class="line"><a id="l01213" name="l01213"></a><span class="lineno"> 1213</span>}</div>
+<div class="line"><a id="l01214" name="l01214"></a><span class="lineno"> 1214</span></div>
+<div class="line"><a id="l01223" name="l01223"></a><span class="lineno"> 1223</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_VREFBUF_GetVoltageScaling(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01224" name="l01224"></a><span class="lineno"> 1224</span>{</div>
+<div class="line"><a id="l01225" name="l01225"></a><span class="lineno"> 1225</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gad4670ed4900a7abf116f8f13378ea6a8">VREFBUF_CSR_VRS</a>));</div>
+<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span>}</div>
+<div class="line"><a id="l01227" name="l01227"></a><span class="lineno"> 1227</span></div>
+<div class="line"><a id="l01233" name="l01233"></a><span class="lineno"> 1233</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_VREFBUF_IsVREFReady(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01234" name="l01234"></a><span class="lineno"> 1234</span>{</div>
+<div class="line"><a id="l01235" name="l01235"></a><span class="lineno"> 1235</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CSR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf40ce35d91ad9aaedeaf6c3f3d618c33">VREFBUF_CSR_VRR</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaf40ce35d91ad9aaedeaf6c3f3d618c33">VREFBUF_CSR_VRR</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l01236" name="l01236"></a><span class="lineno"> 1236</span>}</div>
+<div class="line"><a id="l01237" name="l01237"></a><span class="lineno"> 1237</span></div>
+<div class="line"><a id="l01243" name="l01243"></a><span class="lineno"> 1243</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_VREFBUF_GetTrimming(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01244" name="l01244"></a><span class="lineno"> 1244</span>{</div>
+<div class="line"><a id="l01245" name="l01245"></a><span class="lineno"> 1245</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CCR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga352e19b53b9986eb54de8fd79b27d052">VREFBUF_CCR_TRIM</a>));</div>
+<div class="line"><a id="l01246" name="l01246"></a><span class="lineno"> 1246</span>}</div>
+<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"> 1247</span></div>
+<div class="line"><a id="l01254" name="l01254"></a><span class="lineno"> 1254</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_VREFBUF_SetTrimming(uint32_t Value)</div>
+<div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span>{</div>
+<div class="line"><a id="l01256" name="l01256"></a><span class="lineno"> 1256</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a>-&gt;CCR, Value);</div>
+<div class="line"><a id="l01257" name="l01257"></a><span class="lineno"> 1257</span>}</div>
+<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span></div>
+<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"> 1262</span><span class="preprocessor">#endif </span><span class="comment">/* VREFBUF */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l01263" name="l01263"></a><span class="lineno"> 1263</span></div>
+<div class="line"><a id="l01267" name="l01267"></a><span class="lineno"> 1267</span></div>
+<div class="line"><a id="l01292" name="l01292"></a><span class="lineno"> 1292</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_SetLatency(uint32_t Latency)</div>
+<div class="line"><a id="l01293" name="l01293"></a><span class="lineno"> 1293</span>{</div>
+<div class="line"><a id="l01294" name="l01294"></a><span class="lineno"> 1294</span>  <a class="code hl_define" href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a>, Latency);</div>
+<div class="line"><a id="l01295" name="l01295"></a><span class="lineno"> 1295</span>}</div>
+<div class="line"><a id="l01296" name="l01296"></a><span class="lineno"> 1296</span></div>
+<div class="line"><a id="l01320" name="l01320"></a><span class="lineno"> 1320</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_FLASH_GetLatency(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01321" name="l01321"></a><span class="lineno"> 1321</span>{</div>
+<div class="line"><a id="l01322" name="l01322"></a><span class="lineno"> 1322</span>  <span class="keywordflow">return</span> (uint32_t)(<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a>));</div>
+<div class="line"><a id="l01323" name="l01323"></a><span class="lineno"> 1323</span>}</div>
+<div class="line"><a id="l01324" name="l01324"></a><span class="lineno"> 1324</span></div>
+<div class="line"><a id="l01330" name="l01330"></a><span class="lineno"> 1330</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnablePrefetch(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01331" name="l01331"></a><span class="lineno"> 1331</span>{</div>
+<div class="line"><a id="l01332" name="l01332"></a><span class="lineno"> 1332</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga082e7e91fffee86db39676396d01a8e0">FLASH_ACR_PRFTEN</a>);</div>
+<div class="line"><a id="l01333" name="l01333"></a><span class="lineno"> 1333</span>}</div>
+<div class="line"><a id="l01334" name="l01334"></a><span class="lineno"> 1334</span></div>
+<div class="line"><a id="l01340" name="l01340"></a><span class="lineno"> 1340</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisablePrefetch(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>{</div>
+<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga082e7e91fffee86db39676396d01a8e0">FLASH_ACR_PRFTEN</a>);</div>
+<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>}</div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span></div>
+<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t LL_FLASH_IsPrefetchEnabled(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span>{</div>
+<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span>  <span class="keywordflow">return</span> ((<a class="code hl_define" href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga082e7e91fffee86db39676396d01a8e0">FLASH_ACR_PRFTEN</a>) == (<a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga082e7e91fffee86db39676396d01a8e0">FLASH_ACR_PRFTEN</a>)) ? 1UL : 0UL);</div>
+<div class="line"><a id="l01353" name="l01353"></a><span class="lineno"> 1353</span>}</div>
+<div class="line"><a id="l01354" name="l01354"></a><span class="lineno"> 1354</span></div>
+<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnableInstCache(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span>{</div>
+<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga51d8b1dd2c46942d377c579a38dce711">FLASH_ACR_ICEN</a>);</div>
+<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span>}</div>
+<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span></div>
+<div class="line"><a id="l01370" name="l01370"></a><span class="lineno"> 1370</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisableInstCache(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01371" name="l01371"></a><span class="lineno"> 1371</span>{</div>
+<div class="line"><a id="l01372" name="l01372"></a><span class="lineno"> 1372</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga51d8b1dd2c46942d377c579a38dce711">FLASH_ACR_ICEN</a>);</div>
+<div class="line"><a id="l01373" name="l01373"></a><span class="lineno"> 1373</span>}</div>
+<div class="line"><a id="l01374" name="l01374"></a><span class="lineno"> 1374</span></div>
+<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnableDataCache(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span>{</div>
+<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga5a9a5cc3aa05dc62264addab1008c896">FLASH_ACR_DCEN</a>);</div>
+<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>}</div>
+<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span></div>
+<div class="line"><a id="l01390" name="l01390"></a><span class="lineno"> 1390</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisableDataCache(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01391" name="l01391"></a><span class="lineno"> 1391</span>{</div>
+<div class="line"><a id="l01392" name="l01392"></a><span class="lineno"> 1392</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga5a9a5cc3aa05dc62264addab1008c896">FLASH_ACR_DCEN</a>);</div>
+<div class="line"><a id="l01393" name="l01393"></a><span class="lineno"> 1393</span>}</div>
+<div class="line"><a id="l01394" name="l01394"></a><span class="lineno"> 1394</span></div>
+<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnableInstCacheReset(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>{</div>
+<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga923ff88475799eea9285f77f5383ced5">FLASH_ACR_ICRST</a>);</div>
+<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span>}</div>
+<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span></div>
+<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisableInstCacheReset(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span>{</div>
+<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga923ff88475799eea9285f77f5383ced5">FLASH_ACR_ICRST</a>);</div>
+<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span>}</div>
+<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span></div>
+<div class="line"><a id="l01422" name="l01422"></a><span class="lineno"> 1422</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnableDataCacheReset(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01423" name="l01423"></a><span class="lineno"> 1423</span>{</div>
+<div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gac53d7c85551a9829014d6027d67ce6c7">FLASH_ACR_DCRST</a>);</div>
+<div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span>}</div>
+<div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span></div>
+<div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisableDataCacheReset(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01433" name="l01433"></a><span class="lineno"> 1433</span>{</div>
+<div class="line"><a id="l01434" name="l01434"></a><span class="lineno"> 1434</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gac53d7c85551a9829014d6027d67ce6c7">FLASH_ACR_DCRST</a>);</div>
+<div class="line"><a id="l01435" name="l01435"></a><span class="lineno"> 1435</span>}</div>
+<div class="line"><a id="l01436" name="l01436"></a><span class="lineno"> 1436</span></div>
+<div class="line"><a id="l01449" name="l01449"></a><span class="lineno"> 1449</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnableRunPowerDown(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01450" name="l01450"></a><span class="lineno"> 1450</span>{</div>
+<div class="line"><a id="l01451" name="l01451"></a><span class="lineno"> 1451</span>  <span class="comment">/* Following values must be written consecutively to unlock the RUN_PD bit in</span></div>
+<div class="line"><a id="l01452" name="l01452"></a><span class="lineno"> 1452</span><span class="comment">     FLASH_ACR */</span></div>
+<div class="line"><a id="l01453" name="l01453"></a><span class="lineno"> 1453</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;PDKEYR, <a class="code hl_define" href="group___f_l_a_s_h___keys.html#ga75e165b072d1c66e15bab68f4b5bb969">FLASH_PDKEY1</a>);</div>
+<div class="line"><a id="l01454" name="l01454"></a><span class="lineno"> 1454</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;PDKEYR, <a class="code hl_define" href="group___f_l_a_s_h___keys.html#ga4fac68eedf8c34c59d1953525819748d">FLASH_PDKEY2</a>);</div>
+<div class="line"><a id="l01455" name="l01455"></a><span class="lineno"> 1455</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga28e344e1a7d1c78c8c9b22e83cb96cda">FLASH_ACR_RUN_PD</a>);</div>
+<div class="line"><a id="l01456" name="l01456"></a><span class="lineno"> 1456</span>}</div>
+<div class="line"><a id="l01457" name="l01457"></a><span class="lineno"> 1457</span></div>
+<div class="line"><a id="l01465" name="l01465"></a><span class="lineno"> 1465</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisableRunPowerDown(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01466" name="l01466"></a><span class="lineno"> 1466</span>{</div>
+<div class="line"><a id="l01467" name="l01467"></a><span class="lineno"> 1467</span>  <span class="comment">/* Following values must be written consecutively to unlock the RUN_PD bit in</span></div>
+<div class="line"><a id="l01468" name="l01468"></a><span class="lineno"> 1468</span><span class="comment">     FLASH_ACR */</span></div>
+<div class="line"><a id="l01469" name="l01469"></a><span class="lineno"> 1469</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;PDKEYR, <a class="code hl_define" href="group___f_l_a_s_h___keys.html#ga75e165b072d1c66e15bab68f4b5bb969">FLASH_PDKEY1</a>);</div>
+<div class="line"><a id="l01470" name="l01470"></a><span class="lineno"> 1470</span>  <a class="code hl_define" href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;PDKEYR, <a class="code hl_define" href="group___f_l_a_s_h___keys.html#ga4fac68eedf8c34c59d1953525819748d">FLASH_PDKEY2</a>);</div>
+<div class="line"><a id="l01471" name="l01471"></a><span class="lineno"> 1471</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga28e344e1a7d1c78c8c9b22e83cb96cda">FLASH_ACR_RUN_PD</a>);</div>
+<div class="line"><a id="l01472" name="l01472"></a><span class="lineno"> 1472</span>}</div>
+<div class="line"><a id="l01473" name="l01473"></a><span class="lineno"> 1473</span></div>
+<div class="line"><a id="l01481" name="l01481"></a><span class="lineno"> 1481</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_EnableSleepPowerDown(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01482" name="l01482"></a><span class="lineno"> 1482</span>{</div>
+<div class="line"><a id="l01483" name="l01483"></a><span class="lineno"> 1483</span>  <a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaabe351b40c2a8d34733c07234d3bcba4">FLASH_ACR_SLEEP_PD</a>);</div>
+<div class="line"><a id="l01484" name="l01484"></a><span class="lineno"> 1484</span>}</div>
+<div class="line"><a id="l01485" name="l01485"></a><span class="lineno"> 1485</span></div>
+<div class="line"><a id="l01491" name="l01491"></a><span class="lineno"> 1491</span><a class="code hl_define" href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> <span class="keywordtype">void</span> LL_FLASH_DisableSleepPowerDown(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l01492" name="l01492"></a><span class="lineno"> 1492</span>{</div>
+<div class="line"><a id="l01493" name="l01493"></a><span class="lineno"> 1493</span>  <a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a>-&gt;ACR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaabe351b40c2a8d34733c07234d3bcba4">FLASH_ACR_SLEEP_PD</a>);</div>
+<div class="line"><a id="l01494" name="l01494"></a><span class="lineno"> 1494</span>}</div>
+<div class="line"><a id="l01495" name="l01495"></a><span class="lineno"> 1495</span></div>
+<div class="line"><a id="l01499" name="l01499"></a><span class="lineno"> 1499</span></div>
+<div class="line"><a id="l01503" name="l01503"></a><span class="lineno"> 1503</span></div>
+<div class="line"><a id="l01507" name="l01507"></a><span class="lineno"> 1507</span> </div>
+<div class="line"><a id="l01508" name="l01508"></a><span class="lineno"> 1508</span><span class="preprocessor">#endif </span><span class="comment">/* defined (FLASH) || defined (SYSCFG) || defined (DBGMCU) || defined (VREFBUF) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l01509" name="l01509"></a><span class="lineno"> 1509</span></div>
+<div class="line"><a id="l01513" name="l01513"></a><span class="lineno"> 1513</span> </div>
+<div class="line"><a id="l01514" name="l01514"></a><span class="lineno"> 1514</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l01515" name="l01515"></a><span class="lineno"> 1515</span>}</div>
+<div class="line"><a id="l01516" name="l01516"></a><span class="lineno"> 1516</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01517" name="l01517"></a><span class="lineno"> 1517</span> </div>
+<div class="line"><a id="l01518" name="l01518"></a><span class="lineno"> 1518</span><span class="preprocessor">#endif </span><span class="comment">/* __STM32G4xx_LL_SYSTEM_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l01519" name="l01519"></a><span class="lineno"> 1519</span> </div>
+<div class="ttc" id="acmsis__armcc_8h_html_aba87361bfad2ae52cfe2f40c1a1dbf9c"><div class="ttname"><a href="cmsis__armcc_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a></div><div class="ttdeci">#define __STATIC_INLINE</div><div class="ttdef"><b>Definition</b> cmsis_armcc.h:63</div></div>
+<div class="ttc" id="agroup___exported__macros_html_ga133aae6fc0d41bffab39ab223a7001de"><div class="ttname"><a href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a></div><div class="ttdeci">#define CLEAR_BIT(REG, BIT)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:176</div></div>
+<div class="ttc" id="agroup___exported__macros_html_ga26474f43799fbade9cf300e21dd3a91a"><div class="ttname"><a href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a></div><div class="ttdeci">#define SET_BIT(REG, BIT)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:174</div></div>
+<div class="ttc" id="agroup___exported__macros_html_ga32f78bffcaf6d13023dcd7f05e0c4d57"><div class="ttname"><a href="group___exported__macros.html#ga32f78bffcaf6d13023dcd7f05e0c4d57">WRITE_REG</a></div><div class="ttdeci">#define WRITE_REG(REG, VAL)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:182</div></div>
+<div class="ttc" id="agroup___exported__macros_html_ga47a8870d71d55cefb3df47cd8c815ec8"><div class="ttname"><a href="group___exported__macros.html#ga47a8870d71d55cefb3df47cd8c815ec8">POSITION_VAL</a></div><div class="ttdeci">#define POSITION_VAL(VAL)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:188</div></div>
+<div class="ttc" id="agroup___exported__macros_html_ga6553c99f510c3bab8cc0a91602053247"><div class="ttname"><a href="group___exported__macros.html#ga6553c99f510c3bab8cc0a91602053247">MODIFY_REG</a></div><div class="ttdeci">#define MODIFY_REG(REG, CLEARMASK, SETMASK)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:186</div></div>
+<div class="ttc" id="agroup___exported__macros_html_ga822bb1bb9710d5f2fa6396b84e583c33"><div class="ttname"><a href="group___exported__macros.html#ga822bb1bb9710d5f2fa6396b84e583c33">READ_BIT</a></div><div class="ttdeci">#define READ_BIT(REG, BIT)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:178</div></div>
+<div class="ttc" id="agroup___f_l_a_s_h___keys_html_ga4fac68eedf8c34c59d1953525819748d"><div class="ttname"><a href="group___f_l_a_s_h___keys.html#ga4fac68eedf8c34c59d1953525819748d">FLASH_PDKEY2</a></div><div class="ttdeci">#define FLASH_PDKEY2</div><div class="ttdef"><b>Definition</b> stm32g4xx_hal_flash.h:500</div></div>
+<div class="ttc" id="agroup___f_l_a_s_h___keys_html_ga75e165b072d1c66e15bab68f4b5bb969"><div class="ttname"><a href="group___f_l_a_s_h___keys.html#ga75e165b072d1c66e15bab68f4b5bb969">FLASH_PDKEY1</a></div><div class="ttdeci">#define FLASH_PDKEY1</div><div class="ttdef"><b>Definition</b> stm32g4xx_hal_flash.h:499</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga037c80fe1d7308cee68245715ef6cd9a"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga037c80fe1d7308cee68245715ef6cd9a">DBGMCU_CR_DBG_SLEEP</a></div><div class="ttdeci">#define DBGMCU_CR_DBG_SLEEP</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2827</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga082e7e91fffee86db39676396d01a8e0"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga082e7e91fffee86db39676396d01a8e0">FLASH_ACR_PRFTEN</a></div><div class="ttdeci">#define FLASH_ACR_PRFTEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4642</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga107a9396d63c892a8e614897c9d0b132"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga107a9396d63c892a8e614897c9d0b132">DBGMCU_CR_DBG_STANDBY</a></div><div class="ttdeci">#define DBGMCU_CR_DBG_STANDBY</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2833</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga13d4cf5943c63ae8ff694e1446266bcc"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga13d4cf5943c63ae8ff694e1446266bcc">VREFBUF_CSR_HIZ</a></div><div class="ttdeci">#define VREFBUF_CSR_HIZ</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:11486</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga155014fba33b6dc281892ec1ff27e4da"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga155014fba33b6dc281892ec1ff27e4da">SYSCFG_CFGR2_SPF</a></div><div class="ttdeci">#define SYSCFG_CFGR2_SPF</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9904</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga20bab4e4f333ddecff9bf922c7d93a02"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga20bab4e4f333ddecff9bf922c7d93a02">VREFBUF_CSR_ENVR</a></div><div class="ttdeci">#define VREFBUF_CSR_ENVR</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:11483</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga28e344e1a7d1c78c8c9b22e83cb96cda"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga28e344e1a7d1c78c8c9b22e83cb96cda">FLASH_ACR_RUN_PD</a></div><div class="ttdeci">#define FLASH_ACR_RUN_PD</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4657</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga352e19b53b9986eb54de8fd79b27d052"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga352e19b53b9986eb54de8fd79b27d052">VREFBUF_CCR_TRIM</a></div><div class="ttdeci">#define VREFBUF_CCR_TRIM</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:11499</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga35f8d70bddd719864e4ee1cfa871217a"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga35f8d70bddd719864e4ee1cfa871217a">SYSCFG_CFGR1_FPU_IE_1</a></div><div class="ttdeci">#define SYSCFG_CFGR1_FPU_IE_1</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9649</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga37867c85a6455883bf60424879a281f4"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga37867c85a6455883bf60424879a281f4">SYSCFG_CFGR2_CLL</a></div><div class="ttdeci">#define SYSCFG_CFGR2_CLL</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9892</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga3c05039ec67573c00da29f58b914f258"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga3c05039ec67573c00da29f58b914f258">SYSCFG_MEMRMP_MEM_MODE</a></div><div class="ttdeci">#define SYSCFG_MEMRMP_MEM_MODE</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9611</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga51d8b1dd2c46942d377c579a38dce711"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga51d8b1dd2c46942d377c579a38dce711">FLASH_ACR_ICEN</a></div><div class="ttdeci">#define FLASH_ACR_ICEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4645</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga5a9a5cc3aa05dc62264addab1008c896"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga5a9a5cc3aa05dc62264addab1008c896">FLASH_ACR_DCEN</a></div><div class="ttdeci">#define FLASH_ACR_DCEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4648</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga7707762bd4192fee7875ec7d5f1f27a1"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga7707762bd4192fee7875ec7d5f1f27a1">SYSCFG_CFGR1_FPU_IE_2</a></div><div class="ttdeci">#define SYSCFG_CFGR1_FPU_IE_2</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9650</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga8838d130a5c7a34402c789f98d812828"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga8838d130a5c7a34402c789f98d812828">SYSCFG_CFGR1_FPU_IE_4</a></div><div class="ttdeci">#define SYSCFG_CFGR1_FPU_IE_4</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9652</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga887eb26364a8693355024ca203323165"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga887eb26364a8693355024ca203323165">DBGMCU_IDCODE_REV_ID</a></div><div class="ttdeci">#define DBGMCU_IDCODE_REV_ID</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2822</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga8ebd31d4d65b65a38f34b7dd2915679f"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga8ebd31d4d65b65a38f34b7dd2915679f">SYSCFG_CFGR1_FPU_IE_5</a></div><div class="ttdeci">#define SYSCFG_CFGR1_FPU_IE_5</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9653</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga9034b6eb9d4dceadffc6a1d1959056c9"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga9034b6eb9d4dceadffc6a1d1959056c9">DBGMCU_CR_TRACE_IOEN</a></div><div class="ttdeci">#define DBGMCU_CR_TRACE_IOEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2836</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga923ff88475799eea9285f77f5383ced5"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga923ff88475799eea9285f77f5383ced5">FLASH_ACR_ICRST</a></div><div class="ttdeci">#define FLASH_ACR_ICRST</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4651</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga948471b86a4c7bf56000670b10b203ab"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga948471b86a4c7bf56000670b10b203ab">SYSCFG_CFGR1_BOOSTEN</a></div><div class="ttdeci">#define SYSCFG_CFGR1_BOOSTEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9623</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaa1395189e10bdbc37bce9ea480e22d10"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaa1395189e10bdbc37bce9ea480e22d10">DBGMCU_CR_TRACE_MODE</a></div><div class="ttdeci">#define DBGMCU_CR_TRACE_MODE</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2840</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaabe351b40c2a8d34733c07234d3bcba4"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaabe351b40c2a8d34733c07234d3bcba4">FLASH_ACR_SLEEP_PD</a></div><div class="ttdeci">#define FLASH_ACR_SLEEP_PD</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4660</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gabd7765535faf23de1a7038d97d44f014"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gabd7765535faf23de1a7038d97d44f014">SYSCFG_MEMRMP_FB_MODE</a></div><div class="ttdeci">#define SYSCFG_MEMRMP_FB_MODE</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9618</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gabed60c67f0551da302b2fcbf7a45d56c"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gabed60c67f0551da302b2fcbf7a45d56c">SYSCFG_CFGR1_FPU_IE_0</a></div><div class="ttdeci">#define SYSCFG_CFGR1_FPU_IE_0</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9648</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gac53d7c85551a9829014d6027d67ce6c7"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gac53d7c85551a9829014d6027d67ce6c7">FLASH_ACR_DCRST</a></div><div class="ttdeci">#define FLASH_ACR_DCRST</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4654</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gac8ca8fa7bb3ae856eb5fc3102cc0ff21"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gac8ca8fa7bb3ae856eb5fc3102cc0ff21">SYSCFG_CFGR2_PVDL</a></div><div class="ttdeci">#define SYSCFG_CFGR2_PVDL</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9898</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gacbf387c6e12d90c012dd85636c5dc31b"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gacbf387c6e12d90c012dd85636c5dc31b">SYSCFG_CFGR2_SPL</a></div><div class="ttdeci">#define SYSCFG_CFGR2_SPL</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9895</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gad4670ed4900a7abf116f8f13378ea6a8"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gad4670ed4900a7abf116f8f13378ea6a8">VREFBUF_CSR_VRS</a></div><div class="ttdeci">#define VREFBUF_CSR_VRS</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:11492</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gadbbcb571cb43923c7237d3bceb4043d9"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gadbbcb571cb43923c7237d3bceb4043d9">SYSCFG_SCSR_CCMBSY</a></div><div class="ttdeci">#define SYSCFG_SCSR_CCMBSY</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9887</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gae03ce77d50b0a70c5436ccdaac83a75d"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gae03ce77d50b0a70c5436ccdaac83a75d">SYSCFG_SCSR_CCMER</a></div><div class="ttdeci">#define SYSCFG_SCSR_CCMER</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9884</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gae75e85c4c032560b4db88cd8fcb3aaf9"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gae75e85c4c032560b4db88cd8fcb3aaf9">SYSCFG_CFGR2_ECCL</a></div><div class="ttdeci">#define SYSCFG_CFGR2_ECCL</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9901</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaef5e44cbb084160a6004ca9951ec7318"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a></div><div class="ttdeci">#define FLASH_ACR_LATENCY</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:4623</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaf085379d759b80ce28d1672eb4a8a69f"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaf085379d759b80ce28d1672eb4a8a69f">SYSCFG_CFGR1_FPU_IE_3</a></div><div class="ttdeci">#define SYSCFG_CFGR1_FPU_IE_3</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:9651</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaf40ce35d91ad9aaedeaf6c3f3d618c33"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaf40ce35d91ad9aaedeaf6c3f3d618c33">VREFBUF_CSR_VRR</a></div><div class="ttdeci">#define VREFBUF_CSR_VRR</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:11489</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaf511f21a8de5b0b66c862915eee8bf75"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaf511f21a8de5b0b66c862915eee8bf75">DBGMCU_CR_DBG_STOP</a></div><div class="ttdeci">#define DBGMCU_CR_DBG_STOP</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2830</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gafd961fcddc40341a817a9ec85b7c80ac"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gafd961fcddc40341a817a9ec85b7c80ac">DBGMCU_IDCODE_DEV_ID</a></div><div class="ttdeci">#define DBGMCU_IDCODE_DEV_ID</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:2819</div></div>
+<div class="ttc" id="agroup___peripheral__declaration_html_ga1446a32e57e1b1cfa1683494561a5b2f"><div class="ttname"><a href="group___peripheral__declaration.html#ga1446a32e57e1b1cfa1683494561a5b2f">VREFBUF</a></div><div class="ttdeci">#define VREFBUF</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:1101</div></div>
+<div class="ttc" id="agroup___peripheral__declaration_html_ga3c833fe1c486cb62250ccbca32899cb8"><div class="ttname"><a href="group___peripheral__declaration.html#ga3c833fe1c486cb62250ccbca32899cb8">SYSCFG</a></div><div class="ttdeci">#define SYSCFG</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:1100</div></div>
+<div class="ttc" id="agroup___peripheral__declaration_html_ga844ea28ba1e0a5a0e497f16b61ea306b"><div class="ttname"><a href="group___peripheral__declaration.html#ga844ea28ba1e0a5a0e497f16b61ea306b">FLASH</a></div><div class="ttdeci">#define FLASH</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:1129</div></div>
+<div class="ttc" id="agroup___peripheral__declaration_html_ga92ec6d9ec2251fda7d4ce09748cd74b4"><div class="ttname"><a href="group___peripheral__declaration.html#ga92ec6d9ec2251fda7d4ce09748cd74b4">DBGMCU</a></div><div class="ttdeci">#define DBGMCU</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:1184</div></div>
+<div class="ttc" id="astm32g4xx_8h_html"><div class="ttname"><a href="stm32g4xx_8h.html">stm32g4xx.h</a></div><div class="ttdoc">CMSIS STM32G4xx Device Peripheral Access Layer Header File.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_bdb69fe29a31890b99923f4c9250acbb.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_e39bf5a6fde21f8487bf7a86953b29f4.html">STM32G4xx_HAL_Driver</a></li><li class="navelem"><a class="el" href="dir_cf3c3af35870d411fe0ca8615da7e3cd.html">Inc</a></li><li class="navelem"><a class="el" href="stm32g4xx__ll__system_8h.html">stm32g4xx_ll_system.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

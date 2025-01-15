@@ -1,0 +1,20 @@
+\doxysection{x\+Stream\+Buffer\+Is\+Full}
+\hypertarget{group__x_stream_buffer_is_full}{}\label{group__x_stream_buffer_is_full}\index{xStreamBufferIsFull@{xStreamBufferIsFull}}
+\doxylink{stream__buffer_8h}{stream\+\_\+buffer.\+h}
+
+
+\begin{DoxyPre}
+\doxylink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t} \doxylink{stream__buffer_8h_ae393d82ee06e89692248a4381f85dc86}{xStreamBufferIsFull( StreamBufferHandle\_t xStreamBuffer )};
+\end{DoxyPre}
+
+
+Queries a stream buffer to see if it is full. A stream buffer is full if it does not have any free space, and therefore cannot accept any more data.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x\+Stream\+Buffer} & The handle of the stream buffer being queried.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+If the stream buffer is full then pd\+TRUE is returned. Otherwise pd\+FALSE is returned. 
+\end{DoxyReturn}

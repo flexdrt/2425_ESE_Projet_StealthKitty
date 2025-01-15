@@ -1,0 +1,471 @@
+\doxysection{stm32g4xx\+\_\+hal\+\_\+i2c.\+h}
+\hypertarget{stm32g4xx__hal__i2c_8h_source}{}\label{stm32g4xx__hal__i2c_8h_source}\index{stm32g4xx\_hal\_i2c.h@{stm32g4xx\_hal\_i2c.h}}
+\mbox{\hyperlink{stm32g4xx__hal__i2c_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ STM32G4xx\_HAL\_I2C\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ STM32G4xx\_HAL\_I2C\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32g4xx__hal__def_8h}{stm32g4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_acd4afe05c37d7924e50f6795641dbd70}{Timing}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_a8abec5c168e27bf11b2808c1450bdeda}{OwnAddress1}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_aa7afcb44ef1f351763d7dc69ba0f4f8c}{AddressingMode}};\ \ \ \ \ \ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_aabb4e156aa4af60dfaf591419e9b1a07}{DualAddressMode}};\ \ \ \ \ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_a6300c7a7e1b7d5444226a1bd55744f53}{OwnAddress2}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_a4fb48639ef769c55e617e6b97e63a531}{OwnAddress2Masks}};\ \ \ \ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_afc70f58c0935194064d720779fbf22b5}{GeneralCallMode}};\ \ \ \ \ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ uint32\_t\ \mbox{\hyperlink{struct_i2_c___init_type_def_a47971fd08a9784eddaa3d83fb998030c}{NoStretchMode}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \}\ \mbox{\hyperlink{struct_i2_c___init_type_def}{I2C\_InitTypeDef}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a91ba08634e08d7287940f1bc5a37eeff}{HAL\_I2C\_STATE\_RESET}}\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ }
+\DoxyCodeLine{00111\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37af859ce60c5e462b0bfde3a5010bc72d1}{HAL\_I2C\_STATE\_READY}}\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x20U,\ \ \ }
+\DoxyCodeLine{00112\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a0c503d6c0388f0d872b368557e278b5a}{HAL\_I2C\_STATE\_BUSY}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x24U,\ \ \ }
+\DoxyCodeLine{00113\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37acb3a9e3d4d1076e0f4e65f91ca0161bc}{HAL\_I2C\_STATE\_BUSY\_TX}}\ \ \ \ \ \ \ \ \ \ \ =\ 0x21U,\ \ \ }
+\DoxyCodeLine{00114\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a4ea4ecc2dc3cb64c4877c123d9d73170}{HAL\_I2C\_STATE\_BUSY\_RX}}\ \ \ \ \ \ \ \ \ \ \ =\ 0x22U,\ \ \ }
+\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a13518f06f54c7515100e86bb8d6e0779}{HAL\_I2C\_STATE\_LISTEN}}\ \ \ \ \ \ \ \ \ \ \ \ =\ 0x28U,\ \ \ }
+\DoxyCodeLine{00116\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a14d22553a60819b276582e08459f30b0}{HAL\_I2C\_STATE\_BUSY\_TX\_LISTEN}}\ \ \ \ =\ 0x29U,\ \ \ }
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a8aec2547eedf1c9924f8efed33e3b5c5}{HAL\_I2C\_STATE\_BUSY\_RX\_LISTEN}}\ \ \ \ =\ 0x2AU,\ \ \ }
+\DoxyCodeLine{00120\ \ \ \mbox{\hyperlink{group___h_a_l__state__structure__definition_ggaef355af8eab251ae2a19ee164ad81c37a2c6f6d1fef0847f9da51153b5c295249}{HAL\_I2C\_STATE\_ABORT}}\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x60U,\ \ \ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \}\ \mbox{\hyperlink{group___h_a_l__state__structure__definition_gaef355af8eab251ae2a19ee164ad81c37}{HAL\_I2C\_StateTypeDef}};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_ggabcbb7b844f2ffd63c4e530c117882062a98c8fd642b7ac45a23479bd597fc7a71}{HAL\_I2C\_MODE\_NONE}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ }
+\DoxyCodeLine{00149\ \ \ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_ggabcbb7b844f2ffd63c4e530c117882062a1eea98660a170dd7b191c9dfe46da6d2}{HAL\_I2C\_MODE\_MASTER}}\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x10U,\ \ \ }
+\DoxyCodeLine{00150\ \ \ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_ggabcbb7b844f2ffd63c4e530c117882062a817358d19d278261f2047a5ec8ec6b53}{HAL\_I2C\_MODE\_SLAVE}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x20U,\ \ \ }
+\DoxyCodeLine{00151\ \ \ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_ggabcbb7b844f2ffd63c4e530c117882062a3f592bd942f973242aac6b7df79f3f1e}{HAL\_I2C\_MODE\_MEM}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x40U\ \ \ \ }
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \}\ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_gabcbb7b844f2ffd63c4e530c117882062}{HAL\_I2C\_ModeTypeDef}};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_NONE\ \ \ \ \ \ (0x00000000U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_BERR\ \ \ \ \ \ (0x00000001U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_ARLO\ \ \ \ \ \ (0x00000002U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_AF\ \ \ \ \ \ \ \ (0x00000004U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_OVR\ \ \ \ \ \ \ (0x00000008U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_DMA\ \ \ \ \ \ \ (0x00000010U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_TIMEOUT\ \ \ (0x00000020U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_SIZE\ \ \ \ \ \ (0x00000040U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_DMA\_PARAM\ (0x00000080U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_INVALID\_CALLBACK\ \ (0x00000100U)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ HAL\_I2C\_ERROR\_INVALID\_PARAM\ \ \ \ \ (0x00000200U)\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00184\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}}
+\DoxyCodeLine{00185\ \{}
+\DoxyCodeLine{00186\ \ \ \mbox{\hyperlink{struct_i2_c___type_def}{I2C\_TypeDef}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{struct_____i2_c___handle_type_def_a8bdec20782b6b99587806437094c43d2}{Instance}};\ \ \ \ \ \ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \mbox{\hyperlink{struct_i2_c___init_type_def}{I2C\_InitTypeDef}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a4b1d65e692a280d15470a8184ed2f68a}{Init}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{struct_____i2_c___handle_type_def_ae5b117ad14c78eb266b018fb972e315e}{pBuffPtr}};\ \ \ \ \ \ }
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a51999331ab800faccdb97383b39819dd}{XferSize}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a49bf3cd0e9bcb9f41f161663f513f405}{XferCount}};\ \ \ \ \ \ }
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}};\ \ \ \ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_aa74abfd1a56073ae8c2c826db1be0628}{PreviousState}};\ \ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}(*\mbox{\hyperlink{struct_____i2_c___handle_type_def_a5e03f08d05d15496797f071858ebed53}{XferISR}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c,\ uint32\_t\ ITFlags,\ uint32\_t\ ITSources);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{struct_____i2_c___handle_type_def_a33e13c28b1a70e6164417abb026d7a22}{hdmatx}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{struct_____i2_c___handle_type_def_abd0aeec20298a55d89a440320e35634f}{hdmarx}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \mbox{\hyperlink{stm32g4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}{Lock}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ \mbox{\hyperlink{group___h_a_l__state__structure__definition_gaef355af8eab251ae2a19ee164ad81c37}{HAL\_I2C\_StateTypeDef}}\ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a48237f31888af06f6c25dead5438f5a7}{State}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_gabcbb7b844f2ffd63c4e530c117882062}{HAL\_I2C\_ModeTypeDef}}\ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_ac25cb640453370e3b2526799dc24eb5a}{Mode}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}{ErrorCode}};\ \ \ \ \ \ }
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_afc8d101b0a62d80cd64c0bfa686aa4dc}{AddrEventCount}};\ }
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_ad6bcf76f2ccfe535724014ef07eae04b}{Devaddress}};\ \ \ \ \ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a009bdd1b89c6ca994760617de151645d}{Memaddress}};\ \ \ \ \ }
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{00224\ \ \ void\ (*\ MasterTxCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00226\ \ \ void\ (*\ MasterRxCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00228\ \ \ void\ (*\ SlaveTxCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00230\ \ \ void\ (*\ SlaveRxCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00232\ \ \ void\ (*\ ListenCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00234\ \ \ void\ (*\ MemTxCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00236\ \ \ void\ (*\ MemRxCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00238\ \ \ void\ (*\ ErrorCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00240\ \ \ void\ (*\ AbortCpltCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ void\ (*\ AddrCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ TransferDirection,\ uint16\_t\ AddrMatchCode);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ void\ (*\ MspInitCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00248\ \ \ void\ (*\ MspDeInitCallback)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_____i2_c___handle_type_def}{\_\_I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00252\ \}\ \mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ ==\ 1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00258\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00259\ \{}
+\DoxyCodeLine{00260\ \ \ HAL\_I2C\_MASTER\_TX\_COMPLETE\_CB\_ID\ \ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{00261\ \ \ HAL\_I2C\_MASTER\_RX\_COMPLETE\_CB\_ID\ \ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{00262\ \ \ HAL\_I2C\_SLAVE\_TX\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{00263\ \ \ HAL\_I2C\_SLAVE\_RX\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ =\ 0x03U,\ \ \ \ }
+\DoxyCodeLine{00264\ \ \ HAL\_I2C\_LISTEN\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ \ \ =\ 0x04U,\ \ \ \ }
+\DoxyCodeLine{00265\ \ \ HAL\_I2C\_MEM\_TX\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ \ \ =\ 0x05U,\ \ \ \ }
+\DoxyCodeLine{00266\ \ \ HAL\_I2C\_MEM\_RX\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ \ \ =\ 0x06U,\ \ \ \ }
+\DoxyCodeLine{00267\ \ \ HAL\_I2C\_ERROR\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x07U,\ \ \ \ }
+\DoxyCodeLine{00268\ \ \ HAL\_I2C\_ABORT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x08U,\ \ \ \ }
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ HAL\_I2C\_MSPINIT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x09U,\ \ \ \ }
+\DoxyCodeLine{00271\ \ \ HAL\_I2C\_MSPDEINIT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x0AU\ \ \ \ \ }
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \}\ HAL\_I2C\_CallbackIDTypeDef;}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{typedef}\ \ void\ (*pI2C\_CallbackTypeDef)(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00280\ \textcolor{keyword}{typedef}\ \ void\ (*pI2C\_AddrCallbackTypeDef)(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ TransferDirection,}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ AddrMatchCode);}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00292\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ I2C\_FIRST\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)I2C\_SOFTEND\_MODE)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#define\ I2C\_FIRST\_AND\_NEXT\_FRAME\ \ \ \ \ \ \ \ ((uint32\_t)(I2C\_RELOAD\_MODE\ |\ I2C\_SOFTEND\_MODE))}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#define\ I2C\_NEXT\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(I2C\_RELOAD\_MODE\ |\ I2C\_SOFTEND\_MODE))}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ I2C\_FIRST\_AND\_LAST\_FRAME\ \ \ \ \ \ \ \ ((uint32\_t)I2C\_AUTOEND\_MODE)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#define\ I2C\_LAST\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)I2C\_AUTOEND\_MODE)}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ I2C\_LAST\_FRAME\_NO\_STOP\ \ \ \ \ \ \ \ \ \ ((uint32\_t)I2C\_SOFTEND\_MODE)}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{comment}{/*\ List\ of\ XferOptions\ in\ usage\ of\ :}}
+\DoxyCodeLine{00309\ \textcolor{comment}{\ *\ 1-\/\ Restart\ condition\ in\ all\ use\ cases\ (direction\ change\ or\ not)}}
+\DoxyCodeLine{00310\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ \ I2C\_OTHER\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0x000000AAU)}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#define\ \ I2C\_OTHER\_AND\_LAST\_FRAME\ \ \ \ \ \ \ (0x0000AA00U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#define\ I2C\_ADDRESSINGMODE\_7BIT\ \ \ \ \ \ \ \ \ (0x00000001U)}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ I2C\_ADDRESSINGMODE\_10BIT\ \ \ \ \ \ \ \ (0x00000002U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#define\ I2C\_DUALADDRESS\_DISABLE\ \ \ \ \ \ \ \ \ (0x00000000U)}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#define\ I2C\_DUALADDRESS\_ENABLE\ \ \ \ \ \ \ \ \ \ I2C\_OAR2\_OA2EN}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_NOMASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x00U)}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK01\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x01U)}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK02\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x02U)}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK03\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x03U)}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK04\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x04U)}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK05\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x05U)}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK06\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x06U)}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ I2C\_OA2\_MASK07\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x07U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ I2C\_GENERALCALL\_DISABLE\ \ \ \ \ \ \ \ \ (0x00000000U)}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#define\ I2C\_GENERALCALL\_ENABLE\ \ \ \ \ \ \ \ \ \ I2C\_CR1\_GCEN}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#define\ I2C\_NOSTRETCH\_DISABLE\ \ \ \ \ \ \ \ \ \ \ (0x00000000U)}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ I2C\_NOSTRETCH\_ENABLE\ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_NOSTRETCH}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#define\ I2C\_MEMADD\_SIZE\_8BIT\ \ \ \ \ \ \ \ \ \ \ \ (0x00000001U)}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#define\ I2C\_MEMADD\_SIZE\_16BIT\ \ \ \ \ \ \ \ \ \ \ (0x00000002U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\#define\ I2C\_DIRECTION\_TRANSMIT\ \ \ \ \ \ \ \ \ \ (0x00000000U)}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#define\ I2C\_DIRECTION\_RECEIVE\ \ \ \ \ \ \ \ \ \ \ (0x00000001U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#define\ \ I2C\_RELOAD\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR2\_RELOAD}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#define\ \ I2C\_AUTOEND\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR2\_AUTOEND}}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#define\ \ I2C\_SOFTEND\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0x00000000U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ \ I2C\_NO\_STARTSTOP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0x00000000U)}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#define\ \ I2C\_GENERATE\_STOP\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32\_t)(0x80000000U\ |\ I2C\_CR2\_STOP)}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#define\ \ I2C\_GENERATE\_START\_READ\ \ \ \ \ \ \ \ (uint32\_t)(0x80000000U\ |\ I2C\_CR2\_START\ |\ I2C\_CR2\_RD\_WRN)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#define\ \ I2C\_GENERATE\_START\_WRITE\ \ \ \ \ \ \ (uint32\_t)(0x80000000U\ |\ I2C\_CR2\_START)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#define\ I2C\_IT\_ERRI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_ERRIE}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#define\ I2C\_IT\_TCI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_TCIE}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#define\ I2C\_IT\_STOPI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_STOPIE}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#define\ I2C\_IT\_NACKI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_NACKIE}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#define\ I2C\_IT\_ADDRI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_ADDRIE}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\#define\ I2C\_IT\_RXI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_RXIE}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#define\ I2C\_IT\_TXI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR1\_TXIE}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_TXE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_TXE}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_TXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_TXIS}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_RXNE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_RXNE}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_ADDR}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_AF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_NACKF}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_STOPF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_STOPF}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_TC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_TC}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_TCR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_TCR}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_BERR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_BERR}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_ARLO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_ARLO}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_OVR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_OVR}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_PECERR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_PECERR}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_TIMEOUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_TIMEOUT}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_ALERT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_ALERT}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_BUSY}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_DIR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ISR\_DIR}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \textcolor{comment}{/*\ Exported\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ do\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>State\ =\ HAL\_I2C\_STATE\_RESET;\ \ \(\backslash\)}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspInitCallback\ =\ NULL;\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspDeInitCallback\ =\ NULL;\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>State\ =\ HAL\_I2C\_STATE\_RESET)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_ENABLE\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>CR1\ |=\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_DISABLE\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>CR1\ \&=\ (\string~(\_\_INTERRUPT\_\_)))}}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_GET\_IT\_SOURCE(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ ((((\_\_HANDLE\_\_)-\/>Instance-\/>CR1\ \&\ \(\backslash\)}}
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_INTERRUPT\_\_))\ ==\ (\_\_INTERRUPT\_\_))\ ?\ SET\ :\ RESET)}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\#define\ I2C\_FLAG\_MASK\ \ (0x0001FFFFU)}}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_GET\_FLAG(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ (((((\_\_HANDLE\_\_)-\/>Instance-\/>ISR)\ \&\ \(\backslash\)}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_FLAG\_\_))\ ==\ (\_\_FLAG\_\_))\ ?\ SET\ :\ RESET)}}
+\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_CLEAR\_FLAG(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ (((\_\_FLAG\_\_)\ ==\ I2C\_FLAG\_TXE)\ ?\ \(\backslash\)}}
+\DoxyCodeLine{00565\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>ISR\ |=\ (\_\_FLAG\_\_))\ :\ \(\backslash\)}}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>ICR\ =\ (\_\_FLAG\_\_)))}}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_ENABLE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (SET\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR1,\ I2C\_CR1\_PE))}}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00578\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_DISABLE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CLEAR\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR1,\ I2C\_CR1\_PE))}}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\#define\ \_\_HAL\_I2C\_GENERATE\_NACK(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (SET\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR2,\ I2C\_CR2\_NACK))}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \textcolor{comment}{/*\ Include\ I2C\ HAL\ Extended\ module\ */}}
+\DoxyCodeLine{00590\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32g4xx__hal__i2c__ex_8h}{stm32g4xx\_hal\_i2c\_ex.h}}"{}}}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00592\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00596\ }
+\DoxyCodeLine{00600\ \textcolor{comment}{/*\ Initialization\ and\ de-\/initialization\ functions******************************/}}
+\DoxyCodeLine{00601\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group1_ga9d29159a6da072287fff73743fd93260}{HAL\_I2C\_Init}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00602\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group1_gabda634ba18f874775d1262c887d273b4}{HAL\_I2C\_DeInit}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00603\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___exported___functions___group1_gabe01a202c27b23fc150aa66af3130073}{HAL\_I2C\_MspInit}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00604\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___exported___functions___group1_ga2ec8d9b09854c732e2feed549278f048}{HAL\_I2C\_MspDeInit}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \textcolor{comment}{/*\ Callbacks\ Register/UnRegister\ functions\ \ ***********************************/}}
+\DoxyCodeLine{00607\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{00608\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_I2C\_RegisterCallback(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ HAL\_I2C\_CallbackIDTypeDef\ CallbackID,}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pI2C\_CallbackTypeDef\ pCallback);}
+\DoxyCodeLine{00610\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_I2C\_UnRegisterCallback(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ HAL\_I2C\_CallbackIDTypeDef\ CallbackID);}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00612\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_I2C\_RegisterAddrCallback(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ pI2C\_AddrCallbackTypeDef\ pCallback);}
+\DoxyCodeLine{00613\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_I2C\_UnRegisterAddrCallback(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00614\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_I2C\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00622\ \textcolor{comment}{/*\ IO\ operation\ functions\ \ ****************************************************/}}
+\DoxyCodeLine{00623\ \textcolor{comment}{/*******\ Blocking\ mode:\ Polling\ */}}
+\DoxyCodeLine{00624\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga9440a306e25c7bd038cfa8619ec9a830}{HAL\_I2C\_Master\_Transmit}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{00626\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga6b3cef8c309e88ed6d3b8deba149aac9}{HAL\_I2C\_Master\_Receive}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{00628\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga9128c5f01406d0da061a2bce00b6866e}{HAL\_I2C\_Slave\_Transmit}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size,}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{00630\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga92b445a5ca4f5b8195f1c10ebdc41687}{HAL\_I2C\_Slave\_Receive}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size,}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{00632\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga33e725a824eb672f9f999d9d5ce088fb}{HAL\_I2C\_Mem\_Write}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint16\_t\ MemAddress,}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ MemAddSize,\ uint8\_t\ *pData,\ uint16\_t\ Size,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{00634\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga7b593a1b85bd989dd002ee209eae4ad2}{HAL\_I2C\_Mem\_Read}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint16\_t\ MemAddress,}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ MemAddSize,\ uint8\_t\ *pData,\ uint16\_t\ Size,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{00636\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gade6a669a25f0e99ef7fd52724acb3dec}{HAL\_I2C\_IsDeviceReady}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint32\_t\ Trials,}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \textcolor{comment}{/*******\ Non-\/Blocking\ mode:\ Interrupt\ */}}
+\DoxyCodeLine{00640\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga48b84e0cff0e44d10e10bf9cc5a6726d}{HAL\_I2C\_Master\_Transmit\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size);}
+\DoxyCodeLine{00642\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga2aebdb302ffc0a4dff28dc2c8b59e1e9}{HAL\_I2C\_Master\_Receive\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size);}
+\DoxyCodeLine{00644\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gabb5814408402b2e9d07c0b414e64fc9d}{HAL\_I2C\_Slave\_Transmit\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00645\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga48113a4abed4b32ac19da51babb530eb}{HAL\_I2C\_Slave\_Receive\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00646\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gab57ffc32b01392d8bcce3c7ec32b3120}{HAL\_I2C\_Mem\_Write\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint16\_t\ MemAddress,}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ MemAddSize,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00648\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga2274a9d894a1dc783bc647f937200f65}{HAL\_I2C\_Mem\_Read\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint16\_t\ MemAddress,}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ MemAddSize,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga6a55d04a460664f6b2039b2a7b56a9de}{HAL\_I2C\_Master\_Seq\_Transmit\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size,\ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00653\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga0caa34de50971b2bd5b953ee12af94f1}{HAL\_I2C\_Master\_Seq\_Receive\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size,\ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00655\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga6d4024eb28117e0836c2477a855d7531}{HAL\_I2C\_Slave\_Seq\_Transmit\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size,}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00657\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga1e782a3b10d12e4368eb489ad728e735}{HAL\_I2C\_Slave\_Seq\_Receive\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size,}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00659\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gad8c3b67e4430bc8def0c885af769f3ab}{HAL\_I2C\_EnableListen\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00660\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gafd49a2b08bc6e30989c420a9c679b65e}{HAL\_I2C\_DisableListen\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00661\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gad001e42b424fc0d85a8e94380b9c7513}{HAL\_I2C\_Master\_Abort\_IT}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress);}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \textcolor{comment}{/*******\ Non-\/Blocking\ mode:\ DMA\ */}}
+\DoxyCodeLine{00664\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga978126d41a3a67384f4cb2fe3e6e7e8f}{HAL\_I2C\_Master\_Transmit\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size);}
+\DoxyCodeLine{00666\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga299f5e16a92826b9856c60265bc22cf2}{HAL\_I2C\_Master\_Receive\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size);}
+\DoxyCodeLine{00668\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga59e69e0da57150f980deea0d235f0397}{HAL\_I2C\_Slave\_Transmit\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00669\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gad9dd42a10e5c108e30e6546cb64639c2}{HAL\_I2C\_Slave\_Receive\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00670\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga12a2a86be393359534f630cdd090d8bb}{HAL\_I2C\_Mem\_Write\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint16\_t\ MemAddress,}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ MemAddSize,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00672\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gab25b99552182d2486d8eb441fffdd0a4}{HAL\_I2C\_Mem\_Read\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint16\_t\ MemAddress,}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ MemAddSize,\ uint8\_t\ *pData,\ uint16\_t\ Size);}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00675\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gace04b5c76cbe9b8f2293199df5cbebe7}{HAL\_I2C\_Master\_Seq\_Transmit\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size,\ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00677\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga83c1c311ce7822081cfca9aeef9ad632}{HAL\_I2C\_Master\_Seq\_Receive\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint16\_t\ DevAddress,\ uint8\_t\ *pData,}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Size,\ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00679\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_ga105b8f6d6d7310e2d9bc170e8ed412ae}{HAL\_I2C\_Slave\_Seq\_Transmit\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size,}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00681\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group2_gaeb0f79e15c8dab0d370b3fb48ca592b7}{HAL\_I2C\_Slave\_Seq\_Receive\_DMA}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ *pData,\ uint16\_t\ Size,}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_____i2_c___handle_type_def_a275aa3c8180a03dbe4bf55fafba3e892}{XferOptions}});}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00690\ \textcolor{comment}{/*******\ I2C\ IRQHandler\ and\ Callbacks\ used\ in\ non\ blocking\ modes\ (Interrupt\ and\ DMA)\ */}}
+\DoxyCodeLine{00691\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga0cd3cc56c83b85a65e31c945c854d9d5}{HAL\_I2C\_EV\_IRQHandler}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00692\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga78739c0d57d55034a9c8bc39c8ee6bc2}{HAL\_I2C\_ER\_IRQHandler}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00693\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_gaa258e0eb52bbc34002a46dc2db89a84b}{HAL\_I2C\_MasterTxCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00694\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga5782358f977ddf450b203fc075833a1d}{HAL\_I2C\_MasterRxCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00695\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga7e086b3ee67187ea072aec6fb4d52aad}{HAL\_I2C\_SlaveTxCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00696\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_gae23a5b1ce68867c35093ff2b5931e9a0}{HAL\_I2C\_SlaveRxCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00697\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga3b2a6a0ff585d8e529a73ba7d291c92d}{HAL\_I2C\_AddrCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c,\ uint8\_t\ TransferDirection,\ uint16\_t\ AddrMatchCode);}
+\DoxyCodeLine{00698\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga22544d1e6a14392cd5fe41e4e4f4cc96}{HAL\_I2C\_ListenCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00699\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga874f6104d2cdbced9f2ab6e941ec58f0}{HAL\_I2C\_MemTxCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00700\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_gac16a95413b35f05c5ce725fefd8531a5}{HAL\_I2C\_MemRxCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00701\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_ga4d5338cd64a656dfdc4154773bc4f05d}{HAL\_I2C\_ErrorCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00702\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c___i_r_q___handler__and___callbacks_gaa4c2f59ea15698a1490401e5bbc3f296}{HAL\_I2C\_AbortCpltCallback}}(\mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00710\ \textcolor{comment}{/*\ Peripheral\ State,\ Mode\ and\ Error\ functions\ \ *********************************/}}
+\DoxyCodeLine{00711\ \mbox{\hyperlink{group___h_a_l__state__structure__definition_gaef355af8eab251ae2a19ee164ad81c37}{HAL\_I2C\_StateTypeDef}}\ \mbox{\hyperlink{group___i2_c___exported___functions___group3_gac25f3242379554d819ee26681208be50}{HAL\_I2C\_GetState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00712\ \mbox{\hyperlink{group___h_a_l__mode__structure__definition_gabcbb7b844f2ffd63c4e530c117882062}{HAL\_I2C\_ModeTypeDef}}\ \ \mbox{\hyperlink{group___i2_c___exported___functions___group3_ga8671779fd74f120fb3bc167df58ae7fc}{HAL\_I2C\_GetMode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00713\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i2_c___exported___functions___group3_gaaaf834fc0fa8d065245f3b3bfdafa141}{HAL\_I2C\_GetError}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group___i2_c__handle___structure__definition_ga31b88eb31a4622a50e34f02a1c3d516b}{I2C\_HandleTypeDef}}\ *hi2c);}
+\DoxyCodeLine{00714\ }
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00723\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00727\ }
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\#define\ IS\_I2C\_ADDRESSING\_MODE(MODE)\ \ \ \ (((MODE)\ ==\ I2C\_ADDRESSINGMODE\_7BIT)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00738\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ I2C\_ADDRESSINGMODE\_10BIT))}}
+\DoxyCodeLine{00739\ }
+\DoxyCodeLine{00740\ \textcolor{preprocessor}{\#define\ IS\_I2C\_DUAL\_ADDRESS(ADDRESS)\ \ \ \ (((ADDRESS)\ ==\ I2C\_DUALADDRESS\_DISABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00741\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ADDRESS)\ ==\ I2C\_DUALADDRESS\_ENABLE))}}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \textcolor{preprocessor}{\#define\ IS\_I2C\_OWN\_ADDRESS2\_MASK(MASK)\ \ (((MASK)\ ==\ I2C\_OA2\_NOMASK)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00744\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK01)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00745\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK02)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00746\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK03)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00747\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK04)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00748\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK05)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00749\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK06)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00750\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MASK)\ ==\ I2C\_OA2\_MASK07))}}
+\DoxyCodeLine{00751\ }
+\DoxyCodeLine{00752\ \textcolor{preprocessor}{\#define\ IS\_I2C\_GENERAL\_CALL(CALL)\ \ \ \ \ \ \ (((CALL)\ ==\ I2C\_GENERALCALL\_DISABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00753\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CALL)\ ==\ I2C\_GENERALCALL\_ENABLE))}}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00755\ \textcolor{preprocessor}{\#define\ IS\_I2C\_NO\_STRETCH(STRETCH)\ \ \ \ \ \ (((STRETCH)\ ==\ I2C\_NOSTRETCH\_DISABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00756\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((STRETCH)\ ==\ I2C\_NOSTRETCH\_ENABLE))}}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00758\ \textcolor{preprocessor}{\#define\ IS\_I2C\_MEMADD\_SIZE(SIZE)\ \ \ \ \ \ \ \ (((SIZE)\ ==\ I2C\_MEMADD\_SIZE\_8BIT)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00759\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SIZE)\ ==\ I2C\_MEMADD\_SIZE\_16BIT))}}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\#define\ IS\_TRANSFER\_MODE(MODE)\ \ \ \ \ \ \ \ \ \ (((MODE)\ ==\ I2C\_RELOAD\_MODE)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00762\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ I2C\_AUTOEND\_MODE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00763\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ I2C\_SOFTEND\_MODE))}}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ \textcolor{preprocessor}{\#define\ IS\_TRANSFER\_REQUEST(REQUEST)\ \ \ \ (((REQUEST)\ ==\ I2C\_GENERATE\_STOP)\ \ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00766\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_GENERATE\_START\_READ)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00767\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_GENERATE\_START\_WRITE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00768\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_NO\_STARTSTOP))}}
+\DoxyCodeLine{00769\ }
+\DoxyCodeLine{00770\ \textcolor{preprocessor}{\#define\ IS\_I2C\_TRANSFER\_OPTIONS\_REQUEST(REQUEST)\ \ (((REQUEST)\ ==\ I2C\_FIRST\_FRAME)\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00771\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_FIRST\_AND\_NEXT\_FRAME)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00772\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_NEXT\_FRAME)\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00773\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_FIRST\_AND\_LAST\_FRAME)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00774\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_LAST\_FRAME)\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00775\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_LAST\_FRAME\_NO\_STOP)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00776\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IS\_I2C\_TRANSFER\_OTHER\_OPTIONS\_REQUEST(REQUEST))}}
+\DoxyCodeLine{00777\ }
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\#define\ IS\_I2C\_TRANSFER\_OTHER\_OPTIONS\_REQUEST(REQUEST)\ (((REQUEST)\ ==\ I2C\_OTHER\_FRAME)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00779\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((REQUEST)\ ==\ I2C\_OTHER\_AND\_LAST\_FRAME))}}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00781\ \textcolor{preprocessor}{\#define\ I2C\_RESET\_CR2(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>CR2\ \&=\ \(\backslash\)}}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32\_t)\string~((uint32\_t)(I2C\_CR2\_SADD\ \ \ |\ I2C\_CR2\_HEAD10R\ |\ \(\backslash\)}}
+\DoxyCodeLine{00783\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR2\_NBYTES\ |\ I2C\_CR2\_RELOAD\ \ |\ \(\backslash\)}}
+\DoxyCodeLine{00784\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CR2\_RD\_WRN)))}}
+\DoxyCodeLine{00785\ }
+\DoxyCodeLine{00786\ \textcolor{preprocessor}{\#define\ I2C\_GET\_ADDR\_MATCH(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ ((uint16\_t)(((\_\_HANDLE\_\_)-\/>Instance-\/>ISR\ \&\ I2C\_ISR\_ADDCODE)\ \(\backslash\)}}
+\DoxyCodeLine{00787\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ 16U))}}
+\DoxyCodeLine{00788\ \textcolor{preprocessor}{\#define\ I2C\_GET\_DIR(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)(((\_\_HANDLE\_\_)-\/>Instance-\/>ISR\ \&\ I2C\_ISR\_DIR)\ \(\backslash\)}}
+\DoxyCodeLine{00789\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ 16U))}}
+\DoxyCodeLine{00790\ \textcolor{preprocessor}{\#define\ I2C\_GET\_STOP\_MODE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>CR2\ \&\ I2C\_CR2\_AUTOEND)}}
+\DoxyCodeLine{00791\ \textcolor{preprocessor}{\#define\ I2C\_GET\_OWN\_ADDRESS1(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ ((uint16\_t)((\_\_HANDLE\_\_)-\/>Instance-\/>OAR1\ \&\ I2C\_OAR1\_OA1))}}
+\DoxyCodeLine{00792\ \textcolor{preprocessor}{\#define\ I2C\_GET\_OWN\_ADDRESS2(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ ((uint16\_t)((\_\_HANDLE\_\_)-\/>Instance-\/>OAR2\ \&\ I2C\_OAR2\_OA2))}}
+\DoxyCodeLine{00793\ }
+\DoxyCodeLine{00794\ \textcolor{preprocessor}{\#define\ IS\_I2C\_OWN\_ADDRESS1(ADDRESS1)\ \ \ \ \ \ \ \ \ \ \ \ \ ((ADDRESS1)\ <=\ 0x000003FFU)}}
+\DoxyCodeLine{00795\ \textcolor{preprocessor}{\#define\ IS\_I2C\_OWN\_ADDRESS2(ADDRESS2)\ \ \ \ \ \ \ \ \ \ \ \ \ ((ADDRESS2)\ <=\ (uint16\_t)0x00FFU)}}
+\DoxyCodeLine{00796\ }
+\DoxyCodeLine{00797\ \textcolor{preprocessor}{\#define\ I2C\_MEM\_ADD\_MSB(\_\_ADDRESS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)((uint16\_t)(((uint16\_t)((\_\_ADDRESS\_\_)\ \&\ \(\backslash\)}}
+\DoxyCodeLine{00798\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)(0xFF00U)))\ >>\ 8U)))}}
+\DoxyCodeLine{00799\ \textcolor{preprocessor}{\#define\ I2C\_MEM\_ADD\_LSB(\_\_ADDRESS\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)((uint16\_t)((\_\_ADDRESS\_\_)\ \&\ (uint16\_t)(0x00FFU))))}}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#define\ I2C\_GENERATE\_START(\_\_ADDMODE\_\_,\_\_ADDRESS\_\_)\ (((\_\_ADDMODE\_\_)\ ==\ I2C\_ADDRESSINGMODE\_7BIT)\ ?\ \(\backslash\)}}
+\DoxyCodeLine{00802\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32\_t)((((uint32\_t)(\_\_ADDRESS\_\_)\ \&\ (I2C\_CR2\_SADD))\ |\ \(\backslash\)}}
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (I2C\_CR2\_START)\ |\ (I2C\_CR2\_AUTOEND))\ \&\ \(\backslash\)}}
+\DoxyCodeLine{00804\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\string~I2C\_CR2\_RD\_WRN))\ :\ \(\backslash\)}}
+\DoxyCodeLine{00805\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32\_t)((((uint32\_t)(\_\_ADDRESS\_\_)\ \&\ (I2C\_CR2\_SADD))\ |\ \(\backslash\)}}
+\DoxyCodeLine{00806\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (I2C\_CR2\_ADD10)\ |\ (I2C\_CR2\_START)\ |\ \(\backslash\)}}
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (I2C\_CR2\_AUTOEND))\ \&\ (\string~I2C\_CR2\_RD\_WRN)))}}
+\DoxyCodeLine{00808\ }
+\DoxyCodeLine{00809\ \textcolor{preprocessor}{\#define\ I2C\_CHECK\_FLAG(\_\_ISR\_\_,\ \_\_FLAG\_\_)\ \ \ \ \ \ \ \ \ ((((\_\_ISR\_\_)\ \&\ ((\_\_FLAG\_\_)\ \&\ I2C\_FLAG\_MASK))\ ==\ \(\backslash\)}}
+\DoxyCodeLine{00810\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_FLAG\_\_)\ \&\ I2C\_FLAG\_MASK))\ ?\ SET\ :\ RESET)}}
+\DoxyCodeLine{00811\ \textcolor{preprocessor}{\#define\ I2C\_CHECK\_IT\_SOURCE(\_\_CR1\_\_,\ \_\_IT\_\_)\ \ \ \ \ \ ((((\_\_CR1\_\_)\ \&\ (\_\_IT\_\_))\ ==\ (\_\_IT\_\_))\ ?\ SET\ :\ RESET)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00816\ \textcolor{comment}{/*\ Private\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00820\ \textcolor{comment}{/*\ Private\ functions\ are\ defined\ in\ stm32g4xx\_hal\_i2c.c\ file\ */}}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00828\ }
+\DoxyCodeLine{00832\ }
+\DoxyCodeLine{00833\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00834\ \}}
+\DoxyCodeLine{00835\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00837\ }
+\DoxyCodeLine{00838\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G4xx\_HAL\_I2C\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

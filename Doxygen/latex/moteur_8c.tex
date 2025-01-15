@@ -1,0 +1,331 @@
+\doxysection{Référence du fichier moteur.\+c}
+\hypertarget{moteur_8c}{}\label{moteur_8c}\index{moteur.c@{moteur.c}}
+{\ttfamily \#include "{}moteur.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}task.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{moteur_8c_a0ab9212f633348b60b75eac3ff33f44d}{init\+\_\+motors}} (void)
+\begin{DoxyCompactList}\small\item\em Initialisation des moteurs (PWM et encodeurs). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a48a40a3fcfab395f3d006a18bbc229a9}{forward\+\_\+r}} (uint16\+\_\+t alpha)
+\begin{DoxyCompactList}\small\item\em Avance le moteur droit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a801b6dce9e332dfcd2001da0aef935cc}{forward\+\_\+l}} (uint16\+\_\+t alpha)
+\begin{DoxyCompactList}\small\item\em Avance le moteur gauche. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a7a179fffde3aecbae87e59434b7627c2}{reverse\+\_\+r}} (uint16\+\_\+t alpha)
+\begin{DoxyCompactList}\small\item\em Recule le moteur droit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a8e8f261f832a615b4aa3f390fcf2f901}{reverse\+\_\+l}} (uint16\+\_\+t alpha)
+\begin{DoxyCompactList}\small\item\em Recule le moteur gauche. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a90b243fa4ddd8630b7d3585f354583a8}{stop\+\_\+r}} (void)
+\begin{DoxyCompactList}\small\item\em Arrête le moteur droit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a55dcd7a8d70395c932be740309827f37}{stop\+\_\+l}} (void)
+\begin{DoxyCompactList}\small\item\em Arrête le moteur gauche. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{moteur_8c_af935edfd2dbf1409d8615abc6c51f307}{get\+\_\+encoder\+\_\+position}} (uint8\+\_\+t motor)
+\begin{DoxyCompactList}\small\item\em Lit la position actuelle de l\textquotesingle{}encodeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_aa37407623d6ece230f952364d9f6b0d6}{reset\+\_\+encoder}} (uint8\+\_\+t motor)
+\begin{DoxyCompactList}\small\item\em Réinitialise la position de l\textquotesingle{}encodeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{moteur_8c_ace68cc30f63c9b0288d9565704a57a3c}{calculate\+\_\+motor\+\_\+speed}} (uint8\+\_\+t motor, uint32\+\_\+t delta\+\_\+time\+\_\+ms, uint16\+\_\+t encoder\+\_\+resolution)
+\begin{DoxyCompactList}\small\item\em Calcule la vitesse actuelle du moteur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{moteur_8c_a0440ade70a668112aab023dd4c148fe9}{compute\+\_\+pid}} (float target\+\_\+speed, float measured\+\_\+speed, float \texorpdfstring{$\ast$}{*}integral\+\_\+error, float \texorpdfstring{$\ast$}{*}previous\+\_\+error, float \mbox{\hyperlink{moteur_8c_a1f7add0f84d583bc2eceb290d6c4cc06}{kp}}, float \mbox{\hyperlink{moteur_8c_a050993b7ca6c97e62c1020017f716b91}{ki}}, float \mbox{\hyperlink{moteur_8c_ae7a5c6018507bb1361fcca170e069b9c}{kd}})
+\begin{DoxyCompactList}\small\item\em Calcule la commande PID pour un moteur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a74ad76b10bb1bd3108d23942b19ca910}{motorcontrol\+\_\+souris}} (void)
+\begin{DoxyCompactList}\small\item\em Mode "{}\+Souris"{} pour un déplacement normal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a84ca9412dd134c81183f825eed3fcfab}{motorcontrol\+\_\+predateur}} (void)
+\begin{DoxyCompactList}\small\item\em Mode "{}\+Prédateur"{} pour un déplacement rapide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a44be3f53c4d8d33c0c6233b620ba3943}{pivot}} (void)
+\begin{DoxyCompactList}\small\item\em Effectue un pivot arrière en cas d\textquotesingle{}obstacle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{moteur_8c_a1f7add0f84d583bc2eceb290d6c4cc06}{kp}} = 1.\+0
+\item 
+float \mbox{\hyperlink{moteur_8c_a050993b7ca6c97e62c1020017f716b91}{ki}} = 0.\+1
+\item 
+float \mbox{\hyperlink{moteur_8c_ae7a5c6018507bb1361fcca170e069b9c}{kd}} = 0.\+05
+\item 
+float \mbox{\hyperlink{moteur_8c_a14262f992f587e11915a46751e6905d8}{integral\+\_\+error\+\_\+left}} = 0.\+0
+\item 
+float \mbox{\hyperlink{moteur_8c_afa32c1b2b0c364dca91be6cbcff1dfa6}{integral\+\_\+error\+\_\+right}} = 0.\+0
+\item 
+float \mbox{\hyperlink{moteur_8c_ae7bf91b449d18903d072b66cbf5898c0}{previous\+\_\+error\+\_\+left}} = 0.\+0
+\item 
+float \mbox{\hyperlink{moteur_8c_ae0d786b2c80914cb1bfc1ddbf51e6d83}{previous\+\_\+error\+\_\+right}} = 0.\+0
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{moteur_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{moteur_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{moteur_8c_a85788cec5a97ee377e4ee2e74f026484}{htim4}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{moteur_8c_ace68cc30f63c9b0288d9565704a57a3c}\index{moteur.c@{moteur.c}!calculate\_motor\_speed@{calculate\_motor\_speed}}
+\index{calculate\_motor\_speed@{calculate\_motor\_speed}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{calculate\_motor\_speed()}{calculate\_motor\_speed()}}
+{\footnotesize\ttfamily \label{moteur_8c_ace68cc30f63c9b0288d9565704a57a3c} 
+float calculate\+\_\+motor\+\_\+speed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{motor}{, }\item[{uint32\+\_\+t}]{delta\+\_\+time\+\_\+ms}{, }\item[{uint16\+\_\+t}]{encoder\+\_\+resolution}{}\end{DoxyParamCaption})}
+
+
+
+Calcule la vitesse actuelle du moteur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em motor} & Identifiant du moteur (MOTOR\+\_\+\+LEFT ou MOTOR\+\_\+\+RIGHT). \\
+\hline
+{\em delta\+\_\+time\+\_\+ms} & Intervalle de temps en ms. \\
+\hline
+{\em encoder\+\_\+resolution} & Résolution de l\textquotesingle{}encodeur (pulsations par tour). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Vitesse en tours par seconde. 
+\end{DoxyReturn}
+\Hypertarget{moteur_8c_a0440ade70a668112aab023dd4c148fe9}\index{moteur.c@{moteur.c}!compute\_pid@{compute\_pid}}
+\index{compute\_pid@{compute\_pid}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{compute\_pid()}{compute\_pid()}}
+{\footnotesize\ttfamily \label{moteur_8c_a0440ade70a668112aab023dd4c148fe9} 
+float compute\+\_\+pid (\begin{DoxyParamCaption}\item[{float}]{target\+\_\+speed}{, }\item[{float}]{measured\+\_\+speed}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{integral\+\_\+error}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{previous\+\_\+error}{, }\item[{float}]{kp}{, }\item[{float}]{ki}{, }\item[{float}]{kd}{}\end{DoxyParamCaption})}
+
+
+
+Calcule la commande PID pour un moteur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em target\+\_\+speed} & Vitesse cible. \\
+\hline
+{\em measured\+\_\+speed} & Vitesse mesurée. \\
+\hline
+{\em integral\+\_\+error} & Accumulateur d\textquotesingle{}erreur intégrale. \\
+\hline
+{\em previous\+\_\+error} & Dernière erreur mesurée. \\
+\hline
+{\em kp} & Gain proportionnel. \\
+\hline
+{\em ki} & Gain intégral. \\
+\hline
+{\em kd} & Gain dérivé. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Commande PID calculée. 
+\end{DoxyReturn}
+\Hypertarget{moteur_8c_a801b6dce9e332dfcd2001da0aef935cc}\index{moteur.c@{moteur.c}!forward\_l@{forward\_l}}
+\index{forward\_l@{forward\_l}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{forward\_l()}{forward\_l()}}
+{\footnotesize\ttfamily \label{moteur_8c_a801b6dce9e332dfcd2001da0aef935cc} 
+void forward\+\_\+l (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{alpha}{}\end{DoxyParamCaption})}
+
+
+
+Avance le moteur gauche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em alpha} & Valeur du rapport cyclique (0-\/100\%). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{moteur_8c_a48a40a3fcfab395f3d006a18bbc229a9}\index{moteur.c@{moteur.c}!forward\_r@{forward\_r}}
+\index{forward\_r@{forward\_r}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{forward\_r()}{forward\_r()}}
+{\footnotesize\ttfamily \label{moteur_8c_a48a40a3fcfab395f3d006a18bbc229a9} 
+void forward\+\_\+r (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{alpha}{}\end{DoxyParamCaption})}
+
+
+
+Avance le moteur droit. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em alpha} & Valeur du rapport cyclique (0-\/100\%). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{moteur_8c_af935edfd2dbf1409d8615abc6c51f307}\index{moteur.c@{moteur.c}!get\_encoder\_position@{get\_encoder\_position}}
+\index{get\_encoder\_position@{get\_encoder\_position}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{get\_encoder\_position()}{get\_encoder\_position()}}
+{\footnotesize\ttfamily \label{moteur_8c_af935edfd2dbf1409d8615abc6c51f307} 
+int16\+\_\+t get\+\_\+encoder\+\_\+position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{motor}{}\end{DoxyParamCaption})}
+
+
+
+Lit la position actuelle de l\textquotesingle{}encodeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em motor} & Identifiant du moteur (MOTOR\+\_\+\+LEFT ou MOTOR\+\_\+\+RIGHT). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Position actuelle de l\textquotesingle{}encodeur. 
+\end{DoxyReturn}
+\Hypertarget{moteur_8c_a0ab9212f633348b60b75eac3ff33f44d}\index{moteur.c@{moteur.c}!init\_motors@{init\_motors}}
+\index{init\_motors@{init\_motors}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{init\_motors()}{init\_motors()}}
+{\footnotesize\ttfamily \label{moteur_8c_a0ab9212f633348b60b75eac3ff33f44d} 
+void init\+\_\+motors (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initialisation des moteurs (PWM et encodeurs). 
+
+\Hypertarget{moteur_8c_a84ca9412dd134c81183f825eed3fcfab}\index{moteur.c@{moteur.c}!motorcontrol\_predateur@{motorcontrol\_predateur}}
+\index{motorcontrol\_predateur@{motorcontrol\_predateur}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{motorcontrol\_predateur()}{motorcontrol\_predateur()}}
+{\footnotesize\ttfamily \label{moteur_8c_a84ca9412dd134c81183f825eed3fcfab} 
+void motorcontrol\+\_\+predateur (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Mode "{}\+Prédateur"{} pour un déplacement rapide. 
+
+\Hypertarget{moteur_8c_a74ad76b10bb1bd3108d23942b19ca910}\index{moteur.c@{moteur.c}!motorcontrol\_souris@{motorcontrol\_souris}}
+\index{motorcontrol\_souris@{motorcontrol\_souris}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{motorcontrol\_souris()}{motorcontrol\_souris()}}
+{\footnotesize\ttfamily \label{moteur_8c_a74ad76b10bb1bd3108d23942b19ca910} 
+void motorcontrol\+\_\+souris (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Mode "{}\+Souris"{} pour un déplacement normal. 
+
+\Hypertarget{moteur_8c_a44be3f53c4d8d33c0c6233b620ba3943}\index{moteur.c@{moteur.c}!pivot@{pivot}}
+\index{pivot@{pivot}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{pivot()}{pivot()}}
+{\footnotesize\ttfamily \label{moteur_8c_a44be3f53c4d8d33c0c6233b620ba3943} 
+void pivot (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Effectue un pivot arrière en cas d\textquotesingle{}obstacle. 
+
+\Hypertarget{moteur_8c_aa37407623d6ece230f952364d9f6b0d6}\index{moteur.c@{moteur.c}!reset\_encoder@{reset\_encoder}}
+\index{reset\_encoder@{reset\_encoder}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{reset\_encoder()}{reset\_encoder()}}
+{\footnotesize\ttfamily \label{moteur_8c_aa37407623d6ece230f952364d9f6b0d6} 
+void reset\+\_\+encoder (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{motor}{}\end{DoxyParamCaption})}
+
+
+
+Réinitialise la position de l\textquotesingle{}encodeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em motor} & Identifiant du moteur (MOTOR\+\_\+\+LEFT ou MOTOR\+\_\+\+RIGHT). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{moteur_8c_a8e8f261f832a615b4aa3f390fcf2f901}\index{moteur.c@{moteur.c}!reverse\_l@{reverse\_l}}
+\index{reverse\_l@{reverse\_l}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{reverse\_l()}{reverse\_l()}}
+{\footnotesize\ttfamily \label{moteur_8c_a8e8f261f832a615b4aa3f390fcf2f901} 
+void reverse\+\_\+l (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{alpha}{}\end{DoxyParamCaption})}
+
+
+
+Recule le moteur gauche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em alpha} & Valeur du rapport cyclique (0-\/100\%). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{moteur_8c_a7a179fffde3aecbae87e59434b7627c2}\index{moteur.c@{moteur.c}!reverse\_r@{reverse\_r}}
+\index{reverse\_r@{reverse\_r}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{reverse\_r()}{reverse\_r()}}
+{\footnotesize\ttfamily \label{moteur_8c_a7a179fffde3aecbae87e59434b7627c2} 
+void reverse\+\_\+r (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{alpha}{}\end{DoxyParamCaption})}
+
+
+
+Recule le moteur droit. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em alpha} & Valeur du rapport cyclique (0-\/100\%). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{moteur_8c_a55dcd7a8d70395c932be740309827f37}\index{moteur.c@{moteur.c}!stop\_l@{stop\_l}}
+\index{stop\_l@{stop\_l}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{stop\_l()}{stop\_l()}}
+{\footnotesize\ttfamily \label{moteur_8c_a55dcd7a8d70395c932be740309827f37} 
+void stop\+\_\+l (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Arrête le moteur gauche. 
+
+\Hypertarget{moteur_8c_a90b243fa4ddd8630b7d3585f354583a8}\index{moteur.c@{moteur.c}!stop\_r@{stop\_r}}
+\index{stop\_r@{stop\_r}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{stop\_r()}{stop\_r()}}
+{\footnotesize\ttfamily \label{moteur_8c_a90b243fa4ddd8630b7d3585f354583a8} 
+void stop\+\_\+r (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Arrête le moteur droit. 
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{moteur_8c_a25fc663547539bc49fecc0011bd76ab5}\index{moteur.c@{moteur.c}!htim1@{htim1}}
+\index{htim1@{htim1}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily \label{moteur_8c_a25fc663547539bc49fecc0011bd76ab5} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{moteur_8c_aac3d2c59ee0e3bbae1b99529a154eb62}\index{moteur.c@{moteur.c}!htim3@{htim3}}
+\index{htim3@{htim3}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{htim3}{htim3}}
+{\footnotesize\ttfamily \label{moteur_8c_aac3d2c59ee0e3bbae1b99529a154eb62} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim3\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{moteur_8c_a85788cec5a97ee377e4ee2e74f026484}\index{moteur.c@{moteur.c}!htim4@{htim4}}
+\index{htim4@{htim4}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{htim4}{htim4}}
+{\footnotesize\ttfamily \label{moteur_8c_a85788cec5a97ee377e4ee2e74f026484} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim4\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{moteur_8c_a14262f992f587e11915a46751e6905d8}\index{moteur.c@{moteur.c}!integral\_error\_left@{integral\_error\_left}}
+\index{integral\_error\_left@{integral\_error\_left}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{integral\_error\_left}{integral\_error\_left}}
+{\footnotesize\ttfamily \label{moteur_8c_a14262f992f587e11915a46751e6905d8} 
+float integral\+\_\+error\+\_\+left = 0.\+0}
+
+\Hypertarget{moteur_8c_afa32c1b2b0c364dca91be6cbcff1dfa6}\index{moteur.c@{moteur.c}!integral\_error\_right@{integral\_error\_right}}
+\index{integral\_error\_right@{integral\_error\_right}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{integral\_error\_right}{integral\_error\_right}}
+{\footnotesize\ttfamily \label{moteur_8c_afa32c1b2b0c364dca91be6cbcff1dfa6} 
+float integral\+\_\+error\+\_\+right = 0.\+0}
+
+\Hypertarget{moteur_8c_ae7a5c6018507bb1361fcca170e069b9c}\index{moteur.c@{moteur.c}!kd@{kd}}
+\index{kd@{kd}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{kd}{kd}}
+{\footnotesize\ttfamily \label{moteur_8c_ae7a5c6018507bb1361fcca170e069b9c} 
+float kd = 0.\+05}
+
+\Hypertarget{moteur_8c_a050993b7ca6c97e62c1020017f716b91}\index{moteur.c@{moteur.c}!ki@{ki}}
+\index{ki@{ki}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{ki}{ki}}
+{\footnotesize\ttfamily \label{moteur_8c_a050993b7ca6c97e62c1020017f716b91} 
+float ki = 0.\+1}
+
+\Hypertarget{moteur_8c_a1f7add0f84d583bc2eceb290d6c4cc06}\index{moteur.c@{moteur.c}!kp@{kp}}
+\index{kp@{kp}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{kp}{kp}}
+{\footnotesize\ttfamily \label{moteur_8c_a1f7add0f84d583bc2eceb290d6c4cc06} 
+float kp = 1.\+0}
+
+\Hypertarget{moteur_8c_ae7bf91b449d18903d072b66cbf5898c0}\index{moteur.c@{moteur.c}!previous\_error\_left@{previous\_error\_left}}
+\index{previous\_error\_left@{previous\_error\_left}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{previous\_error\_left}{previous\_error\_left}}
+{\footnotesize\ttfamily \label{moteur_8c_ae7bf91b449d18903d072b66cbf5898c0} 
+float previous\+\_\+error\+\_\+left = 0.\+0}
+
+\Hypertarget{moteur_8c_ae0d786b2c80914cb1bfc1ddbf51e6d83}\index{moteur.c@{moteur.c}!previous\_error\_right@{previous\_error\_right}}
+\index{previous\_error\_right@{previous\_error\_right}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{previous\_error\_right}{previous\_error\_right}}
+{\footnotesize\ttfamily \label{moteur_8c_ae0d786b2c80914cb1bfc1ddbf51e6d83} 
+float previous\+\_\+error\+\_\+right = 0.\+0}
+

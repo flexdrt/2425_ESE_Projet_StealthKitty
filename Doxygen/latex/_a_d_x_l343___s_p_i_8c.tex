@@ -1,0 +1,227 @@
+\doxysection{Référence du fichier ADXL343\+\_\+\+SPI.\+c}
+\hypertarget{_a_d_x_l343___s_p_i_8c}{}\label{_a_d_x_l343___s_p_i_8c}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+{\ttfamily \#include "{}ADXL343\+\_\+\+SPI.\+h"{}}\newline
+{\ttfamily \#include "{}spi.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a273f7358b3e557a534c7eacf04286eb1}{ADXL\+\_\+\+CS\+\_\+\+LOW}}()
+\item 
+\#define \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_ab617456962f76dc6ad954a1a137361bf}{ADXL\+\_\+\+CS\+\_\+\+HIGH}}()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a09d16a4c59846e1f36ee34306b03bdce}{ADXL343\+\_\+initialization}} (\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hspi, \mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev)
+\begin{DoxyCompactList}\small\item\em Initialisation de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343} via SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a3e0896b4a9670ffb5154bc84c393df31}{ADXL343\+\_\+write\+\_\+register}} (\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hspi, uint8\+\_\+t reg\+Addr, uint8\+\_\+t reg\+Data)
+\begin{DoxyCompactList}\small\item\em Écrit une valeur dans un registre de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_ac3808008eb35f6e624c33d81295cafd0}{ADXL343\+\_\+read\+\_\+register}} (\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hspi, uint8\+\_\+t reg\+Addr)
+\begin{DoxyCompactList}\small\item\em Lit une valeur depuis un registre de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_ac38357035df86077b5a4217a9ae6d713}{ADXL343\+\_\+get\+\_\+acc\+\_\+raw}} (\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev)
+\begin{DoxyCompactList}\small\item\em Lit les données brutes d\textquotesingle{}accélération de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a025644ff1cee674121491a7c467d1d12}{ADXL343\+\_\+get\+\_\+acc\+\_\+norm}} (\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev)
+\begin{DoxyCompactList}\small\item\em Convertit les données brutes en valeurs normalisées. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a0e2baf1cb5bca10b39e2f92376f18160}{ADXL343\+\_\+print\+\_\+raw}} (\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev, \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}huart)
+\item 
+void \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a620afe00dddd09d85948e23dc07ec2f0}{ADXL343\+\_\+set\+\_\+tap\+\_\+parameters}} (\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev, uint8\+\_\+t threshold, uint8\+\_\+t duration, uint8\+\_\+t latency, uint8\+\_\+t window)
+\begin{DoxyCompactList}\small\item\em Configure les paramètres de détection de tapotements ("{}\+Tap"{}) pour l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a87db3b01319aeb959debe94f30e2cf4c}{ADXL343\+\_\+\+Enable\+Tap\+Interrupts}} (\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev)
+\item 
+int \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_ab209eac27fcfdbfb548e2f383f016dcb}{ADXL343\+\_\+check\+\_\+tap}} (\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}dev)
+\begin{DoxyCompactList}\small\item\em Vérifie si un "{}\+Single Tap"{} a été détecté. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_a_d_x_l343___s_p_i_8c_a3b4e58b8dc70b541d7c25c814ae5f793}{ADXL343\+\_\+\+Set\+Data\+Format}} (\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hspi, uint8\+\_\+t range)
+\begin{DoxyCompactList}\small\item\em Configure le format des données de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_ab617456962f76dc6ad954a1a137361bf}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL\_CS\_HIGH@{ADXL\_CS\_HIGH}}
+\index{ADXL\_CS\_HIGH@{ADXL\_CS\_HIGH}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL\_CS\_HIGH}{ADXL\_CS\_HIGH}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_ab617456962f76dc6ad954a1a137361bf} 
+\#define ADXL\+\_\+\+CS\+\_\+\+HIGH(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group___g_p_i_o___exported___functions___group2_gaf4b97bdf533a02f51ef696d43b6da5c4}{HAL\_GPIO\_WritePin}}(\mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_abedcd886fc01cf6c7e8d78f570783d00}{ADXL\_CS\_PORT}},\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a0141ea54ba637967fb10a11ed89ba34f}{ADXL\_CS\_PIN}},\ \mbox{\hyperlink{group___g_p_i_o___exported___types_gga5b3ef0486b179415581eb342e0ea6b43a746c062509db3ad1e47beed7527f9f8a}{GPIO\_PIN\_SET}})}
+
+\end{DoxyCode}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a273f7358b3e557a534c7eacf04286eb1}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL\_CS\_LOW@{ADXL\_CS\_LOW}}
+\index{ADXL\_CS\_LOW@{ADXL\_CS\_LOW}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL\_CS\_LOW}{ADXL\_CS\_LOW}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a273f7358b3e557a534c7eacf04286eb1} 
+\#define ADXL\+\_\+\+CS\+\_\+\+LOW(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group___g_p_i_o___exported___functions___group2_gaf4b97bdf533a02f51ef696d43b6da5c4}{HAL\_GPIO\_WritePin}}(\mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_abedcd886fc01cf6c7e8d78f570783d00}{ADXL\_CS\_PORT}},\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a0141ea54ba637967fb10a11ed89ba34f}{ADXL\_CS\_PIN}},\ \mbox{\hyperlink{group___g_p_i_o___exported___types_gga5b3ef0486b179415581eb342e0ea6b43a90af2af95004ea61d76950ff3f2f6ec2}{GPIO\_PIN\_RESET}})}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_ab209eac27fcfdbfb548e2f383f016dcb}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_check\_tap@{ADXL343\_check\_tap}}
+\index{ADXL343\_check\_tap@{ADXL343\_check\_tap}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_check\_tap()}{ADXL343\_check\_tap()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_ab209eac27fcfdbfb548e2f383f016dcb} 
+int ADXL343\+\_\+check\+\_\+tap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{}\end{DoxyParamCaption})}
+
+
+
+Vérifie si un "{}\+Single Tap"{} a été détecté. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & Pointeur vers la structure \doxylink{struct_a_d_x_l343}{ADXL343} contenant les informations du périphérique. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si un tapotement est détecté, 0 sinon. 
+\end{DoxyReturn}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a87db3b01319aeb959debe94f30e2cf4c}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_EnableTapInterrupts@{ADXL343\_EnableTapInterrupts}}
+\index{ADXL343\_EnableTapInterrupts@{ADXL343\_EnableTapInterrupts}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_EnableTapInterrupts()}{ADXL343\_EnableTapInterrupts()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a87db3b01319aeb959debe94f30e2cf4c} 
+void ADXL343\+\_\+\+Enable\+Tap\+Interrupts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a025644ff1cee674121491a7c467d1d12}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_get\_acc\_norm@{ADXL343\_get\_acc\_norm}}
+\index{ADXL343\_get\_acc\_norm@{ADXL343\_get\_acc\_norm}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_get\_acc\_norm()}{ADXL343\_get\_acc\_norm()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a025644ff1cee674121491a7c467d1d12} 
+\mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} ADXL343\+\_\+get\+\_\+acc\+\_\+norm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{}\end{DoxyParamCaption})}
+
+
+
+Convertit les données brutes en valeurs normalisées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & Pointeur vers la structure \doxylink{struct_a_d_x_l343}{ADXL343} contenant les informations du périphérique. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+HAL\+\_\+\+OK si la conversion est réussie. 
+\end{DoxyReturn}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_ac38357035df86077b5a4217a9ae6d713}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_get\_acc\_raw@{ADXL343\_get\_acc\_raw}}
+\index{ADXL343\_get\_acc\_raw@{ADXL343\_get\_acc\_raw}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_get\_acc\_raw()}{ADXL343\_get\_acc\_raw()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_ac38357035df86077b5a4217a9ae6d713} 
+\mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} ADXL343\+\_\+get\+\_\+acc\+\_\+raw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{}\end{DoxyParamCaption})}
+
+
+
+Lit les données brutes d\textquotesingle{}accélération de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & Pointeur vers la structure \doxylink{struct_a_d_x_l343}{ADXL343} contenant les informations du périphérique. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+HAL\+\_\+\+OK si la lecture est réussie, sinon une erreur HAL. 
+\end{DoxyReturn}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a09d16a4c59846e1f36ee34306b03bdce}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_initialization@{ADXL343\_initialization}}
+\index{ADXL343\_initialization@{ADXL343\_initialization}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_initialization()}{ADXL343\_initialization()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a09d16a4c59846e1f36ee34306b03bdce} 
+uint8\+\_\+t ADXL343\+\_\+initialization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{hspi}{, }\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{}\end{DoxyParamCaption})}
+
+
+
+Initialisation de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343} via SPI. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hspi} & Pointeur vers la structure \doxylink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def} utilisée pour SPI. \\
+\hline
+{\em dev} & Pointeur vers la structure \doxylink{struct_a_d_x_l343}{ADXL343} contenant les informations du périphérique. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si l\textquotesingle{}initialisation est réussie, 255 sinon. 
+\end{DoxyReturn}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a0e2baf1cb5bca10b39e2f92376f18160}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_print\_raw@{ADXL343\_print\_raw}}
+\index{ADXL343\_print\_raw@{ADXL343\_print\_raw}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_print\_raw()}{ADXL343\_print\_raw()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a0e2baf1cb5bca10b39e2f92376f18160} 
+void ADXL343\+\_\+print\+\_\+raw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{, }\item[{\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{huart}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_a_d_x_l343___s_p_i_8c_ac3808008eb35f6e624c33d81295cafd0}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_read\_register@{ADXL343\_read\_register}}
+\index{ADXL343\_read\_register@{ADXL343\_read\_register}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_read\_register()}{ADXL343\_read\_register()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_ac3808008eb35f6e624c33d81295cafd0} 
+uint8\+\_\+t ADXL343\+\_\+read\+\_\+register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{hspi}{, }\item[{uint8\+\_\+t}]{reg\+Addr}{}\end{DoxyParamCaption})}
+
+
+
+Lit une valeur depuis un registre de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hspi} & Pointeur vers la structure \doxylink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def} utilisée pour SPI. \\
+\hline
+{\em reg\+Addr} & Adresse du registre à lire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La valeur lue depuis le registre. 
+\end{DoxyReturn}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a620afe00dddd09d85948e23dc07ec2f0}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_set\_tap\_parameters@{ADXL343\_set\_tap\_parameters}}
+\index{ADXL343\_set\_tap\_parameters@{ADXL343\_set\_tap\_parameters}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_set\_tap\_parameters()}{ADXL343\_set\_tap\_parameters()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a620afe00dddd09d85948e23dc07ec2f0} 
+void ADXL343\+\_\+set\+\_\+tap\+\_\+parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}} \texorpdfstring{$\ast$}{*}}]{dev}{, }\item[{uint8\+\_\+t}]{threshold}{, }\item[{uint8\+\_\+t}]{duration}{, }\item[{uint8\+\_\+t}]{latency}{, }\item[{uint8\+\_\+t}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Configure les paramètres de détection de tapotements ("{}\+Tap"{}) pour l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & Pointeur vers la structure \doxylink{struct_a_d_x_l343}{ADXL343} contenant les informations du périphérique. \\
+\hline
+{\em threshold} & Seuil de détection du tapotement. \\
+\hline
+{\em duration} & Durée minimale pour considérer un tapotement valide. \\
+\hline
+{\em latency} & Délai pour un double tapotement. \\
+\hline
+{\em window} & Fenêtre de temps pour le double tapotement. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a3b4e58b8dc70b541d7c25c814ae5f793}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_SetDataFormat@{ADXL343\_SetDataFormat}}
+\index{ADXL343\_SetDataFormat@{ADXL343\_SetDataFormat}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_SetDataFormat()}{ADXL343\_SetDataFormat()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a3b4e58b8dc70b541d7c25c814ae5f793} 
+void ADXL343\+\_\+\+Set\+Data\+Format (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{hspi}{, }\item[{uint8\+\_\+t}]{range}{}\end{DoxyParamCaption})}
+
+
+
+Configure le format des données de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hspi} & Pointeur vers la structure \doxylink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def} utilisée pour SPI. \\
+\hline
+{\em range} & Plage de mesure (par exemple, ±2g, ±4g, etc.). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_a_d_x_l343___s_p_i_8c_a3e0896b4a9670ffb5154bc84c393df31}\index{ADXL343\_SPI.c@{ADXL343\_SPI.c}!ADXL343\_write\_register@{ADXL343\_write\_register}}
+\index{ADXL343\_write\_register@{ADXL343\_write\_register}!ADXL343\_SPI.c@{ADXL343\_SPI.c}}
+\doxysubsubsection{\texorpdfstring{ADXL343\_write\_register()}{ADXL343\_write\_register()}}
+{\footnotesize\ttfamily \label{_a_d_x_l343___s_p_i_8c_a3e0896b4a9670ffb5154bc84c393df31} 
+void ADXL343\+\_\+write\+\_\+register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{hspi}{, }\item[{uint8\+\_\+t}]{reg\+Addr}{, }\item[{uint8\+\_\+t}]{reg\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Écrit une valeur dans un registre de l\textquotesingle{}\doxylink{struct_a_d_x_l343}{ADXL343}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hspi} & Pointeur vers la structure \doxylink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\+\_\+\+Handle\+Type\+Def} utilisée pour SPI. \\
+\hline
+{\em reg\+Addr} & Adresse du registre où écrire. \\
+\hline
+{\em reg\+Data} & Valeur à écrire dans le registre. \\
+\hline
+\end{DoxyParams}

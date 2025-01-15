@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: Référence du fichier moteur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('moteur_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier moteur.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="stm32g4xx__hal_8h_source.html">stm32G4xx_hal.h</a>&quot;</code><br />
+</div>
+<p><a href="moteur_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0e2d750df9008232cafa398d2424b778" id="r_a0e2d750df9008232cafa398d2424b778"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e2d750df9008232cafa398d2424b778">MOTOR_LEFT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a0e2d750df9008232cafa398d2424b778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eff471d17bc68f18b14ff75f23aa3bc" id="r_a9eff471d17bc68f18b14ff75f23aa3bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eff471d17bc68f18b14ff75f23aa3bc">MOTOR_RIGHT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a9eff471d17bc68f18b14ff75f23aa3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0ab9212f633348b60b75eac3ff33f44d" id="r_a0ab9212f633348b60b75eac3ff33f44d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ab9212f633348b60b75eac3ff33f44d">init_motors</a> (void)</td></tr>
+<tr class="memdesc:a0ab9212f633348b60b75eac3ff33f44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation des moteurs (PWM et encodeurs).  <br /></td></tr>
+<tr class="separator:a0ab9212f633348b60b75eac3ff33f44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a40a3fcfab395f3d006a18bbc229a9" id="r_a48a40a3fcfab395f3d006a18bbc229a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48a40a3fcfab395f3d006a18bbc229a9">forward_r</a> (uint16_t alpha)</td></tr>
+<tr class="memdesc:a48a40a3fcfab395f3d006a18bbc229a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avance le moteur droit.  <br /></td></tr>
+<tr class="separator:a48a40a3fcfab395f3d006a18bbc229a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a801b6dce9e332dfcd2001da0aef935cc" id="r_a801b6dce9e332dfcd2001da0aef935cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a801b6dce9e332dfcd2001da0aef935cc">forward_l</a> (uint16_t alpha)</td></tr>
+<tr class="memdesc:a801b6dce9e332dfcd2001da0aef935cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avance le moteur gauche.  <br /></td></tr>
+<tr class="separator:a801b6dce9e332dfcd2001da0aef935cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a179fffde3aecbae87e59434b7627c2" id="r_a7a179fffde3aecbae87e59434b7627c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a179fffde3aecbae87e59434b7627c2">reverse_r</a> (uint16_t alpha)</td></tr>
+<tr class="memdesc:a7a179fffde3aecbae87e59434b7627c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recule le moteur droit.  <br /></td></tr>
+<tr class="separator:a7a179fffde3aecbae87e59434b7627c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8f261f832a615b4aa3f390fcf2f901" id="r_a8e8f261f832a615b4aa3f390fcf2f901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e8f261f832a615b4aa3f390fcf2f901">reverse_l</a> (uint16_t alpha)</td></tr>
+<tr class="memdesc:a8e8f261f832a615b4aa3f390fcf2f901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recule le moteur gauche.  <br /></td></tr>
+<tr class="separator:a8e8f261f832a615b4aa3f390fcf2f901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b243fa4ddd8630b7d3585f354583a8" id="r_a90b243fa4ddd8630b7d3585f354583a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90b243fa4ddd8630b7d3585f354583a8">stop_r</a> (void)</td></tr>
+<tr class="memdesc:a90b243fa4ddd8630b7d3585f354583a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrête le moteur droit.  <br /></td></tr>
+<tr class="separator:a90b243fa4ddd8630b7d3585f354583a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55dcd7a8d70395c932be740309827f37" id="r_a55dcd7a8d70395c932be740309827f37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55dcd7a8d70395c932be740309827f37">stop_l</a> (void)</td></tr>
+<tr class="memdesc:a55dcd7a8d70395c932be740309827f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrête le moteur gauche.  <br /></td></tr>
+<tr class="separator:a55dcd7a8d70395c932be740309827f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af935edfd2dbf1409d8615abc6c51f307" id="r_af935edfd2dbf1409d8615abc6c51f307"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af935edfd2dbf1409d8615abc6c51f307">get_encoder_position</a> (uint8_t motor)</td></tr>
+<tr class="memdesc:af935edfd2dbf1409d8615abc6c51f307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit la position actuelle de l'encodeur.  <br /></td></tr>
+<tr class="separator:af935edfd2dbf1409d8615abc6c51f307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37407623d6ece230f952364d9f6b0d6" id="r_aa37407623d6ece230f952364d9f6b0d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa37407623d6ece230f952364d9f6b0d6">reset_encoder</a> (uint8_t motor)</td></tr>
+<tr class="memdesc:aa37407623d6ece230f952364d9f6b0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise la position de l'encodeur.  <br /></td></tr>
+<tr class="separator:aa37407623d6ece230f952364d9f6b0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace68cc30f63c9b0288d9565704a57a3c" id="r_ace68cc30f63c9b0288d9565704a57a3c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace68cc30f63c9b0288d9565704a57a3c">calculate_motor_speed</a> (uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution)</td></tr>
+<tr class="memdesc:ace68cc30f63c9b0288d9565704a57a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la vitesse actuelle du moteur.  <br /></td></tr>
+<tr class="separator:ace68cc30f63c9b0288d9565704a57a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0440ade70a668112aab023dd4c148fe9" id="r_a0440ade70a668112aab023dd4c148fe9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0440ade70a668112aab023dd4c148fe9">compute_pid</a> (float target_speed, float measured_speed, float *integral_error, float *previous_error, float <a class="el" href="moteur_8c.html#a1f7add0f84d583bc2eceb290d6c4cc06">kp</a>, float <a class="el" href="moteur_8c.html#a050993b7ca6c97e62c1020017f716b91">ki</a>, float <a class="el" href="moteur_8c.html#ae7a5c6018507bb1361fcca170e069b9c">kd</a>)</td></tr>
+<tr class="memdesc:a0440ade70a668112aab023dd4c148fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la commande PID pour un moteur.  <br /></td></tr>
+<tr class="separator:a0440ade70a668112aab023dd4c148fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ad76b10bb1bd3108d23942b19ca910" id="r_a74ad76b10bb1bd3108d23942b19ca910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74ad76b10bb1bd3108d23942b19ca910">motorcontrol_souris</a> (void)</td></tr>
+<tr class="memdesc:a74ad76b10bb1bd3108d23942b19ca910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode "Souris" pour un déplacement normal.  <br /></td></tr>
+<tr class="separator:a74ad76b10bb1bd3108d23942b19ca910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ca9412dd134c81183f825eed3fcfab" id="r_a84ca9412dd134c81183f825eed3fcfab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84ca9412dd134c81183f825eed3fcfab">motorcontrol_predateur</a> (void)</td></tr>
+<tr class="memdesc:a84ca9412dd134c81183f825eed3fcfab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode "Prédateur" pour un déplacement rapide.  <br /></td></tr>
+<tr class="separator:a84ca9412dd134c81183f825eed3fcfab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44be3f53c4d8d33c0c6233b620ba3943" id="r_a44be3f53c4d8d33c0c6233b620ba3943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44be3f53c4d8d33c0c6233b620ba3943">pivot</a> (void)</td></tr>
+<tr class="memdesc:a44be3f53c4d8d33c0c6233b620ba3943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue un pivot arrière en cas d'obstacle.  <br /></td></tr>
+<tr class="separator:a44be3f53c4d8d33c0c6233b620ba3943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a0e2d750df9008232cafa398d2424b778" name="a0e2d750df9008232cafa398d2424b778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e2d750df9008232cafa398d2424b778">&#9670;&#160;</a></span>MOTOR_LEFT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_LEFT&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9eff471d17bc68f18b14ff75f23aa3bc" name="a9eff471d17bc68f18b14ff75f23aa3bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eff471d17bc68f18b14ff75f23aa3bc">&#9670;&#160;</a></span>MOTOR_RIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_RIGHT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ace68cc30f63c9b0288d9565704a57a3c" name="ace68cc30f63c9b0288d9565704a57a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace68cc30f63c9b0288d9565704a57a3c">&#9670;&#160;</a></span>calculate_motor_speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float calculate_motor_speed </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>motor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>delta_time_ms</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>encoder_resolution</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la vitesse actuelle du moteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Identifiant du moteur (MOTOR_LEFT ou MOTOR_RIGHT). </td></tr>
+    <tr><td class="paramname">delta_time_ms</td><td>Intervalle de temps en ms. </td></tr>
+    <tr><td class="paramname">encoder_resolution</td><td>Résolution de l'encodeur (pulsations par tour). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse en tours par seconde. </dd></dl>
+
+</div>
+</div>
+<a id="a0440ade70a668112aab023dd4c148fe9" name="a0440ade70a668112aab023dd4c148fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0440ade70a668112aab023dd4c148fe9">&#9670;&#160;</a></span>compute_pid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float compute_pid </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>target_speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>measured_speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>integral_error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>previous_error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>kp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>ki</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>kd</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la commande PID pour un moteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_speed</td><td>Vitesse cible. </td></tr>
+    <tr><td class="paramname">measured_speed</td><td>Vitesse mesurée. </td></tr>
+    <tr><td class="paramname">integral_error</td><td>Accumulateur d'erreur intégrale. </td></tr>
+    <tr><td class="paramname">previous_error</td><td>Dernière erreur mesurée. </td></tr>
+    <tr><td class="paramname">kp</td><td>Gain proportionnel. </td></tr>
+    <tr><td class="paramname">ki</td><td>Gain intégral. </td></tr>
+    <tr><td class="paramname">kd</td><td>Gain dérivé. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Commande PID calculée. </dd></dl>
+
+</div>
+</div>
+<a id="a801b6dce9e332dfcd2001da0aef935cc" name="a801b6dce9e332dfcd2001da0aef935cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a801b6dce9e332dfcd2001da0aef935cc">&#9670;&#160;</a></span>forward_l()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void forward_l </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avance le moteur gauche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>Valeur du rapport cyclique (0-100%). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a48a40a3fcfab395f3d006a18bbc229a9" name="a48a40a3fcfab395f3d006a18bbc229a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a40a3fcfab395f3d006a18bbc229a9">&#9670;&#160;</a></span>forward_r()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void forward_r </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avance le moteur droit. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>Valeur du rapport cyclique (0-100%). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af935edfd2dbf1409d8615abc6c51f307" name="af935edfd2dbf1409d8615abc6c51f307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af935edfd2dbf1409d8615abc6c51f307">&#9670;&#160;</a></span>get_encoder_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t get_encoder_position </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>motor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit la position actuelle de l'encodeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Identifiant du moteur (MOTOR_LEFT ou MOTOR_RIGHT). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Position actuelle de l'encodeur. </dd></dl>
+
+</div>
+</div>
+<a id="a0ab9212f633348b60b75eac3ff33f44d" name="a0ab9212f633348b60b75eac3ff33f44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab9212f633348b60b75eac3ff33f44d">&#9670;&#160;</a></span>init_motors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_motors </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation des moteurs (PWM et encodeurs). </p>
+
+</div>
+</div>
+<a id="a84ca9412dd134c81183f825eed3fcfab" name="a84ca9412dd134c81183f825eed3fcfab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ca9412dd134c81183f825eed3fcfab">&#9670;&#160;</a></span>motorcontrol_predateur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void motorcontrol_predateur </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mode "Prédateur" pour un déplacement rapide. </p>
+
+</div>
+</div>
+<a id="a74ad76b10bb1bd3108d23942b19ca910" name="a74ad76b10bb1bd3108d23942b19ca910"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ad76b10bb1bd3108d23942b19ca910">&#9670;&#160;</a></span>motorcontrol_souris()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void motorcontrol_souris </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mode "Souris" pour un déplacement normal. </p>
+
+</div>
+</div>
+<a id="a44be3f53c4d8d33c0c6233b620ba3943" name="a44be3f53c4d8d33c0c6233b620ba3943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44be3f53c4d8d33c0c6233b620ba3943">&#9670;&#160;</a></span>pivot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pivot </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Effectue un pivot arrière en cas d'obstacle. </p>
+
+</div>
+</div>
+<a id="aa37407623d6ece230f952364d9f6b0d6" name="aa37407623d6ece230f952364d9f6b0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37407623d6ece230f952364d9f6b0d6">&#9670;&#160;</a></span>reset_encoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reset_encoder </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>motor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise la position de l'encodeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Identifiant du moteur (MOTOR_LEFT ou MOTOR_RIGHT). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8e8f261f832a615b4aa3f390fcf2f901" name="a8e8f261f832a615b4aa3f390fcf2f901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8f261f832a615b4aa3f390fcf2f901">&#9670;&#160;</a></span>reverse_l()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reverse_l </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recule le moteur gauche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>Valeur du rapport cyclique (0-100%). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7a179fffde3aecbae87e59434b7627c2" name="a7a179fffde3aecbae87e59434b7627c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a179fffde3aecbae87e59434b7627c2">&#9670;&#160;</a></span>reverse_r()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reverse_r </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recule le moteur droit. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>Valeur du rapport cyclique (0-100%). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55dcd7a8d70395c932be740309827f37" name="a55dcd7a8d70395c932be740309827f37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55dcd7a8d70395c932be740309827f37">&#9670;&#160;</a></span>stop_l()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stop_l </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Arrête le moteur gauche. </p>
+
+</div>
+</div>
+<a id="a90b243fa4ddd8630b7d3585f354583a8" name="a90b243fa4ddd8630b7d3585f354583a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b243fa4ddd8630b7d3585f354583a8">&#9670;&#160;</a></span>stop_r()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stop_r </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Arrête le moteur droit. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3f518afa9cd3fb3827c2fc92cfe15e71.html">Core</a></li><li class="navelem"><a class="el" href="dir_f7d10ae75845e774f47e10771cb12ced.html">Inc</a></li><li class="navelem"><a class="el" href="moteur_8h.html">moteur.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

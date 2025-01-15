@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: AHB1 Peripheral Clock Sleep Enable Disable</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group___r_c_c___a_h_b1___clock___sleep___enable___disable.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">AHB1 Peripheral Clock Sleep Enable Disable<div class="ingroups"><a class="el" href="group___s_t_m32_g4xx___h_a_l___driver.html">STM32G4xx_HAL_Driver</a> &raquo; <a class="el" href="group___r_c_c.html">RCC</a> &raquo; <a class="el" href="group___r_c_c___exported___macros.html">RCC Exported Macros</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Enable or disable the AHB1 peripheral clock during Low Power (Sleep) mode.  
+<a href="#details">Plus de détails...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga568e4d004285fe009bc4e5d33e13af61" id="r_ga568e4d004285fe009bc4e5d33e13af61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga568e4d004285fe009bc4e5d33e13af61">__HAL_RCC_DMA1_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:ga568e4d004285fe009bc4e5d33e13af61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16c048816a705de87bb5fd3ce4003a82" id="r_ga16c048816a705de87bb5fd3ce4003a82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga16c048816a705de87bb5fd3ce4003a82">__HAL_RCC_DMA2_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:ga16c048816a705de87bb5fd3ce4003a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2b3f9ae2f2c0545d22d4dec67069556" id="r_gae2b3f9ae2f2c0545d22d4dec67069556"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae2b3f9ae2f2c0545d22d4dec67069556">__HAL_RCC_DMAMUX1_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:gae2b3f9ae2f2c0545d22d4dec67069556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78fc4445840631b3aa09fd2caf968e4a" id="r_ga78fc4445840631b3aa09fd2caf968e4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga78fc4445840631b3aa09fd2caf968e4a">__HAL_RCC_CORDIC_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:ga78fc4445840631b3aa09fd2caf968e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85e820cd650e5646d9424022541888c9" id="r_ga85e820cd650e5646d9424022541888c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga85e820cd650e5646d9424022541888c9">__HAL_RCC_FMAC_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:ga85e820cd650e5646d9424022541888c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48733d5087a91250ee7248adc6b835b2" id="r_ga48733d5087a91250ee7248adc6b835b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga48733d5087a91250ee7248adc6b835b2">__HAL_RCC_FLASH_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:ga48733d5087a91250ee7248adc6b835b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94b6e96c9d5058f9bf0e0c1aaf19ab37" id="r_ga94b6e96c9d5058f9bf0e0c1aaf19ab37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga94b6e96c9d5058f9bf0e0c1aaf19ab37">__HAL_RCC_SRAM1_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:ga94b6e96c9d5058f9bf0e0c1aaf19ab37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab9b6703f096a151a86df9d76d4945cda" id="r_gab9b6703f096a151a86df9d76d4945cda"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab9b6703f096a151a86df9d76d4945cda">__HAL_RCC_CRC_CLK_SLEEP_ENABLE</a>()</td></tr>
+<tr class="separator:gab9b6703f096a151a86df9d76d4945cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8786d21490439ef0564edff087203245" id="r_ga8786d21490439ef0564edff087203245"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8786d21490439ef0564edff087203245">__HAL_RCC_DMA1_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:ga8786d21490439ef0564edff087203245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6af5c50e1a578bcc17c9514c5ab976c9" id="r_ga6af5c50e1a578bcc17c9514c5ab976c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6af5c50e1a578bcc17c9514c5ab976c9">__HAL_RCC_DMA2_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:ga6af5c50e1a578bcc17c9514c5ab976c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga914fd2f40317c4abb2ce2683e40b8626" id="r_ga914fd2f40317c4abb2ce2683e40b8626"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga914fd2f40317c4abb2ce2683e40b8626">__HAL_RCC_DMAMUX1_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:ga914fd2f40317c4abb2ce2683e40b8626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1e78136a0a36b1c49dfbf98449a3ef0" id="r_gac1e78136a0a36b1c49dfbf98449a3ef0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac1e78136a0a36b1c49dfbf98449a3ef0">__HAL_RCC_CORDIC_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:gac1e78136a0a36b1c49dfbf98449a3ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0f3c1707b8d3514a619e054abcecbb8" id="r_gaf0f3c1707b8d3514a619e054abcecbb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf0f3c1707b8d3514a619e054abcecbb8">__HAL_RCC_FMAC_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:gaf0f3c1707b8d3514a619e054abcecbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga929bb0b8ae2f4da5481d73f265cacce0" id="r_ga929bb0b8ae2f4da5481d73f265cacce0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga929bb0b8ae2f4da5481d73f265cacce0">__HAL_RCC_FLASH_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:ga929bb0b8ae2f4da5481d73f265cacce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga725f14ee455c726c2a99be4714180dac" id="r_ga725f14ee455c726c2a99be4714180dac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga725f14ee455c726c2a99be4714180dac">__HAL_RCC_SRAM1_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:ga725f14ee455c726c2a99be4714180dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf63d9f5ce9a6922314054a94ee85eac0" id="r_gaf63d9f5ce9a6922314054a94ee85eac0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf63d9f5ce9a6922314054a94ee85eac0">__HAL_RCC_CRC_CLK_SLEEP_DISABLE</a>()</td></tr>
+<tr class="separator:gaf63d9f5ce9a6922314054a94ee85eac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<p>Enable or disable the AHB1 peripheral clock during Low Power (Sleep) mode. </p>
+<dl class="section note"><dt>Note</dt><dd>Peripheral clock gating in SLEEP mode can be used to further reduce power consumption. </dd>
+<dd>
+After wakeup from SLEEP mode, the peripheral clock is enabled again. </dd>
+<dd>
+By default, all peripheral clocks are enabled during SLEEP mode. </dd></dl>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="gac1e78136a0a36b1c49dfbf98449a3ef0" name="gac1e78136a0a36b1c49dfbf98449a3ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac1e78136a0a36b1c49dfbf98449a3ef0">&#9670;&#160;</a></span>__HAL_RCC_CORDIC_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_CORDIC_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gac4571892db2e3c6289366ec31aca87f2">RCC_AHB1SMENR_CORDICSMEN</a>)</div>
+<div class="ttc" id="agroup___exported__macros_html_ga133aae6fc0d41bffab39ab223a7001de"><div class="ttname"><a href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a></div><div class="ttdeci">#define CLEAR_BIT(REG, BIT)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:176</div></div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gac4571892db2e3c6289366ec31aca87f2"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gac4571892db2e3c6289366ec31aca87f2">RCC_AHB1SMENR_CORDICSMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_CORDICSMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7856</div></div>
+<div class="ttc" id="agroup___peripheral__declaration_html_ga74944438a086975793d26ae48d5882d4"><div class="ttname"><a href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a></div><div class="ttdeci">#define RCC</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:1127</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga78fc4445840631b3aa09fd2caf968e4a" name="ga78fc4445840631b3aa09fd2caf968e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga78fc4445840631b3aa09fd2caf968e4a">&#9670;&#160;</a></span>__HAL_RCC_CORDIC_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_CORDIC_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gac4571892db2e3c6289366ec31aca87f2">RCC_AHB1SMENR_CORDICSMEN</a>)</div>
+<div class="ttc" id="agroup___exported__macros_html_ga26474f43799fbade9cf300e21dd3a91a"><div class="ttname"><a href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a></div><div class="ttdeci">#define SET_BIT(REG, BIT)</div><div class="ttdef"><b>Definition</b> stm32g4xx.h:174</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="gaf63d9f5ce9a6922314054a94ee85eac0" name="gaf63d9f5ce9a6922314054a94ee85eac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf63d9f5ce9a6922314054a94ee85eac0">&#9670;&#160;</a></span>__HAL_RCC_CRC_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_CRC_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga18cd30e2db07ed1781fce4e8e18b328f">RCC_AHB1SMENR_CRCSMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga18cd30e2db07ed1781fce4e8e18b328f"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga18cd30e2db07ed1781fce4e8e18b328f">RCC_AHB1SMENR_CRCSMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_CRCSMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7868</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="gab9b6703f096a151a86df9d76d4945cda" name="gab9b6703f096a151a86df9d76d4945cda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab9b6703f096a151a86df9d76d4945cda">&#9670;&#160;</a></span>__HAL_RCC_CRC_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_CRC_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga18cd30e2db07ed1781fce4e8e18b328f">RCC_AHB1SMENR_CRCSMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga8786d21490439ef0564edff087203245" name="ga8786d21490439ef0564edff087203245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8786d21490439ef0564edff087203245">&#9670;&#160;</a></span>__HAL_RCC_DMA1_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DMA1_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga24ea798f334e8f107925566ed485f4fa">RCC_AHB1SMENR_DMA1SMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga24ea798f334e8f107925566ed485f4fa"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga24ea798f334e8f107925566ed485f4fa">RCC_AHB1SMENR_DMA1SMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_DMA1SMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7847</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga568e4d004285fe009bc4e5d33e13af61" name="ga568e4d004285fe009bc4e5d33e13af61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga568e4d004285fe009bc4e5d33e13af61">&#9670;&#160;</a></span>__HAL_RCC_DMA1_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DMA1_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga24ea798f334e8f107925566ed485f4fa">RCC_AHB1SMENR_DMA1SMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga6af5c50e1a578bcc17c9514c5ab976c9" name="ga6af5c50e1a578bcc17c9514c5ab976c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6af5c50e1a578bcc17c9514c5ab976c9">&#9670;&#160;</a></span>__HAL_RCC_DMA2_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DMA2_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga81c16367d4b828b224260ed3a9c59d32">RCC_AHB1SMENR_DMA2SMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga81c16367d4b828b224260ed3a9c59d32"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga81c16367d4b828b224260ed3a9c59d32">RCC_AHB1SMENR_DMA2SMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_DMA2SMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7850</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga16c048816a705de87bb5fd3ce4003a82" name="ga16c048816a705de87bb5fd3ce4003a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga16c048816a705de87bb5fd3ce4003a82">&#9670;&#160;</a></span>__HAL_RCC_DMA2_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DMA2_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga81c16367d4b828b224260ed3a9c59d32">RCC_AHB1SMENR_DMA2SMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga914fd2f40317c4abb2ce2683e40b8626" name="ga914fd2f40317c4abb2ce2683e40b8626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga914fd2f40317c4abb2ce2683e40b8626">&#9670;&#160;</a></span>__HAL_RCC_DMAMUX1_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DMAMUX1_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga7b169734ea17801cf4a54f41cbed091c">RCC_AHB1SMENR_DMAMUX1SMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga7b169734ea17801cf4a54f41cbed091c"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga7b169734ea17801cf4a54f41cbed091c">RCC_AHB1SMENR_DMAMUX1SMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_DMAMUX1SMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7853</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="gae2b3f9ae2f2c0545d22d4dec67069556" name="gae2b3f9ae2f2c0545d22d4dec67069556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2b3f9ae2f2c0545d22d4dec67069556">&#9670;&#160;</a></span>__HAL_RCC_DMAMUX1_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DMAMUX1_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga7b169734ea17801cf4a54f41cbed091c">RCC_AHB1SMENR_DMAMUX1SMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga929bb0b8ae2f4da5481d73f265cacce0" name="ga929bb0b8ae2f4da5481d73f265cacce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga929bb0b8ae2f4da5481d73f265cacce0">&#9670;&#160;</a></span>__HAL_RCC_FLASH_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_FLASH_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gacd939ca37c1f068f35130d41b408e692">RCC_AHB1SMENR_FLASHSMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gacd939ca37c1f068f35130d41b408e692"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gacd939ca37c1f068f35130d41b408e692">RCC_AHB1SMENR_FLASHSMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_FLASHSMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7862</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga48733d5087a91250ee7248adc6b835b2" name="ga48733d5087a91250ee7248adc6b835b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga48733d5087a91250ee7248adc6b835b2">&#9670;&#160;</a></span>__HAL_RCC_FLASH_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_FLASH_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gacd939ca37c1f068f35130d41b408e692">RCC_AHB1SMENR_FLASHSMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="gaf0f3c1707b8d3514a619e054abcecbb8" name="gaf0f3c1707b8d3514a619e054abcecbb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf0f3c1707b8d3514a619e054abcecbb8">&#9670;&#160;</a></span>__HAL_RCC_FMAC_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_FMAC_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaacb934f27e831635403964a356d7465c">RCC_AHB1SMENR_FMACSMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_gaacb934f27e831635403964a356d7465c"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaacb934f27e831635403964a356d7465c">RCC_AHB1SMENR_FMACSMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_FMACSMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7859</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga85e820cd650e5646d9424022541888c9" name="ga85e820cd650e5646d9424022541888c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga85e820cd650e5646d9424022541888c9">&#9670;&#160;</a></span>__HAL_RCC_FMAC_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_FMAC_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#gaacb934f27e831635403964a356d7465c">RCC_AHB1SMENR_FMACSMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga725f14ee455c726c2a99be4714180dac" name="ga725f14ee455c726c2a99be4714180dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga725f14ee455c726c2a99be4714180dac">&#9670;&#160;</a></span>__HAL_RCC_SRAM1_CLK_SLEEP_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_SRAM1_CLK_SLEEP_DISABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga133aae6fc0d41bffab39ab223a7001de">CLEAR_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga9609cd1cda5ee92417942387baeeccb8">RCC_AHB1SMENR_SRAM1SMEN</a>)</div>
+<div class="ttc" id="agroup___peripheral___registers___bits___definition_html_ga9609cd1cda5ee92417942387baeeccb8"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga9609cd1cda5ee92417942387baeeccb8">RCC_AHB1SMENR_SRAM1SMEN</a></div><div class="ttdeci">#define RCC_AHB1SMENR_SRAM1SMEN</div><div class="ttdef"><b>Definition</b> stm32g431xx.h:7865</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga94b6e96c9d5058f9bf0e0c1aaf19ab37" name="ga94b6e96c9d5058f9bf0e0c1aaf19ab37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94b6e96c9d5058f9bf0e0c1aaf19ab37">&#9670;&#160;</a></span>__HAL_RCC_SRAM1_CLK_SLEEP_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_SRAM1_CLK_SLEEP_ENABLE</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><a class="code hl_define" href="group___exported__macros.html#ga26474f43799fbade9cf300e21dd3a91a">SET_BIT</a>(<a class="code hl_define" href="group___peripheral__declaration.html#ga74944438a086975793d26ae48d5882d4">RCC</a>-&gt;AHB1SMENR, <a class="code hl_define" href="group___peripheral___registers___bits___definition.html#ga9609cd1cda5ee92417942387baeeccb8">RCC_AHB1SMENR_SRAM1SMEN</a>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

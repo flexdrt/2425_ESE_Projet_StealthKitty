@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: xTaskCreateRestrictedStatic</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__x_task_create_restricted_static.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">xTaskCreateRestrictedStatic</div></div>
+</div><!--header-->
+<div class="contents">
+<p>task. h </p><pre>
+ <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xTaskCreateRestrictedStatic( TaskParameters_t *pxTaskDefinition, TaskHandle_t *pxCreatedTask );</pre><p>Only available when configSUPPORT_STATIC_ALLOCATION is set to 1.</p>
+<p>xTaskCreateRestrictedStatic() should only be used in systems that include an MPU implementation.</p>
+<p>Internally, within the FreeRTOS implementation, tasks use two blocks of memory. The first block is used to hold the task's data structures. The second block is used by the task as its stack. If a task is created using xTaskCreateRestricted() then the stack is provided by the application writer, and the memory used to hold the task's data structure is automatically dynamically allocated inside the xTaskCreateRestricted() function. If a task is created using xTaskCreateRestrictedStatic() then the application writer must provide the memory used to hold the task's data structures too. xTaskCreateRestrictedStatic() therefore allows a memory protected task to be created without using any dynamic memory allocation.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pxTaskDefinition</td><td>Pointer to a structure that contains a member for each of the normal xTaskCreate() parameters (see the xTaskCreate() API documentation) plus an optional stack buffer and the memory region definitions. If configSUPPORT_STATIC_ALLOCATION is set to 1 the structure contains an additional member, which is used to point to a variable of type <a class="el" href="_free_r_t_o_s_8h.html#af0002e4ad72220b34b95fcdf43bcd82d">StaticTask_t</a> - which is then used to hold the task's data structure.</td></tr>
+    <tr><td class="paramname">pxCreatedTask</td><td>Used to pass back a handle by which the created task can be referenced.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pdPASS if the task was successfully created and added to a ready list, otherwise an error code defined in the file <a class="el" href="projdefs_8h.html">projdefs.h</a></dd></dl>
+<p>Example usage: </p><pre>
+// Create an <a class="el" href="task_8h.html#a388dc3e95bc2a93a2841a8d1e49634f3">TaskParameters_t</a> structure that defines the task to be created.
+// The <a class="el" href="_free_r_t_o_s_8h.html#af0002e4ad72220b34b95fcdf43bcd82d">StaticTask_t</a> variable is only included in the structure when
+// configSUPPORT_STATIC_ALLOCATION is set to 1.  The PRIVILEGED_DATA macro can
+// be used to force the variable into the RTOS kernel's privileged data area.
+static PRIVILEGED_DATA <a class="el" href="_free_r_t_o_s_8h.html#af0002e4ad72220b34b95fcdf43bcd82d">StaticTask_t</a> xTaskBuffer;
+static const <a class="el" href="task_8h.html#a388dc3e95bc2a93a2841a8d1e49634f3">TaskParameters_t</a> xCheckTaskParameters =
+{
+    vATask,     // pvTaskCode - the function that implements the task.
+    "ATask",    // pcName - just a text name for the task to assist debugging.
+    100,        // usStackDepth - the stack size DEFINED IN WORDS.
+    NULL,       // pvParameters - passed into the task function as the function parameters.
+    ( 1UL | portPRIVILEGE_BIT ),// uxPriority - task priority, set the portPRIVILEGE_BIT if the task should run in a privileged state.
+    cStackBuffer,// puxStackBuffer - the buffer to be used as the task stack.
+
+    // xRegions - Allocate up to three separate memory regions for access by
+    // the task, with appropriate access permissions.  Different processors have
+    // different memory alignment requirements - refer to the FreeRTOS documentation
+    // for full information.
+    {
+        // Base address                 Length  Parameters
+        { cReadWriteArray,              32,     portMPU_REGION_READ_WRITE },
+        { cReadOnlyArray,               32,     portMPU_REGION_READ_ONLY },
+        { cPrivilegedOnlyAccessArray,   128,    portMPU_REGION_PRIVILEGED_READ_WRITE }
+    }
+
+    &amp;xTaskBuffer; // Holds the task's data structure.
+};
+
+int <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point.">main( void )</a>
+{
+<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xHandle;
+
+    // Create a task from the const structure defined above.  The task handle
+    // is requested (the second parameter is not NULL) but in this case just for
+    // demonstration purposes as its not actually used.
+    xTaskCreateRestricted( &amp;xRegTest1Parameters, &amp;xHandle );
+
+    // Start the scheduler.
+    <a class="el" href="task_8h.html#aaf9dca1065c60abdeb309d56ab7293cb">vTaskStartScheduler()</a>;
+
+    // Will only get here if there was insufficient memory to create the idle
+    // and/or timer task.
+    for( ;; );
+}
+   </pre> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

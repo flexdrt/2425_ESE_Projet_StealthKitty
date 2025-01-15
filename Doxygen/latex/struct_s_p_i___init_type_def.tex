@@ -1,0 +1,132 @@
+\doxysection{Référence de la structure SPI\+\_\+\+Init\+Type\+Def}
+\hypertarget{struct_s_p_i___init_type_def}{}\label{struct_s_p_i___init_type_def}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+
+
+SPI Configuration Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32g4xx\+\_\+hal\+\_\+spi.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_ab94410c1333b512e271b1c135fe50916}{Direction}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a98999b0cd6e4c94f05b61b2554ee0371}{Data\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a83f278c9d173d3cd021644692bf3c435}{CLKPolarity}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_aba7183911cbc41063270dab182de768f}{CLKPhase}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_ae4a064e48fd5945eda7210d515fed69c}{NSS}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a2fa72ad4f27606fffa2ec9456bcb0a56}{Baud\+Rate\+Prescaler}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a9740c535f073c87bb06668385ce96002}{First\+Bit}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a3db685adbdc6f7bfc7ad0191ba5ab277}{TIMode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a9d334a47c34b01cbfa55ff66cfc1e0ce}{CRCCalculation}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a48aef59cfd7bf0262b1ad993fef2fc7b}{CRCPolynomial}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_aba709d1ebebac9b3385fb61d6eeb79a2}{CRCLength}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_s_p_i___init_type_def_a537f238782f2847191f7d221ffaa6c9b}{NSSPMode}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+SPI Configuration Structure definition. 
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct_s_p_i___init_type_def_a2fa72ad4f27606fffa2ec9456bcb0a56}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!BaudRatePrescaler@{BaudRatePrescaler}}
+\index{BaudRatePrescaler@{BaudRatePrescaler}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BaudRatePrescaler}{BaudRatePrescaler}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a2fa72ad4f27606fffa2ec9456bcb0a56} 
+uint32\+\_\+t Baud\+Rate\+Prescaler}
+
+Specifies the Baud Rate prescaler value which will be used to configure the transmit and receive SCK clock. This parameter can be a value of \doxylink{group___s_p_i___baud_rate___prescaler}{SPI Baud\+Rate Prescaler} \begin{DoxyNote}{Note}
+The communication clock is derived from the master clock. The slave clock does not need to be set. 
+\end{DoxyNote}
+\Hypertarget{struct_s_p_i___init_type_def_aba7183911cbc41063270dab182de768f}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!CLKPhase@{CLKPhase}}
+\index{CLKPhase@{CLKPhase}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CLKPhase}{CLKPhase}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_aba7183911cbc41063270dab182de768f} 
+uint32\+\_\+t CLKPhase}
+
+Specifies the clock active edge for the bit capture. This parameter can be a value of \doxylink{group___s_p_i___clock___phase}{SPI Clock Phase} \Hypertarget{struct_s_p_i___init_type_def_a83f278c9d173d3cd021644692bf3c435}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!CLKPolarity@{CLKPolarity}}
+\index{CLKPolarity@{CLKPolarity}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CLKPolarity}{CLKPolarity}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a83f278c9d173d3cd021644692bf3c435} 
+uint32\+\_\+t CLKPolarity}
+
+Specifies the serial clock steady state. This parameter can be a value of \doxylink{group___s_p_i___clock___polarity}{SPI Clock Polarity} \Hypertarget{struct_s_p_i___init_type_def_a9d334a47c34b01cbfa55ff66cfc1e0ce}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!CRCCalculation@{CRCCalculation}}
+\index{CRCCalculation@{CRCCalculation}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CRCCalculation}{CRCCalculation}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a9d334a47c34b01cbfa55ff66cfc1e0ce} 
+uint32\+\_\+t CRCCalculation}
+
+Specifies if the CRC calculation is enabled or not. This parameter can be a value of \doxylink{group___s_p_i___c_r_c___calculation}{SPI CRC Calculation} \Hypertarget{struct_s_p_i___init_type_def_aba709d1ebebac9b3385fb61d6eeb79a2}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!CRCLength@{CRCLength}}
+\index{CRCLength@{CRCLength}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CRCLength}{CRCLength}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_aba709d1ebebac9b3385fb61d6eeb79a2} 
+uint32\+\_\+t CRCLength}
+
+Specifies the CRC Length used for the CRC calculation. CRC Length is only used with Data8 and Data16, not other data size This parameter can be a value of \doxylink{group___s_p_i___c_r_c__length}{SPI CRC Length} \Hypertarget{struct_s_p_i___init_type_def_a48aef59cfd7bf0262b1ad993fef2fc7b}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!CRCPolynomial@{CRCPolynomial}}
+\index{CRCPolynomial@{CRCPolynomial}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CRCPolynomial}{CRCPolynomial}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a48aef59cfd7bf0262b1ad993fef2fc7b} 
+uint32\+\_\+t CRCPolynomial}
+
+Specifies the polynomial used for the CRC calculation. This parameter must be an odd number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 65535 \Hypertarget{struct_s_p_i___init_type_def_a98999b0cd6e4c94f05b61b2554ee0371}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!DataSize@{DataSize}}
+\index{DataSize@{DataSize}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{DataSize}{DataSize}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a98999b0cd6e4c94f05b61b2554ee0371} 
+uint32\+\_\+t Data\+Size}
+
+Specifies the SPI data size. This parameter can be a value of \doxylink{group___s_p_i___data___size}{SPI Data Size} \Hypertarget{struct_s_p_i___init_type_def_ab94410c1333b512e271b1c135fe50916}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!Direction@{Direction}}
+\index{Direction@{Direction}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_ab94410c1333b512e271b1c135fe50916} 
+uint32\+\_\+t Direction}
+
+Specifies the SPI bidirectional mode state. This parameter can be a value of \doxylink{group___s_p_i___direction}{SPI Direction Mode} \Hypertarget{struct_s_p_i___init_type_def_a9740c535f073c87bb06668385ce96002}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!FirstBit@{FirstBit}}
+\index{FirstBit@{FirstBit}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{FirstBit}{FirstBit}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a9740c535f073c87bb06668385ce96002} 
+uint32\+\_\+t First\+Bit}
+
+Specifies whether data transfers start from MSB or LSB bit. This parameter can be a value of \doxylink{group___s_p_i___m_s_b___l_s_b__transmission}{SPI MSB LSB Transmission} \Hypertarget{struct_s_p_i___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!Mode@{Mode}}
+\index{Mode@{Mode}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839} 
+uint32\+\_\+t Mode}
+
+Specifies the SPI operating mode. This parameter can be a value of \doxylink{group___s_p_i___mode}{SPI Mode} \Hypertarget{struct_s_p_i___init_type_def_ae4a064e48fd5945eda7210d515fed69c}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!NSS@{NSS}}
+\index{NSS@{NSS}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{NSS}{NSS}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_ae4a064e48fd5945eda7210d515fed69c} 
+uint32\+\_\+t NSS}
+
+Specifies whether the NSS signal is managed by hardware (NSS pin) or by software using the SSI bit. This parameter can be a value of \doxylink{group___s_p_i___slave___select__management}{SPI Slave Select Management} \Hypertarget{struct_s_p_i___init_type_def_a537f238782f2847191f7d221ffaa6c9b}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!NSSPMode@{NSSPMode}}
+\index{NSSPMode@{NSSPMode}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{NSSPMode}{NSSPMode}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a537f238782f2847191f7d221ffaa6c9b} 
+uint32\+\_\+t NSSPMode}
+
+Specifies whether the NSSP signal is enabled or not . This parameter can be a value of \doxylink{group___s_p_i___n_s_s_p___mode}{SPI NSS Pulse Mode} This mode is activated by the NSSP bit in the SPIx\+\_\+\+CR2 register and it takes effect only if the SPI interface is configured as Motorola SPI master (FRF=0) with capture on the first edge (SPIx\+\_\+\+CR1 CPHA = 0, CPOL setting is ignored).. \Hypertarget{struct_s_p_i___init_type_def_a3db685adbdc6f7bfc7ad0191ba5ab277}\index{SPI\_InitTypeDef@{SPI\_InitTypeDef}!TIMode@{TIMode}}
+\index{TIMode@{TIMode}!SPI\_InitTypeDef@{SPI\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{TIMode}{TIMode}}
+{\footnotesize\ttfamily \label{struct_s_p_i___init_type_def_a3db685adbdc6f7bfc7ad0191ba5ab277} 
+uint32\+\_\+t TIMode}
+
+Specifies if the TI mode is enabled or not. This parameter can be a value of \doxylink{group___s_p_i___t_i__mode}{SPI TI Mode} 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32g4xx__hal__spi_8h}{stm32g4xx\+\_\+hal\+\_\+spi.\+h}}\end{DoxyCompactItemize}

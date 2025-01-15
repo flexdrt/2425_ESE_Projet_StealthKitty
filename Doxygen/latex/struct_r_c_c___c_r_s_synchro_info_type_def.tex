@@ -1,0 +1,57 @@
+\doxysection{Référence de la structure RCC\+\_\+\+CRSSynchro\+Info\+Type\+Def}
+\hypertarget{struct_r_c_c___c_r_s_synchro_info_type_def}{}\label{struct_r_c_c___c_r_s_synchro_info_type_def}\index{RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}}
+
+
+RCC\+\_\+\+CRS Synchronization structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32g4xx\+\_\+hal\+\_\+rcc\+\_\+ex.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___c_r_s_synchro_info_type_def_a670045cfad50e7e4b3a31c0119d6e4fd}{Reload\+Value}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___c_r_s_synchro_info_type_def_a33d4291a43bf4a02c59e67c23d090c32}{HSI48\+Calibration\+Value}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___c_r_s_synchro_info_type_def_a4daae605939159f7f1dd079c6cfe59a8}{Freq\+Error\+Capture}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___c_r_s_synchro_info_type_def_a25a4c347bbdb1f1c8f6d977fc83a0817}{Freq\+Error\+Direction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+RCC\+\_\+\+CRS Synchronization structure definition. 
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct_r_c_c___c_r_s_synchro_info_type_def_a4daae605939159f7f1dd079c6cfe59a8}\index{RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}!FreqErrorCapture@{FreqErrorCapture}}
+\index{FreqErrorCapture@{FreqErrorCapture}!RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}}
+\doxysubsubsection{\texorpdfstring{FreqErrorCapture}{FreqErrorCapture}}
+{\footnotesize\ttfamily \label{struct_r_c_c___c_r_s_synchro_info_type_def_a4daae605939159f7f1dd079c6cfe59a8} 
+uint32\+\_\+t Freq\+Error\+Capture}
+
+Specifies the value loaded in the .FECAP, the frequency error counter value latched in the time of the last SYNC event. This parameter must be a number between 0 and 0x\+FFFF \Hypertarget{struct_r_c_c___c_r_s_synchro_info_type_def_a25a4c347bbdb1f1c8f6d977fc83a0817}\index{RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}!FreqErrorDirection@{FreqErrorDirection}}
+\index{FreqErrorDirection@{FreqErrorDirection}!RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}}
+\doxysubsubsection{\texorpdfstring{FreqErrorDirection}{FreqErrorDirection}}
+{\footnotesize\ttfamily \label{struct_r_c_c___c_r_s_synchro_info_type_def_a25a4c347bbdb1f1c8f6d977fc83a0817} 
+uint32\+\_\+t Freq\+Error\+Direction}
+
+Specifies the value loaded in the .FEDIR, the counting direction of the frequency error counter latched in the time of the last SYNC event. It shows whether the actual frequency is below or above the target. This parameter must be a value of \doxylink{group___r_c_c_ex___c_r_s___freq_error_direction}{RCCEx CRS Freq\+Error\+Direction} \Hypertarget{struct_r_c_c___c_r_s_synchro_info_type_def_a33d4291a43bf4a02c59e67c23d090c32}\index{RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}!HSI48CalibrationValue@{HSI48CalibrationValue}}
+\index{HSI48CalibrationValue@{HSI48CalibrationValue}!RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}}
+\doxysubsubsection{\texorpdfstring{HSI48CalibrationValue}{HSI48CalibrationValue}}
+{\footnotesize\ttfamily \label{struct_r_c_c___c_r_s_synchro_info_type_def_a33d4291a43bf4a02c59e67c23d090c32} 
+uint32\+\_\+t HSI48\+Calibration\+Value}
+
+Specifies value loaded in HSI48 oscillator smooth trimming. This parameter must be a number between 0 and 0x7F \Hypertarget{struct_r_c_c___c_r_s_synchro_info_type_def_a670045cfad50e7e4b3a31c0119d6e4fd}\index{RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}!ReloadValue@{ReloadValue}}
+\index{ReloadValue@{ReloadValue}!RCC\_CRSSynchroInfoTypeDef@{RCC\_CRSSynchroInfoTypeDef}}
+\doxysubsubsection{\texorpdfstring{ReloadValue}{ReloadValue}}
+{\footnotesize\ttfamily \label{struct_r_c_c___c_r_s_synchro_info_type_def_a670045cfad50e7e4b3a31c0119d6e4fd} 
+uint32\+\_\+t Reload\+Value}
+
+Specifies the value loaded in the Counter reload value. This parameter must be a number between 0 and 0x\+FFFF 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32g4xx__hal__rcc__ex_8h}{stm32g4xx\+\_\+hal\+\_\+rcc\+\_\+ex.\+h}}\end{DoxyCompactItemize}

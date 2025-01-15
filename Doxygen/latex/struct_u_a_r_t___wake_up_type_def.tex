@@ -1,0 +1,49 @@
+\doxysection{Référence de la structure UART\+\_\+\+Wake\+Up\+Type\+Def}
+\hypertarget{struct_u_a_r_t___wake_up_type_def}{}\label{struct_u_a_r_t___wake_up_type_def}\index{UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}}
+
+
+UART wake up from stop mode parameters.  
+
+
+
+
+{\ttfamily \#include $<$stm32g4xx\+\_\+hal\+\_\+uart\+\_\+ex.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_u_a_r_t___wake_up_type_def_a1146a984a15b77174e96057cb88e4f59}{Wake\+Up\+Event}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_u_a_r_t___wake_up_type_def_a5be92432486df9b5320d668c236e1b6f}{Address\+Length}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_u_a_r_t___wake_up_type_def_ae2bbeaf207df18992544fd4193b34112}{Address}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+UART wake up from stop mode parameters. 
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct_u_a_r_t___wake_up_type_def_ae2bbeaf207df18992544fd4193b34112}\index{UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}!Address@{Address}}
+\index{Address@{Address}!UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}}
+\doxysubsubsection{\texorpdfstring{Address}{Address}}
+{\footnotesize\ttfamily \label{struct_u_a_r_t___wake_up_type_def_ae2bbeaf207df18992544fd4193b34112} 
+uint8\+\_\+t Address}
+
+UART/\+USART node address (7-\/bit long max). \Hypertarget{struct_u_a_r_t___wake_up_type_def_a5be92432486df9b5320d668c236e1b6f}\index{UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}!AddressLength@{AddressLength}}
+\index{AddressLength@{AddressLength}!UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}}
+\doxysubsubsection{\texorpdfstring{AddressLength}{AddressLength}}
+{\footnotesize\ttfamily \label{struct_u_a_r_t___wake_up_type_def_a5be92432486df9b5320d668c236e1b6f} 
+uint16\+\_\+t Address\+Length}
+
+Specifies whether the address is 4 or 7-\/bit long. This parameter can be a value of \doxylink{group___u_a_r_t_ex___wake_up___address___length}{UARTEx Wake\+Up Address Length}. \Hypertarget{struct_u_a_r_t___wake_up_type_def_a1146a984a15b77174e96057cb88e4f59}\index{UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}!WakeUpEvent@{WakeUpEvent}}
+\index{WakeUpEvent@{WakeUpEvent}!UART\_WakeUpTypeDef@{UART\_WakeUpTypeDef}}
+\doxysubsubsection{\texorpdfstring{WakeUpEvent}{WakeUpEvent}}
+{\footnotesize\ttfamily \label{struct_u_a_r_t___wake_up_type_def_a1146a984a15b77174e96057cb88e4f59} 
+uint32\+\_\+t Wake\+Up\+Event}
+
+Specifies which event will activate the Wakeup from Stop mode flag (WUF). This parameter can be a value of \doxylink{group___u_a_r_t___wake_up__from___stop___selection}{UART Wake\+Up From Stop Selection}. If set to UART\+\_\+\+WAKEUP\+\_\+\+ON\+\_\+\+ADDRESS, the two other fields below must be filled up. 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32g4xx__hal__uart__ex_8h}{stm32g4xx\+\_\+hal\+\_\+uart\+\_\+ex.\+h}}\end{DoxyCompactItemize}

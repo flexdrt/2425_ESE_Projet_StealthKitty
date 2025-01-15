@@ -1,0 +1,120 @@
+\doxysection{semphr.\+h}
+\hypertarget{semphr_8h_source}{}\label{semphr_8h_source}\index{semphr.h@{semphr.h}}
+\mbox{\hyperlink{semphr_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ FreeRTOS\ Kernel\ V10.3.1}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2020\ Amazon.com,\ Inc.\ or\ its\ affiliates.\ \ All\ Rights\ Reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal\ in}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies\ of}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,\ FITNESS}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ http://www.FreeRTOS.org}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ http://aws.amazon.com/freertos}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ 1\ tab\ ==\ 4\ spaces!}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ SEMAPHORE\_H}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ SEMAPHORE\_H}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ INC\_FREERTOS\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}include\ FreeRTOS.h"{}\ must\ appear\ in\ source\ files\ before\ "{}include\ semphr.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{queue_8h}{queue.h}}"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{QueueHandle\_t}}\ \mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{SemaphoreHandle\_t}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ semBINARY\_SEMAPHORE\_QUEUE\_LENGTH\ \ \ \ (\ (\ uint8\_t\ )\ 1U\ )}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ semSEMAPHORE\_QUEUE\_ITEM\_LENGTH\ \ \ \ \ \ (\ (\ uint8\_t\ )\ 0U\ )}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ semGIVE\_BLOCK\_TIME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ (\ TickType\_t\ )\ 0U\ )}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_DYNAMIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \#define\ vSemaphoreCreateBinary(\ xSemaphore\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ (\ xSemaphore\ )\ =\ xQueueGenericCreate(\ (\ UBaseType\_t\ )\ 1,\ semSEMAPHORE\_QUEUE\_ITEM\_LENGTH,\ queueQUEUE\_TYPE\_BINARY\_SEMAPHORE\ );\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ if(\ (\ xSemaphore\ )\ !=\ NULL\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ void\ )\ xSemaphoreGive(\ (\ xSemaphore\ )\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_DYNAMIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateBinary()\ xQueueGenericCreate(\ (\ UBaseType\_t\ )\ 1,\ semSEMAPHORE\_QUEUE\_ITEM\_LENGTH,\ queueQUEUE\_TYPE\_BINARY\_SEMAPHORE\ )}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_STATIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateBinaryStatic(\ pxStaticSemaphore\ )\ xQueueGenericCreateStatic(\ (\ UBaseType\_t\ )\ 1,\ semSEMAPHORE\_QUEUE\_ITEM\_LENGTH,\ NULL,\ pxStaticSemaphore,\ queueQUEUE\_TYPE\_BINARY\_SEMAPHORE\ )}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ configSUPPORT\_STATIC\_ALLOCATION\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#define\ xSemaphoreTake(\ xSemaphore,\ xBlockTime\ )\ \ \ \ \ \ \ \ xQueueSemaphoreTake(\ (\ xSemaphore\ ),\ (\ xBlockTime\ )\ )}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#if(\ configUSE\_RECURSIVE\_MUTEXES\ ==\ 1\ )}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreTakeRecursive(\ xMutex,\ xBlockTime\ )\ \ \ xQueueTakeMutexRecursive(\ (\ xMutex\ ),\ (\ xBlockTime\ )\ )}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#define\ xSemaphoreGive(\ xSemaphore\ )\ \ \ \ \ \ \ \ xQueueGenericSend(\ (\ QueueHandle\_t\ )\ (\ xSemaphore\ ),\ NULL,\ semGIVE\_BLOCK\_TIME,\ queueSEND\_TO\_BACK\ )}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#if(\ configUSE\_RECURSIVE\_MUTEXES\ ==\ 1\ )}}
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreGiveRecursive(\ xMutex\ )\ \ \ xQueueGiveMutexRecursive(\ (\ xMutex\ )\ )}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00534\ }
+\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#define\ xSemaphoreGiveFromISR(\ xSemaphore,\ pxHigherPriorityTaskWoken\ )\ \ xQueueGiveFromISR(\ (\ QueueHandle\_t\ )\ (\ xSemaphore\ ),\ (\ pxHigherPriorityTaskWoken\ )\ )}}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#define\ xSemaphoreTakeFromISR(\ xSemaphore,\ pxHigherPriorityTaskWoken\ )\ \ xQueueReceiveFromISR(\ (\ QueueHandle\_t\ )\ (\ xSemaphore\ ),\ NULL,\ (\ pxHigherPriorityTaskWoken\ )\ )}}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00715\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_DYNAMIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{00716\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateMutex()\ xQueueCreateMutex(\ queueQUEUE\_TYPE\_MUTEX\ )}}
+\DoxyCodeLine{00717\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00776\ \textcolor{preprocessor}{\ \#if(\ configSUPPORT\_STATIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{00777\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateMutexStatic(\ pxMutexBuffer\ )\ xQueueCreateMutexStatic(\ queueQUEUE\_TYPE\_MUTEX,\ (\ pxMutexBuffer\ )\ )}}
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ configSUPPORT\_STATIC\_ALLOCATION\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00844\ \textcolor{preprocessor}{\#if(\ (\ configSUPPORT\_DYNAMIC\_ALLOCATION\ ==\ 1\ )\ \&\&\ (\ configUSE\_RECURSIVE\_MUTEXES\ ==\ 1\ )\ )}}
+\DoxyCodeLine{00845\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateRecursiveMutex()\ xQueueCreateMutex(\ queueQUEUE\_TYPE\_RECURSIVE\_MUTEX\ )}}
+\DoxyCodeLine{00846\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00917\ \textcolor{preprocessor}{\#if(\ (\ configSUPPORT\_STATIC\_ALLOCATION\ ==\ 1\ )\ \&\&\ (\ configUSE\_RECURSIVE\_MUTEXES\ ==\ 1\ )\ )}}
+\DoxyCodeLine{00918\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateRecursiveMutexStatic(\ pxStaticSemaphore\ )\ xQueueCreateMutexStatic(\ queueQUEUE\_TYPE\_RECURSIVE\_MUTEX,\ pxStaticSemaphore\ )}}
+\DoxyCodeLine{00919\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ configSUPPORT\_STATIC\_ALLOCATION\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00920\ }
+\DoxyCodeLine{00997\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_DYNAMIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{00998\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateCounting(\ uxMaxCount,\ uxInitialCount\ )\ xQueueCreateCountingSemaphore(\ (\ uxMaxCount\ ),\ (\ uxInitialCount\ )\ )}}
+\DoxyCodeLine{00999\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01082\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_STATIC\_ALLOCATION\ ==\ 1\ )}}
+\DoxyCodeLine{01083\ \textcolor{preprocessor}{\ \ \ \ \#define\ xSemaphoreCreateCountingStatic(\ uxMaxCount,\ uxInitialCount,\ pxSemaphoreBuffer\ )\ xQueueCreateCountingSemaphoreStatic(\ (\ uxMaxCount\ ),\ (\ uxInitialCount\ ),\ (\ pxSemaphoreBuffer\ )\ )}}
+\DoxyCodeLine{01084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ configSUPPORT\_STATIC\_ALLOCATION\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01085\ }
+\DoxyCodeLine{01098\ \textcolor{preprocessor}{\#define\ vSemaphoreDelete(\ xSemaphore\ )\ vQueueDelete(\ (\ QueueHandle\_t\ )\ (\ xSemaphore\ )\ )}}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01113\ \textcolor{preprocessor}{\#define\ xSemaphoreGetMutexHolder(\ xSemaphore\ )\ xQueueGetMutexHolder(\ (\ xSemaphore\ )\ )}}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01124\ \textcolor{preprocessor}{\#define\ xSemaphoreGetMutexHolderFromISR(\ xSemaphore\ )\ xQueueGetMutexHolderFromISR(\ (\ xSemaphore\ )\ )}}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01136\ \textcolor{preprocessor}{\#define\ uxSemaphoreGetCount(\ xSemaphore\ )\ uxQueueMessagesWaiting(\ (\ QueueHandle\_t\ )\ (\ xSemaphore\ )\ )}}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SEMAPHORE\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01139\ }
+\DoxyCodeLine{01140\ }
+
+\end{DoxyCode}

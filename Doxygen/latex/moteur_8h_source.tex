@@ -1,0 +1,50 @@
+\doxysection{moteur.\+h}
+\hypertarget{moteur_8h_source}{}\label{moteur_8h_source}\index{moteur.h@{moteur.h}}
+\mbox{\hyperlink{moteur_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ ******************************************************************************}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @attention}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ CHAIR}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2024\ STMicroelectronics.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ This\ software\ is\ licensed\ under\ terms\ that\ can\ be\ found\ in\ the\ LICENSE\ file}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ in\ the\ root\ directory\ of\ this\ software\ component.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ If\ no\ LICENSE\ file\ comes\ with\ this\ software,\ it\ is\ provided\ AS-\/IS.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ ******************************************************************************}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ MOTEUR\_MOTEUR\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MOTEUR\_MOTEUR\_H\_}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32g4xx__hal_8h}{stm32G4xx\_hal.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MOTOR\_LEFT\ \ \ 0}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MOTOR\_RIGHT\ \ 1}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a0ab9212f633348b60b75eac3ff33f44d}{init\_motors}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a48a40a3fcfab395f3d006a18bbc229a9}{forward\_r}}(uint16\_t\ alpha);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a801b6dce9e332dfcd2001da0aef935cc}{forward\_l}}(uint16\_t\ alpha);}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a7a179fffde3aecbae87e59434b7627c2}{reverse\_r}}(uint16\_t\ alpha);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a8e8f261f832a615b4aa3f390fcf2f901}{reverse\_l}}(uint16\_t\ alpha);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a90b243fa4ddd8630b7d3585f354583a8}{stop\_r}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a55dcd7a8d70395c932be740309827f37}{stop\_l}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Fonctions\ pour\ les\ encodeurs}}
+\DoxyCodeLine{00033\ int16\_t\ \mbox{\hyperlink{moteur_8h_af935edfd2dbf1409d8615abc6c51f307}{get\_encoder\_position}}(uint8\_t\ motor);\ \ \textcolor{comment}{//\ Lire\ la\ position\ de\ l'encodeur}}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_aa37407623d6ece230f952364d9f6b0d6}{reset\_encoder}}(uint8\_t\ motor);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Réinitialiser\ l'encodeur}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ Nouvelle\ fonction\ :\ Calculer\ la\ vitesse}}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{moteur_8h_ace68cc30f63c9b0288d9565704a57a3c}{calculate\_motor\_speed}}(uint8\_t\ motor,\ uint32\_t\ delta\_time\_ms,\ uint16\_t\ encoder\_resolution);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{moteur_8h_a0440ade70a668112aab023dd4c148fe9}{compute\_pid}}(\textcolor{keywordtype}{float}\ target\_speed,\ \textcolor{keywordtype}{float}\ measured\_speed,\ \textcolor{keywordtype}{float}\ *integral\_error,\ \textcolor{keywordtype}{float}\ *previous\_error,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{moteur_8c_a1f7add0f84d583bc2eceb290d6c4cc06}{kp}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{moteur_8c_a050993b7ca6c97e62c1020017f716b91}{ki}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{moteur_8c_ae7a5c6018507bb1361fcca170e069b9c}{kd}});}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a74ad76b10bb1bd3108d23942b19ca910}{motorcontrol\_souris}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a84ca9412dd134c81183f825eed3fcfab}{motorcontrol\_predateur}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{moteur_8h_a44be3f53c4d8d33c0c6233b620ba3943}{pivot}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MOTEUR\_MOTEUR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: Référence du fichier heap_4.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('heap__4_8c.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier heap_4.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_free_r_t_o_s_8h_source.html">FreeRTOS.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="task_8h_source.html">task.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a___b_l_o_c_k___l_i_n_k.html">A_BLOCK_LINK</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab622d8c674f2a417a666a7ed89109e79" id="r_ab622d8c674f2a417a666a7ed89109e79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</a></td></tr>
+<tr class="separator:ab622d8c674f2a417a666a7ed89109e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71bae5a95671265c828339d44c44b25" id="r_ab71bae5a95671265c828339d44c44b25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab71bae5a95671265c828339d44c44b25">heapMINIMUM_BLOCK_SIZE</a>&#160;&#160;&#160;( ( size_t ) ( xHeapStructSize &lt;&lt; 1 ) )</td></tr>
+<tr class="separator:ab71bae5a95671265c828339d44c44b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcef0c4245ebe20ca2b08a574c1caac9" id="r_adcef0c4245ebe20ca2b08a574c1caac9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcef0c4245ebe20ca2b08a574c1caac9">heapBITS_PER_BYTE</a>&#160;&#160;&#160;( ( size_t ) 8 )</td></tr>
+<tr class="separator:adcef0c4245ebe20ca2b08a574c1caac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a5867d4b64d89c6ab51e4783687f8960a" id="r_a5867d4b64d89c6ab51e4783687f8960a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_a___b_l_o_c_k___l_i_n_k.html">A_BLOCK_LINK</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5867d4b64d89c6ab51e4783687f8960a">BlockLink_t</a></td></tr>
+<tr class="separator:a5867d4b64d89c6ab51e4783687f8960a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac56bcb7515f081a5b3df83935499fa4a" id="r_ac56bcb7515f081a5b3df83935499fa4a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac56bcb7515f081a5b3df83935499fa4a">pvPortMalloc</a> (size_t xWantedSize)</td></tr>
+<tr class="separator:ac56bcb7515f081a5b3df83935499fa4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e7cea2fd1bc894ea3b5f5e8179d259b" id="r_a1e7cea2fd1bc894ea3b5f5e8179d259b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7cea2fd1bc894ea3b5f5e8179d259b">vPortFree</a> (void *pv)</td></tr>
+<tr class="separator:a1e7cea2fd1bc894ea3b5f5e8179d259b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c28a12b313bc248be0cb7a37ed81bb7" id="r_a0c28a12b313bc248be0cb7a37ed81bb7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c28a12b313bc248be0cb7a37ed81bb7">xPortGetFreeHeapSize</a> (void)</td></tr>
+<tr class="separator:a0c28a12b313bc248be0cb7a37ed81bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab222e4545b8ff12b62fd000fea6b34eb" id="r_ab222e4545b8ff12b62fd000fea6b34eb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab222e4545b8ff12b62fd000fea6b34eb">xPortGetMinimumEverFreeHeapSize</a> (void)</td></tr>
+<tr class="separator:ab222e4545b8ff12b62fd000fea6b34eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf103ce32ce8473574e9920af8b4eec" id="r_a8bf103ce32ce8473574e9920af8b4eec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bf103ce32ce8473574e9920af8b4eec">vPortInitialiseBlocks</a> (void)</td></tr>
+<tr class="separator:a8bf103ce32ce8473574e9920af8b4eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbecc6cff952357f60cce5014ecbe470" id="r_abbecc6cff952357f60cce5014ecbe470"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbecc6cff952357f60cce5014ecbe470">vPortGetHeapStats</a> (<a class="el" href="portable_8h.html#aebfa6771f45f6a5ac026e91ee2fd57f4">HeapStats_t</a> *pxHeapStats)</td></tr>
+<tr class="separator:abbecc6cff952357f60cce5014ecbe470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="adcef0c4245ebe20ca2b08a574c1caac9" name="adcef0c4245ebe20ca2b08a574c1caac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcef0c4245ebe20ca2b08a574c1caac9">&#9670;&#160;</a></span>heapBITS_PER_BYTE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define heapBITS_PER_BYTE&#160;&#160;&#160;( ( size_t ) 8 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab71bae5a95671265c828339d44c44b25" name="ab71bae5a95671265c828339d44c44b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71bae5a95671265c828339d44c44b25">&#9670;&#160;</a></span>heapMINIMUM_BLOCK_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define heapMINIMUM_BLOCK_SIZE&#160;&#160;&#160;( ( size_t ) ( xHeapStructSize &lt;&lt; 1 ) )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab622d8c674f2a417a666a7ed89109e79" name="ab622d8c674f2a417a666a7ed89109e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab622d8c674f2a417a666a7ed89109e79">&#9670;&#160;</a></span>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MPU_WRAPPERS_INCLUDED_FROM_API_FILE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a5867d4b64d89c6ab51e4783687f8960a" name="a5867d4b64d89c6ab51e4783687f8960a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5867d4b64d89c6ab51e4783687f8960a">&#9670;&#160;</a></span>BlockLink_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_a___b_l_o_c_k___l_i_n_k.html">A_BLOCK_LINK</a> <a class="el" href="#a5867d4b64d89c6ab51e4783687f8960a">BlockLink_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac56bcb7515f081a5b3df83935499fa4a" name="ac56bcb7515f081a5b3df83935499fa4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac56bcb7515f081a5b3df83935499fa4a">&#9670;&#160;</a></span>pvPortMalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * pvPortMalloc </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWantedSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e7cea2fd1bc894ea3b5f5e8179d259b" name="a1e7cea2fd1bc894ea3b5f5e8179d259b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e7cea2fd1bc894ea3b5f5e8179d259b">&#9670;&#160;</a></span>vPortFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vPortFree </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pv</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbecc6cff952357f60cce5014ecbe470" name="abbecc6cff952357f60cce5014ecbe470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbecc6cff952357f60cce5014ecbe470">&#9670;&#160;</a></span>vPortGetHeapStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vPortGetHeapStats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="portable_8h.html#aebfa6771f45f6a5ac026e91ee2fd57f4">HeapStats_t</a> *</td>          <td class="paramname"><span class="paramname"><em>pxHeapStats</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8bf103ce32ce8473574e9920af8b4eec" name="a8bf103ce32ce8473574e9920af8b4eec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf103ce32ce8473574e9920af8b4eec">&#9670;&#160;</a></span>vPortInitialiseBlocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vPortInitialiseBlocks </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c28a12b313bc248be0cb7a37ed81bb7" name="a0c28a12b313bc248be0cb7a37ed81bb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c28a12b313bc248be0cb7a37ed81bb7">&#9670;&#160;</a></span>xPortGetFreeHeapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t xPortGetFreeHeapSize </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab222e4545b8ff12b62fd000fea6b34eb" name="ab222e4545b8ff12b62fd000fea6b34eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab222e4545b8ff12b62fd000fea6b34eb">&#9670;&#160;</a></span>xPortGetMinimumEverFreeHeapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t xPortGetMinimumEverFreeHeapSize </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3b0744bff46dacb4db3adb67c036e1ce.html">Middlewares</a></li><li class="navelem"><a class="el" href="dir_2db6865b6aa537d5568b942cf0687305.html">Third_Party</a></li><li class="navelem"><a class="el" href="dir_a9ac12b00284883ec72fecd55155373e.html">FreeRTOS</a></li><li class="navelem"><a class="el" href="dir_0f7e64a1f575f65499fc56657e489592.html">Source</a></li><li class="navelem"><a class="el" href="dir_6cc393aeabb2e7aaafff8a85515da3a5.html">portable</a></li><li class="navelem"><a class="el" href="dir_5751144a1f810ff3cf6a1316a724e9d2.html">MemMang</a></li><li class="navelem"><a class="el" href="heap__4_8c.html">heap_4.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

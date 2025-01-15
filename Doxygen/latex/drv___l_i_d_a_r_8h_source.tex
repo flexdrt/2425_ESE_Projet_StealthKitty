@@ -1,0 +1,82 @@
+\doxysection{drv\+\_\+\+LIDAR.\+h}
+\hypertarget{drv___l_i_d_a_r_8h_source}{}\label{drv___l_i_d_a_r_8h_source}\index{drv\_LIDAR.h@{drv\_LIDAR.h}}
+\mbox{\hyperlink{drv___l_i_d_a_r_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ DRV\_LIDAR\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ DRV\_LIDAR\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ INFO\_BUFF\_SIZE\ \ \ \ 27\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ HEALTH\_BUFF\_SIZE\ \ 10\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ BUFFER\_SIZE\ \ \ \ \ \ \ 2000\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PACKET\_SIZE\ \ \ \ \ \ \ 90\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SCAN\_SIZE\ \ \ \ \ \ \ \ \ 360\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ NB\_DEGRES\ \ \ \ \ \ \ \ \ 360\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ MAX\_OBJECTS\ \ \ \ \ \ \ 100\ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ DETECT\_THRESHOLD\ \ 150\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ MIN\_DISTANCE\ \ \ \ \ \ 100\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ MAX\_DISTANCE\ \ \ \ \ \ 2000\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ CMD\_HEADER\ \ \ \ \ \ \ \ 0xA5\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ CMD\_INIT\ \ \ \ \ \ \ \ \ 0x60\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ CMD\_HALT\ \ \ \ \ \ \ \ \ 0x65\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CMD\_STATUS\ \ \ \ \ \ \ 0x90\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ CMD\_DIAG\ \ \ \ \ \ \ \ \ 0x91\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ CMD\_RESET\ \ \ \ \ \ \ \ 0x80\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___global___buffers_gaef98403db56f0b54d9d86a760349db2d}{g\_raw\_data}}[\mbox{\hyperlink{group___buffer___sizes_ga6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___global___buffers_gaf2b37f4bcc4fed1c94b8f76d514f319d}{g\_status\_data}}[\mbox{\hyperlink{group___buffer___sizes_ga8c8dd361b7cfe9a2950071de99c77377}{INFO\_BUFF\_SIZE}}];\ \ \ \ \ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___global___buffers_gaae5aae25c1a3b5581c8821bc34e63944}{g\_diag\_data}}[\mbox{\hyperlink{group___buffer___sizes_gacc276d20f0ac6e4f76844461d22c0455}{HEALTH\_BUFF\_SIZE}}];\ \ \ \ \ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___global___buffers_ga099671b7af4477d131cbdad2df08dff1}{g\_packet\_data}}[\mbox{\hyperlink{group___buffer___sizes_gaebdc7d8ca8e25ed8efc90bb88ef7ef5b}{PACKET\_SIZE}}];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___processing___data_gaf62649b70f5730856ee43d1a1b7a1a07}{g\_scan\_data}}[\mbox{\hyperlink{group___buffer___sizes_ga8bb1e974805d788a45e5b153bb468d61}{SCAN\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___processing___data_gabb678d3500765f398c8c484dcc1d6131}{g\_clean\_data}}[\mbox{\hyperlink{group___buffer___sizes_ga8bb1e974805d788a45e5b153bb468d61}{SCAN\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___processing___data_gaec6b9c72fbd5ad668a1f616857991306}{g\_current\_idx}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___object___detection_ga3d7e014466e671bc6194aa91b663b6d7}{g\_object\_angles}}[\mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\_OBJECTS}}];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___object___detection_gab95b347e1089d477ba25ef330fc69abe}{g\_object\_distances}}[\mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\_OBJECTS}}];\ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___object___detection_ga6d0e5d10521cc583b65291b262e36ba3}{g\_object\_points}}[\mbox{\hyperlink{group___buffer___sizes_gacdc7844fbd4d45737d4aa56834d37829}{MAX\_OBJECTS}}];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___object___detection_ga1678b34476cf28d52ee5e016357bbe53}{g\_object\_count}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___frame___data_ga57bd31d28abc158ca1d7128200345e7c}{g\_frame\_header}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___frame___data_gaaf31cf62fa6a02c8b87f84d1f51ee183}{g\_frame\_length}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___frame___data_ga375aff5565d519cb7b9accf09c17f501}{g\_frame\_type}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___frame___data_ga0db59ac8813f68ab00fb4090903ed39e}{g\_start\_angle}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___frame___data_gaba28155333139df4763dee45a6f781ae}{g\_end\_angle}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___frame___data_ga7c8f8416bad4cb2c2edb22fe4914cb86}{g\_checksum}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ Déclaration\ des\ pointeurs\ de\ fonction}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{group___communication___callbacks_ga3cd26e048feff23ed1766512a00d86d8}{uart\_transmit}})(uint8\_t\ *p\_data,\ uint16\_t\ size);}
+\DoxyCodeLine{00098\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{group___communication___callbacks_ga2a8524a5dc75afddbbd27b08abf10f7c}{uart\_it\_transmit}})(uint8\_t\ *p\_data,\ uint16\_t\ size);}
+\DoxyCodeLine{00099\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{group___communication___callbacks_ga4e363d42ae599e6e80941b43bbf278c9}{uart\_dma\_transmit}})(uint8\_t\ *p\_data,\ uint16\_t\ size);}
+\DoxyCodeLine{00100\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{group___communication___callbacks_ga650949b66417c5dea7816273b145e111}{uart\_poll\_receive}})(uint8\_t\ *p\_data,\ uint16\_t\ size);}
+\DoxyCodeLine{00101\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{group___communication___callbacks_ga2a636afe102496224cbb59c4a4f8498e}{uart\_it\_receive}})(uint8\_t\ *p\_data,\ uint16\_t\ size);}
+\DoxyCodeLine{00102\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{group___communication___callbacks_ga5eba61a3e61007d52aa3e255cf7f1a49}{uart\_dma\_receive}})(uint8\_t\ *p\_data,\ uint16\_t\ size);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___driver___functions_gaae13282156665437c96f895dd45bc954}{lidar\_begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___driver___functions_ga4f4948353e434a11b465fb1a4c8a309c}{lidar\_end}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___driver___functions_ga70ca3b7f361c8b0e44f40e2a9210a93e}{lidar\_query\_status}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___driver___functions_gacb4320bb6f0785d3ca86bdd26b4c3a11}{lidar\_check\_health}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___driver___functions_ga14502162256fc53461967a9ceba8a0a4}{lidar\_reset}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___driver___functions_gae30698586cf1f2ad080580688d3fd323}{lidar\_parse\_data}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___driver___functions_gaf3225e50d67930032f62d9dc757668f2}{calc\_avg\_dist}}(\textcolor{keywordtype}{int}\ debut,\ \textcolor{keywordtype}{int}\ fin);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___driver___functions_gafae7be7b4627bd1a071c68283ff25cbb}{smooth\_data}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___driver___functions_ga22fa86951e4167e303013997448d1d3f}{detect\_objects}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DRV\_LIDAR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

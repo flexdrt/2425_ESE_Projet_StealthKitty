@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty:  Fichier source de moteur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('moteur_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">moteur.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="moteur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> ******************************************************************************</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @attention</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Author: CHAIR</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Copyright (c) 2024 STMicroelectronics.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * All rights reserved.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * This software is licensed under terms that can be found in the LICENSE file</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * in the root directory of this software component.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * If no LICENSE file comes with this software, it is provided AS-IS.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> ******************************************************************************</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef MOTEUR_MOTEUR_H_</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define MOTEUR_MOTEUR_H_</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="stm32g4xx__hal_8h.html">stm32G4xx_hal.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="moteur_8h.html#a0e2d750df9008232cafa398d2424b778">   20</a></span><span class="preprocessor">#define MOTOR_LEFT   0</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="moteur_8h.html#a9eff471d17bc68f18b14ff75f23aa3bc">   21</a></span><span class="preprocessor">#define MOTOR_RIGHT  1</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a0ab9212f633348b60b75eac3ff33f44d">init_motors</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a48a40a3fcfab395f3d006a18bbc229a9">forward_r</a>(uint16_t alpha);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a801b6dce9e332dfcd2001da0aef935cc">forward_l</a>(uint16_t alpha);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a7a179fffde3aecbae87e59434b7627c2">reverse_r</a>(uint16_t alpha);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a8e8f261f832a615b4aa3f390fcf2f901">reverse_l</a>(uint16_t alpha);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a90b243fa4ddd8630b7d3585f354583a8">stop_r</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a55dcd7a8d70395c932be740309827f37">stop_l</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// Fonctions pour les encodeurs</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>int16_t <a class="code hl_function" href="moteur_8h.html#af935edfd2dbf1409d8615abc6c51f307">get_encoder_position</a>(uint8_t motor);  <span class="comment">// Lire la position de l&#39;encodeur</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#aa37407623d6ece230f952364d9f6b0d6">reset_encoder</a>(uint8_t motor);            <span class="comment">// Réinitialiser l&#39;encodeur</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// Nouvelle fonction : Calculer la vitesse</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">float</span> <a class="code hl_function" href="moteur_8h.html#ace68cc30f63c9b0288d9565704a57a3c">calculate_motor_speed</a>(uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">float</span> <a class="code hl_function" href="moteur_8h.html#a0440ade70a668112aab023dd4c148fe9">compute_pid</a>(<span class="keywordtype">float</span> target_speed, <span class="keywordtype">float</span> measured_speed, <span class="keywordtype">float</span> *integral_error, <span class="keywordtype">float</span> *previous_error, <span class="keywordtype">float</span> <a class="code hl_variable" href="moteur_8c.html#a1f7add0f84d583bc2eceb290d6c4cc06">kp</a>, <span class="keywordtype">float</span> <a class="code hl_variable" href="moteur_8c.html#a050993b7ca6c97e62c1020017f716b91">ki</a>, <span class="keywordtype">float</span> <a class="code hl_variable" href="moteur_8c.html#ae7a5c6018507bb1361fcca170e069b9c">kd</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a74ad76b10bb1bd3108d23942b19ca910">motorcontrol_souris</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a84ca9412dd134c81183f825eed3fcfab">motorcontrol_predateur</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="moteur_8h.html#a44be3f53c4d8d33c0c6233b620ba3943">pivot</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">/* MOTEUR_MOTEUR_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="amoteur_8c_html_a050993b7ca6c97e62c1020017f716b91"><div class="ttname"><a href="moteur_8c.html#a050993b7ca6c97e62c1020017f716b91">ki</a></div><div class="ttdeci">float ki</div><div class="ttdef"><b>Definition</b> moteur.c:21</div></div>
+<div class="ttc" id="amoteur_8c_html_a1f7add0f84d583bc2eceb290d6c4cc06"><div class="ttname"><a href="moteur_8c.html#a1f7add0f84d583bc2eceb290d6c4cc06">kp</a></div><div class="ttdeci">float kp</div><div class="ttdef"><b>Definition</b> moteur.c:20</div></div>
+<div class="ttc" id="amoteur_8c_html_ae7a5c6018507bb1361fcca170e069b9c"><div class="ttname"><a href="moteur_8c.html#ae7a5c6018507bb1361fcca170e069b9c">kd</a></div><div class="ttdeci">float kd</div><div class="ttdef"><b>Definition</b> moteur.c:22</div></div>
+<div class="ttc" id="amoteur_8h_html_a0440ade70a668112aab023dd4c148fe9"><div class="ttname"><a href="moteur_8h.html#a0440ade70a668112aab023dd4c148fe9">compute_pid</a></div><div class="ttdeci">float compute_pid(float target_speed, float measured_speed, float *integral_error, float *previous_error, float kp, float ki, float kd)</div><div class="ttdoc">Calcule la commande PID pour un moteur.</div><div class="ttdef"><b>Definition</b> moteur.c:209</div></div>
+<div class="ttc" id="amoteur_8h_html_a0ab9212f633348b60b75eac3ff33f44d"><div class="ttname"><a href="moteur_8h.html#a0ab9212f633348b60b75eac3ff33f44d">init_motors</a></div><div class="ttdeci">void init_motors(void)</div><div class="ttdoc">Initialisation des moteurs (PWM et encodeurs).</div><div class="ttdef"><b>Definition</b> moteur.c:42</div></div>
+<div class="ttc" id="amoteur_8h_html_a44be3f53c4d8d33c0c6233b620ba3943"><div class="ttname"><a href="moteur_8h.html#a44be3f53c4d8d33c0c6233b620ba3943">pivot</a></div><div class="ttdeci">void pivot(void)</div><div class="ttdoc">Effectue un pivot arrière en cas d&#39;obstacle.</div><div class="ttdef"><b>Definition</b> moteur.c:285</div></div>
+<div class="ttc" id="amoteur_8h_html_a48a40a3fcfab395f3d006a18bbc229a9"><div class="ttname"><a href="moteur_8h.html#a48a40a3fcfab395f3d006a18bbc229a9">forward_r</a></div><div class="ttdeci">void forward_r(uint16_t alpha)</div><div class="ttdoc">Avance le moteur droit.</div><div class="ttdef"><b>Definition</b> moteur.c:63</div></div>
+<div class="ttc" id="amoteur_8h_html_a55dcd7a8d70395c932be740309827f37"><div class="ttname"><a href="moteur_8h.html#a55dcd7a8d70395c932be740309827f37">stop_l</a></div><div class="ttdeci">void stop_l(void)</div><div class="ttdoc">Arrête le moteur gauche.</div><div class="ttdef"><b>Definition</b> moteur.c:128</div></div>
+<div class="ttc" id="amoteur_8h_html_a74ad76b10bb1bd3108d23942b19ca910"><div class="ttname"><a href="moteur_8h.html#a74ad76b10bb1bd3108d23942b19ca910">motorcontrol_souris</a></div><div class="ttdeci">void motorcontrol_souris(void)</div><div class="ttdoc">Mode &quot;Souris&quot; pour un déplacement normal.</div><div class="ttdef"><b>Definition</b> moteur.c:229</div></div>
+<div class="ttc" id="amoteur_8h_html_a7a179fffde3aecbae87e59434b7627c2"><div class="ttname"><a href="moteur_8h.html#a7a179fffde3aecbae87e59434b7627c2">reverse_r</a></div><div class="ttdeci">void reverse_r(uint16_t alpha)</div><div class="ttdoc">Recule le moteur droit.</div><div class="ttdef"><b>Definition</b> moteur.c:89</div></div>
+<div class="ttc" id="amoteur_8h_html_a801b6dce9e332dfcd2001da0aef935cc"><div class="ttname"><a href="moteur_8h.html#a801b6dce9e332dfcd2001da0aef935cc">forward_l</a></div><div class="ttdeci">void forward_l(uint16_t alpha)</div><div class="ttdoc">Avance le moteur gauche.</div><div class="ttdef"><b>Definition</b> moteur.c:76</div></div>
+<div class="ttc" id="amoteur_8h_html_a84ca9412dd134c81183f825eed3fcfab"><div class="ttname"><a href="moteur_8h.html#a84ca9412dd134c81183f825eed3fcfab">motorcontrol_predateur</a></div><div class="ttdeci">void motorcontrol_predateur(void)</div><div class="ttdoc">Mode &quot;Prédateur&quot; pour un déplacement rapide.</div><div class="ttdef"><b>Definition</b> moteur.c:257</div></div>
+<div class="ttc" id="amoteur_8h_html_a8e8f261f832a615b4aa3f390fcf2f901"><div class="ttname"><a href="moteur_8h.html#a8e8f261f832a615b4aa3f390fcf2f901">reverse_l</a></div><div class="ttdeci">void reverse_l(uint16_t alpha)</div><div class="ttdoc">Recule le moteur gauche.</div><div class="ttdef"><b>Definition</b> moteur.c:104</div></div>
+<div class="ttc" id="amoteur_8h_html_a90b243fa4ddd8630b7d3585f354583a8"><div class="ttname"><a href="moteur_8h.html#a90b243fa4ddd8630b7d3585f354583a8">stop_r</a></div><div class="ttdeci">void stop_r(void)</div><div class="ttdoc">Arrête le moteur droit.</div><div class="ttdef"><b>Definition</b> moteur.c:117</div></div>
+<div class="ttc" id="amoteur_8h_html_aa37407623d6ece230f952364d9f6b0d6"><div class="ttname"><a href="moteur_8h.html#aa37407623d6ece230f952364d9f6b0d6">reset_encoder</a></div><div class="ttdeci">void reset_encoder(uint8_t motor)</div><div class="ttdoc">Réinitialise la position de l&#39;encodeur.</div><div class="ttdef"><b>Definition</b> moteur.c:156</div></div>
+<div class="ttc" id="amoteur_8h_html_ace68cc30f63c9b0288d9565704a57a3c"><div class="ttname"><a href="moteur_8h.html#ace68cc30f63c9b0288d9565704a57a3c">calculate_motor_speed</a></div><div class="ttdeci">float calculate_motor_speed(uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution)</div><div class="ttdoc">Calcule la vitesse actuelle du moteur.</div><div class="ttdef"><b>Definition</b> moteur.c:173</div></div>
+<div class="ttc" id="amoteur_8h_html_af935edfd2dbf1409d8615abc6c51f307"><div class="ttname"><a href="moteur_8h.html#af935edfd2dbf1409d8615abc6c51f307">get_encoder_position</a></div><div class="ttdeci">int16_t get_encoder_position(uint8_t motor)</div><div class="ttdoc">Lit la position actuelle de l&#39;encodeur.</div><div class="ttdef"><b>Definition</b> moteur.c:140</div></div>
+<div class="ttc" id="astm32g4xx__hal_8h_html"><div class="ttname"><a href="stm32g4xx__hal_8h.html">stm32g4xx_hal.h</a></div><div class="ttdoc">This file contains all the functions prototypes for the HAL module driver.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3f518afa9cd3fb3827c2fc92cfe15e71.html">Core</a></li><li class="navelem"><a class="el" href="dir_f7d10ae75845e774f47e10771cb12ced.html">Inc</a></li><li class="navelem"><a class="el" href="moteur_8h.html">moteur.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

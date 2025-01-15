@@ -1,0 +1,95 @@
+\doxysection{ADXL343\+\_\+\+SPI.\+H}
+\hypertarget{_a_d_x_l343___s_p_i_8_h_source}{}\label{_a_d_x_l343___s_p_i_8_h_source}\index{ADXL343\_SPI.H@{ADXL343\_SPI.H}}
+\mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ ******************************************************************************}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @attention}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ AMEUR}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2024\ STMicroelectronics.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ This\ software\ is\ licensed\ under\ terms\ that\ can\ be\ found\ in\ the\ LICENSE\ file}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ in\ the\ root\ directory\ of\ this\ software\ component.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ If\ no\ LICENSE\ file\ comes\ with\ this\ software,\ it\ is\ provided\ AS-\/IS.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ ******************************************************************************}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ ADXL343\_SPI\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ADXL343\_SPI\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32g4xx__hal_8h}{stm32g4xx\_hal.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ADXL\_CS\_PORT\ GPIOC}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ ADXL\_CS\_PIN\ \ GPIO\_PIN\_4}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_DEVICE\_ID\ =\ \ \ \ \ \ \ \ \ \ \ \ 0xE5;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DEVICE\_ID\ =\ \ \ \ \ \ \ \ 0x00;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_THRESH\_TAP\ =\ \ \ \ \ \ \ 0x1D;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_OFSX\ =\ \ \ \ \ \ \ \ \ \ \ \ \ 0x1E;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_OFSY\ =\ \ \ \ \ \ \ \ \ \ \ \ \ 0x1F;}
+\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_OFSZ\ =\ \ \ \ \ \ \ \ \ \ \ \ \ 0x20;}
+\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DUR\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x21;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_LATENT\ =\ \ \ \ \ \ \ \ \ \ \ 0x22;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_WINDOW\ =\ \ \ \ \ \ \ \ \ \ \ 0x23;}
+\DoxyCodeLine{00038\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_THRESH\_ACT\ =\ \ \ \ \ \ \ 0x24;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_THRESH\_INACT\ =\ \ \ \ \ 0x25;}
+\DoxyCodeLine{00040\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_TIME\_INACT\ =\ \ \ \ \ \ \ 0x26;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_ACT\_INACT\_CTL\ =\ \ \ \ 0x27;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_THRESH\_FF\ =\ \ \ \ \ \ \ \ 0x28;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_TIME\_FF\ =\ \ \ \ \ \ \ \ \ \ 0x29;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_TAP\_AXES\ =\ \ \ \ \ \ \ \ \ 0x2A;}
+\DoxyCodeLine{00045\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_ACT\_TAP\_STATUS\ =\ \ \ 0x2B;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_BW\_RATE\ =\ \ \ \ \ \ \ \ \ \ 0x2C;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_POWER\_CTL\ =\ \ \ \ \ \ \ \ 0x2D;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_INT\_ENABLE\ =\ \ \ \ \ \ \ 0x2E;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_INT\_MAP\ =\ \ \ \ \ \ \ \ \ \ 0x2F;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_INT\_SOURCE\ =\ \ \ \ \ \ \ 0x30;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATA\_FORMAT\ =\ \ \ \ \ \ 0x31;}
+\DoxyCodeLine{00052\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATAX0\ =\ \ \ \ \ \ \ \ \ \ \ 0x32;}
+\DoxyCodeLine{00053\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATAX1\ =\ \ \ \ \ \ \ \ \ \ \ 0x33;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATAY0\ =\ \ \ \ \ \ \ \ \ \ \ 0x34;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATAY1\ =\ \ \ \ \ \ \ \ \ \ \ 0x35;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATAZ0\ =\ \ \ \ \ \ \ \ \ \ \ 0x36;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_DATAZ1\ =\ \ \ \ \ \ \ \ \ \ \ 0x37;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_FIFO\_CTL\ =\ \ \ \ \ \ \ \ \ 0x38;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ ADXL343\_REG\_FIFO\_STATUS\ =\ \ \ \ \ \ 0x39;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\_HandleTypeDef}}\ *\mbox{\hyperlink{struct_a_d_x_l343_a9d26489eae6f94960b7cf12064d7e6cc}{hspiHandle}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Raw\ acceleration\ data\ X\ Y\ Z}}
+\DoxyCodeLine{00067\ \ \ \ \ int16\_t\ \mbox{\hyperlink{struct_a_d_x_l343_a8d8981b8929e86cb934ea063a13629ae}{acc\_rawX}};}
+\DoxyCodeLine{00068\ \ \ \ \ int16\_t\ \mbox{\hyperlink{struct_a_d_x_l343_a39eb5657ba3209f0b39a0e10fcd21121}{acc\_rawY}};}
+\DoxyCodeLine{00069\ \ \ \ \ int16\_t\ \mbox{\hyperlink{struct_a_d_x_l343_af23d992acde79d0c079e8aaadc8d3721}{acc\_rawZ}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ Acceleration\ data\ X\ Y\ Z}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_a_d_x_l343_a41cefd74b5fa4e53485819ac4b46550d}{acc\_msp2X}};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_a_d_x_l343_a90c997bd3c4ea8cf0fe8704dd083c96c}{acc\_msp2Y}};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_a_d_x_l343_a0d095ad854cb3430889dfec02e476f72}{acc\_msp2Z}};}
+\DoxyCodeLine{00075\ \}\ \mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ uint8\_t\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a09d16a4c59846e1f36ee34306b03bdce}{ADXL343\_initialization}}(\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\_HandleTypeDef}}\ *hspi,\ \mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev);}
+\DoxyCodeLine{00078\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_ac38357035df86077b5a4217a9ae6d713}{ADXL343\_get\_acc\_raw}}(\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev);}
+\DoxyCodeLine{00079\ \mbox{\hyperlink{stm32g4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a025644ff1cee674121491a7c467d1d12}{ADXL343\_get\_acc\_norm}}(\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a0e2baf1cb5bca10b39e2f92376f18160}{ADXL343\_print\_raw}}(\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev,\ \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\_HandleTypeDef}}\ *huart);}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a620afe00dddd09d85948e23dc07ec2f0}{ADXL343\_set\_tap\_parameters}}(\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev,\ uint8\_t\ threshold,\ uint8\_t\ duration,\ uint8\_t\ latency,\ uint8\_t\ window);}
+\DoxyCodeLine{00082\ uint8\_t\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_ac3808008eb35f6e624c33d81295cafd0}{ADXL343\_read\_register}}(\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\_HandleTypeDef}}\ *hspi,\ uint8\_t\ regAddr);}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a87db3b01319aeb959debe94f30e2cf4c}{ADXL343\_EnableTapInterrupts}}(\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev);}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_ab209eac27fcfdbfb548e2f383f016dcb}{ADXL343\_check\_tap}}(\mbox{\hyperlink{struct_a_d_x_l343}{ADXL343}}\ *dev);}
+\DoxyCodeLine{00085\ \textcolor{comment}{//void\ ADXL343\_SetDataFormat(ADXL343\ *dev,\ uint8\_t\ range);}}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_a_d_x_l343___s_p_i_8_h_a3b4e58b8dc70b541d7c25c814ae5f793}{ADXL343\_SetDataFormat}}(\mbox{\hyperlink{group___s_p_i___exported___types_gab633e49dd034de2f3a1fe79853d78d18}{SPI\_HandleTypeDef}}\ *hspi,\ uint8\_t\ range);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

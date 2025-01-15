@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty:  Fichier source de VL53L1X_api.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_v_l53_l1_x__api_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">VL53L1X_api.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_v_l53_l1_x__api_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> ******************************************************************************</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @attention</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Author: CHAIR</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Copyright (c) 2024 STMicroelectronics.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * All rights reserved.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * This software is licensed under terms that can be found in the LICENSE file</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * in the root directory of this software component.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * If no LICENSE file comes with this software, it is provided AS-IS.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> ******************************************************************************</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef _API_H_</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define _API_H_</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="vl53l1__platform_8h.html">vl53l1_platform.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a542371c8c3204d2a190bebed741a741e">   25</a></span><span class="preprocessor">#define VL53L1X_IMPLEMENTATION_VER_MAJOR       3</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aeb992f2c9bfd1c73dcfae9ebc7180fad">   26</a></span><span class="preprocessor">#define VL53L1X_IMPLEMENTATION_VER_MINOR       5</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#abccaf6e0c198fe271bde715a90f23b34">   27</a></span><span class="preprocessor">#define VL53L1X_IMPLEMENTATION_VER_SUB         4</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aede005dde2f068571499b6f56a2e191f">   28</a></span><span class="preprocessor">#define VL53L1X_IMPLEMENTATION_VER_REVISION  0000</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">   30</a></span><span class="keyword">typedef</span> int8_t <a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a74625341a79e3484830c401d8947443c">   32</a></span><span class="preprocessor">#define SOFT_RESET                                          0x0000</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#af09585764ab1dde6627bad6098cd5e6e">   33</a></span><span class="preprocessor">#define VL53L1_I2C_SLAVE__DEVICE_ADDRESS                    0x0001</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a0b554c56b9617df6b957f26e407ce54d">   34</a></span><span class="preprocessor">#define VL53L1_VHV_CONFIG__TIMEOUT_MACROP_LOOP_BOUND        0x0008</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a55aa3ef1d347f822cc5f6028f2ddf56f">   35</a></span><span class="preprocessor">#define ALGO__CROSSTALK_COMPENSATION_PLANE_OFFSET_KCPS      0x0016</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#af25151d720c6f6d003e61d92ad738c4c">   36</a></span><span class="preprocessor">#define ALGO__CROSSTALK_COMPENSATION_X_PLANE_GRADIENT_KCPS  0x0018</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a25a78b1dc1070a5e72e19645f8f52d33">   37</a></span><span class="preprocessor">#define ALGO__CROSSTALK_COMPENSATION_Y_PLANE_GRADIENT_KCPS  0x001A</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a2ab0e4617017e0bd940200ba07be4d34">   38</a></span><span class="preprocessor">#define ALGO__PART_TO_PART_RANGE_OFFSET_MM                  0x001E</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a88617357dbed400268cfc2ee563f5396">   39</a></span><span class="preprocessor">#define MM_CONFIG__INNER_OFFSET_MM                          0x0020</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a3f7f279509c4971c0027dd4004007c2f">   40</a></span><span class="preprocessor">#define MM_CONFIG__OUTER_OFFSET_MM                          0x0022</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ac2b6c32911c2c553477f19bb3c25ce89">   41</a></span><span class="preprocessor">#define GPIO_HV_MUX__CTRL                                   0x0030</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a2806961b4373aaf95b11489324e8f84b">   42</a></span><span class="preprocessor">#define GPIO__TIO_HV_STATUS                                 0x0031</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a97207a2ee20535cd0102a4bb05779127">   43</a></span><span class="preprocessor">#define SYSTEM__INTERRUPT_CONFIG_GPIO                       0x0046</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ab27d045e59238e549647e80fae3573f8">   44</a></span><span class="preprocessor">#define PHASECAL_CONFIG__TIMEOUT_MACROP                     0x004B</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a02495d4260afeb98fc3ad68be4fe3c42">   45</a></span><span class="preprocessor">#define RANGE_CONFIG__TIMEOUT_MACROP_A_HI                   0x005E</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a18bc9ac87e860bbc9106f09d8f35491e">   46</a></span><span class="preprocessor">#define RANGE_CONFIG__VCSEL_PERIOD_A                        0x0060</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ab18472732f386d61b67e5fa6e35a57e9">   47</a></span><span class="preprocessor">#define RANGE_CONFIG__VCSEL_PERIOD_B                        0x0063</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ae73e835209b048757aab1021f6a72e41">   48</a></span><span class="preprocessor">#define RANGE_CONFIG__TIMEOUT_MACROP_B_HI                   0x0061</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#abcec89cc9a8ff7a7392266f8470a2605">   49</a></span><span class="preprocessor">#define RANGE_CONFIG__TIMEOUT_MACROP_B_LO                   0x0062</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ab72c85000f194caedd5a9137e962fde4">   50</a></span><span class="preprocessor">#define RANGE_CONFIG__SIGMA_THRESH                          0x0064</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aad0f40d4cfe841c8ea1df480bda90151">   51</a></span><span class="preprocessor">#define RANGE_CONFIG__MIN_COUNT_RATE_RTN_LIMIT_MCPS         0x0066</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ad7f3c335c97795f0220d04a8feadc3ca">   52</a></span><span class="preprocessor">#define RANGE_CONFIG__VALID_PHASE_HIGH                      0x0069</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#afaf7ce8aa0b5888276751194bcf5f931">   53</a></span><span class="preprocessor">#define VL53L1_SYSTEM__INTERMEASUREMENT_PERIOD              0x006C</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aa430f8d2f8ee1a40476f5202f16807ae">   54</a></span><span class="preprocessor">#define SYSTEM__THRESH_HIGH                                 0x0072</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a9ff4642b47201d4d821fecc72ff8513c">   55</a></span><span class="preprocessor">#define SYSTEM__THRESH_LOW                                  0x0074</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a6a16e9c2ee589cd21957f1302d6654f1">   56</a></span><span class="preprocessor">#define SD_CONFIG__WOI_SD0                                  0x0078</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aea5e68cc5ce6336be7979caf62305db2">   57</a></span><span class="preprocessor">#define SD_CONFIG__INITIAL_PHASE_SD0                        0x007A</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a706cd1aa011becfc35c7b496f599a30f">   58</a></span><span class="preprocessor">#define ROI_CONFIG__USER_ROI_CENTRE_SPAD                    0x007F</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a279ad59723f100caf9bf056bbde528fa">   59</a></span><span class="preprocessor">#define ROI_CONFIG__USER_ROI_REQUESTED_GLOBAL_XY_SIZE       0x0080</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#ae05b913fc1e0f18186c4a2bd44ff49b2">   60</a></span><span class="preprocessor">#define SYSTEM__SEQUENCE_CONFIG                             0x0081</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a01651ee9d6f60f7829478d87cf82b3da">   61</a></span><span class="preprocessor">#define VL53L1_SYSTEM__GROUPED_PARAMETER_HOLD               0x0082</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a0151356cafc31665554f71d408c248a0">   62</a></span><span class="preprocessor">#define SYSTEM__INTERRUPT_CLEAR                             0x0086</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aa430923f7d8ebfb9281163d17df1cc1e">   63</a></span><span class="preprocessor">#define SYSTEM__MODE_START                                  0x0087</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a795c007a11b10559317dc29d6dd5b43e">   64</a></span><span class="preprocessor">#define VL53L1_RESULT__RANGE_STATUS                         0x0089</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#afa93dea9a0d4065a9c4e246ee26daef0">   65</a></span><span class="preprocessor">#define VL53L1_RESULT__DSS_ACTUAL_EFFECTIVE_SPADS_SD0       0x008C</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a8fec1c1688c009c83fd1729042522710">   66</a></span><span class="preprocessor">#define RESULT__AMBIENT_COUNT_RATE_MCPS_SD                  0x0090</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a7ac26737f5a5eb4915af98c2be6fb7c2">   67</a></span><span class="preprocessor">#define VL53L1_RESULT__FINAL_CROSSTALK_CORRECTED_RANGE_MM_SD0               0x0096</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#aa80215477cc3130e21769999b9a2cfd4">   68</a></span><span class="preprocessor">#define VL53L1_RESULT__PEAK_SIGNAL_COUNT_RATE_CROSSTALK_CORRECTED_MCPS_SD0  0x0098</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a80678a1ebe27c577e592c271e92194fe">   69</a></span><span class="preprocessor">#define VL53L1_RESULT__OSC_CALIBRATE_VAL                    0x00DE</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a095d61baf5e40ecde589a5dbf17b391a">   70</a></span><span class="preprocessor">#define VL53L1_FIRMWARE__SYSTEM_STATUS                      0x00E5</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#a6a27dfef0795b6688aacd6cd158939be">   71</a></span><span class="preprocessor">#define VL53L1_IDENTIFICATION__MODEL_ID                     0x010F</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="_v_l53_l1_x__api_8h.html#af64a6267f55a636775a99c6c32b098b7">   72</a></span><span class="preprocessor">#define VL53L1_ROI_CONFIG__MODE_ROI_CENTRE_SPAD             0x013E</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/****************************************</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * PRIVATE define do not edit</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> ****************************************/</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___version__t.html">   81</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___version__t.html#a5bd4e4c943762926c8f653b6224cced2">   82</a></span>    uint8_t      <a class="code hl_variable" href="struct_v_l53_l1_x___version__t.html#a5bd4e4c943762926c8f653b6224cced2">major</a>;    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___version__t.html#ae2f416b0a34b7beb4ed3873d791ac393">   83</a></span>    uint8_t      <a class="code hl_variable" href="struct_v_l53_l1_x___version__t.html#ae2f416b0a34b7beb4ed3873d791ac393">minor</a>;    </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___version__t.html#acf27ac6d52b68e08e7fb2071c483a502">   84</a></span>    uint8_t      <a class="code hl_variable" href="struct_v_l53_l1_x___version__t.html#acf27ac6d52b68e08e7fb2071c483a502">build</a>;    </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___version__t.html#a7593f6425fdea53d846cc5e89f3727db">   85</a></span>    uint32_t     <a class="code hl_variable" href="struct_v_l53_l1_x___version__t.html#a7593f6425fdea53d846cc5e89f3727db">revision</a>; </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>} <a class="code hl_struct" href="struct_v_l53_l1_x___version__t.html">VL53L1X_Version_t</a>;</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="};">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___result__t.html">   91</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___result__t.html#a7ca418fa247ab5f1df4e8b5852d8b738">   92</a></span>    uint8_t <a class="code hl_variable" href="struct_v_l53_l1_x___result__t.html#a7ca418fa247ab5f1df4e8b5852d8b738">Status</a>;       </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___result__t.html#a23eaf4ad03dd3ea6ccca26824b589ba1">   93</a></span>    uint16_t <a class="code hl_variable" href="struct_v_l53_l1_x___result__t.html#a23eaf4ad03dd3ea6ccca26824b589ba1">Distance</a>;  </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___result__t.html#a2acd5f53f7a6d78fab6b7aec5d89a5ce">   94</a></span>    uint16_t <a class="code hl_variable" href="struct_v_l53_l1_x___result__t.html#a2acd5f53f7a6d78fab6b7aec5d89a5ce">Ambient</a>;    </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___result__t.html#aa1515d2bc4d99f9e64672f9ece17face">   95</a></span>    uint16_t <a class="code hl_variable" href="struct_v_l53_l1_x___result__t.html#aa1515d2bc4d99f9e64672f9ece17face">SigPerSPAD</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="struct_v_l53_l1_x___result__t.html#a764a5766ee670b486c3c205505bc04aa">   96</a></span>    uint16_t <a class="code hl_variable" href="struct_v_l53_l1_x___result__t.html#a764a5766ee670b486c3c205505bc04aa">NumSPADs</a>;  </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>} <a class="code hl_struct" href="struct_v_l53_l1_x___result__t.html">VL53L1X_Result_t</a>;</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a936f75dcf79520d291fca86d1ca1a8ef">VL53L1X_GetSWVersion</a>(<a class="code hl_struct" href="struct_v_l53_l1_x___version__t.html">VL53L1X_Version_t</a> *pVersion);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#aa51394a17fcffda8918a9e14cce9ad9e">VL53L1X_SetI2CAddress</a>(uint16_t, uint8_t new_address);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#af0bf25a9ea2d412a2314be795411bbfb">VL53L1X_SensorInit</a>(uint16_t dev);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ab4bae81bb4a10d4bba7ff1849d10cf5c">VL53L1X_ClearInterrupt</a>(uint16_t dev);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ae20f224bdf2a9e5cab862084b0fe0005">VL53L1X_SetInterruptPolarity</a>(uint16_t dev, uint8_t IntPol);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#abb5bbbc8841002c408d89e54f79b8f50">VL53L1X_GetInterruptPolarity</a>(uint16_t dev, uint8_t *pIntPol);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a59adb6ca7cf8cf1744dda9223e060d7a">VL53L1X_StartRanging</a>(uint16_t dev);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a39198465d18ebd1159a5378bf974ba85">VL53L1X_StopRanging</a>(uint16_t dev);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a51f7cace95b9d5d8e1bd093ddb19a7dd">VL53L1X_CheckForDataReady</a>(uint16_t dev, uint8_t *isDataReady);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ac64d76b7addc2d0f1144b3e903e90c35">VL53L1X_SetTimingBudgetInMs</a>(uint16_t dev, uint16_t TimingBudgetInMs);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ad8b0bde5821b2db422c9c04741d420ba">VL53L1X_GetTimingBudgetInMs</a>(uint16_t dev, uint16_t *pTimingBudgetInMs);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#acb5e44d02a44e0d878c306f32dd89bb2">VL53L1X_SetDistanceMode</a>(uint16_t dev, uint16_t <a class="code hl_variable" href="z__vl53l1x__test_8c.html#a750af56cecd795f4492807bf7b8d2264">DistanceMode</a>);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a8785a4399732fe2b438e1ff83d431e05">VL53L1X_GetDistanceMode</a>(uint16_t dev, uint16_t *pDistanceMode);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#aafd7028e9b18f32dcc6f80477e3c9556">VL53L1X_SetInterMeasurementInMs</a>(uint16_t dev,</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                     uint32_t InterMeasurementInMs);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a8ea2aeadbf3f07b4f147a201cdc5b14a">VL53L1X_GetInterMeasurementInMs</a>(uint16_t dev, uint16_t * pIM);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ab92b2593ea9db5c1b39fcaaff474ee16">VL53L1X_BootState</a>(uint16_t dev, uint8_t *state);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a2f85db4303998bd09d9732701559b7bb">VL53L1X_GetSensorId</a>(uint16_t dev, uint16_t *<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a06745c308363ee18e041ea8fa3c24eb5">VL53L1X_GetDistance</a>(uint16_t dev, uint16_t *distance);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a61d1ed3aa852150c583c2f24ed4f822b">VL53L1X_GetSignalPerSpad</a>(uint16_t dev, uint16_t *signalPerSp);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a04aa56326334ed04b8c74f76e39cdcb2">VL53L1X_GetAmbientPerSpad</a>(uint16_t dev, uint16_t *amb);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ae5dadde07f182a952a7c864037e5e345">VL53L1X_GetSignalRate</a>(uint16_t dev, uint16_t *signalRate);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a3a31d70330fb9cfc607eb53e9ccf0aba">VL53L1X_GetSpadNb</a>(uint16_t dev, uint16_t *spNb);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#aeca17868ef2662357e6daf2c41fc5e27">VL53L1X_GetAmbientRate</a>(uint16_t dev, uint16_t *ambRate);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a4841930f2a37b1d6fbb962f7511ba06c">VL53L1X_GetRangeStatus</a>(uint16_t dev, uint8_t *rangeStatus);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a527349738cae7da4384574cbbf1a3ecf">VL53L1X_GetResult</a>(uint16_t dev, <a class="code hl_struct" href="struct_v_l53_l1_x___result__t.html">VL53L1X_Result_t</a> *pResult);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a511e76c692a3f6d2a64fa30b674eaa6b">VL53L1X_SetOffset</a>(uint16_t dev, int16_t OffsetValue);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a0f1c1da2494ddf9e68d909cc15b725b4">VL53L1X_GetOffset</a>(uint16_t dev, int16_t *Offset);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a8206a5ce1126b00d1d96dd6373ba6171">VL53L1X_SetXtalk</a>(uint16_t dev, uint16_t XtalkValue);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a2f9abff4c02b7c00c27980a9563b5983">VL53L1X_GetXtalk</a>(uint16_t dev, uint16_t *Xtalk);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a93effb186a00a1c05b82829d4e8a2e6e">VL53L1X_SetDistanceThreshold</a>(uint16_t dev, uint16_t ThreshLow,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                  uint16_t ThreshHigh, uint8_t Window,</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                  uint8_t IntOnNoTarget);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ac10c1d2f6d7357ec86bcb0574c8885cd">VL53L1X_GetDistanceThresholdWindow</a>(uint16_t dev, uint16_t *window);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a9cc838791d06a457f4ba318286d7192d">VL53L1X_GetDistanceThresholdLow</a>(uint16_t dev, uint16_t *low);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#acc4c76b0f8ca23a0846a8acf5d18376d">VL53L1X_GetDistanceThresholdHigh</a>(uint16_t dev, uint16_t *high);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ab8103f06b26a3748336375e1c6381ab6">VL53L1X_SetROI</a>(uint16_t dev, uint16_t X, uint16_t Y);</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a5907eab052463c151a31e7223698f680">VL53L1X_GetROI_XY</a>(uint16_t dev, uint16_t *ROI_X, uint16_t *ROI_Y);</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a17e282e05c4929f630590d556a412b81">VL53L1X_SetROICenter</a>(uint16_t dev, uint8_t ROICenter);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a910b60acd6238719079fcfedd49b513e">VL53L1X_GetROICenter</a>(uint16_t dev, uint8_t *ROICenter);</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#af3d8367a6cdfd21d98685c3b6df2b8cf">VL53L1X_SetSignalThreshold</a>(uint16_t dev, uint16_t signal);</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a70eee98d23fb77355574e3b14ff6c731">VL53L1X_GetSignalThreshold</a>(uint16_t dev, uint16_t *signal);</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a3698367048ae3bb29b772b8969fd8043">VL53L1X_SetSigmaThreshold</a>(uint16_t dev, uint16_t sigma);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#a237827b94dec1ddb9f18ac78fee702b2">VL53L1X_GetSigmaThreshold</a>(uint16_t dev, uint16_t *signal);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><a class="code hl_typedef" href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a> <a class="code hl_function" href="_v_l53_l1_x__api_8h.html#ae51c4079082446707d3fdffb8da65e7b">VL53L1X_StartTemperatureUpdate</a>(uint16_t dev);</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a04aa56326334ed04b8c74f76e39cdcb2"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a04aa56326334ed04b8c74f76e39cdcb2">VL53L1X_GetAmbientPerSpad</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetAmbientPerSpad(uint16_t dev, uint16_t *amb)</div><div class="ttdoc">This function returns the ambient per SPAD in kcps/SPAD.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:525</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a06745c308363ee18e041ea8fa3c24eb5"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a06745c308363ee18e041ea8fa3c24eb5">VL53L1X_GetDistance</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetDistance(uint16_t dev, uint16_t *distance)</div><div class="ttdoc">This function returns the distance measured by the sensor in mm.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:501</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a0f1c1da2494ddf9e68d909cc15b725b4"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a0f1c1da2494ddf9e68d909cc15b725b4">VL53L1X_GetOffset</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetOffset(uint16_t dev, int16_t *Offset)</div><div class="ttdoc">This function returns the programmed offset correction value in mm.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:613</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a17e282e05c4929f630590d556a412b81"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a17e282e05c4929f630590d556a412b81">VL53L1X_SetROICenter</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetROICenter(uint16_t dev, uint8_t ROICenter)</div><div class="ttdoc">This function programs the new user ROI center, please to be aware that there is no check in this fun...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:704</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a237827b94dec1ddb9f18ac78fee702b2"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a237827b94dec1ddb9f18ac78fee702b2">VL53L1X_GetSigmaThreshold</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSigmaThreshold(uint16_t dev, uint16_t *signal)</div><div class="ttdoc">This function returns the current sigma threshold in mm.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:781</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a2f85db4303998bd09d9732701559b7bb"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a2f85db4303998bd09d9732701559b7bb">VL53L1X_GetSensorId</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSensorId(uint16_t dev, uint16_t *id)</div><div class="ttdoc">This function returns the sensor id, sensor Id must be 0xEEAC.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:491</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a2f9abff4c02b7c00c27980a9563b5983"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a2f9abff4c02b7c00c27980a9563b5983">VL53L1X_GetXtalk</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetXtalk(uint16_t dev, uint16_t *Xtalk)</div><div class="ttdoc">This function returns the current programmed xtalk correction value in cps.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:646</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a3698367048ae3bb29b772b8969fd8043"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a3698367048ae3bb29b772b8969fd8043">VL53L1X_SetSigmaThreshold</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetSigmaThreshold(uint16_t dev, uint16_t sigma)</div><div class="ttdoc">This function programs a new sigma threshold in mm (default=15 mm)</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:769</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a39198465d18ebd1159a5378bf974ba85"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a39198465d18ebd1159a5378bf974ba85">VL53L1X_StopRanging</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_StopRanging(uint16_t dev)</div><div class="ttdoc">This function stops the ranging.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:238</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a3a31d70330fb9cfc607eb53e9ccf0aba"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a3a31d70330fb9cfc607eb53e9ccf0aba">VL53L1X_GetSpadNb</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSpadNb(uint16_t dev, uint16_t *spNb)</div><div class="ttdoc">This function returns the current number of enabled SPADs.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:547</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a4841930f2a37b1d6fbb962f7511ba06c"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a4841930f2a37b1d6fbb962f7511ba06c">VL53L1X_GetRangeStatus</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetRangeStatus(uint16_t dev, uint8_t *rangeStatus)</div><div class="ttdoc">This function returns the ranging status error  (0:no error, 1:sigma failed, 2:signal failed,...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:568</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a511e76c692a3f6d2a64fa30b674eaa6b"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a511e76c692a3f6d2a64fa30b674eaa6b">VL53L1X_SetOffset</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetOffset(uint16_t dev, int16_t OffsetValue)</div><div class="ttdoc">This function programs the offset correction in mm.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:600</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a51f7cace95b9d5d8e1bd093ddb19a7dd"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a51f7cace95b9d5d8e1bd093ddb19a7dd">VL53L1X_CheckForDataReady</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_CheckForDataReady(uint16_t dev, uint8_t *isDataReady)</div><div class="ttdoc">This function checks if the new ranging data is available by polling the dedicated register.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:246</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a527349738cae7da4384574cbbf1a3ecf"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a527349738cae7da4384574cbbf1a3ecf">VL53L1X_GetResult</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetResult(uint16_t dev, VL53L1X_Result_t *pResult)</div><div class="ttdoc">This function returns measurements and the range status in a single read access.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:581</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a5907eab052463c151a31e7223698f680"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a5907eab052463c151a31e7223698f680">VL53L1X_GetROI_XY</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetROI_XY(uint16_t dev, uint16_t *ROI_X, uint16_t *ROI_Y)</div><div class="ttdoc">This function returns width X and height Y.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:739</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a59adb6ca7cf8cf1744dda9223e060d7a"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a59adb6ca7cf8cf1744dda9223e060d7a">VL53L1X_StartRanging</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_StartRanging(uint16_t dev)</div><div class="ttdoc">This function starts the ranging distance operation The ranging operation is continuous....</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:230</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a61d1ed3aa852150c583c2f24ed4f822b"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a61d1ed3aa852150c583c2f24ed4f822b">VL53L1X_GetSignalPerSpad</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSignalPerSpad(uint16_t dev, uint16_t *signalPerSp)</div><div class="ttdoc">This function returns the returned signal per SPAD in kcps/SPAD. With kcps stands for Kilo Count Per ...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:512</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a70eee98d23fb77355574e3b14ff6c731"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a70eee98d23fb77355574e3b14ff6c731">VL53L1X_GetSignalThreshold</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSignalThreshold(uint16_t dev, uint16_t *signal)</div><div class="ttdoc">This function returns the current signal threshold in kcps.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:758</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a8206a5ce1126b00d1d96dd6373ba6171"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a8206a5ce1126b00d1d96dd6373ba6171">VL53L1X_SetXtalk</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetXtalk(uint16_t dev, uint16_t XtalkValue)</div><div class="ttdoc">This function programs the xtalk correction value in cps (Count Per Second). This is the number of ph...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:631</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a8785a4399732fe2b438e1ff83d431e05"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a8785a4399732fe2b438e1ff83d431e05">VL53L1X_GetDistanceMode</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetDistanceMode(uint16_t dev, uint16_t *pDistanceMode)</div><div class="ttdoc">This function returns the current distance mode (1=short, 2=long).</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:442</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a8ea2aeadbf3f07b4f147a201cdc5b14a"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a8ea2aeadbf3f07b4f147a201cdc5b14a">VL53L1X_GetInterMeasurementInMs</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetInterMeasurementInMs(uint16_t dev, uint16_t *pIM)</div><div class="ttdoc">This function returns the Intermeasurement period in ms.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:467</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a910b60acd6238719079fcfedd49b513e"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a910b60acd6238719079fcfedd49b513e">VL53L1X_GetROICenter</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetROICenter(uint16_t dev, uint8_t *ROICenter)</div><div class="ttdoc">This function returns the current user ROI center.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:711</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a936f75dcf79520d291fca86d1ca1a8ef"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a936f75dcf79520d291fca86d1ca1a8ef">VL53L1X_GetSWVersion</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSWVersion(VL53L1X_Version_t *pVersion)</div><div class="ttdoc">This function returns the SW driver version.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:161</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a93effb186a00a1c05b82829d4e8a2e6e"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a93effb186a00a1c05b82829d4e8a2e6e">VL53L1X_SetDistanceThreshold</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetDistanceThreshold(uint16_t dev, uint16_t ThreshLow, uint16_t ThreshHigh, uint8_t Window, uint8_t IntOnNoTarget)</div><div class="ttdoc">This function programs the threshold detection mode Example: VL53L1X_SetDistanceThreshold(dev,...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:655</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_a9cc838791d06a457f4ba318286d7192d"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#a9cc838791d06a457f4ba318286d7192d">VL53L1X_GetDistanceThresholdLow</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetDistanceThresholdLow(uint16_t dev, uint16_t *low)</div><div class="ttdoc">This function returns the low threshold in mm.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:684</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_aa2cba6efa144107fcf97e81be52802fc"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#aa2cba6efa144107fcf97e81be52802fc">VL53L1X_ERROR</a></div><div class="ttdeci">int8_t VL53L1X_ERROR</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:30</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_aa51394a17fcffda8918a9e14cce9ad9e"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#aa51394a17fcffda8918a9e14cce9ad9e">VL53L1X_SetI2CAddress</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetI2CAddress(uint16_t, uint8_t new_address)</div><div class="ttdoc">This function sets the sensor I2C address used in case multiple devices application,...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:172</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_aafd7028e9b18f32dcc6f80477e3c9556"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#aafd7028e9b18f32dcc6f80477e3c9556">VL53L1X_SetInterMeasurementInMs</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetInterMeasurementInMs(uint16_t dev, uint32_t InterMeasurementInMs)</div><div class="ttdoc">This function programs the Intermeasurement period in ms Intermeasurement period must be &gt;/= timing b...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:454</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ab4bae81bb4a10d4bba7ff1849d10cf5c"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ab4bae81bb4a10d4bba7ff1849d10cf5c">VL53L1X_ClearInterrupt</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_ClearInterrupt(uint16_t dev)</div><div class="ttdoc">This function clears the interrupt, to be called after a ranging data reading to arm the interrupt fo...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:200</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ab8103f06b26a3748336375e1c6381ab6"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ab8103f06b26a3748336375e1c6381ab6">VL53L1X_SetROI</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetROI(uint16_t dev, uint16_t X, uint16_t Y)</div><div class="ttdoc">This function programs the ROI (Region of Interest) The ROI position is centered, only the ROI size c...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:720</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ab92b2593ea9db5c1b39fcaaff474ee16"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ab92b2593ea9db5c1b39fcaaff474ee16">VL53L1X_BootState</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_BootState(uint16_t dev, uint8_t *state)</div><div class="ttdoc">This function returns the boot state of the device (1:booted, 0:not booted)</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:481</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_abb5bbbc8841002c408d89e54f79b8f50"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#abb5bbbc8841002c408d89e54f79b8f50">VL53L1X_GetInterruptPolarity</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetInterruptPolarity(uint16_t dev, uint8_t *pIntPol)</div><div class="ttdoc">This function returns the current interrupt polarity 1=active high (default), 0=active low.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:219</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ac10c1d2f6d7357ec86bcb0574c8885cd"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ac10c1d2f6d7357ec86bcb0574c8885cd">VL53L1X_GetDistanceThresholdWindow</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetDistanceThresholdWindow(uint16_t dev, uint16_t *window)</div><div class="ttdoc">This function returns the window detection mode (0=below; 1=above; 2=out; 3=in)</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:675</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ac64d76b7addc2d0f1144b3e903e90c35"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ac64d76b7addc2d0f1144b3e903e90c35">VL53L1X_SetTimingBudgetInMs</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetTimingBudgetInMs(uint16_t dev, uint16_t TimingBudgetInMs)</div><div class="ttdoc">This function programs the timing budget in ms. Predefined values = 15, 20, 33, 50,...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:264</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_acb5e44d02a44e0d878c306f32dd89bb2"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#acb5e44d02a44e0d878c306f32dd89bb2">VL53L1X_SetDistanceMode</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetDistanceMode(uint16_t dev, uint16_t DistanceMode)</div><div class="ttdoc">This function programs the distance mode (1=short, 2=long(default)). Short mode max distance is limit...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:407</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_acc4c76b0f8ca23a0846a8acf5d18376d"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#acc4c76b0f8ca23a0846a8acf5d18376d">VL53L1X_GetDistanceThresholdHigh</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetDistanceThresholdHigh(uint16_t dev, uint16_t *high)</div><div class="ttdoc">This function returns the high threshold in mm.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:694</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ad8b0bde5821b2db422c9c04741d420ba"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ad8b0bde5821b2db422c9c04741d420ba">VL53L1X_GetTimingBudgetInMs</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetTimingBudgetInMs(uint16_t dev, uint16_t *pTimingBudgetInMs)</div><div class="ttdoc">This function returns the current timing budget in ms.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:366</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ae20f224bdf2a9e5cab862084b0fe0005"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ae20f224bdf2a9e5cab862084b0fe0005">VL53L1X_SetInterruptPolarity</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetInterruptPolarity(uint16_t dev, uint8_t IntPol)</div><div class="ttdoc">This function programs the interrupt polarity 1=active high (default), 0=active low.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:208</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ae51c4079082446707d3fdffb8da65e7b"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ae51c4079082446707d3fdffb8da65e7b">VL53L1X_StartTemperatureUpdate</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_StartTemperatureUpdate(uint16_t dev)</div><div class="ttdoc">This function performs the temperature calibration. It is recommended to call this function any time ...</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:792</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_ae5dadde07f182a952a7c864037e5e345"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#ae5dadde07f182a952a7c864037e5e345">VL53L1X_GetSignalRate</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetSignalRate(uint16_t dev, uint16_t *signalRate)</div><div class="ttdoc">This function returns the returned signal in kcps.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:536</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_aeca17868ef2662357e6daf2c41fc5e27"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#aeca17868ef2662357e6daf2c41fc5e27">VL53L1X_GetAmbientRate</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_GetAmbientRate(uint16_t dev, uint16_t *ambRate)</div><div class="ttdoc">This function returns the ambient rate in kcps.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:558</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_af0bf25a9ea2d412a2314be795411bbfb"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#af0bf25a9ea2d412a2314be795411bbfb">VL53L1X_SensorInit</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SensorInit(uint16_t dev)</div><div class="ttdoc">This function loads the 135 bytes default values to initialize the sensor.</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:180</div></div>
+<div class="ttc" id="a_v_l53_l1_x__api_8h_html_af3d8367a6cdfd21d98685c3b6df2b8cf"><div class="ttname"><a href="_v_l53_l1_x__api_8h.html#af3d8367a6cdfd21d98685c3b6df2b8cf">VL53L1X_SetSignalThreshold</a></div><div class="ttdeci">VL53L1X_ERROR VL53L1X_SetSignalThreshold(uint16_t dev, uint16_t signal)</div><div class="ttdoc">This function programs a new signal threshold in kcps (default=1024 kcps .</div><div class="ttdef"><b>Definition</b> VL53L1X_api.c:750</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___result__t_html"><div class="ttname"><a href="struct_v_l53_l1_x___result__t.html">VL53L1X_Result_t</a></div><div class="ttdoc">defines packed reading results type</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:91</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___result__t_html_a23eaf4ad03dd3ea6ccca26824b589ba1"><div class="ttname"><a href="struct_v_l53_l1_x___result__t.html#a23eaf4ad03dd3ea6ccca26824b589ba1">VL53L1X_Result_t::Distance</a></div><div class="ttdeci">uint16_t Distance</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:93</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___result__t_html_a2acd5f53f7a6d78fab6b7aec5d89a5ce"><div class="ttname"><a href="struct_v_l53_l1_x___result__t.html#a2acd5f53f7a6d78fab6b7aec5d89a5ce">VL53L1X_Result_t::Ambient</a></div><div class="ttdeci">uint16_t Ambient</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:94</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___result__t_html_a764a5766ee670b486c3c205505bc04aa"><div class="ttname"><a href="struct_v_l53_l1_x___result__t.html#a764a5766ee670b486c3c205505bc04aa">VL53L1X_Result_t::NumSPADs</a></div><div class="ttdeci">uint16_t NumSPADs</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:96</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___result__t_html_a7ca418fa247ab5f1df4e8b5852d8b738"><div class="ttname"><a href="struct_v_l53_l1_x___result__t.html#a7ca418fa247ab5f1df4e8b5852d8b738">VL53L1X_Result_t::Status</a></div><div class="ttdeci">uint8_t Status</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:92</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___result__t_html_aa1515d2bc4d99f9e64672f9ece17face"><div class="ttname"><a href="struct_v_l53_l1_x___result__t.html#aa1515d2bc4d99f9e64672f9ece17face">VL53L1X_Result_t::SigPerSPAD</a></div><div class="ttdeci">uint16_t SigPerSPAD</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:95</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___version__t_html"><div class="ttname"><a href="struct_v_l53_l1_x___version__t.html">VL53L1X_Version_t</a></div><div class="ttdoc">defines SW Version</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:81</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___version__t_html_a5bd4e4c943762926c8f653b6224cced2"><div class="ttname"><a href="struct_v_l53_l1_x___version__t.html#a5bd4e4c943762926c8f653b6224cced2">VL53L1X_Version_t::major</a></div><div class="ttdeci">uint8_t major</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:82</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___version__t_html_a7593f6425fdea53d846cc5e89f3727db"><div class="ttname"><a href="struct_v_l53_l1_x___version__t.html#a7593f6425fdea53d846cc5e89f3727db">VL53L1X_Version_t::revision</a></div><div class="ttdeci">uint32_t revision</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:85</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___version__t_html_acf27ac6d52b68e08e7fb2071c483a502"><div class="ttname"><a href="struct_v_l53_l1_x___version__t.html#acf27ac6d52b68e08e7fb2071c483a502">VL53L1X_Version_t::build</a></div><div class="ttdeci">uint8_t build</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:84</div></div>
+<div class="ttc" id="astruct_v_l53_l1_x___version__t_html_ae2f416b0a34b7beb4ed3873d791ac393"><div class="ttname"><a href="struct_v_l53_l1_x___version__t.html#ae2f416b0a34b7beb4ed3873d791ac393">VL53L1X_Version_t::minor</a></div><div class="ttdeci">uint8_t minor</div><div class="ttdef"><b>Definition</b> VL53L1X_api.h:83</div></div>
+<div class="ttc" id="avl53l1__platform_8h_html"><div class="ttname"><a href="vl53l1__platform_8h.html">vl53l1_platform.h</a></div><div class="ttdoc">Those platform functions are platform dependent and have to be implemented by the user.</div></div>
+<div class="ttc" id="az__vl53l1x__test_8c_html_a750af56cecd795f4492807bf7b8d2264"><div class="ttname"><a href="z__vl53l1x__test_8c.html#a750af56cecd795f4492807bf7b8d2264">DistanceMode</a></div><div class="ttdeci">uint16_t DistanceMode</div><div class="ttdef"><b>Definition</b> z_vl53l1x_test.c:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3f518afa9cd3fb3827c2fc92cfe15e71.html">Core</a></li><li class="navelem"><a class="el" href="dir_f7d10ae75845e774f47e10771cb12ced.html">Inc</a></li><li class="navelem"><a class="el" href="_v_l53_l1_x__api_8h.html">VL53L1X_api.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

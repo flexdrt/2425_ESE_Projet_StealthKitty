@@ -1,0 +1,46 @@
+\doxysubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsection{FPU Functions}
+\hypertarget{group___c_m_s_i_s___core___fpu_functions}{}\label{group___c_m_s_i_s___core___fpu_functions}\index{FPU Functions@{FPU Functions}}
+
+
+Function that provides FPU type.  
+
+
+\doxysubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsection*{Topics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___core___s_a_u_functions}{SAU Functions}}
+\begin{DoxyCompactList}\small\item\em Functions that configure the SAU. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions}{Cache Functions}}
+\begin{DoxyCompactList}\small\item\em Functions that configure Instruction and Data cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga6bcad99ce80a0e7e4ddc6f2379081756}{SCB\+\_\+\+Get\+FPUType}} (void)
+\begin{DoxyCompactList}\small\item\em get FPU type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsection{Description détaillée}
+Function that provides FPU type. 
+
+
+
+\doxysubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsection{Documentation des fonctions}
+\Hypertarget{group___c_m_s_i_s___core___n_v_i_c_functions_ga6bcad99ce80a0e7e4ddc6f2379081756}\index{FPU Functions@{FPU Functions}!SCB\_GetFPUType@{SCB\_GetFPUType}}
+\index{SCB\_GetFPUType@{SCB\_GetFPUType}!FPU Functions@{FPU Functions}}
+\doxysubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsubsection{\texorpdfstring{SCB\_GetFPUType()}{SCB\_GetFPUType()}}
+{\footnotesize\ttfamily \label{group___c_m_s_i_s___core___n_v_i_c_functions_ga6bcad99ce80a0e7e4ddc6f2379081756} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t SCB\+\_\+\+Get\+FPUType (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+get FPU type 
+
+returns the FPU type \begin{DoxyReturn}{Renvoie}
+
+\begin{DoxyItemize}
+\item {\bfseries{0}}\+: No FPU
+\item {\bfseries{1}}\+: Single precision FPU
+\item {\bfseries{2}}\+: Double + Single precision FPU 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\input{group___c_m_s_i_s___core___s_a_u_functions}
+\input{group___c_m_s_i_s___core___cache_functions}

@@ -1,0 +1,77 @@
+\doxysection{Référence de la structure Stream\+Buffer\+Def\+\_\+t}
+\hypertarget{struct_stream_buffer_def__t}{}\label{struct_stream_buffer_def__t}\index{StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a6eedf625958216bba9136d98dcfed196}{x\+Tail}}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a003e281d830468b1faabf4ba820f5ad0}{x\+Head}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a1ba6056c7e598ac40b4542c3b1614315}{x\+Length}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_a9cc97a6ea4374a84aa4d1453459ffce4}{x\+Trigger\+Level\+Bytes}}
+\item 
+volatile \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{struct_stream_buffer_def__t_aae9dce0a57e217492d5511b8f728d165}{x\+Task\+Waiting\+To\+Receive}}
+\item 
+volatile \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{struct_stream_buffer_def__t_adcac505e0e57d53096673aae517ba651}{x\+Task\+Waiting\+To\+Send}}
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_stream_buffer_def__t_aa8c28e51282198825d5ad0c2d666623a}{puc\+Buffer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_stream_buffer_def__t_ab8f6da769d17b9653e9a6d879e875e9b}{uc\+Flags}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct_stream_buffer_def__t_aa8c28e51282198825d5ad0c2d666623a}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!pucBuffer@{pucBuffer}}
+\index{pucBuffer@{pucBuffer}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{pucBuffer}{pucBuffer}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_aa8c28e51282198825d5ad0c2d666623a} 
+uint8\+\_\+t\texorpdfstring{$\ast$}{*} puc\+Buffer}
+
+\Hypertarget{struct_stream_buffer_def__t_ab8f6da769d17b9653e9a6d879e875e9b}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!ucFlags@{ucFlags}}
+\index{ucFlags@{ucFlags}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{ucFlags}{ucFlags}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_ab8f6da769d17b9653e9a6d879e875e9b} 
+uint8\+\_\+t uc\+Flags}
+
+\Hypertarget{struct_stream_buffer_def__t_a003e281d830468b1faabf4ba820f5ad0}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xHead@{xHead}}
+\index{xHead@{xHead}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xHead}{xHead}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_a003e281d830468b1faabf4ba820f5ad0} 
+volatile size\+\_\+t x\+Head}
+
+\Hypertarget{struct_stream_buffer_def__t_a1ba6056c7e598ac40b4542c3b1614315}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xLength@{xLength}}
+\index{xLength@{xLength}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xLength}{xLength}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_a1ba6056c7e598ac40b4542c3b1614315} 
+size\+\_\+t x\+Length}
+
+\Hypertarget{struct_stream_buffer_def__t_a6eedf625958216bba9136d98dcfed196}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTail@{xTail}}
+\index{xTail@{xTail}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTail}{xTail}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_a6eedf625958216bba9136d98dcfed196} 
+volatile size\+\_\+t x\+Tail}
+
+\Hypertarget{struct_stream_buffer_def__t_aae9dce0a57e217492d5511b8f728d165}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTaskWaitingToReceive@{xTaskWaitingToReceive}}
+\index{xTaskWaitingToReceive@{xTaskWaitingToReceive}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTaskWaitingToReceive}{xTaskWaitingToReceive}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_aae9dce0a57e217492d5511b8f728d165} 
+volatile \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+Waiting\+To\+Receive}
+
+\Hypertarget{struct_stream_buffer_def__t_adcac505e0e57d53096673aae517ba651}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTaskWaitingToSend@{xTaskWaitingToSend}}
+\index{xTaskWaitingToSend@{xTaskWaitingToSend}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTaskWaitingToSend}{xTaskWaitingToSend}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_adcac505e0e57d53096673aae517ba651} 
+volatile \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+Waiting\+To\+Send}
+
+\Hypertarget{struct_stream_buffer_def__t_a9cc97a6ea4374a84aa4d1453459ffce4}\index{StreamBufferDef\_t@{StreamBufferDef\_t}!xTriggerLevelBytes@{xTriggerLevelBytes}}
+\index{xTriggerLevelBytes@{xTriggerLevelBytes}!StreamBufferDef\_t@{StreamBufferDef\_t}}
+\doxysubsubsection{\texorpdfstring{xTriggerLevelBytes}{xTriggerLevelBytes}}
+{\footnotesize\ttfamily \label{struct_stream_buffer_def__t_a9cc97a6ea4374a84aa4d1453459ffce4} 
+size\+\_\+t x\+Trigger\+Level\+Bytes}
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stream__buffer_8c}{stream\+\_\+buffer.\+c}}\end{DoxyCompactItemize}

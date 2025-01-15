@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: Référence du fichier vl53l1_platform.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('vl53l1__platform_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier vl53l1_platform.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Those platform functions are platform dependent and have to be implemented by the user.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="z__vl53l1x__test_8h_source.html">z_vl53l1x_test.h</a>&quot;</code><br />
+</div>
+<p><a href="vl53l1__platform_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_v_l53_l1___dev__t.html">VL53L1_Dev_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1fc14c5cd97f30273556cc41cbd5048f" id="r_a1fc14c5cd97f30273556cc41cbd5048f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc14c5cd97f30273556cc41cbd5048f">_VL53L1_PLATFORM_H_</a></td></tr>
+<tr class="separator:a1fc14c5cd97f30273556cc41cbd5048f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9723ff3585c025c2f284348347906fec" id="r_a9723ff3585c025c2f284348347906fec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9723ff3585c025c2f284348347906fec">TOF_PORT</a>&#160;&#160;&#160;<a class="el" href="i2c_8h.html#af7b2c26e44dadaaa798a5c3d82914ba7">hi2c1</a></td></tr>
+<tr class="separator:a9723ff3585c025c2f284348347906fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeecc845b25d51da51126770a0663a2fa" id="r_aeecc845b25d51da51126770a0663a2fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeecc845b25d51da51126770a0663a2fa">TOF_ADDR</a>&#160;&#160;&#160;0x52</td></tr>
+<tr class="separator:aeecc845b25d51da51126770a0663a2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4fdcb5c3fc3d125497e417ff23e5f6" id="r_abe4fdcb5c3fc3d125497e417ff23e5f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe4fdcb5c3fc3d125497e417ff23e5f6">VL53L1__DISTANCE_MODE</a>&#160;&#160;&#160;(2)</td></tr>
+<tr class="separator:abe4fdcb5c3fc3d125497e417ff23e5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9185a399bbb7fe5fe82192611a310da7" id="r_a9185a399bbb7fe5fe82192611a310da7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9185a399bbb7fe5fe82192611a310da7">VL53L1__TIMING_BUDGET</a>&#160;&#160;&#160;(20)</td></tr>
+<tr class="separator:a9185a399bbb7fe5fe82192611a310da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8087595959b13f9e19b559306d5f9152" id="r_a8087595959b13f9e19b559306d5f9152"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8087595959b13f9e19b559306d5f9152">VL53L1__TB_IM_DELTA</a>&#160;&#160;&#160;(5)</td></tr>
+<tr class="separator:a8087595959b13f9e19b559306d5f9152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4779aec7ca01845a63ba2e5f7205385" id="r_ad4779aec7ca01845a63ba2e5f7205385"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4779aec7ca01845a63ba2e5f7205385">VL53L1__INTERMEASUREMENT</a>&#160;&#160;&#160;(<a class="el" href="#a9185a399bbb7fe5fe82192611a310da7">VL53L1__TIMING_BUDGET</a> + <a class="el" href="#a8087595959b13f9e19b559306d5f9152">VL53L1__TB_IM_DELTA</a>)</td></tr>
+<tr class="separator:ad4779aec7ca01845a63ba2e5f7205385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ae311c8b07cb3e7925fb4e7111e1ee" id="r_a22ae311c8b07cb3e7925fb4e7111e1ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22ae311c8b07cb3e7925fb4e7111e1ee">VL53L1__WINDOW_MODE</a>&#160;&#160;&#160;(1)</td></tr>
+<tr class="separator:a22ae311c8b07cb3e7925fb4e7111e1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a861f2f5c881e7e77aa1e16c3b7e55" id="r_a58a861f2f5c881e7e77aa1e16c3b7e55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58a861f2f5c881e7e77aa1e16c3b7e55">VL53L1__LOWER_THRESHOLD</a>&#160;&#160;&#160;(5000)</td></tr>
+<tr class="separator:a58a861f2f5c881e7e77aa1e16c3b7e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a6dc0ddcc99cda078bac816719c883" id="r_af6a6dc0ddcc99cda078bac816719c883"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6a6dc0ddcc99cda078bac816719c883">VL53L1__UPPER_THRESHOLD</a>&#160;&#160;&#160;(5000)</td></tr>
+<tr class="separator:af6a6dc0ddcc99cda078bac816719c883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed0db200f0c6f5bffacc9c6b672944f" id="r_aaed0db200f0c6f5bffacc9c6b672944f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaed0db200f0c6f5bffacc9c6b672944f">VL53L1__CALIB_OFFSET</a>&#160;&#160;&#160;(-25)</td></tr>
+<tr class="separator:aaed0db200f0c6f5bffacc9c6b672944f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe26f0ab0681c38511b7e380669e37d" id="r_affe26f0ab0681c38511b7e380669e37d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affe26f0ab0681c38511b7e380669e37d">VL53L1__CALIB_XTALK</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="separator:affe26f0ab0681c38511b7e380669e37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3af9375fde80da7ffdb442108b503b8e" id="r_a3af9375fde80da7ffdb442108b503b8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3af9375fde80da7ffdb442108b503b8e">RANGE_STATUS_THREEESH</a>&#160;&#160;&#160;(2)</td></tr>
+<tr class="separator:a3af9375fde80da7ffdb442108b503b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1cada306739759228091661d752ca9" id="r_abd1cada306739759228091661d752ca9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd1cada306739759228091661d752ca9">VL53L1__MODELID_INDEX</a>&#160;&#160;&#160;0x010F</td></tr>
+<tr class="separator:abd1cada306739759228091661d752ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62cfdb7a19dde1d4be6e855ef52a155c" id="r_a62cfdb7a19dde1d4be6e855ef52a155c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62cfdb7a19dde1d4be6e855ef52a155c">VL53L1__MODELID_VALUE</a>&#160;&#160;&#160;0xEA</td></tr>
+<tr class="separator:a62cfdb7a19dde1d4be6e855ef52a155c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68cf7627091daa1def60ea2004810e06" id="r_a68cf7627091daa1def60ea2004810e06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68cf7627091daa1def60ea2004810e06">VL53L1__MODULETYPE_INDEX</a>&#160;&#160;&#160;0x0110</td></tr>
+<tr class="separator:a68cf7627091daa1def60ea2004810e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c7c75e70a31b96f713e978b9a919a6" id="r_a01c7c75e70a31b96f713e978b9a919a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01c7c75e70a31b96f713e978b9a919a6">VL53L1__MODULETYPE_VALUE</a>&#160;&#160;&#160;0xCC</td></tr>
+<tr class="separator:a01c7c75e70a31b96f713e978b9a919a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9e021f7186b67f7a865c87a4d2f243" id="r_abb9e021f7186b67f7a865c87a4d2f243"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb9e021f7186b67f7a865c87a4d2f243">VL53L1__MASKREV_INDEX</a>&#160;&#160;&#160;0x0111</td></tr>
+<tr class="separator:abb9e021f7186b67f7a865c87a4d2f243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf36b9701e53a739d3894058155f09e6" id="r_aaf36b9701e53a739d3894058155f09e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf36b9701e53a739d3894058155f09e6">VL53L1__MASKREV_VALUE</a>&#160;&#160;&#160;0x10</td></tr>
+<tr class="separator:aaf36b9701e53a739d3894058155f09e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbc3b7cd5eb7fd93e81059200fe15e5f" id="r_acbc3b7cd5eb7fd93e81059200fe15e5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbc3b7cd5eb7fd93e81059200fe15e5f">I2C_COMM_TIMEOUT</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:acbc3b7cd5eb7fd93e81059200fe15e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d6429627432f362865c0be5535f1bd" id="r_a14d6429627432f362865c0be5535f1bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14d6429627432f362865c0be5535f1bd">VL53L1__IO_ERROR</a>&#160;&#160;&#160;( - 13)</td></tr>
+<tr class="separator:a14d6429627432f362865c0be5535f1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:aff2180f6401addaf4701700ec4c1e9bb" id="r_aff2180f6401addaf4701700ec4c1e9bb"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_v_l53_l1___dev__t.html">VL53L1_Dev_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff2180f6401addaf4701700ec4c1e9bb">VL53L1_DEV</a></td></tr>
+<tr class="separator:aff2180f6401addaf4701700ec4c1e9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af1cfa8cfe2f246e3f9c7fc44ee53a374" id="r_af1cfa8cfe2f246e3f9c7fc44ee53a374"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1cfa8cfe2f246e3f9c7fc44ee53a374">VL53L1__Xshut</a> (uint8_t level)</td></tr>
+<tr class="separator:af1cfa8cfe2f246e3f9c7fc44ee53a374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5eedd9d810b6e6211499ae609e3bcb9" id="r_ac5eedd9d810b6e6211499ae609e3bcb9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5eedd9d810b6e6211499ae609e3bcb9">VL53L1__Init</a> ()</td></tr>
+<tr class="separator:ac5eedd9d810b6e6211499ae609e3bcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc59cf48568109349511f543e21b0fb" id="r_a9bc59cf48568109349511f543e21b0fb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bc59cf48568109349511f543e21b0fb">VL53L1__GetDistance</a> (uint8_t level)</td></tr>
+<tr class="separator:a9bc59cf48568109349511f543e21b0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a837e02c5d200d439935a5e9813572e2b" id="r_a837e02c5d200d439935a5e9813572e2b"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a837e02c5d200d439935a5e9813572e2b">VL53L1_WriteMulti</a> (uint16_t dev, uint16_t index, uint8_t *pdata, uint32_t count)</td></tr>
+<tr class="memdesc:a837e02c5d200d439935a5e9813572e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a837e02c5d200d439935a5e9813572e2b" title="VL53L1_WriteMulti() definition. To be implemented by the developer.">VL53L1_WriteMulti()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:a837e02c5d200d439935a5e9813572e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5005e5666c0dcfe32fa0ad97f6392e31" id="r_a5005e5666c0dcfe32fa0ad97f6392e31"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5005e5666c0dcfe32fa0ad97f6392e31">VL53L1_ReadMulti</a> (uint16_t dev, uint16_t index, uint8_t *pdata, uint32_t count)</td></tr>
+<tr class="memdesc:a5005e5666c0dcfe32fa0ad97f6392e31"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a5005e5666c0dcfe32fa0ad97f6392e31" title="VL53L1_ReadMulti() definition. To be implemented by the developer.">VL53L1_ReadMulti()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:a5005e5666c0dcfe32fa0ad97f6392e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff714533deebf1a54c3596b1681a8d3" id="r_a3ff714533deebf1a54c3596b1681a8d3"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ff714533deebf1a54c3596b1681a8d3">VL53L1_WrByte</a> (uint16_t dev, uint16_t index, uint8_t data)</td></tr>
+<tr class="memdesc:a3ff714533deebf1a54c3596b1681a8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a3ff714533deebf1a54c3596b1681a8d3" title="VL53L1_WrByte() definition. To be implemented by the developer.">VL53L1_WrByte()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:a3ff714533deebf1a54c3596b1681a8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79dafd64b8435d306696839614382ef1" id="r_a79dafd64b8435d306696839614382ef1"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79dafd64b8435d306696839614382ef1">VL53L1_WrWord</a> (uint16_t dev, uint16_t index, uint16_t data)</td></tr>
+<tr class="memdesc:a79dafd64b8435d306696839614382ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a79dafd64b8435d306696839614382ef1" title="VL53L1_WrWord() definition. To be implemented by the developer.">VL53L1_WrWord()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:a79dafd64b8435d306696839614382ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2631e24821bb8d6ae0ef58fc060888e6" id="r_a2631e24821bb8d6ae0ef58fc060888e6"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2631e24821bb8d6ae0ef58fc060888e6">VL53L1_WrDWord</a> (uint16_t dev, uint16_t index, uint32_t data)</td></tr>
+<tr class="memdesc:a2631e24821bb8d6ae0ef58fc060888e6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a2631e24821bb8d6ae0ef58fc060888e6" title="VL53L1_WrDWord() definition. To be implemented by the developer.">VL53L1_WrDWord()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:a2631e24821bb8d6ae0ef58fc060888e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37b75e3f2ac3a44abd5b600870c5888b" id="r_a37b75e3f2ac3a44abd5b600870c5888b"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37b75e3f2ac3a44abd5b600870c5888b">VL53L1_RdByte</a> (uint16_t dev, uint16_t index, uint8_t *pdata)</td></tr>
+<tr class="memdesc:a37b75e3f2ac3a44abd5b600870c5888b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a37b75e3f2ac3a44abd5b600870c5888b" title="VL53L1_RdByte() definition. To be implemented by the developer.">VL53L1_RdByte()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:a37b75e3f2ac3a44abd5b600870c5888b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec99246aff36aec732a2451479d39da3" id="r_aec99246aff36aec732a2451479d39da3"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec99246aff36aec732a2451479d39da3">VL53L1_RdWord</a> (uint16_t dev, uint16_t index, uint16_t *pdata)</td></tr>
+<tr class="memdesc:aec99246aff36aec732a2451479d39da3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#aec99246aff36aec732a2451479d39da3" title="VL53L1_RdWord() definition. To be implemented by the developer.">VL53L1_RdWord()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:aec99246aff36aec732a2451479d39da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add08bef8b78e81a212a80da93c3d0a05" id="r_add08bef8b78e81a212a80da93c3d0a05"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add08bef8b78e81a212a80da93c3d0a05">VL53L1_RdDWord</a> (uint16_t dev, uint16_t index, uint32_t *pdata)</td></tr>
+<tr class="memdesc:add08bef8b78e81a212a80da93c3d0a05"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#add08bef8b78e81a212a80da93c3d0a05" title="VL53L1_RdDWord() definition. To be implemented by the developer.">VL53L1_RdDWord()</a> definition.<br  />
+To be implemented by the developer.  <br /></td></tr>
+<tr class="separator:add08bef8b78e81a212a80da93c3d0a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Those platform functions are platform dependent and have to be implemented by the user. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a1fc14c5cd97f30273556cc41cbd5048f" name="a1fc14c5cd97f30273556cc41cbd5048f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc14c5cd97f30273556cc41cbd5048f">&#9670;&#160;</a></span>_VL53L1_PLATFORM_H_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _VL53L1_PLATFORM_H_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbc3b7cd5eb7fd93e81059200fe15e5f" name="acbc3b7cd5eb7fd93e81059200fe15e5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbc3b7cd5eb7fd93e81059200fe15e5f">&#9670;&#160;</a></span>I2C_COMM_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_COMM_TIMEOUT&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3af9375fde80da7ffdb442108b503b8e" name="a3af9375fde80da7ffdb442108b503b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3af9375fde80da7ffdb442108b503b8e">&#9670;&#160;</a></span>RANGE_STATUS_THREEESH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RANGE_STATUS_THREEESH&#160;&#160;&#160;(2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeecc845b25d51da51126770a0663a2fa" name="aeecc845b25d51da51126770a0663a2fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeecc845b25d51da51126770a0663a2fa">&#9670;&#160;</a></span>TOF_ADDR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOF_ADDR&#160;&#160;&#160;0x52</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9723ff3585c025c2f284348347906fec" name="a9723ff3585c025c2f284348347906fec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9723ff3585c025c2f284348347906fec">&#9670;&#160;</a></span>TOF_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOF_PORT&#160;&#160;&#160;<a class="el" href="i2c_8h.html#af7b2c26e44dadaaa798a5c3d82914ba7">hi2c1</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaed0db200f0c6f5bffacc9c6b672944f" name="aaed0db200f0c6f5bffacc9c6b672944f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed0db200f0c6f5bffacc9c6b672944f">&#9670;&#160;</a></span>VL53L1__CALIB_OFFSET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__CALIB_OFFSET&#160;&#160;&#160;(-25)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affe26f0ab0681c38511b7e380669e37d" name="affe26f0ab0681c38511b7e380669e37d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe26f0ab0681c38511b7e380669e37d">&#9670;&#160;</a></span>VL53L1__CALIB_XTALK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__CALIB_XTALK&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe4fdcb5c3fc3d125497e417ff23e5f6" name="abe4fdcb5c3fc3d125497e417ff23e5f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4fdcb5c3fc3d125497e417ff23e5f6">&#9670;&#160;</a></span>VL53L1__DISTANCE_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__DISTANCE_MODE&#160;&#160;&#160;(2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4779aec7ca01845a63ba2e5f7205385" name="ad4779aec7ca01845a63ba2e5f7205385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4779aec7ca01845a63ba2e5f7205385">&#9670;&#160;</a></span>VL53L1__INTERMEASUREMENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__INTERMEASUREMENT&#160;&#160;&#160;(<a class="el" href="#a9185a399bbb7fe5fe82192611a310da7">VL53L1__TIMING_BUDGET</a> + <a class="el" href="#a8087595959b13f9e19b559306d5f9152">VL53L1__TB_IM_DELTA</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14d6429627432f362865c0be5535f1bd" name="a14d6429627432f362865c0be5535f1bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d6429627432f362865c0be5535f1bd">&#9670;&#160;</a></span>VL53L1__IO_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__IO_ERROR&#160;&#160;&#160;( - 13)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>error reported from IO functions </p>
+
+</div>
+</div>
+<a id="a58a861f2f5c881e7e77aa1e16c3b7e55" name="a58a861f2f5c881e7e77aa1e16c3b7e55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a861f2f5c881e7e77aa1e16c3b7e55">&#9670;&#160;</a></span>VL53L1__LOWER_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__LOWER_THRESHOLD&#160;&#160;&#160;(5000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb9e021f7186b67f7a865c87a4d2f243" name="abb9e021f7186b67f7a865c87a4d2f243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb9e021f7186b67f7a865c87a4d2f243">&#9670;&#160;</a></span>VL53L1__MASKREV_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__MASKREV_INDEX&#160;&#160;&#160;0x0111</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf36b9701e53a739d3894058155f09e6" name="aaf36b9701e53a739d3894058155f09e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf36b9701e53a739d3894058155f09e6">&#9670;&#160;</a></span>VL53L1__MASKREV_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__MASKREV_VALUE&#160;&#160;&#160;0x10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd1cada306739759228091661d752ca9" name="abd1cada306739759228091661d752ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1cada306739759228091661d752ca9">&#9670;&#160;</a></span>VL53L1__MODELID_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__MODELID_INDEX&#160;&#160;&#160;0x010F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62cfdb7a19dde1d4be6e855ef52a155c" name="a62cfdb7a19dde1d4be6e855ef52a155c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62cfdb7a19dde1d4be6e855ef52a155c">&#9670;&#160;</a></span>VL53L1__MODELID_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__MODELID_VALUE&#160;&#160;&#160;0xEA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68cf7627091daa1def60ea2004810e06" name="a68cf7627091daa1def60ea2004810e06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68cf7627091daa1def60ea2004810e06">&#9670;&#160;</a></span>VL53L1__MODULETYPE_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__MODULETYPE_INDEX&#160;&#160;&#160;0x0110</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01c7c75e70a31b96f713e978b9a919a6" name="a01c7c75e70a31b96f713e978b9a919a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c7c75e70a31b96f713e978b9a919a6">&#9670;&#160;</a></span>VL53L1__MODULETYPE_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__MODULETYPE_VALUE&#160;&#160;&#160;0xCC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8087595959b13f9e19b559306d5f9152" name="a8087595959b13f9e19b559306d5f9152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8087595959b13f9e19b559306d5f9152">&#9670;&#160;</a></span>VL53L1__TB_IM_DELTA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__TB_IM_DELTA&#160;&#160;&#160;(5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9185a399bbb7fe5fe82192611a310da7" name="a9185a399bbb7fe5fe82192611a310da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9185a399bbb7fe5fe82192611a310da7">&#9670;&#160;</a></span>VL53L1__TIMING_BUDGET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__TIMING_BUDGET&#160;&#160;&#160;(20)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6a6dc0ddcc99cda078bac816719c883" name="af6a6dc0ddcc99cda078bac816719c883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a6dc0ddcc99cda078bac816719c883">&#9670;&#160;</a></span>VL53L1__UPPER_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__UPPER_THRESHOLD&#160;&#160;&#160;(5000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22ae311c8b07cb3e7925fb4e7111e1ee" name="a22ae311c8b07cb3e7925fb4e7111e1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ae311c8b07cb3e7925fb4e7111e1ee">&#9670;&#160;</a></span>VL53L1__WINDOW_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VL53L1__WINDOW_MODE&#160;&#160;&#160;(1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="aff2180f6401addaf4701700ec4c1e9bb" name="aff2180f6401addaf4701700ec4c1e9bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff2180f6401addaf4701700ec4c1e9bb">&#9670;&#160;</a></span>VL53L1_DEV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="struct_v_l53_l1___dev__t.html">VL53L1_Dev_t</a>* <a class="el" href="#aff2180f6401addaf4701700ec4c1e9bb">VL53L1_DEV</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a9bc59cf48568109349511f543e21b0fb" name="a9bc59cf48568109349511f543e21b0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc59cf48568109349511f543e21b0fb">&#9670;&#160;</a></span>VL53L1__GetDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t VL53L1__GetDistance </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5eedd9d810b6e6211499ae609e3bcb9" name="ac5eedd9d810b6e6211499ae609e3bcb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5eedd9d810b6e6211499ae609e3bcb9">&#9670;&#160;</a></span>VL53L1__Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t VL53L1__Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1cfa8cfe2f246e3f9c7fc44ee53a374" name="af1cfa8cfe2f246e3f9c7fc44ee53a374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1cfa8cfe2f246e3f9c7fc44ee53a374">&#9670;&#160;</a></span>VL53L1__Xshut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t VL53L1__Xshut </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37b75e3f2ac3a44abd5b600870c5888b" name="a37b75e3f2ac3a44abd5b600870c5888b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b75e3f2ac3a44abd5b600870c5888b">&#9670;&#160;</a></span>VL53L1_RdByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_RdByte </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>pdata</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a37b75e3f2ac3a44abd5b600870c5888b" title="VL53L1_RdByte() definition. To be implemented by the developer.">VL53L1_RdByte()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="add08bef8b78e81a212a80da93c3d0a05" name="add08bef8b78e81a212a80da93c3d0a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add08bef8b78e81a212a80da93c3d0a05">&#9670;&#160;</a></span>VL53L1_RdDWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_RdDWord </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>pdata</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#add08bef8b78e81a212a80da93c3d0a05" title="VL53L1_RdDWord() definition. To be implemented by the developer.">VL53L1_RdDWord()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="aec99246aff36aec732a2451479d39da3" name="aec99246aff36aec732a2451479d39da3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec99246aff36aec732a2451479d39da3">&#9670;&#160;</a></span>VL53L1_RdWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_RdWord </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>pdata</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#aec99246aff36aec732a2451479d39da3" title="VL53L1_RdWord() definition. To be implemented by the developer.">VL53L1_RdWord()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="a5005e5666c0dcfe32fa0ad97f6392e31" name="a5005e5666c0dcfe32fa0ad97f6392e31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5005e5666c0dcfe32fa0ad97f6392e31">&#9670;&#160;</a></span>VL53L1_ReadMulti()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_ReadMulti </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>pdata</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a5005e5666c0dcfe32fa0ad97f6392e31" title="VL53L1_ReadMulti() definition. To be implemented by the developer.">VL53L1_ReadMulti()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="a3ff714533deebf1a54c3596b1681a8d3" name="a3ff714533deebf1a54c3596b1681a8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff714533deebf1a54c3596b1681a8d3">&#9670;&#160;</a></span>VL53L1_WrByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_WrByte </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a3ff714533deebf1a54c3596b1681a8d3" title="VL53L1_WrByte() definition. To be implemented by the developer.">VL53L1_WrByte()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="a2631e24821bb8d6ae0ef58fc060888e6" name="a2631e24821bb8d6ae0ef58fc060888e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2631e24821bb8d6ae0ef58fc060888e6">&#9670;&#160;</a></span>VL53L1_WrDWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_WrDWord </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a2631e24821bb8d6ae0ef58fc060888e6" title="VL53L1_WrDWord() definition. To be implemented by the developer.">VL53L1_WrDWord()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="a837e02c5d200d439935a5e9813572e2b" name="a837e02c5d200d439935a5e9813572e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837e02c5d200d439935a5e9813572e2b">&#9670;&#160;</a></span>VL53L1_WriteMulti()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_WriteMulti </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>pdata</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a837e02c5d200d439935a5e9813572e2b" title="VL53L1_WriteMulti() definition. To be implemented by the developer.">VL53L1_WriteMulti()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+<a id="a79dafd64b8435d306696839614382ef1" name="a79dafd64b8435d306696839614382ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79dafd64b8435d306696839614382ef1">&#9670;&#160;</a></span>VL53L1_WrWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t VL53L1_WrWord </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a79dafd64b8435d306696839614382ef1" title="VL53L1_WrWord() definition. To be implemented by the developer.">VL53L1_WrWord()</a> definition.<br  />
+To be implemented by the developer. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4a641c0132b02eb79ff10d90744dd816.html">Code_Robot0.2</a></li><li class="navelem"><a class="el" href="dir_3f518afa9cd3fb3827c2fc92cfe15e71.html">Core</a></li><li class="navelem"><a class="el" href="dir_f7d10ae75845e774f47e10771cb12ced.html">Inc</a></li><li class="navelem"><a class="el" href="vl53l1__platform_8h.html">vl53l1_platform.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

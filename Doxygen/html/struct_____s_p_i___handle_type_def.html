@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>StealthKitty: Référence de la structure __SPI_HandleTypeDef</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">StealthKitty<span id="projectnumber">&#160;6.0</span>
+   </div>
+   <div id="projectbrief">Projet de Robotique en 3A ESE à l&#39;ENSEA</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('struct_____s_p_i___handle_type_def.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Champs de données</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la structure __SPI_HandleTypeDef<div class="ingroups"><a class="el" href="group___s_t_m32_g4xx___h_a_l___driver.html">STM32G4xx_HAL_Driver</a> &raquo; <a class="el" href="group___s_p_i.html">SPI</a> &raquo; <a class="el" href="group___s_p_i___exported___types.html">SPI Exported Types</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>SPI handle Structure definition.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="stm32g4xx__hal__spi_8h_source.html">stm32g4xx_hal_spi.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Champs de données</h2></td></tr>
+<tr class="memitem:aa5c715deaf693cc2dbfa90f40681ee1d" id="r_aa5c715deaf693cc2dbfa90f40681ee1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_s_p_i___type_def.html">SPI_TypeDef</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5c715deaf693cc2dbfa90f40681ee1d">Instance</a></td></tr>
+<tr class="separator:aa5c715deaf693cc2dbfa90f40681ee1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f0dc84acb181a4702b30c92f007ca6" id="r_a33f0dc84acb181a4702b30c92f007ca6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_s_p_i___init_type_def.html">SPI_InitTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33f0dc84acb181a4702b30c92f007ca6">Init</a></td></tr>
+<tr class="separator:a33f0dc84acb181a4702b30c92f007ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56746f60fbacd516e52e344de94f8195" id="r_a56746f60fbacd516e52e344de94f8195"><td class="memItemLeft" align="right" valign="top">const uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56746f60fbacd516e52e344de94f8195">pTxBuffPtr</a></td></tr>
+<tr class="separator:a56746f60fbacd516e52e344de94f8195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80907b65d6f9541bc0dee444d16bc45b" id="r_a80907b65d6f9541bc0dee444d16bc45b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80907b65d6f9541bc0dee444d16bc45b">TxXferSize</a></td></tr>
+<tr class="separator:a80907b65d6f9541bc0dee444d16bc45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1823437fbed80bdd1510782ced4e5532" id="r_a1823437fbed80bdd1510782ced4e5532"><td class="memItemLeft" align="right" valign="top"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1823437fbed80bdd1510782ced4e5532">TxXferCount</a></td></tr>
+<tr class="separator:a1823437fbed80bdd1510782ced4e5532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cee540cb21048ac48ba17355440e668" id="r_a7cee540cb21048ac48ba17355440e668"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cee540cb21048ac48ba17355440e668">pRxBuffPtr</a></td></tr>
+<tr class="separator:a7cee540cb21048ac48ba17355440e668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12f5f1f6295b3c3327d5feabf5a96fb" id="r_ac12f5f1f6295b3c3327d5feabf5a96fb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac12f5f1f6295b3c3327d5feabf5a96fb">RxXferSize</a></td></tr>
+<tr class="separator:ac12f5f1f6295b3c3327d5feabf5a96fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad95a26d6b12b7087bba3d1b769175db2" id="r_ad95a26d6b12b7087bba3d1b769175db2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad95a26d6b12b7087bba3d1b769175db2">RxXferCount</a></td></tr>
+<tr class="separator:ad95a26d6b12b7087bba3d1b769175db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a752c564d700e8da6d94c705629d204aa" id="r_a752c564d700e8da6d94c705629d204aa"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a752c564d700e8da6d94c705629d204aa">CRCSize</a></td></tr>
+<tr class="separator:a752c564d700e8da6d94c705629d204aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae69a57c50a44075680eb48ba13e41bf3" id="r_ae69a57c50a44075680eb48ba13e41bf3"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae69a57c50a44075680eb48ba13e41bf3">RxISR</a> )(struct <a class="el" href="struct_____s_p_i___handle_type_def.html">__SPI_HandleTypeDef</a> *hspi)</td></tr>
+<tr class="separator:ae69a57c50a44075680eb48ba13e41bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445355c8080382b2d33c690e1790585f" id="r_a445355c8080382b2d33c690e1790585f"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a445355c8080382b2d33c690e1790585f">TxISR</a> )(struct <a class="el" href="struct_____s_p_i___handle_type_def.html">__SPI_HandleTypeDef</a> *hspi)</td></tr>
+<tr class="separator:a445355c8080382b2d33c690e1790585f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e13c28b1a70e6164417abb026d7a22" id="r_a33e13c28b1a70e6164417abb026d7a22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_a___exported___types.html#ga41b754a906b86bce54dc79938970138b">DMA_HandleTypeDef</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e13c28b1a70e6164417abb026d7a22">hdmatx</a></td></tr>
+<tr class="separator:a33e13c28b1a70e6164417abb026d7a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd0aeec20298a55d89a440320e35634f" id="r_abd0aeec20298a55d89a440320e35634f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_a___exported___types.html#ga41b754a906b86bce54dc79938970138b">DMA_HandleTypeDef</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd0aeec20298a55d89a440320e35634f">hdmarx</a></td></tr>
+<tr class="separator:abd0aeec20298a55d89a440320e35634f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cf225029dbefe8d3fe660c33b8bb6b" id="r_ad4cf225029dbefe8d3fe660c33b8bb6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stm32g4xx__hal__def_8h.html#ab367482e943333a1299294eadaad284b">HAL_LockTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4cf225029dbefe8d3fe660c33b8bb6b">Lock</a></td></tr>
+<tr class="separator:ad4cf225029dbefe8d3fe660c33b8bb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac77adb7330099a917af1e9021cbb3de1" id="r_ac77adb7330099a917af1e9021cbb3de1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> <a class="el" href="group___s_p_i___exported___types.html#ga8891cb64e76198a860172d94c638c9b4">HAL_SPI_StateTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac77adb7330099a917af1e9021cbb3de1">State</a></td></tr>
+<tr class="separator:ac77adb7330099a917af1e9021cbb3de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123c5063e6a3b1901b2fbe5f88c53a7e" id="r_a123c5063e6a3b1901b2fbe5f88c53a7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a123c5063e6a3b1901b2fbe5f88c53a7e">ErrorCode</a></td></tr>
+<tr class="separator:a123c5063e6a3b1901b2fbe5f88c53a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>SPI handle Structure definition. </p>
+</div><h2 class="groupheader">Documentation des champs</h2>
+<a id="a752c564d700e8da6d94c705629d204aa" name="a752c564d700e8da6d94c705629d204aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a752c564d700e8da6d94c705629d204aa">&#9670;&#160;</a></span>CRCSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t CRCSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI CRC size used for the transfer </p>
+
+</div>
+</div>
+<a id="a123c5063e6a3b1901b2fbe5f88c53a7e" name="a123c5063e6a3b1901b2fbe5f88c53a7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123c5063e6a3b1901b2fbe5f88c53a7e">&#9670;&#160;</a></span>ErrorCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> uint32_t ErrorCode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Error code </p>
+
+</div>
+</div>
+<a id="abd0aeec20298a55d89a440320e35634f" name="abd0aeec20298a55d89a440320e35634f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd0aeec20298a55d89a440320e35634f">&#9670;&#160;</a></span>hdmarx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___d_m_a___exported___types.html#ga41b754a906b86bce54dc79938970138b">DMA_HandleTypeDef</a>* hdmarx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Rx DMA Handle parameters </p>
+
+</div>
+</div>
+<a id="a33e13c28b1a70e6164417abb026d7a22" name="a33e13c28b1a70e6164417abb026d7a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e13c28b1a70e6164417abb026d7a22">&#9670;&#160;</a></span>hdmatx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___d_m_a___exported___types.html#ga41b754a906b86bce54dc79938970138b">DMA_HandleTypeDef</a>* hdmatx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Tx DMA Handle parameters </p>
+
+</div>
+</div>
+<a id="a33f0dc84acb181a4702b30c92f007ca6" name="a33f0dc84acb181a4702b30c92f007ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f0dc84acb181a4702b30c92f007ca6">&#9670;&#160;</a></span>Init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_s_p_i___init_type_def.html">SPI_InitTypeDef</a> Init</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI communication parameters </p>
+
+</div>
+</div>
+<a id="aa5c715deaf693cc2dbfa90f40681ee1d" name="aa5c715deaf693cc2dbfa90f40681ee1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c715deaf693cc2dbfa90f40681ee1d">&#9670;&#160;</a></span>Instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_s_p_i___type_def.html">SPI_TypeDef</a>* Instance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI registers base address </p>
+
+</div>
+</div>
+<a id="ad4cf225029dbefe8d3fe660c33b8bb6b" name="ad4cf225029dbefe8d3fe660c33b8bb6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cf225029dbefe8d3fe660c33b8bb6b">&#9670;&#160;</a></span>Lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stm32g4xx__hal__def_8h.html#ab367482e943333a1299294eadaad284b">HAL_LockTypeDef</a> Lock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Locking object </p>
+
+</div>
+</div>
+<a id="a7cee540cb21048ac48ba17355440e668" name="a7cee540cb21048ac48ba17355440e668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cee540cb21048ac48ba17355440e668">&#9670;&#160;</a></span>pRxBuffPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* pRxBuffPtr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to SPI Rx transfer Buffer </p>
+
+</div>
+</div>
+<a id="a56746f60fbacd516e52e344de94f8195" name="a56746f60fbacd516e52e344de94f8195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56746f60fbacd516e52e344de94f8195">&#9670;&#160;</a></span>pTxBuffPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t* pTxBuffPtr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to SPI Tx transfer Buffer </p>
+
+</div>
+</div>
+<a id="ae69a57c50a44075680eb48ba13e41bf3" name="ae69a57c50a44075680eb48ba13e41bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae69a57c50a44075680eb48ba13e41bf3">&#9670;&#160;</a></span>RxISR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* RxISR) (struct <a class="el" href="struct_____s_p_i___handle_type_def.html">__SPI_HandleTypeDef</a> *hspi)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>function pointer on Rx ISR </p>
+
+</div>
+</div>
+<a id="ad95a26d6b12b7087bba3d1b769175db2" name="ad95a26d6b12b7087bba3d1b769175db2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad95a26d6b12b7087bba3d1b769175db2">&#9670;&#160;</a></span>RxXferCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> uint16_t RxXferCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Rx Transfer Counter </p>
+
+</div>
+</div>
+<a id="ac12f5f1f6295b3c3327d5feabf5a96fb" name="ac12f5f1f6295b3c3327d5feabf5a96fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12f5f1f6295b3c3327d5feabf5a96fb">&#9670;&#160;</a></span>RxXferSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t RxXferSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Rx Transfer size </p>
+
+</div>
+</div>
+<a id="ac77adb7330099a917af1e9021cbb3de1" name="ac77adb7330099a917af1e9021cbb3de1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac77adb7330099a917af1e9021cbb3de1">&#9670;&#160;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> <a class="el" href="group___s_p_i___exported___types.html#ga8891cb64e76198a860172d94c638c9b4">HAL_SPI_StateTypeDef</a> State</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI communication state </p>
+
+</div>
+</div>
+<a id="a445355c8080382b2d33c690e1790585f" name="a445355c8080382b2d33c690e1790585f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445355c8080382b2d33c690e1790585f">&#9670;&#160;</a></span>TxISR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* TxISR) (struct <a class="el" href="struct_____s_p_i___handle_type_def.html">__SPI_HandleTypeDef</a> *hspi)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>function pointer on Tx ISR </p>
+
+</div>
+</div>
+<a id="a1823437fbed80bdd1510782ced4e5532" name="a1823437fbed80bdd1510782ced4e5532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1823437fbed80bdd1510782ced4e5532">&#9670;&#160;</a></span>TxXferCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="core__armv81mml_8h.html#aec43007d9998a0a0e01faede4133d6be">__IO</a> uint16_t TxXferCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Tx Transfer Counter </p>
+
+</div>
+</div>
+<a id="a80907b65d6f9541bc0dee444d16bc45b" name="a80907b65d6f9541bc0dee444d16bc45b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80907b65d6f9541bc0dee444d16bc45b">&#9670;&#160;</a></span>TxXferSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t TxXferSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI Tx Transfer size </p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li><a class="el" href="stm32g4xx__hal__spi_8h_source.html">stm32g4xx_hal_spi.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_____s_p_i___handle_type_def.html">__SPI_HandleTypeDef</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>
