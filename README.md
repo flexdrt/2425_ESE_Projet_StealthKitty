@@ -105,7 +105,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
 #  Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
 
 <details>
-<summary> Détail sur le schéma électronique </summary>
+<summary> Détail  sur l'utilisation de l'accéléromètre ADXL343 </summary>
 
 
 ## 🎯 Objectifs principaux
@@ -157,7 +157,7 @@ https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
 
 # Utilisation du capteur ToF VL53L1X pour détection des bords
 <details>
-<summary> Détail sur l'utilisation du capteur ToF VL53L1X pour détection des bords </summary>
+<summary> Détail sur l'utilisation du capteur ToF VL53L1X pour la détection des bords </summary>
 
 ## 🌟 Caractéristiques techniques
 
