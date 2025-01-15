@@ -64,7 +64,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
      - **BU33SD5WG-TR** : Régulateur 3.3V pour alimenter le microcontrôleur STM32G431, l'accéléromètre et le LiDAR.
 
 2. **🖥️ Microcontrôleur principal - STM32G431**
-   - Le **STM32G431** gère toute la logique du robot et communique avec les différents composants via des bus tels que SPI, UART, I2C et PWM.
+   - Le **STM32G431** gère toute la logique du robot et communique avec les différents composants via des bus tels que SPI, UART, I2C.
    - Il est relié à un **quartz 16 MHz** pour la gestion de l'horloge système et dispose d'un connecteur **SWD** pour la programmation et le débogage.
 
 3. **🔍 Capteurs**
