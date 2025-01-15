@@ -1110,7 +1110,7 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 - ✅ LED d'état batterie
 
 
-
+---
 
 
 ## 🏁 **Conclusion**  
