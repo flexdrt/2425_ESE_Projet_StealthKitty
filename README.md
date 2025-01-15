@@ -349,6 +349,194 @@ Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).
 
 ---
 
+# Utilisation du capteur ToF VL53L1X dans le robot
+
+## 🌟 Caractéristiques techniques
+
+- 📡 **Technologie :** ToF (Time of Flight)
+- 🕐 **Plage de mesure :** 4 mm à 4 m (en mode longue distance)
+- ⏳ **Budget temporel :** Configurable entre 15 ms et 500 ms
+  - 15 ms : mode court pour une réactivité accrue
+  - 500 ms : mode long pour une meilleure précision
+- 🔄 **Mode de distance :**
+  - Court (1,3 m max) : meilleure immunité au bruit ambiant
+  - Long (4 m max) : portée étendue pour des environnements sombres
+- 🌌 **Précision :** ±1% dans des conditions optimales (100 mm cible, reflectance 17%)
+- 🔐 **Interface :** I²C (adresse par défaut : 0x52)
+- 🕒 **Temps d'inter-mesure :** Configurable selon le budget temporel
+
+---
+
+## ⚙️ Initialisation et communication
+
+### Interface
+
+- Communication via le port **hi2c1**.
+- Configuration par défaut :
+  - Mode de distance : Long (`VL53L1__DISTANCE_MODE = 2`)
+  - Budget temporel : 20 ms (`VL53L1__TIMING_BUDGET = 20`)
+  - Période d'inter-mesure : 25 ms (budget + delta)
+
+### Fonction d'initialisation
+
+```c
+uint8_t VL53L1__Init() {
+    uint8_t status = 0;
+    printf("Initialisation du capteur VL53L1X...\n");
+    status |= VL53L1X_SensorInit(TOF_ADDR);
+    if (status != 0) {
+        printf("Erreur lors de l'initialisation du capteur !\n");
+        return status;
+    }
+    status |= VL53L1X_SetDistanceMode(TOF_ADDR, VL53L1__DISTANCE_MODE);
+    status |= VL53L1X_SetTimingBudgetInMs(TOF_ADDR, VL53L1__TIMING_BUDGET);
+    status |= VL53L1X_SetInterMeasurementInMs(TOF_ADDR, VL53L1__INTERMEASUREMENT);
+    printf("Capteur initialisé avec succès.\n");
+    return status;
+}
+```
+
+---
+
+## 🔧 Traitement des données
+
+1. **Acquisition des données :**
+   - Utilisation de `VL53L1X_CheckForDataReady()` pour vérifier la disponibilité.
+   - Récupération des distances avec `VL53L1X_GetDistance()`.
+   - Mesure complétée en fonction du timing budget configuré.
+
+2. **Filtrage et validation :**
+   - Contrôle de `RangeStatus` pour éliminer les mesures aberrantes.
+   - Comparaison avec des seuils définis pour rejeter les valeurs hors plage.
+
+3. **Analyse :**
+   - Calcul des distances moyennes et écart-type pour optimiser la précision.
+   - Intégration avec les données des autres capteurs pour la prise de décision globale.
+
+---
+
+## 📊 Analyse et décisions
+
+### Détection d'obstacles
+
+- Un seuil critique est défini (é.g., 250 mm).
+- Si la distance mesurée dépasse ce seuil, une action est entreprise pour éviter la collision.
+- Exemple de logique d'évitement : ralentir ou pivoter.
+
+### Exemple : Pivot automatique
+
+```c
+if (distance > 250) {
+    printf("Obstacle détecté : pivot en cours...\n");
+    reverse_motors();  // Fonction pour inverser les moteurs
+    vTaskDelay(pdMS_TO_TICKS(500)); // Pause pour effectuer le pivot
+    forward_motors(); // Reprise de la trajectoire
+}
+```
+
+---
+
+## 💾 Structure de données
+
+### Paramètres de configuration
+
+```c
+#define VL53L1__TIMING_BUDGET 20
+#define VL53L1__DISTANCE_MODE 2
+#define VL53L1__LOWER_THRESHOLD 0
+#define VL53L1__UPPER_THRESHOLD 4000
+```
+
+### Stockage des résultats
+
+```c
+typedef struct {
+    uint8_t Status;       // Statut de la mesure (erreurs incluses)
+    uint16_t Distance;    // Distance mesurée en mm
+    uint16_t SignalRate;  // Taux de signal en kcps
+    uint16_t AmbientRate; // Taux de bruit ambiant
+    uint16_t SpadNum;     // Nombre de SPADs actifs
+} VL53L1X_Result_t;
+```
+
+---
+
+## ↻ Cycle de fonctionnement
+
+1. Initialisation du capteur ToF avec les paramètres prédéfinis.
+2. Boucle d'acquisition des distances :
+   - Vérification de l'état du capteur.
+   - Lecture et validation des données mesurées.
+   - Mise à jour des structures de données.
+3. Filtrage des mesures aberrantes et analyse des distances.
+4. Détection des obstacles et application des consignes aux moteurs.
+
+---
+
+## 🚀 FreeRTOS : Gestion du capteur ToF
+
+### Exemple de tâche FreeRTOS
+
+```c
+void vTaskToF(void *argument) {
+    uint16_t distance;
+    uint8_t range_status;
+
+    for (;;) {
+        // Vérification de la disponibilité des données
+        VL53L1X_CheckForDataReady(TOF_ADDR, &range_status);
+        if (range_status == 0) {
+            // Lecture de la distance
+            VL53L1X_GetDistance(TOF_ADDR, &distance);
+            printf("Distance mesurée : %d mm\n", distance);
+
+            // Détection d'obstacle
+            if (distance > 250) {
+                printf("Obstacle détecté, exécution d'un pivot.\n");
+                reverse_motors();
+                vTaskDelay(pdMS_TO_TICKS(500));
+                forward_motors();
+            }
+        }
+        // Pause entre les mesures
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+```
+
+### Gestion des ressources
+- Synchronisation avec des **semaphores** pour la gestion des interruptions.
+- Utilisation de **timers FreeRTOS** pour des mesures périodiques précises.
+
+### Points clés
+- Priorité des tâches : la tâche de mesure ToF doit avoir une priorité suffisante pour garantir des mises à jour régulières.
+- Gestion des erreurs : surveiller les `RangeStatus` pour éviter des comportements inattendus.
+
+---
+
+## 🛠️ Fonctions clés du driver
+
+- `VL53L1X_SensorInit()` : Initialise le capteur avec les valeurs par défaut.
+- `VL53L1X_GetDistance()` : Récupère la distance mesurée (mm).
+- `VL53L1X_SetTimingBudgetInMs()` : Configure le budget temporel des mesures.
+- `VL53L1X_ClearInterrupt()` : Réinitialise les interruptions après une mesure.
+- `VL53L1X_SetDistanceMode()` : Change le mode de mesure (écourté ou étendu).
+
+---
+
+## ⚠️ Points critiques
+
+- Gestion des interruptions I²C et des erreurs de communication.
+  - Implémentation robuste pour minimiser les échecs de transfert.
+- Calibration régulière pour minimiser les erreurs systématiques.
+  - Offset et cross-talk à recalibrer selon l'environnement.
+- Ajustement des seuils selon les conditions environnementales :
+  - Température ambiante et réflectance des surfaces peuvent affecter les mesures.
+
+---
+
+
+
 # Contrôle des Moteurs et Encodeurs
 
 ## 🛠️ Composants utilisés
@@ -388,162 +576,90 @@ Le robot utilise deux moteurs, un pour chaque roue :
 | -------------- | -------------------- | ------------ |
 | Sens **reverse** | Sens **forward** | Sens **forward** |
 
-### 🚀 Fonctionnement des moteurs
+# README - Drivers Moteurs
 
-#### 1. **Moteurs en marche forward**
+---
 
-Pour que le robot se déplace en avant, les moteurs doivent tourner dans des directions opposées. Le code suivant configure le moteur droit et le moteur gauche pour aller en avant.
+## 🚀 Fonctionnement des moteurs
 
-```c
-// Fonction pour faire avancer le moteur droit
-void forward_r(uint16_t alpha) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, alpha);  // TIM1_CH1
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);   // Démarre la PWM pour le moteur droit
-    HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1); // Arrête le canal complémentaire
-}
+### Mise en mouvement
+- **Avancer** :
+  - `forward_r(uint16_t alpha)` : Configure le moteur droit pour avancer en réglant le rapport cyclique PWM sur la valeur spécifiée par `alpha`. Cela contrôle la vitesse de rotation du moteur droit. **Point critique** : Assurez-vous que `alpha` reste dans les limites de la plage autorisée pour éviter de surcharger le moteur.
+  - `forward_l(uint16_t alpha)` : Configure le moteur gauche pour avancer avec un fonctionnement similaire au moteur droit.
 
-// Fonction pour faire avancer le moteur gauche
-void forward_l(uint16_t alpha) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, alpha);  // TIM1_CH2
-    HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);          // Démarre la PWM pour le moteur gauche
-}
-```
-#### 2. Moteurs en marche arrière (Reverse)
-Pour que le robot se déplace en arrière, les directions des moteurs doivent être inversées :
+- **Reculer** :
+  - `reverse_r(uint16_t alpha)` : Inverse la polarité pour le moteur droit afin qu'il recule. Le rapport cyclique PWM `alpha` détermine la vitesse en mode reverse. **Point critique** : La synchronisation entre les moteurs est essentielle pour un déplacement précis.
+  - `reverse_l(uint16_t alpha)` : Applique le même principe pour le moteur gauche.
 
-```c
-// Fonction pour faire reculer le moteur droit
-void reverse_r(uint16_t alpha) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, alpha);  // Inverser le sens pour moteur droit
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // Arrêter le moteur droit
-    HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1); // Démarrer le moteur droit en reverse
-}
+### Arrêt
+- `stop_r()` : Arrête le moteur droit en mettant le signal PWM à zéro et en désactivant le canal PWM correspondant. **Point critique** : Un arrêt brusque peut endommager le système mécanique si des forces importantes sont en jeu.
+- `stop_l()` : Arrête le moteur gauche de manière similaire pour immobiliser le robot.
 
-// Fonction pour faire reculer le moteur gauche
-void reverse_l(uint16_t alpha) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, alpha);  // Inverser le sens pour moteur gauche
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);   // Démarrer le moteur gauche en reverse
-}
-```
-#### 3. Arrêt des moteurs
+---
 
-On veut pouvoir stopper chaque moteurs individuellement. Pour stopper le moteur droit, on a coder cette fonction : 
+## 🔧 Encodeurs
+Les encodeurs mesurent la rotation des moteurs pour calculer leur position et leur vitesse. Ces données sont essentielles pour un contrôle précis.
 
+### Fonctions principales
+1. **Position** :
+   - `get_encoder_position(uint8_t motor)` : Retourne la position actuelle en impulsions pour le moteur spécifié (gauche ou droit). Cette valeur est obtenue en lisant le compteur du timer associé à l'encodeur. **Point critique** : Une dérive dans les valeurs peut indiquer un problème de calibration ou de bruit.
 
+2. **Réinitialisation** :
+   - `reset_encoder(uint8_t motor)` : Réinitialise la valeur du compteur de l'encodeur à zéro, permettant de redémarrer les mesures à partir d'une référence claire. **Point critique** : Réinitialisez uniquement lorsque les moteurs sont à l'arrêt pour éviter des erreurs de mesure.
 
-****
+3. **Vitesse** :
+   - `calculate_motor_speed(uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution)` : Calcule la vitesse en tours par seconde à partir des différences de positions mesurées par l'encodeur sur une durée spécifiée. La résolution de l'encodeur (en impulsions par tour) est utilisée pour la conversion. **Point critique** : Le choix d'un intervalle de temps trop court peut amplifier le bruit dans les calculs de vitesse.
 
+---
 
+## 🛠 Contrôle PID
+Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une vitesse cible.
 
-***************************A supprimer****************
+- `compute_pid(float target_speed, float measured_speed, float *integral_error, float *previous_error, float kp, float ki, float kd)` :
+  - **Entrées** :
+    - `target_speed` : La vitesse souhaitée pour le moteur.
+    - `measured_speed` : La vitesse réelle mesurée par l'encodeur.
+    - `integral_error` : Accumulation des erreurs précédentes pour l'effet intégral.
+    - `previous_error` : Dernière erreur enregistrée pour l'effet dérivé.
+    - `kp`, `ki`, `kd` : Gains proportionnel, intégral et dérivé.
+  - **Sortie** :
+    - Une commande ajustée à appliquer au moteur pour corriger l'écart entre la vitesse cible et mesurée. **Point critique** : Un mauvais réglage des gains PID peut entraîner des oscillations ou une réponse lente.
 
+---
 
+## 🛠 Modes de fonctionnement
 
-```C
-// Fonction stop moteur droit
-void stop_r(void) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);      // TIM1_CH1
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);     // TIM1_CH2N
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+### Mode "Souris"
+- **Objectif** : Déplacement à vitesse modérée.
+- Les fonctions `forward_r()` et `forward_l()` configurent les moteurs pour avancer avec un rapport cyclique moyen (environ 40%).
+- La vitesse et la position de chaque moteur sont mesurées et affichées périodiquement.
+- Ce mode est conçu pour une navigation fluide et contrôlée. **Point critique** : Surveiller les variations de vitesse pour éviter les dérapages.
 
-}
-```
+### Mode "Prédateur"
+- **Objectif** : Déplacement rapide pour des actions dynamiques.
+- Les moteurs fonctionnent à un rapport cyclique plus élevé (environ 70-80%).
+- Ce mode est idéal pour des courses ou des approches agressives nécessitant une réponse rapide. **Point critique** : Les moteurs peuvent surchauffer si le mode est utilisé trop longtemps sans pauses.
 
+### Pivot Arrière
+- **Objectif** : Éviter les obstacles en pivotant.
+- Les moteurs sont commandés pour reculer à des vitesses différentes, créant une rotation du robot.
+- Exemple : Le moteur droit recule rapidement tandis que le gauche recule lentement, produisant une rotation autour d'un axe.
+- Après le pivot, les moteurs reprennent leur fonctionnement normal. **Point critique** : Assurez-vous que le sol offre suffisamment d'adhérence pour un pivot efficace.
 
+---
 
-*********************************************************************************************
+## 💡 Notes Techniques
+- **Timers** :
+  - TIM1 : Gère les signaux PWM pour le contrôle des moteurs.
+  - TIM3 : Utilisé pour l'encodeur du moteur droit.
+  - TIM4 : Utilisé pour l'encodeur du moteur gauche.
 
-Avec la fonction HAL  [Version corrigé]
+- **Résolution** :
+  - Les encodeurs ont une résolution de 1024 impulsions par tour, ce qui offre une précision élevée pour les mesures de position et de vitesse.
 
-```c
-// Fonction stop moteur droit - CHANNEL 1
-void stop_r(void) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);      // TIM1_CH1
-    // *a_supprimer*__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);     // TIM1_CH2N
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
-    // *a_supprimer*HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
+- **Rapports Cycliques** :
+  - La valeur `alpha` utilisée dans les fonctions correspond au rapport cyclique du signal PWM. Un rapport plus élevé entraîne une vitesse de rotation plus importante. **Point critique** : Vérifiez que le matériel supporte la plage de fonctionnement du PWM pour éviter des dommages.
 
-}//On met à 0 le compteur de la PWM du channel 1 et on stop la génération de PWM pour arrêter le moteur droit.
-```
-
-
-
-
-
-```c
-// Fonction stop moteur gauche - CHANNEL 2
-void stop_l(void) {
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);      // TIM1_CH2
-     // *a_supprimer*__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);     // TIM1_CH1N
-     // *a_supprimer*HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);   // TIM1_CH1N
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);   // TIM1_CH2
-}//On met à 0 le compteur de la PWM du channel 2 et on stop la génération de PWM pour arrêter le moteur gauche.
-```
-
-
-
-### 🔧 Encodeur
-Les encodeurs sont utilisés pour mesurer la position des moteurs et calculer leur vitesse.
-
-#### Fonctions d'encodeur
-#### 1. Obtenir la position de l'encodeur
-```c
-// Fonction pour obtenir la position de l'encodeur
-int16_t get_encoder_position(uint8_t motor) {
-    int16_t position = 0;
-
-    if (motor == MOTOR_LEFT) {
-        position = __HAL_TIM_GET_COUNTER(&htim4);  // Lire le compteur du moteur gauche
-    } else if (motor == MOTOR_RIGHT) {
-        position = __HAL_TIM_GET_COUNTER(&htim3);  // Lire le compteur du moteur droit
-    }
-
-    return position;
-}
-```
-#### 2. Réinitialiser la position de l'encodeur
-```c
-// Fonction pour réinitialiser la position de l'encodeur
-void reset_encoder(uint8_t motor) {
-    if (motor == MOTOR_LEFT) {
-        __HAL_TIM_SET_COUNTER(&htim4, 0);  // Réinitialiser le compteur du moteur gauche
-    } else if (motor == MOTOR_RIGHT) {
-        __HAL_TIM_SET_COUNTER(&htim3, 0);  // Réinitialiser le compteur du moteur droit
-    }
-}
-```
-#### 3. Calculer la vitesse des moteurs
-```c
-// Fonction pour calculer la vitesse à partir de l'encodeur
-float calculate_motor_speed(uint8_t motor, uint32_t delta_time_ms, uint16_t encoder_resolution) {
-    static int16_t last_position_motor1 = 0;
-    static int16_t last_position_motor2 = 0;
-
-    int16_t current_position = 0;
-    int16_t delta_position = 0;
-
-    if (motor == MOTOR_LEFT) { // Moteur gauche
-        current_position = __HAL_TIM_GET_COUNTER(&htim3); // TIM3 pour moteur gauche
-        delta_position = current_position - last_position_motor1;
-        last_position_motor1 = current_position;
-    } else if (motor == MOTOR_RIGHT) { // Moteur droit
-        current_position = __HAL_TIM_GET_COUNTER(&htim4); // TIM4 pour moteur droit
-        delta_position = current_position - last_position_motor2;
-        last_position_motor2 = current_position;
-    }
-
-    // Calcul de la vitesse en tours par seconde
-    float speed = (float)delta_position / encoder_resolution; // Tours par intervalle
-    speed *= (1000.0f / delta_time_ms); // Convertir en tours par seconde
-
-    return speed;
-}
-```
-
-
-
-Cette fonction calcule la vitesse des moteurs à partir de la différence avec la dernière position et la résolution de l'encodeur (1024). Puis on convertit en tours par seconde.
 
 
 
