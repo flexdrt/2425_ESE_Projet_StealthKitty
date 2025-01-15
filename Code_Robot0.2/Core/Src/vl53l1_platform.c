@@ -2,7 +2,7 @@
  ******************************************************************************
  * This file is part of VL53L1 Platform
  * @attention
- * Author: RAFIK CHAIR
+ * Author: CHAIR
  * Copyright (c) 2024 STMicroelectronics.
  * All rights reserved.
  *

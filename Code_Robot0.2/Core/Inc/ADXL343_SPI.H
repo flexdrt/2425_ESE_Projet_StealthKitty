@@ -1,7 +1,7 @@
 /*
  ******************************************************************************
  * @attention
- * Author: RAFIK CHAIR
+ * Author: AMEUR
  * Copyright (c) 2024 STMicroelectronics.
  * All rights reserved.
  *

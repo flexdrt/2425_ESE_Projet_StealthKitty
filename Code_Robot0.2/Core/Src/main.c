@@ -5,7 +5,7 @@
  * @brief          : Main program body
  ******************************************************************************
  * @attention
- * Author: ENSEA
+ * Author: StealthKitty
  * Copyright (c) 2024 STMicroelectronics.
  * All rights reserved.
  *
