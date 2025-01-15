@@ -83,13 +83,6 @@ ADXL343 accelerometer;
 
 TaskHandle_t h_task_bord = NULL; /**< Task handle for managing a specific task. */
 
-
-int frame_start = 0; /**< Start index of the LIDAR frame. */
-int frame_end = 0; /**< End index of the LIDAR frame. */
-
-int dist_min = 0; /**< Minimum detected distance. */
-int idx_min = 0; /**< Index of the closest detected object. */
-
 SemaphoreHandle_t SemHalfCallBack; /**< Semaphore for half DMA completion. */
 SemaphoreHandle_t SemClpCallBack; /**< Semaphore for complete DMA transfer. */
 
