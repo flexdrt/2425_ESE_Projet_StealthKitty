@@ -900,6 +900,6 @@ La largeur des pistes a été ajustée pour correspondre aux pastilles des compo
 ## 9. Points de Test
 Des **points de test accessibles** ont été placés pour faciliter le débogage.
 
-<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="500"/>
+<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="300"/>
 
 
