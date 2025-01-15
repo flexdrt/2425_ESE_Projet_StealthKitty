@@ -123,47 +123,16 @@ Pour construire notre carte électronique, il nous a fallut commencer par design
 
 Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur LIDAR, et un capteur accéléromètre.
 
-Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est la stm32. L'avantage de cette communication est qu'elle permet une évolutivité si on a besoin d'ajouter d'autres composants matériel par la suite. Seulement pour cela il faut prévoir une résistance de pull-up (tirage) pour le bus I2C.
-
-
-Les signaux nécessaires pour implémenter en I2C ce capteur sont les suivants : 
-
-- SDA
-- SCL
-- int_tof1
-- xshunt1
-- GND
+Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est le stm32. L'avantage de cette communication est qu'elle permet une évolutivité si le besoin d'ajouter d'autres composants matériel par la suite se fait sentir (c'est pourquoi on a prévu des résistances de pull-up pour le bus I2C). Ce n'était pas notre cas, un seul capteur a suffit finalement. 
 
 Ces signaux sont représentés sur le connecteur JST de la figure ci-dessous.
-
- 
 
 ![image-20250113151649896](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/tof-image-20250113151649896.png)
 
 
-Le capteur Accéléromètre  est un capteur qui communique lui en SPI, tout comme le capteur TOF , il utilise un bus de communication qui nécessite une résistance de pull-up (tirage).
+Le capteur Accéléromètre est le seul capteur qui communique en SPI.
 
 ![image-20250114095447270](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/adx-image--20250114095447270.png) 
-
-Les signaux nécessaires pour implémenter en SPI ce capteur sont les suivants : 
-
-- MISO
-
-- MOSI
-
-- SCK
-
-- nCS
-
-- Interruption n°1 ADX
-
-- Interruption n°2 ADX
-
-- +5V
-
-- GND
-
-  
 
 Comme on peut le voir, pour des raisons CEM nous avons placé une capacité de 1µF et une capacité de 0.1 µF pour découpler les deux alimentations en +3.3V.
 
@@ -197,22 +166,19 @@ Les drivers utilisés sont les ZXBM5210-S-13.
 
 
 
-Voici le schéma du composant. Les sorties out 1 et out 2  sont connectés au moteur  par Motor1+ et  Motor 1-.
+Voici le schéma du composant. Les sorties out 1 et out 2  sont connectés au moteur par Motor1+ et  Motor 1-.
 
 Comme ce sont les signaux de commande PWM, nous avons découplé ces signaux avec des capacités de 100nF.
 
-Quant aux signaux d'alimentation nous découplons la tension de la batterie avec une capacité de 10µF pour le signal Vm et une capacité de 1µF pour 
+Quant aux signaux d'alimentation, nous découplons la tension de la batterie avec une capacité de 10 µF pour le signal Vm et une capacité de 1µF pour la tension VBAT.
 
 
-
-Le signal PWM_MOT1_CH1 est le signal PWM généré par le STM32 en direction du pin FWD du composant .
+Le signal PWM_MOT1_CH1 est le signal PWM généré par le STM32 en direction du pin FWD du composant.
 Le signal PWM_MOT1_CH2 est le signal PWM généré par le STM32  en direction du pin REV du composant.
-
-
 
 D'après le tableau de la datasheet, si on envoie un signal PWM pour contrôler le driver en mode "PWM control mode". 
 
-Il faut alors envoyer un signal PWM en entré sur un des pins FWD ou REV. Ce qui donnera naissance à un signal PWM en sortie sur out1-out2 de fréquence égale à celle en entrée du pin qui reçoit le signal PWM.   
+Il faut alors envoyer un signal PWM en entré sur un des pins FWD ou REV. Ce qui donnera naissance à un signal PWM en sortie de fréquence égale à celle en entrée du pin qui reçoit le signal PWM.   
 Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxième driver : 
 ![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
 
@@ -227,26 +193,26 @@ D'après la documentation des moteur/encodeurs, les signaux sont placés de la f
 ![signaux encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeur_signaux_sur_moteurs.png)
 
 On peut lire sur cette image que les signaux de l'encodeur sont les suivants : 
- - alimentation 3V3
- - ground GND
+ - +3V3
+ - GND
  - codeurX_PH1 [pour la phase A]
  - codeurX_PH2 [pour la phase B]
 
 
-Nous avons placé ces signaux entre les deux signaux destinés au moteurs et conservé l'ordre d'affectation des broches de la doumention, ce qui donne ce schéma de connector : 
+Nous avons placé ces signaux, entre les deux signaux destinés au moteurs, et conservé l'ordre d'affectation des broches de la documention, ce qui donne ce schéma de connecteur : 
 
 ![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
 
 
 #### Le Cerveau du robot : le STM32 & cie #### 
 
-Dans cette feuille, nous avons connecter les composants suivants, le STM32, le STlink, le Quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
+Dans cette feuille, nous avons connecté les composants suivants, le STM32, la STlink, le quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
 ![brain_sheet](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/brain_sheet_only_page-0001.jpg)  
 
-#####  le STM32  #####
+ #####  Le STM32  #####
 
-###### Explications assignations signaux-pins du STM32 ######
-Pour assigner les pins du STM32, nous avons positionné d'abord les signaux PWM sur le timer 1, puis ceux des encodeurs. Les encodeurs, qui fonctionnent à une fréquence plus basse que les signaux PWM, ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode".  
+###### Explications assignations des signaux aux pins du STM32 ######
+Pour assigner les pins du STM32, nous avons positionné d'abord les signaux PWM sur le timer 1, puis ceux des encodeurs. Les encodeurs, qui fonctionnent à une fréquence plus basse que les signaux PWM, ont besoin de leurs propre timer (le timer 3) configurés en mode "encoder mode".  
 Ensuite nous avons connecté les signaux restant : 
  - l'USART4 du LIDAR (et ses connectiques)
  - l'USART2 du STLINK.
@@ -257,31 +223,35 @@ Nous avons ajouté une résistance de pull-up sur le signal SDA et SCL respectiv
 
 
 ###### Découplage du STM32 ######
-Les microcontrôleurs STM32 nécessitent un découplage efficace pour garantir leur fonctionnement stable et fiable.
-
-Lors des transitions rapides des circuits internes du microcontrôleur, comme celles générées par les horloges et les commutations d’état des broches, des variations soudaines de courant peuvent se produire. Ces fluctuations génèrent des perturbations haute fréquence qui risquent de déstabiliser l'alimentation. Les condensateurs de 100 nF, placés aussi près que possible des broches d'alimentation (VDD, VDDA), jouent un rôle important en filtrant ces perturbations haute fréquence, agissant ainsi comme un réservoir d'énergie pour combler les besoins instantanés.
+Lors des transitions rapides des circuits internes du microcontrôleur, comme celles générées par les horloges et les commutations d’état des broches, des variations soudaines de courant peuvent se produire. Ces fluctuations génèrent des perturbations haute fréquence qui risquent de déstabiliser l'alimentation. 
+Les condensateurs de 100 nF, placés aussi près que possible des broches d'alimentation (VDD, VDDA), jouent un rôle important en filtrant ces perturbations haute fréquence, agissant ainsi comme un réservoir d'énergie pour combler les besoins instantanés.
 
 Pour stabiliser davantage l’alimentation, un condensateur de capacité plus élevée, comme un 4,7 µF, est ajouté. Celui-ci répond aux variations de courant plus lentes et de plus grande amplitude.
 Par ailleurs, des broches spécifiques comme VDDA et VREF+, utilisées pour des fonctions sensibles telles que les convertisseurs analogiques-numériques (ADC), exigent une alimentation particulièrement propre. Un condensateur de 1 µF y est ajouté pour découpler VREF+ tandis qu'un condensateur de 10 nF découple VDDA.
 
-Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur tout en réduisant les effets des perturbations électriques.
+Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur STM32 tout en réduisant les effets des perturbations électriques.
 
 #####  Le quartz #####
-Le quartz agit comme un résonateur, amplifiant les signaux à sa fréquence naturelle. Si les signaux d'entrée et de sortie ne sont pas correctement découplés, il peut y avoir des rétroactions indésirables, perturbant le fonctionnement normal de l'oscillateur. 
-
 Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
 
 Les signaux électriques OSC_In et OSC_OUT peuvent parfois inclure des pics de tension ou des variations transitoires. Un découplage capacitif agit comme une barrière, protégeant le quartz de ces stress électriques, augmentant ainsi sa durée de vie.
 La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour la sortie du quartz.
 En résumé, le découplage par une capacité assure une meilleure isolation, stabilité, et performance du circuit oscillateur. 
 
-#####  le STLink #####
+#####  Le STLink #####
 La ST-Link est un outil nécessaire pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
 
 En bref, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
 
 #####  Les boutons #####
 Le PCB est consituté de deux boutons : le premier NRST sert à reset le code qui a été téléversé sur la carte. Le deuxième permet au robot de changer d'état entre souris et chat. 
+
+![boutons](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/boutons_schema.png)
+
+#####  Les LEDS #####
+Les leds servent d'indicateurs pour visualiser l'état du robot, il y a une led bleue et une led rouge.
+
+![leds](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/leds_robot.png)
 
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
 
