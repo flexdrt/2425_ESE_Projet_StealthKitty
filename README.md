@@ -1043,6 +1043,62 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 
 
 
+## 🎯 État des Fonctionnalités du Robot StealthKitty
+
+### 🚗 Déplacement de Base
+
+- ✅ Déplacement avant/arrière
+
+- ✅ Rotation sur place
+
+- ✅ Contrôle indépendant des moteurs
+
+- ✅ Lecture des encodeurs
+
+- 🟡 Asservissement en vitesse des moteurs
+
+  > *Fonctionnel mais nécessite des optimisations pour plus de précision*
+
+### 🛡️ Sécurité Anti-Chute
+
+- ✅ Détection des bords via capteur ToF
+
+- ✅ Arrêt automatique en cas de détection de vide
+
+- ✅ Pivot arrière automatique(manœuvre d'évitement)
+
+  > *Testé et validé sur table sans bordure comme visible sur vidéo*
+
+### 👁️ Détection et Tracking
+
+- ✅ Scan LIDAR 
+
+- ✅ Détection des autres robots
+
+- 🟡 Suivi de cible
+
+  > Asservissement angulaire pas terminé et lecture du Lidar à améliorer
+
+### 🎮 Modes de Jeu
+
+- ✅ Changement de rôle via accéléromètre
+
+- ✅ Mode "Chat" (prédateur), avec une vitesse augmentée
+
+- ✅ Mode "Souris" (proie)
+
+- 🟡 Algorithme de poursuite
+
+  > *Base implémentée, work in progress*
+
+### ⚡ Gestion Énergie
+
+- ✅ Alimentation par batterie
+- ✅ Protection contre la décharge
+- ✅ LED d'état batterie
+
+
+
 
 
 ## 🏁 **Conclusion**  
