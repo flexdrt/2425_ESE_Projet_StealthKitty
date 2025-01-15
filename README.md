@@ -22,7 +22,13 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 - 👨‍💻 **Vincent LAKHMECHE**  
 - 👨‍💻 **Mohamed Rafik CHAIR**  
 - 👨‍💻 **Meziane Ameur**  
-- 👨‍💻 **Karim JERJOUB**  
+- 👨‍💻 **Karim JERJOUB**
+
+
+
+
+![image](https://github.com/user-attachments/assets/0e611b67-3b2b-410d-b47b-fe58fc5c882f)
+
 
 ![image-20250114141624020](./assets/image-20250114141624020.png)
 
@@ -743,6 +749,7 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 ## 🚀 **Réalisation matérielle**  
 La partie matérielle a été conçue avec **KiCad 8.0** et comprend :  
+![image-20250114141624020](./assets/image-20250114141624020.png)
 
 - 📜 **Schéma électronique**
 
