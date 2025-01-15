@@ -231,14 +231,14 @@ Par ailleurs, des broches spécifiques comme VDDA et VREF+, utilisées pour des 
 
 Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur STM32 tout en réduisant les effets des perturbations électriques.
 
-#####  Le quartz #####
+##### 🕒  Le quartz #####
 Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
 
 Les signaux électriques OSC_In et OSC_OUT peuvent parfois inclure des pics de tension ou des variations transitoires. Un découplage capacitif agit comme une barrière, protégeant le quartz de ces stress électriques, augmentant ainsi sa durée de vie.
 La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour la sortie du quartz.
 En résumé, le découplage par une capacité assure une meilleure isolation, stabilité, et performance du circuit oscillateur. 
 
-#####  Le STLink #####
+##### 🔗 Le STLink #####
 La ST-Link est un outil nécessaire pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
 
 En bref, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
@@ -248,7 +248,7 @@ Le PCB est consituté de deux boutons : le premier NRST sert à reset le code qu
 
 ![boutons](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/boutons_schema.png)
 
-#####  Les LEDS #####
+##### 💡 Les LEDS #####
 Les leds servent d'indicateurs pour visualiser l'état du robot, il y a une led bleue et une led rouge.
 
 ![leds](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/leds_robot.png)
