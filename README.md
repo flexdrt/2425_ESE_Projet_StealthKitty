@@ -618,7 +618,7 @@ https://github.com/user-attachments/assets/c904982a-7dda-46ab-8d87-f73b21fb672f
 </details>
 
 
-# Théorie de l'asservissement angulaire du robot
+# 🎯Théorie de l'asservissement angulaire du robot
 
 <details>
 <summary> Détail sur la théorie de l'asservissement angulaire du robot  </summary>
