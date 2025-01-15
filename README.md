@@ -1014,5 +1014,6 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).  
 
 
+![WhatsApp Image 2025-01-15 at 17 13 14](https://github.com/user-attachments/assets/e5d0c000-c651-4bc7-af08-2dedcab15b06)
 
 
