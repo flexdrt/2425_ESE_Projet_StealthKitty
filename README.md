@@ -1004,7 +1004,7 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 - 📦 **Modules logiciels** pour capteurs et moteurs.  
 - 🤖 **Algorithmes embarqués** pour les comportements du robot (poursuite, évitement, etc.).  
 
-### 📂 [Accédez au code source ici.](./Software)
+### 📂 [Accédez au code source ici.](./firmware/)
 
 
 ---
