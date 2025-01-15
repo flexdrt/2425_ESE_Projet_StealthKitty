@@ -397,42 +397,9 @@ void vTaskToF(void *argument) {
 
 		/* USER CODE BEGIN 2 */
 
-//		dev_handle.serial_drv.transmit=uart_transmit;
-//		dev_handle.serial_drv.it_transmit=uart_it_transmit;
-//		dev_handle.serial_drv.dma_transmit=uart_dma_transmit;
-//		dev_handle.serial_drv.poll_receive=uart_poll_receive;
-//		dev_handle.serial_drv.it_receive=uart_it_receive;
-//		dev_handle.serial_drv.dma_receive=uart_dma_receive;
-//
-//		printf("\r\n===== LIDAR Driver Init =====\r\n");
-//
-//		sns_end(&dev_handle);
-//		HAL_Delay(1000);
-//		sns_query_status(&dev_handle);
-//		//printf("OK\r\n");
-//		sns_check_health(&dev_handle);
-//
-//		ret = xTaskCreate(TaskLIDAR, "TaskLIDAR", STACK_SIZE,
-//				(void *) NULL, 2, &xHandleSensor);
-//		if (ret != pdPASS)
-//		{
-//			printf("Error creating TaskSensor\r\n");
-//			Error_Handler();
-//		}
-//
-//		printf("Task Sensor created\r\n");
-//
-//		SemHalfCallBack = xSemaphoreCreateBinary();
-//		SemClpCallBack = xSemaphoreCreateBinary();
-//
-//		//xPrintMutex = xSemaphoreCreateMutex();
-
-
-
 		init_motors();
 
 		//I2C_Scan();
-
 
 		VL53L1__Init();
 		printf("Initialisation du système STM32 terminée.\n");
