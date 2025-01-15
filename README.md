@@ -102,11 +102,11 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
   
 ## 📚 Explication Technique
 
-# 🚀 Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
+#  Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
 
 <details>
 <summary> Détail sur le schéma électronique </summary>
----
+
 
 ## 🎯 Objectifs principaux
 - ✨ **Détecter les tapotements** (Single Tap/Double Tap) pour **changer de rôle** entre le robot "chat" et le robot "souris".
@@ -479,7 +479,7 @@ Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une
 ---
 
 
-# 🚀 Utilisation du YDLIDAR X4 dans le robot
+#  Utilisation du YDLIDAR X4 dans le robot
 
 
 <details>
