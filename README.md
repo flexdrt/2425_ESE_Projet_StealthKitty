@@ -474,6 +474,14 @@ Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une
 
 - **Rapports Cycliques** :
   - La valeur `alpha` utilisée dans les fonctions correspond au rapport cyclique du signal PWM. Un rapport plus élevé entraîne une vitesse de rotation plus importante. **Point critique** : Vérifiez que le matériel supporte la plage de fonctionnement du PWM pour éviter des dommages.
+ 
+
+
+
+
+
+Nos moteurs ont une vitesse différentes pour un meme rapport cyclique, cependant la différence de vitesse varie en fonction des rapports cyclique choisi, nous n'avons pas pu compensé cette erreur de manière durable. 
+Cela a aussi rendu plus complexe l'implémentation des asservisssement en vitesse et en angle qui devaient prendre en compte ce problème.
 
 </details>
 
