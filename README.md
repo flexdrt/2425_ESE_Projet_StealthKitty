@@ -113,7 +113,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
 
 
 ## 🎯 Objectifs principaux
-- ✨ **Détecter les tapotements** (Single Tap/Double Tap) pour **changer de rôle** entre le robot "chat" et le robot "souris".
+- ✨ **Détecter les tapotements** (Single Tap/Double Tap) pour **changer de rôle** entre le robot dans l'état "chat" et dans l'état "souris".
 - 📊 Lire les valeurs d'accélération sur les axes **X, Y, Z** *(optionnel)*.
 
 ---
