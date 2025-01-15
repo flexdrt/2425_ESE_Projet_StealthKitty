@@ -102,7 +102,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
   
 ## 📚 Explication Technique
 
-#  Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
+#  ⚡Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
 
 <details>
 <summary> Détail  sur l'utilisation de l'accéléromètre ADXL343 </summary>
@@ -155,7 +155,7 @@ https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
 
 
 
-# Utilisation du capteur ToF VL53L1X pour détection des bords
+# 📡Utilisation du capteur ToF VL53L1X pour détection des bords
 <details>
 <summary> Détail sur l'utilisation du capteur ToF VL53L1X pour la détection des bords </summary>
 
@@ -350,7 +350,7 @@ https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
 
 
 
-# Contrôle des Moteurs et Encodeurs
+# 🛠️Contrôle des Moteurs et Encodeurs
 
 <details>
 <summary> Détail sur le contrôle des Moteurs et Encodeurs </summary>
@@ -479,7 +479,7 @@ Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une
 
 
 
-#  Utilisation du YDLIDAR X4 dans le robot
+#  🚀Utilisation du YDLIDAR X4 dans le robot
 
 
 <details>
