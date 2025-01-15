@@ -357,13 +357,13 @@ https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
 # 🛠️Contrôle des Moteurs et Encodeurs
 
 <details>
-<summary> Détail sur le contrôle des Moteurs et Encodeurs </summary>
+<summary> Détail sur le contrôle des Moteurs et sur les Encodeurs </summary>
 
 ## 🛠️ Composants utilisés
 
-Les moteurs utilisés sont les DFRobot FIT 0520/21.
+Les moteurs utilisés sont des motoréducteurs de la marque DFRobot, les modèles FIT équipé d'un encodeur à quadrature.
 
-Nos moteurs ont une vitesse différentes pour un même rapport cyclique, cependant la différence de vitesse varie en fonction des rapports cycliques choisis, nous n'avons pas pu compenser cette erreur de manière durable. 
+Nos moteurs ont une vitesse différentes pour un même rapport cyclique, cependant la différence de vitesse varie en fonction des rapports cycliques choisis, nous n'avons pas pu compenser cette erreur de manière durable et fiable. 
 Cela a aussi rendu plus complexe l'implémentation des asservisssements en vitesse et en angle qui devaient prendre en compte ce problème.
 
 
@@ -400,6 +400,7 @@ Le robot utilise deux moteurs, un pour chaque roue :
 | -------------- | -------------------- | ------------ |
 | Sens **reverse** | Sens **forward** | Sens **forward** |
 
+Pour avoir le sens de marche du robot en arrière, le tableau est le même sauf que l'on change le sens de chaque moteur.
 
 ---
 
