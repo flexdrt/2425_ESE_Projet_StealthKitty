@@ -30,8 +30,6 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
   <img src="https://github.com/user-attachments/assets/0e611b67-3b2b-410d-b47b-fe58fc5c882f" alt="image">
 </p>
 
-![image-20250114141624020](./assets/image-20250114141624020.png)
-
 ---
 
 ## 📚 **Table des matières**
