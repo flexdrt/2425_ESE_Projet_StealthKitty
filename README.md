@@ -1040,6 +1040,25 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 ### 📂 [Accédez au code source ici.](./firmware/)
 
 
+
+
+
+
+
+## 🏁 **Conclusion**  
+
+Pour conclure, ce projet nous a permis de mettre en pratique et d'approfondir nos connaissances en électronique et systèmes embarqués. 
+
+La réalisation de StealthKitty, de la conception du PCB à l'implémentation du firmware, nous a confrontés aux défis concrets de l'ingénierie : optimisation CEM, conception de cartes multicouches, intégration de capteurs et développement d'algorithmes de contrôle en temps réel. 
+
+Cette expérience pratique a été formatrice, a renforcé notre compréhension des systèmes embarqués et nous a préparés aux futures exigences du monde professionnel.
+
+
+
+![WhatsApp Image 2025-01-15 at 17 13 14](https://github.com/user-attachments/assets/e5d0c000-c651-4bc7-af08-2dedcab15b06)
+
+
+
 ---
 
 ## 📄 **Licence**  
@@ -1047,5 +1066,4 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).  
 
 
-![WhatsApp Image 2025-01-15 at 17 13 14](https://github.com/user-attachments/assets/e5d0c000-c651-4bc7-af08-2dedcab15b06)
 
