@@ -29,9 +29,9 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 ---
 
 ## 📚 **Table des matières**  A REECRIRE
-1. [📖 Contexte](#-contexte)  
-2. [✨ Fonctionnalités](#-fonctionnalités)
-3. [📐 Architecture](#-architecture)  
+1. [📖 Contexte](#-contexte)
+2. [📐 Architecture](#-architecture)  
+3. [✨ Fonctionnalités](#-fonctionnalités)
 4. [📚 Explication Technique](#-Explication-Technique). 
 5. [🔧 Matériel utilisé](#-matériel-utilisé)  
 6. [🚀 Utilisation](#-utilisation)  
@@ -89,7 +89,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
    - Réaction immédiate pour stopper ou changer de direction afin d’éviter une chute.
 
 4. **Interfaçage avec le LiDAR YDLIDAR X4**
-   - Communication via **UART** pour lire les données du LiDAR.
+   - Communication via **UART** pour lire les données du LiDAR ainsi détecter les autres robots.
    - Extraction des valeurs d’angles et de distances pour cartographier l'environnement et éviter les obstacles.
 
 ---
@@ -104,7 +104,8 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
 
 # 🚀 Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
 
-
+<details>
+<summary> Détail sur le schéma électronique </summary>
 ---
 
 ## 🎯 Objectifs principaux
@@ -149,7 +150,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
 ---
 
 https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
-
+</summary>
 ---
 
 
