@@ -150,7 +150,8 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
 ---
 
 https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
-</summary>
+
+</details>
 ---
 
 
