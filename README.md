@@ -232,7 +232,7 @@ uint8_t VL53L1__Init() {
 ### Détection d'obstacles
 
 - Un seuil critique est défini (é.g., 250 mm).
-- Si la distance mesurée dépasse ce seuil, une action est entreprise pour éviter la collision.
+- Si la distance mesurée dépasse ce seuil, une action est entreprise pour éviter la collision et la chute avec le bord.
 - Exemple de logique d'évitement : ralentir ou pivoter.
 
 ### Exemple : Pivot automatique
@@ -317,7 +317,7 @@ void vTaskToF(void *argument) {
 ```
 
 ### Gestion des ressources
-- Synchronisation avec des **semaphores** pour la gestion des interruptions.
+- Synchronisation avec des **sémaphores** pour la gestion des interruptions.
 - Utilisation de **timers FreeRTOS** pour des mesures périodiques précises.
 
 ### Points clés
