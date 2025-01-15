@@ -576,8 +576,6 @@ Le robot utilise deux moteurs, un pour chaque roue :
 | -------------- | -------------------- | ------------ |
 | Sens **reverse** | Sens **forward** | Sens **forward** |
 
-# README - Drivers Moteurs
-
 ---
 
 ## 🚀 Fonctionnement des moteurs
