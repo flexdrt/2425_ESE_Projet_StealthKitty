@@ -115,7 +115,7 @@ La partie matérielle a été conçue avec **KiCad 8.0** et comprend :
 - 🧩 **PCB routé**  
 
 <details>
-<summary>**Routage du PCB**</summary>
+<summary>**Détail de routage du PCB**</summary>
 
 Le PCB à été conçu afin de respecter le cahier des charges en termes de dimension afin de pouvoir l'intégrer facilement au robot.
 
