@@ -422,7 +422,7 @@ Pour avoir le sens de marche du robot en arrière, le tableau est le même sauf 
 ---
 
 ## 🔧 Encodeurs
-Les encodeurs mesurent la rotation des moteurs pour calculer leur position et leur vitesse. Ces données sont essentielles pour un contrôle précis. Un test en vidéo des encodeurs est visible dans plus haut dans ce document, dans la partie "Détail sur l'utilisation de l'accéléromètre ADXL343" (on peut voir la vitesse du moteur droit et gauche). 
+Les encodeurs mesurent la rotation des moteurs pour calculer leur position et leur vitesse. Ces données sont essentielles pour un contrôle précis. Un test en vidéo des encodeurs est visible plus haut dans ce document, dans la partie "Détail sur l'utilisation de l'accéléromètre ADXL343" (on peut voir la vitesse du moteur droit et gauche). 
 
 ### Fonctions principales
 1. **Position** :
