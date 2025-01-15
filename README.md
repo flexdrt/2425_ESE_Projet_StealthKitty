@@ -102,7 +102,7 @@ Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver prop
   
 ## 📚 Explication Technique
 
-#  ⚡Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
+#  ⚡Accéléromètre ADXL343 dans le robot chat
 
 <details>
 <summary> Détail  sur l'utilisation de l'accéléromètre ADXL343 </summary>
@@ -359,8 +359,8 @@ https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
 
 Les moteurs utilisés sont les DFRobot FIT 0520/21.
 
-Nos moteurs ont une vitesse différentes pour un meme rapport cyclique, cependant la différence de vitesse varie en fonction des rapports cyclique choisi, nous n'avons pas pu compensé cette erreur de manière durable. 
-Cela a aussi rendu plus complexe l'implémentation des asservisssement en vitesse et en angle qui devaient prendre en compte ce problème.
+Nos moteurs ont une vitesse différentes pour un même rapport cyclique, cependant la différence de vitesse varie en fonction des rapports cycliques choisis, nous n'avons pas pu compenser cette erreur de manière durable. 
+Cela a aussi rendu plus complexe l'implémentation des asservisssements en vitesse et en angle qui devaient prendre en compte ce problème.
 
 
 ## 🚗 Moteurs
