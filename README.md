@@ -117,27 +117,172 @@ La partie matérielle a été conçue avec **KiCad 8.0** et comprend :
 <details>
 <summary> Détail sur le schéma électronique </summary>
 
-Le schéma électronique a été conçu pour interconnecter tous les composants nécessaires au bon fonctionnement du robot. Il comprend la gestion des capteurs, de la motorisation et de la communication avec le microcontrôleur. Voici les points clés du schéma :
+Pour construire notre carte électronique, il nous a fallut commencer par designer sous KiCad le schéma électrique de notre système électronique, ce que l'on appelle schematic dans KiCad. Nous allons maintenant détaillé les différentes parties du schematic (les sheets du projet KiCad).
 
-### **Microcontrôleur STM32**
-Le STM32G431RB est au cœur du système, et il gère toutes les communications et le contrôle des périphériques. Voici ses principales connexions :
-- **Ports GPIO** : Utilisés pour contrôler les LED, les moteurs, et recevoir les signaux des boutons et capteurs.
-- **USART2** : Interface utilisée pour la communication série avec des modules externes (par exemple, LiDAR).
-- **PWM** : Quatre signaux PWM sont utilisés pour contrôler les moteurs via des drivers.
+## Schéma électronique ## 
+#### Capteurs du robot #####
 
-### **Capteurs**
-Les capteurs sont interfacés avec le STM32 via différents protocoles :
-- **Capteurs ToF** : Connectés via I2C pour mesurer la distance entre le robot et les objets.
-- **Accéléromètre** : Connecté via SPI pour la détection d'inclinaison et de mouvements.
-- **LiDAR** : Utilisé pour la cartographie et les détections de bords, connecté via UART.
+Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur LIDAR, et un capteur accéléromètre.
 
-### **Alimentation**
-Le schéma comprend également une section d'alimentation :
-- **Régulateur de tension** : Un régulateur convertit l'alimentation 12V en 5V et 3.3V pour les composants.
-- **Condensateurs de découplage** : Placés près de chaque composant pour réduire les bruits électriques et améliorer la stabilité.
+Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est la stm32. L'avantage de cette communication est qu'elle permet une évolutivité si on a besoin d'ajouter d'autres composants matériel par la suite. Seulement pour cela il faut prévoir une résistance de pull-up (tirage) pour le bus I2C.
 
-### **Interconnexion**
-Les connexions entre les composants ont été faites de manière à minimiser les interférences et assurer une bonne distribution de l'alimentation et des signaux.
+
+Les signaux nécessaires pour implémenter en I2C ce capteur sont les suivants : 
+
+- SDA
+- SCL
+- int_tof1
+- xshunt1
+- GND
+
+Ces signaux sont représentés sur le connecteur JST de la figure ci-dessous.
+
+ 
+
+![image-20250113151649896](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/tof-image-20250113151649896.png)
+
+
+Le capteur Accéléromètre  est un capteur qui communique lui en SPI, tout comme le capteur TOF , il utilise un bus de communication qui nécessite une résistance de pull-up (tirage).
+
+![image-20250114095447270](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/adx-image--20250114095447270.png) 
+
+Les signaux nécessaires pour implémenter en SPI ce capteur sont les suivants : 
+
+- MISO
+
+- MOSI
+
+- SCK
+
+- nCS
+
+- Interruption n°1 ADX
+
+- Interruption n°2 ADX
+
+- +5V
+
+- GND
+
+  
+
+Comme on peut le voir, pour des raisons CEM nous avons placé une capacité de 1µF et une capacité de 0.1 µF pour découpler les deux alimentations en +3.3V.
+
+Afin de pouvoir débugger le capteur, nous avons également placé des points de test TestPoint.
+
+
+
+Le capteur LIDAR est un capteur qui communique par liason série UART dont les signaux sont les suivants :
+
+![image-20250114095520915](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/lidar%20-image-lidar-20250114095520915.png)
+
+- M_EN
+- DEV_EN
+- M_SCTR
+- RX_lidar
+- TX_lidar
+- +5V
+- GND
+
+
+
+#### Motorisation du robot ####
+
+Les composants qui s'assure déplacer le robot sont les moteurs qui sont des mcc **FIT 0520.** 
+
+Pour commander ces moteurs nous avons besoin de driver, ce sont eux qui vont envoyer les signaux de commande au moteur (des PWM). 
+
+Les drivers utilisés sont les ZXBM5210-S-13. 
+
+![image-driver20250114113650516](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver%20motor-%20image-20250114113650516.png)
+
+
+
+Voici le schéma du composant. Les sorties out 1 et out 2  sont connectés au moteur  par Motor1+ et  Motor 1-.
+
+Comme ce sont les signaux de commande PWM, nous avons découplé ces signaux avec des capacités de 100nF.
+
+Quant aux signaux d'alimentation nous découplons la tension de la batterie avec une capacité de 10µF pour le signal Vm et une capacité de 1µF pour 
+
+
+
+Le signal PWM_MOT1_CH1 est le signal PWM généré par le STM32 en direction du pin FWD du composant .
+Le signal PWM_MOT1_CH2 est le signal PWM généré par le STM32  en direction du pin REV du composant.
+
+
+
+D'après le tableau de la datasheet, si on envoie un signal PWM pour contrôler le driver en mode "PWM control mode". 
+
+Il faut alors envoyer un signal PWM en entré sur un des pins FWD ou REV. Ce qui donnera naissance à un signal PWM en sortie sur out1-out2 de fréquence égale à celle en entrée du pin qui reçoit le signal PWM.   
+Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxième driver : 
+![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
+
+
+Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs. Pour cela il faut préparer, l'alimentation et les signaux dont ils ont besoin dans un connecteur (jst en l'occurrence).
+  
+
+
+
+D'après la documentation des moteur/encodeurs, les signaux sont placés de la façon suivante sur le brochage : 
+
+![signaux encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeur_signaux_sur_moteurs.png)
+
+On peut lire sur cette image que les signaux de l'encodeur sont les suivants : 
+ - alimentation 3V3
+ - ground GND
+ - codeurX_PH1 [pour la phase A]
+ - codeurX_PH2 [pour la phase B]
+
+
+Nous avons placé ces signaux entre les deux signaux destinés au moteurs et conservé l'ordre d'affectation des broches de la doumention, ce qui donne ce schéma de connector : 
+
+![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
+
+
+#### Le Cerveau du robot : le STM32 & cie #### 
+
+Dans cette feuille, nous avons connecter les composants suivants, le STM32, le STlink, le Quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
+![brain_sheet](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/brain_sheet_only_page-0001.jpg)  
+
+#####  le STM32  #####
+
+###### Explications assignations signaux-pins du STM32 ######
+Pour assigner les pins du STM32, nous avons pris positionné d'abord le GPIO du timer 1 pour les signaux PWM, puis les signaux des encodeurs. Les encodeurs ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode" à une fréquence plus basse que les signaux PWM, ils ne peuvent donc pas être sur le même timer que les PWM.  
+Ensuite nous avons connecté l'USART4 du LIDAR (et ses connectiques) puis l'USART2 du STLINK. On a placé les connexions SPI pour l'accéléromètre et les connexions I2C du capteur TOF.   
+
+
+résistance de tirage bus I2C : 
+Nous avons ajouté une résistance de pull-up sur le signal SDA et SCL respectivement de 3.3 kOhms et 2.2 kOhms  
+
+
+###### Découplage du STM32 ######
+Les microcontrôleurs STM32 nécessitent un découplage efficace pour garantir leur fonctionnement stable et fiable. Ce découplage est réalisé à l’aide de condensateurs judicieusement choisis et placés. Lors des transitions rapides des circuits internes du microcontrôleur, comme celles générées par les horloges et les commutations d’état des broches, des variations soudaines de courant peuvent se produire. Ces fluctuations génèrent des perturbations haute fréquence qui risquent de déstabiliser l'alimentation. Les condensateurs de 100 nF, placés aussi près que possible des broches d'alimentation (VDD, VDDA), jouent un rôle clé en filtrant ces perturbations haute fréquence, agissant ainsi comme un réservoir d'énergie pour combler les besoins instantanés.
+
+Pour stabiliser davantage l’alimentation, un condensateur de capacité plus élevée, comme un 4,7 µF, est ajouté. Celui-ci répond aux variations de courant plus lentes et de plus grande amplitude. Par ailleurs, des broches spécifiques comme VDDA et VREF+, utilisées pour des fonctions sensibles telles que les convertisseurs analogiques-numériques (ADC), exigent une alimentation particulièrement propre. Un condensateur de 1 µF y est ajouté pour minimiser tout bruit électrique. Enfin, le bon fonctionnement de l’oscillateur externe, crucial pour la précision de l’horloge, est assuré par des condensateurs appropriés (par exemple, de 10 pF) placés autour du quartz.
+
+Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur tout en réduisant les effets des perturbations électriques.
+découplage alim stm32 à dire 
+#####  le quartz #####
+Afin d'avoir
+Le quartz agit comme un résonateur, amplifiant les signaux à sa fréquence naturelle. Si les signaux d'entrée et de sortie ne sont pas correctement découplés, il peut y avoir des rétroactions indésirables, perturbant le fonctionnement normal de l'oscillateur. 
+Une capacité de découplage permet d'isoler les parties du circuit, minimisant les perturbations provenant des variations de tension ou d'autres signaux non désirés.
+Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
+Les circuits connectés au quartz, notamment l'entrée de l'amplificateur et le réseau de charge, peuvent avoir des impédances différentes. Le découplage capacitif permet d'adapter l'impédance, garantissant une transmission optimale de l'énergie oscillante.
+Les signaux électriques OSC_In et OSC_OUT peuvent parfois inclure des pics de tension ou des variations transitoires. Un découplage capacitif agit comme une barrière, protégeant le quartz de ces stress électriques, augmentant ainsi sa durée de vie.
+
+En résumé, le découplage par une capacité assure une meilleure isolation, stabilité, et performance du circuit oscillateur. Cela garantit que le quartz peut fonctionner à sa fréquence de résonance avec un minimum de perturbations et de pertes, ce qui est essentiel pour des applications nécessitant une précision temporelle élevée, comme les horloges et les communications électroniques.
+
+La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour la sortie du quartz.
+
+
+#####  le STLink #####
+La ST-Link est un outil indispensable pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
+
+En résumé, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
+
+
+#####  les boutons #####
+Le PCB est consituté de deux boutons : le premier NRST sert à reset le code qui a été téléversé sur la carte. Le deuxième permet au robot de changer d'état entre souris et chat. 
 
 </details>
 
