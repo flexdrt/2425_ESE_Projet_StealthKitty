@@ -253,6 +253,105 @@ Les leds servent d'indicateurs pour visualiser l'état du robot, il y a une led 
 
 ![leds](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/leds_robot.png)
 
+
+## Réalisation du routage du  PCB ##  
+
+Le PCB à été conçu afin de respecter le cahier des charges en termes de dimension afin de pouvoir l'intégrer facilement au robot.
+
+![Capture d'écran 2025-01-15 002802](https://github.com/user-attachments/assets/1958b6cb-7456-49f0-a244-b26298ce3cdc)
+
+**Répartition des couches du PCB**  
+1. **Couche 1 (Front)** : Support de tous nos composants, majoritairement CMS, avec des connecteurs traversants. La majorité des pistes  y sont tracées également sur cette couche, tandis qu’une partie passe par la couche 4 (bottom) pour préserver l’homogénéité des plans de masse (couche 2) et d’alimentation (couche 3).
+2. **Couche 2** : Plan de masse, avec des vias espacés pour éviter les coupures.  
+
+3. **Couche 3** : Plan d’alimentation pour les composants à forte consommation, optimisant la dissipation thermique.  
+
+4. **Couche 4 (Bottom)** : On retrouve les pistes de données issues principalement de la couche 1 pour garder l'integralité des signaux . Nous avons également évités de croiser les discontinuités des plans d'alimentation ( couche 3 )
+# Routage de la Carte
+
+Le routage de la carte a été conçu avec soin pour garantir des performances optimales. Voici les optimisations principales réalisées, illustrées avec des images.
+
+## 1. Positionnement des Vias
+Les vias ont été placés **aussi proches que possible des pastilles** des composants.
+
+<img src="https://github.com/user-attachments/assets/01dcf596-1c17-4e1c-b858-94de7c3fdb74" alt="via tout prés possible des pastille" width="500"/>
+
+Cela minimise la longueur des connexions, réduisant ainsi les résistances parasites et améliorant la qualité des signaux.
+
+---
+
+## 2. Protection du Quartz
+Un **mur de vias** entoure l’oscillateur externe pour le protéger des **interférences électromagnétiques**.
+
+<img src="https://github.com/user-attachments/assets/8bcbf64b-0a08-48d7-a43d-08ff70925e22" alt="protection du quartz par des via" width="500"/>
+
+Cette isolation réduit le risque de perturbations provenant des autres composants de la carte.
+
+---
+
+## 3. Réduction des Problèmes d’Antenne
+Des vias ont été placés dans les zones où des **antennes indésirables** pourraient se former.
+
+<img src="https://github.com/user-attachments/assets/a6eaa5c0-fce8-479c-8fc4-19a674a71f75" alt="probleme antenne" width="500"/>
+
+ Cela aide à minimiser les effets d’induction et les émissions parasites.
+
+---
+
+## 4. Zones pour Signaux Importants
+Des **plans dédiés** ont été créés pour les signaux importants.
+
+<img src="https://github.com/user-attachments/assets/cdbda439-fe63-4df9-9f69-62f41dc960fc" alt="zone de plan signaux important" width="500"/>
+
+Ci-dessous un exemple pour le signal  Motor+ qui a son propre plan pour assurer une transmission stable et fiable, réduisant les pertes et les perturbations.
+
+---
+
+## 5. Plans d’Alimentation
+### a. Plan 5V
+<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="500"/>
+
+### b. Plan VBAT
+<img src="https://github.com/user-attachments/assets/3b930f0b-2913-4636-b335-293db4ca7967" alt="plan vbat" width="500"/>
+
+
+Les plans d’alimentation, tels que 5V et VBAT, ont été placés dans la couche 3 de la carte. Cela permet une meilleure répartition du courant et une connexion optimale aux composants qui nécessitent ces alimentations.
+
+---
+
+## 6. Dissipation Thermique
+Des **vias thermiques** ont été ajoutés pour améliorer la dissipation thermique.
+
+<img src="https://github.com/user-attachments/assets/e79a1d80-92c4-4edf-9f98-900dd3defe3d" alt="des via pour des composant avec grande surface pour une meilleur dissipation" width="500"/>
+
+ Cette pratique à été faute pour des composants contenant des pad thermique tels que le STM32 et les drivers des moteurs , ces vias facilitent le transfert de chaleur vers d’autres couches, améliorant la dissipation thermique et empêchant les surchauffes.
+ 
+---
+
+## 7. Condensateurs de Découplage
+Les **condensateurs de découplage** ont été positionnés **au plus près des broches d’alimentation (ex. STM32, drivers)**.
+
+<img src="https://github.com/user-attachments/assets/c4432fc9-8f2d-4697-9603-607fb518d908" alt="capa decouplage a coté des alim" width="500"/>
+
+Cela réduit les parasites haute fréquence et stabilise l’alimentation.
+
+---
+
+## 8. Adaptation des Pistes
+La largeur des pistes a été ajustée pour correspondre aux pastilles des composants.
+
+<img src="https://github.com/user-attachments/assets/51d0b688-313c-4247-bf0d-8a986fbfdd5b" alt="piste a la largeur des" width="500"/>
+
+ Cela améliore la transmission des signaux et réduit les impédances parasites.
+
+---
+
+## 9. Points de Test
+Des **points de test accessibles** ont été placés pour faciliter le débogage.
+
+<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="500"/>
+
+
 ### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
 
 ---
@@ -868,102 +967,5 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 
 
-
-**Réalisation du routage du  PCB**  
-
-Le PCB à été conçu afin de respecter le cahier des charges en termes de dimension afin de pouvoir l'intégrer facilement au robot.
-
-![Capture d'écran 2025-01-15 002802](https://github.com/user-attachments/assets/1958b6cb-7456-49f0-a244-b26298ce3cdc)
-
-**Répartition des couches du PCB**  
-1. **Couche 1 (Front)** : Support de tous nos composants, majoritairement CMS, avec des connecteurs traversants. La majorité des pistes  y sont tracées également sur cette couche, tandis qu’une partie passe par la couche 4 (bottom) pour préserver l’homogénéité des plans de masse (couche 2) et d’alimentation (couche 3).
-2. **Couche 2** : Plan de masse, avec des vias espacés pour éviter les coupures.  
-
-3. **Couche 3** : Plan d’alimentation pour les composants à forte consommation, optimisant la dissipation thermique.  
-
-4. **Couche 4 (Bottom)** : On retrouve les pistes de données issues principalement de la couche 1 pour garder l'integralité des signaux . Nous avons également évités de croiser les discontinuités des plans d'alimentation ( couche 3 )
-# Routage de la Carte
-
-Le routage de la carte a été conçu avec soin pour garantir des performances optimales. Voici les optimisations principales réalisées, illustrées avec des images.
-
-## 1. Positionnement des Vias
-Les vias ont été placés **aussi proches que possible des pastilles** des composants.
-
-<img src="https://github.com/user-attachments/assets/01dcf596-1c17-4e1c-b858-94de7c3fdb74" alt="via tout prés possible des pastille" width="500"/>
-
-Cela minimise la longueur des connexions, réduisant ainsi les résistances parasites et améliorant la qualité des signaux.
-
----
-
-## 2. Protection du Quartz
-Un **mur de vias** entoure l’oscillateur externe pour le protéger des **interférences électromagnétiques**.
-
-<img src="https://github.com/user-attachments/assets/8bcbf64b-0a08-48d7-a43d-08ff70925e22" alt="protection du quartz par des via" width="500"/>
-
-Cette isolation réduit le risque de perturbations provenant des autres composants de la carte.
-
----
-
-## 3. Réduction des Problèmes d’Antenne
-Des vias ont été placés dans les zones où des **antennes indésirables** pourraient se former.
-
-<img src="https://github.com/user-attachments/assets/a6eaa5c0-fce8-479c-8fc4-19a674a71f75" alt="probleme antenne" width="500"/>
-
- Cela aide à minimiser les effets d’induction et les émissions parasites.
-
----
-
-## 4. Zones pour Signaux Importants
-Des **plans dédiés** ont été créés pour les signaux importants.
-
-<img src="https://github.com/user-attachments/assets/cdbda439-fe63-4df9-9f69-62f41dc960fc" alt="zone de plan signaux important" width="500"/>
-
-Ci-dessous un exemple pour le signal  Motor+ qui a son propre plan pour assurer une transmission stable et fiable, réduisant les pertes et les perturbations.
-
----
-
-## 5. Plans d’Alimentation
-### a. Plan 5V
-<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="500"/>
-
-### b. Plan VBAT
-<img src="https://github.com/user-attachments/assets/3b930f0b-2913-4636-b335-293db4ca7967" alt="plan vbat" width="500"/>
-
-
-Les plans d’alimentation, tels que 5V et VBAT, ont été placés dans la couche 3 de la carte. Cela permet une meilleure répartition du courant et une connexion optimale aux composants qui nécessitent ces alimentations.
-
----
-
-## 6. Dissipation Thermique
-Des **vias thermiques** ont été ajoutés pour améliorer la dissipation thermique.
-
-<img src="https://github.com/user-attachments/assets/e79a1d80-92c4-4edf-9f98-900dd3defe3d" alt="des via pour des composant avec grande surface pour une meilleur dissipation" width="500"/>
-
- Cette pratique à été faute pour des composants contenant des pad thermique tels que le STM32 et les drivers des moteurs , ces vias facilitent le transfert de chaleur vers d’autres couches, améliorant la dissipation thermique et empêchant les surchauffes.
- 
----
-
-## 7. Condensateurs de Découplage
-Les **condensateurs de découplage** ont été positionnés **au plus près des broches d’alimentation (ex. STM32, drivers)**.
-
-<img src="https://github.com/user-attachments/assets/c4432fc9-8f2d-4697-9603-607fb518d908" alt="capa decouplage a coté des alim" width="500"/>
-
-Cela réduit les parasites haute fréquence et stabilise l’alimentation.
-
----
-
-## 8. Adaptation des Pistes
-La largeur des pistes a été ajustée pour correspondre aux pastilles des composants.
-
-<img src="https://github.com/user-attachments/assets/51d0b688-313c-4247-bf0d-8a986fbfdd5b" alt="piste a la largeur des" width="500"/>
-
- Cela améliore la transmission des signaux et réduit les impédances parasites.
-
----
-
-## 9. Points de Test
-Des **points de test accessibles** ont été placés pour faciliter le débogage.
-
-<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="500"/>
 
 
