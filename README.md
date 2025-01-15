@@ -30,12 +30,11 @@ Ce projet est réalisé dans le cadre de la dernière année de la filière **é
 
 ## 📚 **Table des matières**  A REECRIRE
 1. [📖 Contexte](#-contexte)  
-2. [✨ Fonctionnalités](#-fonctionnalités)
-3. [📚 Explication Technique](#-Explication-Technique). 
-4. [🔧 Matériel utilisé](#-matériel-utilisé)  
-5. [📐 Architecture](#-architecture)  
-6. [🚀 Utilisation](#-utilisation)  
-7. [📄 Licence](#-licence)  
+2. [✨ Fonctionnalités](#-fonctionnalités)  
+3. [🔧 Matériel utilisé](#-matériel-utilisé)  
+4. [📐 Architecture](#-architecture)  
+5. [🚀 Utilisation](#-utilisation)  
+6. [📄 Licence](#-licence)  
 
 ---
 
@@ -49,9 +48,261 @@ Ce projet s'inscrit dans le cadre de la formation 3A à l'ENSEA.
 - 🛡️ **Détection de bords** via des capteurs ToF.  
 - 🔄 **Communication entre robots** pour synchronisation.  
 - 🎯 **Algorithme de poursuite et d'évitement.**  
-- ⚙️ **Gestion des moteurs**
+- ⚙️ **Gestion des moteurs**  
+
+---
+
+## 🔧 **Matériel utilisé**  
+- **STM32G431RB** : Microcontrôleur principal.  
+- **Capteurs ToF** : Détection des bordures.  
+- **LiDAR** : Cartographie et détection d'autres robots.  
+- **Accéléromètre (ADXL343)** : Détection des chocs pour changer de rôle (Chat/Souris).  
+- **Environnement de développement :** STM32CubeIDE.  
+
+---
+
+## 📐 **Architecture**  
+### **Schéma architectural**  
+![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
+
+Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
+
+## Explication du fonctionnement du système
+
+1. **⚡ Alimentation principale**
+   - La **batterie NiMH 7.2V 1.3Ah** alimente l'ensemble du système. Elle est connectée à des régulateurs de tension pour fournir les différentes tensions nécessaires aux composants :
+     - **MP1475S** : Régulateur 5V pour alimenter les moteurs et certains capteurs.
+     - **BU33SD5WG-TR** : Régulateur 3.3V pour alimenter le microcontrôleur STM32G431, l'accéléromètre et le LiDAR.
+
+2. **🖥️ Microcontrôleur principal - STM32G431**
+   - Le **STM32G431** gère toute la logique du robot et communique avec les différents composants via des bus tels que SPI, UART, I2C et PWM.
+   - Il est relié à un **quartz 16 MHz** pour la gestion de l'horloge système et dispose d'un connecteur **SWD** pour la programmation et le débogage.
+
+3. **🔍 Capteurs**
+   - **Capteurs ToF** : Utilisés pour détecter les bords ou les chutes du robot.
+   - **ADXL343 (Accéléromètre)** : Détecte les impacts ou les tapotements, utilisé pour détecter les collisions avec d'autres robots, et connecté au bus **SPI**.
+   - **LiDAR YDLIDAR X4** : Permet de détecter les obstacles à l'aide de la communication **UART** pour transmettre les données de distance et d'angle.
+
+4. **⚙️ Contrôle des moteurs**
+   - **ZXBM5210-SP-13 (Driver de moteur)** : Utilisé pour contrôler la direction et la vitesse des moteurs à l'aide de signaux **PWM**. Le microcontrôleur STM32 contrôle les moteurs via le driver pour ajuster la vitesse et la direction du robot.
+
+5. **🌟 Indicateurs d'état (LEDs)**
+   - Les **LEDs** servent d'indicateurs pour visualiser l'état du robot, par exemple, lorsqu'il est en marche ou lorsqu'il détecte un obstacle.
+
+### Détails des principaux outils utilisés
+
+1. **Communication avec l'accéléromètre (ADXL343)**
+   - Utilisation du protocole **SPI** pour lire les données des axes X, Y et Z.
+   - Détection des chocs (taps) causés par des collisions avec d'autres robots.
+
+2. **Contrôle des moteurs avec le driver ZXBM5210**
+   - Génération de signaux **PWM** pour réguler la vitesse des moteurs.
+   - Implémentation des mouvements du robot : avancer, reculer, tourner à gauche ou à droite.
+
+3. **Gestion des capteurs de bordure/détection de chute**
+   - Lecture des entrées des capteurs pour détecter les bords de la table.
+   - Réaction immédiate pour stopper ou changer de direction afin d’éviter une chute.
+
+4. **Interfaçage avec le LiDAR YDLIDAR X4**
+   - Communication via **UART** pour lire les données du LiDAR.
+   - Extraction des valeurs d’angles et de distances pour cartographier l'environnement et éviter les obstacles.
+
+---
+
+## 🚀 **Réalisation matérielle**  
+La partie matérielle a été conçue avec **KiCad 8.0** et comprend :  
+- 📜 **Schéma électronique**  
+- 🧩 **PCB routé**  
+- 🛠️ **BOM (Bill of Materials)**  
+- 🗂️ **Fichiers GERBER** pour fabrication chez **JLCPCB**.  
+
+Pour construire notre carte électronique, il nous a fallut commencer par designer sous KiCad le schéma électrique de notre système électronique, ce que l'on appelle schematic dans KiCad. Nous allons maintenant détaillé les différentes parties du schematic (les sheets du projet KiCad).
+
+## Schéma électronique ## 
+#### Capteurs du robot #####
+
+Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur LIDAR, et un capteur accéléromètre.
+
+Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est la stm32. L'avantage de cette communication est qu'elle permet une évolutivité si on a besoin d'ajouter d'autres composants matériel par la suite. Seulement pour cela il faut prévoir une résistance de pull-up (tirage) pour le bus I2C.
+
+
+Les signaux nécessaires pour implémenter en I2C ce capteur sont les suivants : 
+
+- SDA
+- SCL
+- int_tof1
+- xshunt1
+- GND
+
+Ces signaux sont représentés sur le connecteur JST de la figure ci-dessous.
+
+ 
+
+![image-20250113151649896](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/tof-image-20250113151649896.png)
+
+
+Le capteur Accéléromètre  est un capteur qui communique lui en SPI, tout comme le capteur TOF , il utilise un bus de communication qui nécessite une résistance de pull-up (tirage).
+
+![image-20250114095447270](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/adx-image--20250114095447270.png) 
+
+Les signaux nécessaires pour implémenter en SPI ce capteur sont les suivants : 
+
+- MISO
+
+- MOSI
+
+- SCK
+
+- nCS
+
+- Interruption n°1 ADX
+
+- Interruption n°2 ADX
+
+- +5V
+
+- GND
+
   
-## 📚 Explication Technique
+
+Comme on peut le voir, pour des raisons CEM nous avons placé une capacité de 1µF et une capacité de 0.1 µF pour découpler les deux alimentations en +3.3V.
+
+Afin de pouvoir débugger le capteur, nous avons également placé des points de test TestPoint.
+
+
+
+Le capteur LIDAR est un capteur qui communique par liason série UART dont les signaux sont les suivants :
+
+![image-20250114095520915](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/lidar%20-image-lidar-20250114095520915.png)
+
+- M_EN
+- DEV_EN
+- M_SCTR
+- RX_lidar
+- TX_lidar
+- +5V
+- GND
+
+
+
+#### Motorisation du robot ####
+
+Les composants qui s'assure déplacer le robot sont les moteurs qui sont des mcc **FIT 0520.** 
+
+Pour commander ces moteurs nous avons besoin de driver, ce sont eux qui vont envoyer les signaux de commande au moteur (des PWM). 
+
+Les drivers utilisés sont les ZXBM5210-S-13. 
+
+![image-driver20250114113650516](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver%20motor-%20image-20250114113650516.png)
+
+
+
+Voici le schéma du composant. Les sorties out 1 et out 2  sont connectés au moteur  par Motor1+ et  Motor 1-.
+
+Comme ce sont les signaux de commande PWM, nous avons découplé ces signaux avec des capacités de 100nF.
+
+Quant aux signaux d'alimentation nous découplons la tension de la batterie avec une capacité de 10µF pour le signal Vm et une capacité de 1µF pour 
+
+
+
+Le signal PWM_MOT1_CH1 est le signal PWM généré par le STM32 en direction du pin FWD du composant .
+Le signal PWM_MOT1_CH2 est le signal PWM généré par le STM32  en direction du pin REV du composant.
+
+
+
+D'après le tableau de la datasheet, si on envoie un signal PWM pour contrôler le driver en mode "PWM control mode". 
+
+Il faut alors envoyer un signal PWM en entré sur un des pins FWD ou REV. Ce qui donnera naissance à un signal PWM en sortie sur out1-out2 de fréquence égale à celle en entrée du pin qui reçoit le signal PWM.   
+Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxième driver : 
+![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
+
+
+Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs. Pour cela il faut préparer, l'alimentation et les signaux dont ils ont besoin dans un connecteur (jst en l'occurrence).
+  
+
+
+
+D'après la documentation des moteur/encodeurs, les signaux sont placés de la façon suivante sur le brochage : 
+
+![signaux encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeur_signaux_sur_moteurs.png)
+
+On peut lire sur cette image que les signaux de l'encodeur sont les suivants : 
+ - alimentation 3V3
+ - ground GND
+ - codeurX_PH1 [pour la phase A]
+ - codeurX_PH2 [pour la phase B]
+
+
+Nous avons placé ces signaux entre les deux signaux destinés au moteurs et conservé l'ordre d'affectation des broches de la doumention, ce qui donne ce schéma de connector : 
+
+![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
+
+
+#### Le Cerveau du robot : le STM32 & cie #### 
+
+Dans cette feuille, nous avons connecter les composants suivants, le STM32, le STlink, le Quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
+![brain_sheet](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/brain_sheet_only_page-0001.jpg)  
+
+#####  le STM32  #####
+
+###### Explications assignations signaux-pins du STM32 ######
+Pour assigner les pins du STM32, nous avons pris positionné d'abord le GPIO du timer 1 pour les signaux PWM, puis les signaux des encodeurs. Les encodeurs ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode" à une fréquence plus basse que les signaux PWM, ils ne peuvent donc pas être sur le même timer que les PWM.  
+Ensuite nous avons connecté l'USART4 du LIDAR (et ses connectiques) puis l'USART2 du STLINK. On a placé les connexions SPI pour l'accéléromètre et les connexions I2C du capteur TOF.   
+
+
+résistance de tirage bus I2C : 
+Nous avons ajouté une résistance de pull-up sur le signal SDA et SCL respectivement de 3.3 kOhms et 2.2 kOhms  
+
+
+###### Découplage du STM32 ######
+Les microcontrôleurs STM32 nécessitent un découplage efficace pour garantir leur fonctionnement stable et fiable. Ce découplage est réalisé à l’aide de condensateurs judicieusement choisis et placés. Lors des transitions rapides des circuits internes du microcontrôleur, comme celles générées par les horloges et les commutations d’état des broches, des variations soudaines de courant peuvent se produire. Ces fluctuations génèrent des perturbations haute fréquence qui risquent de déstabiliser l'alimentation. Les condensateurs de 100 nF, placés aussi près que possible des broches d'alimentation (VDD, VDDA), jouent un rôle clé en filtrant ces perturbations haute fréquence, agissant ainsi comme un réservoir d'énergie pour combler les besoins instantanés.
+
+Pour stabiliser davantage l’alimentation, un condensateur de capacité plus élevée, comme un 4,7 µF, est ajouté. Celui-ci répond aux variations de courant plus lentes et de plus grande amplitude. Par ailleurs, des broches spécifiques comme VDDA et VREF+, utilisées pour des fonctions sensibles telles que les convertisseurs analogiques-numériques (ADC), exigent une alimentation particulièrement propre. Un condensateur de 1 µF y est ajouté pour minimiser tout bruit électrique. Enfin, le bon fonctionnement de l’oscillateur externe, crucial pour la précision de l’horloge, est assuré par des condensateurs appropriés (par exemple, de 10 pF) placés autour du quartz.
+
+Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur tout en réduisant les effets des perturbations électriques.
+découplage alim stm32 à dire 
+#####  le quartz #####
+Afin d'avoir
+Le quartz agit comme un résonateur, amplifiant les signaux à sa fréquence naturelle. Si les signaux d'entrée et de sortie ne sont pas correctement découplés, il peut y avoir des rétroactions indésirables, perturbant le fonctionnement normal de l'oscillateur. 
+Une capacité de découplage permet d'isoler les parties du circuit, minimisant les perturbations provenant des variations de tension ou d'autres signaux non désirés.
+Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
+Les circuits connectés au quartz, notamment l'entrée de l'amplificateur et le réseau de charge, peuvent avoir des impédances différentes. Le découplage capacitif permet d'adapter l'impédance, garantissant une transmission optimale de l'énergie oscillante.
+Les signaux électriques OSC_In et OSC_OUT peuvent parfois inclure des pics de tension ou des variations transitoires. Un découplage capacitif agit comme une barrière, protégeant le quartz de ces stress électriques, augmentant ainsi sa durée de vie.
+
+En résumé, le découplage par une capacité assure une meilleure isolation, stabilité, et performance du circuit oscillateur. Cela garantit que le quartz peut fonctionner à sa fréquence de résonance avec un minimum de perturbations et de pertes, ce qui est essentiel pour des applications nécessitant une précision temporelle élevée, comme les horloges et les communications électroniques.
+
+La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour la sortie du quartz.
+
+
+#####  le STLink #####
+La ST-Link est un outil indispensable pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
+
+En résumé, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
+
+
+#####  les boutons #####
+Le PCB est consituté de deux boutons : le premier NRST sert à reset le code qui a été téléversé sur la carte. Le deuxième permet au robot de changer d'état entre souris et chat. 
+
+
+### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
+
+---
+
+## 🛠️ **Développement logiciel**  
+Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :  
+- 🔧 **Configuration des périphériques** (SPI, UART, PWM, etc.).  
+- 📦 **Modules logiciels** pour capteurs et moteurs.  
+- 🤖 **Algorithmes embarqués** pour les comportements du robot (poursuite, évitement, etc.).  
+
+### 📂 [Accédez au code source ici.](./Software)
+
+
+---
+
+## 📄 **Licence**  
+📝 Ce projet est sous licence **MIT**.  
+Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).  
+
 
 # 🚀 Explication sur l'utilisation de l'accéléromètre ADXL343 dans le robot chat
 
@@ -665,322 +916,86 @@ A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pa
 
 
 
----
 
-## 🔧 **Matériel utilisé**  
-- **STM32G431RB** : Microcontrôleur principal.  
-- **Capteurs ToF** : Détection des bordures.  
-- **LiDAR** : Cartographie et détection d'autres robots.  
-- **Accéléromètre (ADXL343)** : Détection des chocs pour changer de rôle (Chat/Souris).  
-- **Environnement de développement :** STM32CubeIDE.  
 
----
 
-## 📐 **Architecture**  
-### **Schéma architectural**  
-![image](https://github.com/user-attachments/assets/0f7c4c1b-3890-4360-bbe3-213a3acfd5ad)
 
-Ce schéma ne détaille pas que chaque moteur a sa propre pwm et son driver propre également.
 
-## Explication du fonctionnement du système
-
-1. **⚡ Alimentation principale**
-   - La **batterie NiMH 7.2V 1.3Ah** alimente l'ensemble du système. Elle est connectée à des régulateurs de tension pour fournir les différentes tensions nécessaires aux composants :
-     - **MP1475S** : Régulateur 5V pour alimenter les moteurs et certains capteurs.
-     - **BU33SD5WG-TR** : Régulateur 3.3V pour alimenter le microcontrôleur STM32G431, l'accéléromètre et le LiDAR.
-
-2. **🖥️ Microcontrôleur principal - STM32G431**
-   - Le **STM32G431** gère toute la logique du robot et communique avec les différents composants via des bus tels que SPI, UART, I2C et PWM.
-   - Il est relié à un **quartz 16 MHz** pour la gestion de l'horloge système et dispose d'un connecteur **SWD** pour la programmation et le débogage.
-
-3. **🔍 Capteurs**
-   - **Capteurs ToF** : Utilisés pour détecter les bords ou les chutes du robot.
-   - **ADXL343 (Accéléromètre)** : Détecte les impacts ou les tapotements, utilisé pour détecter les collisions avec d'autres robots, et connecté au bus **SPI**.
-   - **LiDAR YDLIDAR X4** : Permet de détecter les obstacles à l'aide de la communication **UART** pour transmettre les données de distance et d'angle.
-
-4. **⚙️ Contrôle des moteurs**
-   - **ZXBM5210-SP-13 (Driver de moteur)** : Utilisé pour contrôler la direction et la vitesse des moteurs à l'aide de signaux **PWM**. Le microcontrôleur STM32 contrôle les moteurs via le driver pour ajuster la vitesse et la direction du robot.
-
-5. **🌟 Indicateurs d'état (LEDs)**
-   - Les **LEDs** servent d'indicateurs pour visualiser l'état du robot, par exemple, lorsqu'il est en marche ou lorsqu'il détecte un obstacle.
-
-### Détails des principaux outils utilisés
-
-1. **Communication avec l'accéléromètre (ADXL343)**
-   - Utilisation du protocole **SPI** pour lire les données des axes X, Y et Z.
-   - Détection des chocs (taps) causés par des collisions avec d'autres robots.
-
-2. **Contrôle des moteurs avec le driver ZXBM5210**
-   - Génération de signaux **PWM** pour réguler la vitesse des moteurs.
-   - Implémentation des mouvements du robot : avancer, reculer, tourner à gauche ou à droite.
-
-3. **Gestion des capteurs de bordure/détection de chute**
-   - Lecture des entrées des capteurs pour détecter les bords de la table.
-   - Réaction immédiate pour stopper ou changer de direction afin d’éviter une chute.
-
-4. **Interfaçage avec le LiDAR YDLIDAR X4**
-   - Communication via **UART** pour lire les données du LiDAR.
-   - Extraction des valeurs d’angles et de distances pour cartographier l'environnement et éviter les obstacles.
-
----
-
-## 🚀 **Réalisation matérielle**  
-La partie matérielle a été conçue avec **KiCad 8.0** et comprend :  
-
-- 📜 **Schéma électronique**
-
-<details>
-<summary> Détail sur le schéma électronique </summary>
-
-Pour construire notre carte électronique, il nous a fallut commencer par designer sous KiCad le schéma électrique de notre système électronique, ce que l'on appelle schematic dans KiCad. Nous allons maintenant détaillé les différentes parties du schematic (les sheets du projet KiCad).
-
-## Schéma électronique ## 
-#### Capteurs du robot #####
-
-Le robot contient plusieurs capteurs, un capteur Time Of Flight TOF, un capteur LIDAR, et un capteur accéléromètre.
-
-Le capteur TOF est un capteur de distance qui communique en I2C avec le cerveau du robot qu'est la stm32. L'avantage de cette communication est qu'elle permet une évolutivité si on a besoin d'ajouter d'autres composants matériel par la suite. Seulement pour cela il faut prévoir une résistance de pull-up (tirage) pour le bus I2C.
-
-
-Les signaux nécessaires pour implémenter en I2C ce capteur sont les suivants : 
-
-- SDA
-- SCL
-- int_tof1
-- xshunt1
-- GND
-
-Ces signaux sont représentés sur le connecteur JST de la figure ci-dessous.
-
- 
-
-![image-20250113151649896](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/tof-image-20250113151649896.png)
-
-
-Le capteur Accéléromètre  est un capteur qui communique lui en SPI, tout comme le capteur TOF , il utilise un bus de communication qui nécessite une résistance de pull-up (tirage).
-
-![image-20250114095447270](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/adx-image--20250114095447270.png) 
-
-Les signaux nécessaires pour implémenter en SPI ce capteur sont les suivants : 
-
-- MISO
-
-- MOSI
-
-- SCK
-
-- nCS
-
-- Interruption n°1 ADX
-
-- Interruption n°2 ADX
-
-- +5V
-
-- GND
-
-  
-
-Comme on peut le voir, pour des raisons CEM nous avons placé une capacité de 1µF et une capacité de 0.1 µF pour découpler les deux alimentations en +3.3V.
-
-Afin de pouvoir débugger le capteur, nous avons également placé des points de test TestPoint.
-
-
-
-Le capteur LIDAR est un capteur qui communique par liason série UART dont les signaux sont les suivants :
-
-![image-20250114095520915](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/lidar%20-image-lidar-20250114095520915.png)
-
-- M_EN
-- DEV_EN
-- M_SCTR
-- RX_lidar
-- TX_lidar
-- +5V
-- GND
-
-
-
-#### Motorisation du robot ####
-
-Les composants qui s'assure déplacer le robot sont les moteurs qui sont des mcc **FIT 0520.** 
-
-Pour commander ces moteurs nous avons besoin de driver, ce sont eux qui vont envoyer les signaux de commande au moteur (des PWM). 
-
-Les drivers utilisés sont les ZXBM5210-S-13. 
-
-![image-driver20250114113650516](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver%20motor-%20image-20250114113650516.png)
-
-
-
-Voici le schéma du composant. Les sorties out 1 et out 2  sont connectés au moteur  par Motor1+ et  Motor 1-.
-
-Comme ce sont les signaux de commande PWM, nous avons découplé ces signaux avec des capacités de 100nF.
-
-Quant aux signaux d'alimentation nous découplons la tension de la batterie avec une capacité de 10µF pour le signal Vm et une capacité de 1µF pour 
-
-
-
-Le signal PWM_MOT1_CH1 est le signal PWM généré par le STM32 en direction du pin FWD du composant .
-Le signal PWM_MOT1_CH2 est le signal PWM généré par le STM32  en direction du pin REV du composant.
-
-
-
-D'après le tableau de la datasheet, si on envoie un signal PWM pour contrôler le driver en mode "PWM control mode". 
-
-Il faut alors envoyer un signal PWM en entré sur un des pins FWD ou REV. Ce qui donnera naissance à un signal PWM en sortie sur out1-out2 de fréquence égale à celle en entrée du pin qui reçoit le signal PWM.   
-Comme nous avons deux moteurs, il faut deux drivers, voici le schéma du deuxième driver : 
-![driver2](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/driver2_schema.png)
-
-
-Pour obtenir la vitesse des roues, nous utilisons les encodeurs des moteurs. Pour cela il faut préparer, l'alimentation et les signaux dont ils ont besoin dans un connecteur (jst en l'occurrence).
-  
-
-
-
-D'après la documentation des moteur/encodeurs, les signaux sont placés de la façon suivante sur le brochage : 
-
-![signaux encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeur_signaux_sur_moteurs.png)
-
-On peut lire sur cette image que les signaux de l'encodeur sont les suivants : 
- - alimentation 3V3
- - ground GND
- - codeurX_PH1 [pour la phase A]
- - codeurX_PH2 [pour la phase B]
-
-
-Nous avons placé ces signaux entre les deux signaux destinés au moteurs et conservé l'ordre d'affectation des broches de la doumention, ce qui donne ce schéma de connector : 
-
-![encodeurs](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/encodeurs_schema.png)
-
-
-#### Le Cerveau du robot : le STM32 & cie #### 
-
-Dans cette feuille, nous avons connecter les composants suivants, le STM32, le STlink, le Quartz, des leds, un bouton pour changer d'état et un bouton NRST pour reset le STM32.
-![brain_sheet](https://github.com/flexdrt/StealthKitty/blob/main/annexes/assets/brain_sheet_only_page-0001.jpg)  
-
-#####  le STM32  #####
-
-###### Explications assignations signaux-pins du STM32 ######
-Pour assigner les pins du STM32, nous avons pris positionné d'abord le GPIO du timer 1 pour les signaux PWM, puis les signaux des encodeurs. Les encodeurs ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode" à une fréquence plus basse que les signaux PWM, ils ne peuvent donc pas être sur le même timer que les PWM.  
-Ensuite nous avons connecté l'USART4 du LIDAR (et ses connectiques) puis l'USART2 du STLINK. On a placé les connexions SPI pour l'accéléromètre et les connexions I2C du capteur TOF.   
-
-
-résistance de tirage bus I2C : 
-Nous avons ajouté une résistance de pull-up sur le signal SDA et SCL respectivement de 3.3 kOhms et 2.2 kOhms  
-
-
-###### Découplage du STM32 ######
-Les microcontrôleurs STM32 nécessitent un découplage efficace pour garantir leur fonctionnement stable et fiable. Ce découplage est réalisé à l’aide de condensateurs judicieusement choisis et placés. Lors des transitions rapides des circuits internes du microcontrôleur, comme celles générées par les horloges et les commutations d’état des broches, des variations soudaines de courant peuvent se produire. Ces fluctuations génèrent des perturbations haute fréquence qui risquent de déstabiliser l'alimentation. Les condensateurs de 100 nF, placés aussi près que possible des broches d'alimentation (VDD, VDDA), jouent un rôle clé en filtrant ces perturbations haute fréquence, agissant ainsi comme un réservoir d'énergie pour combler les besoins instantanés.
-
-Pour stabiliser davantage l’alimentation, un condensateur de capacité plus élevée, comme un 4,7 µF, est ajouté. Celui-ci répond aux variations de courant plus lentes et de plus grande amplitude. Par ailleurs, des broches spécifiques comme VDDA et VREF+, utilisées pour des fonctions sensibles telles que les convertisseurs analogiques-numériques (ADC), exigent une alimentation particulièrement propre. Un condensateur de 1 µF y est ajouté pour minimiser tout bruit électrique. Enfin, le bon fonctionnement de l’oscillateur externe, crucial pour la précision de l’horloge, est assuré par des condensateurs appropriés (par exemple, de 10 pF) placés autour du quartz.
-
-Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur tout en réduisant les effets des perturbations électriques.
-découplage alim stm32 à dire 
-#####  le quartz #####
-Afin d'avoir
-Le quartz agit comme un résonateur, amplifiant les signaux à sa fréquence naturelle. Si les signaux d'entrée et de sortie ne sont pas correctement découplés, il peut y avoir des rétroactions indésirables, perturbant le fonctionnement normal de l'oscillateur. 
-Une capacité de découplage permet d'isoler les parties du circuit, minimisant les perturbations provenant des variations de tension ou d'autres signaux non désirés.
-Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
-Les circuits connectés au quartz, notamment l'entrée de l'amplificateur et le réseau de charge, peuvent avoir des impédances différentes. Le découplage capacitif permet d'adapter l'impédance, garantissant une transmission optimale de l'énergie oscillante.
-Les signaux électriques OSC_In et OSC_OUT peuvent parfois inclure des pics de tension ou des variations transitoires. Un découplage capacitif agit comme une barrière, protégeant le quartz de ces stress électriques, augmentant ainsi sa durée de vie.
-
-En résumé, le découplage par une capacité assure une meilleure isolation, stabilité, et performance du circuit oscillateur. Cela garantit que le quartz peut fonctionner à sa fréquence de résonance avec un minimum de perturbations et de pertes, ce qui est essentiel pour des applications nécessitant une précision temporelle élevée, comme les horloges et les communications électroniques.
-
-La valeur de la capacité de découplage est 10 pF pour l'entrée et 10pF pour la sortie du quartz.
-
-
-#####  le STLink #####
-La ST-Link est un outil indispensable pour la gestion et le développement des microprocesseurs STM32. Elle remplit deux fonctions principales : la programmation du microprocesseur, en permettant de flasher le code directement sur celui-ci, et le débogage, grâce à une interface de communication série dédiée.
-
-En résumé, la ST-Link établit un lien direct entre l’environnement de développement et le STM32, simplifiant le processus de programmation et assurant une prise en charge efficace du débogage.
-
-
-#####  les boutons #####
-Le PCB est consituté de deux boutons : le premier NRST sert à reset le code qui a été téléversé sur la carte. Le deuxième permet au robot de changer d'état entre souris et chat. 
-
-</details>
-
-
- 
-- 🧩 **PCB routé**  
-
-<details>
-<summary> Détail sur le routage du PCB </summary>
+**Réalisation du routage du  PCB**  
 
 Le PCB à été conçu afin de respecter le cahier des charges en termes de dimension afin de pouvoir l'intégrer facilement au robot.
 
 ![Capture d'écran 2025-01-15 002802](https://github.com/user-attachments/assets/1958b6cb-7456-49f0-a244-b26298ce3cdc)
 
----
-
-### Répartition des couches du PCB
-1. **Couche 1 (Front)** : Support de tous nos composants, majoritairement CMS, avec des connecteurs traversants. La majorité des pistes y sont tracées également sur cette couche, tandis qu’une partie passe par la couche 4 (bottom) pour préserver l’homogénéité des plans de masse (couche 2) et d’alimentation (couche 3).
+**Répartition des couches du PCB**  
+1. **Couche 1 (Front)** : Support de tous nos composants, majoritairement CMS, avec des connecteurs traversants. La majorité des pistes  y sont tracées également sur cette couche, tandis qu’une partie passe par la couche 4 (bottom) pour préserver l’homogénéité des plans de masse (couche 2) et d’alimentation (couche 3).
 2. **Couche 2** : Plan de masse, avec des vias espacés pour éviter les coupures.  
+
 3. **Couche 3** : Plan d’alimentation pour les composants à forte consommation, optimisant la dissipation thermique.  
-4. **Couche 4 (Bottom)** : On retrouve les pistes de données issues principalement de la couche 1 pour garder l'intégrité des signaux. Nous avons également évité de croiser les discontinuités des plans d'alimentation (couche 3).
 
----
+4. **Couche 4 (Bottom)** : On retrouve les pistes de données issues principalement de la couche 1 pour garder l'integralité des signaux . Nous avons également évités de croiser les discontinuités des plans d'alimentation ( couche 3 )
+# Routage de la Carte
 
-### Optimisations de routage
+Le routage de la carte a été conçu avec soin pour garantir des performances optimales. Voici les optimisations principales réalisées, illustrées avec des images.
 
-#### 1. Positionnement des Vias
+## 1. Positionnement des Vias
 Les vias ont été placés **aussi proches que possible des pastilles** des composants.
 
-<img src="https://github.com/user-attachments/assets/01dcf596-1c17-4e1c-b858-94de7c3fdb74" alt="via tout prés possible des pastille" width="400"/>
+<img src="https://github.com/user-attachments/assets/01dcf596-1c17-4e1c-b858-94de7c3fdb74" alt="via tout prés possible des pastille" width="500"/>
 
 Cela minimise la longueur des connexions, réduisant ainsi les résistances parasites et améliorant la qualité des signaux.
 
 ---
 
-#### 2. Protection du Quartz
+## 2. Protection du Quartz
 Un **mur de vias** entoure l’oscillateur externe pour le protéger des **interférences électromagnétiques**.
 
-<img src="https://github.com/user-attachments/assets/8bcbf64b-0a08-48d7-a43d-08ff70925e22" alt="protection du quartz par des via" width="400"/>
+<img src="https://github.com/user-attachments/assets/8bcbf64b-0a08-48d7-a43d-08ff70925e22" alt="protection du quartz par des via" width="500"/>
 
 Cette isolation réduit le risque de perturbations provenant des autres composants de la carte.
 
 ---
 
-#### 3. Réduction des Problèmes d’Antenne
+## 3. Réduction des Problèmes d’Antenne
 Des vias ont été placés dans les zones où des **antennes indésirables** pourraient se former.
 
-<img src="https://github.com/user-attachments/assets/a6eaa5c0-fce8-479c-8fc4-19a674a71f75" alt="probleme antenne" width="400"/>
+<img src="https://github.com/user-attachments/assets/a6eaa5c0-fce8-479c-8fc4-19a674a71f75" alt="probleme antenne" width="500"/>
 
  Cela aide à minimiser les effets d’induction et les émissions parasites.
 
 ---
 
-#### 4. Zones pour Signaux Importants
+## 4. Zones pour Signaux Importants
 Des **plans dédiés** ont été créés pour les signaux importants.
 
-<img src="https://github.com/user-attachments/assets/cdbda439-fe63-4df9-9f69-62f41dc960fc" alt="zone de plan signaux important" width="400"/>
+<img src="https://github.com/user-attachments/assets/cdbda439-fe63-4df9-9f69-62f41dc960fc" alt="zone de plan signaux important" width="500"/>
 
-Exemple pour le signal Motor+ qui a son propre plan pour assurer une transmission stable et fiable, réduisant les pertes et les perturbations.
+Ci-dessous un exemple pour le signal  Motor+ qui a son propre plan pour assurer une transmission stable et fiable, réduisant les pertes et les perturbations.
 
 ---
 
-#### 5. Plans d’Alimentation
-##### a. Plan 5V
-<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="550"/>
+## 5. Plans d’Alimentation
+### a. Plan 5V
+<img src="https://github.com/user-attachments/assets/e6ab288e-49ed-4c71-8691-95244ef8c79b" alt="plan 5v" width="500"/>
 
-##### b. Plan VBAT
-<img src="https://github.com/user-attachments/assets/3b930f0b-2913-4636-b335-293db4ca7967" alt="plan vbat" width="400"/>
+### b. Plan VBAT
+<img src="https://github.com/user-attachments/assets/3b930f0b-2913-4636-b335-293db4ca7967" alt="plan vbat" width="500"/>
+
 
 Les plans d’alimentation, tels que 5V et VBAT, ont été placés dans la couche 3 de la carte. Cela permet une meilleure répartition du courant et une connexion optimale aux composants qui nécessitent ces alimentations.
 
 ---
 
-#### 6. Dissipation Thermique
+## 6. Dissipation Thermique
 Des **vias thermiques** ont été ajoutés pour améliorer la dissipation thermique.
 
-<img src="https://github.com/user-attachments/assets/e79a1d80-92c4-4edf-9f98-900dd3defe3d" alt="des via pour des composant avec grande surface pour une meilleur dissipation" width="400"/>
+<img src="https://github.com/user-attachments/assets/e79a1d80-92c4-4edf-9f98-900dd3defe3d" alt="des via pour des composant avec grande surface pour une meilleur dissipation" width="500"/>
 
-Cette pratique concerne des composants contenant des pads thermiques tels que le STM32 et les drivers des moteurs. Ces vias facilitent le transfert de chaleur vers d’autres couches, améliorant la dissipation thermique et empêchant les surchauffes.
-
+ Cette pratique à été faute pour des composants contenant des pad thermique tels que le STM32 et les drivers des moteurs , ces vias facilitent le transfert de chaleur vers d’autres couches, améliorant la dissipation thermique et empêchant les surchauffes.
+ 
 ---
 
-#### 7. Condensateurs de Découplage
+## 7. Condensateurs de Découplage
 Les **condensateurs de découplage** ont été positionnés **au plus près des broches d’alimentation (ex. STM32, drivers)**.
 
 <img src="https://github.com/user-attachments/assets/c4432fc9-8f2d-4697-9603-607fb518d908" alt="capa decouplage a coté des alim" width="500"/>
@@ -989,46 +1004,18 @@ Cela réduit les parasites haute fréquence et stabilise l’alimentation.
 
 ---
 
-#### 8. Adaptation des Pistes
+## 8. Adaptation des Pistes
 La largeur des pistes a été ajustée pour correspondre aux pastilles des composants.
 
 <img src="https://github.com/user-attachments/assets/51d0b688-313c-4247-bf0d-8a986fbfdd5b" alt="piste a la largeur des" width="500"/>
 
-Cela améliore la transmission des signaux et réduit les impédances parasites.
+ Cela améliore la transmission des signaux et réduit les impédances parasites.
 
 ---
 
-#### 9. Points de Test
+## 9. Points de Test
 Des **points de test accessibles** ont été placés pour faciliter le débogage.
 
-<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests pour edbuggage" width="500"/>
-
-</details>
-
-
-- 🛠️ **BOM (Bill of Materials)**  
-- 🗂️ **Fichiers GERBER** pour fabrication chez **JLCPCB**.  
-
-
-### 🔑 [Accédez aux fichiers hardware ici.](./hardware/)
-
----
-
-## 🛠️ **Développement logiciel**  
-Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :  
-- 🔧 **Configuration des périphériques** (SPI, UART, PWM, etc.).  
-- 📦 **Modules logiciels** pour capteurs et moteurs.  
-- 🤖 **Algorithmes embarqués** pour les comportements du robot (poursuite, évitement, etc.).  
-
-### 📂 [Accédez au code source ici.](./Software)
-
-
----
-
-## 📄 **Licence**  
-📝 Ce projet est sous licence **MIT**.  
-Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).  
-
-
+<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="500"/>
 
 
