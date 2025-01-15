@@ -416,6 +416,12 @@ Pour plus d’informations, consultez le fichier [LICENSE](./LICENSE).
 
 ---
 
+
+https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
+
+
+
+
 # Utilisation du capteur ToF VL53L1X dans le robot
 
 ## 🌟 Caractéristiques techniques
@@ -599,6 +605,12 @@ void vTaskToF(void *argument) {
   - Offset et cross-talk à recalibrer selon l'environnement.
 - Ajustement des seuils selon les conditions environnementales :
   - Température ambiante et réflectance des surfaces peuvent affecter les mesures.
+
+
+
+https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
+
+
 
 ---
 
@@ -854,6 +866,11 @@ detect_objects()   // Détection objets
   - Gestion du buffer circulaire
   - Maintien de la synchronisation des trames
 
+Dans la vidéo suivante un test est réalisé avec un script python pour mieux visualiser les donnés reçus, on remarque une légère latence pour que les données soient affichés et des outliers.
+
+
+
+https://github.com/user-attachments/assets/c904982a-7dda-46ab-8d87-f73b21fb672f
 
 
 
