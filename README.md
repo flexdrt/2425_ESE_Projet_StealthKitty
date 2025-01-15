@@ -882,7 +882,7 @@ Des **vias thermiques** ont été ajoutés pour améliorer la dissipation thermi
 ## 7. Condensateurs de Découplage
 Les **condensateurs de découplage** ont été positionnés **au plus près des broches d’alimentation (ex. STM32, drivers)**.
 
-<img src="https://github.com/user-attachments/assets/c4432fc9-8f2d-4697-9603-607fb518d908" alt="capa decouplage a coté des alim" width="400"/>
+<img src="https://github.com/user-attachments/assets/c4432fc9-8f2d-4697-9603-607fb518d908" alt="capa decouplage a coté des alim" width="500"/>
 
 Cela réduit les parasites haute fréquence et stabilise l’alimentation.
 
