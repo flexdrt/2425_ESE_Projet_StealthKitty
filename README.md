@@ -361,7 +361,7 @@ https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
 
 ## 🛠️ Composants utilisés
 
-Les moteurs utilisés sont des motoréducteurs de la marque DFRobot, les modèles FIT équipé d'un encodeur à quadrature.
+Les moteurs utilisés sont des motoréducteurs de la marque DFRobot, les modèles FIT 052X équipés d'un encodeur à quadrature.
 
 Nos moteurs ont une vitesse différentes pour un même rapport cyclique, cependant la différence de vitesse varie en fonction des rapports cycliques choisis, nous n'avons pas pu compenser cette erreur de manière durable et fiable. 
 Cela a aussi rendu plus complexe l'implémentation des asservisssements en vitesse et en angle qui devaient prendre en compte ce problème.
