@@ -1039,6 +1039,7 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 
 ### 📂 [Accédez au code source ici.](./firmware/)
 
+### 📂 [Accédez à la documentation Doxygen ici.](./Doxygen/)
 
 
 
