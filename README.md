@@ -891,7 +891,7 @@ Cela réduit les parasites haute fréquence et stabilise l’alimentation.
 ## 8. Adaptation des Pistes
 La largeur des pistes a été ajustée pour correspondre aux pastilles des composants.
 
-<img src="https://github.com/user-attachments/assets/51d0b688-313c-4247-bf0d-8a986fbfdd5b" alt="piste a la largeur des" width="400"/>
+<img src="https://github.com/user-attachments/assets/51d0b688-313c-4247-bf0d-8a986fbfdd5b" alt="piste a la largeur des" width="500"/>
 
  Cela améliore la transmission des signaux et réduit les impédances parasites.
 
@@ -900,6 +900,6 @@ La largeur des pistes a été ajustée pour correspondre aux pastilles des compo
 ## 9. Points de Test
 Des **points de test accessibles** ont été placés pour faciliter le débogage.
 
-<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="400"/>
+<img src="https://github.com/user-attachments/assets/571eece0-6518-4083-bb09-8ed49aca32a4" alt="de points de tests  pour edbuggage" width="500"/>
 
 
