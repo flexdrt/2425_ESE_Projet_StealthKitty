@@ -603,10 +603,14 @@ detect_objects()   // Détection objets
 
     - Distance minimale non nulle
     - Mise à jour dist_min et idx_min
+   
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0e611b67-3b2b-410d-b47b-fe58fc5c882f](https://github.com/user-attachments/assets/1576c9db-6ebf-4bc7-bf78-db9e9959f3d4" alt="image">
+ <img src="https://github.com/user-attachments/assets/38b7a7b9-799e-47d4-9d29-f7eaf5208185" alt="image">
 </p>
+
+
+
 
   - Affichage données :
 
