@@ -156,6 +156,8 @@ https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
 
 
 # Utilisation du capteur ToF VL53L1X pour détection des bords
+<details>
+<summary> Détail sur l'utilisation du capteur ToF VL53L1X pour détection des bords </summary>
 
 ## 🌟 Caractéristiques techniques
 
@@ -343,12 +345,15 @@ void vTaskToF(void *argument) {
 
 https://github.com/user-attachments/assets/b8a1714b-683e-4680-be36-7b728edb92a1
 
-
+</details>
 
 ---
 
 
 # Contrôle des Moteurs et Encodeurs
+
+<details>
+<summary> Détail sur le contrôle des Moteurs et Encodeurs </summary>
 
 ## 🛠️ Composants utilisés
 
@@ -386,6 +391,7 @@ Le robot utilise deux moteurs, un pour chaque roue :
 | Moteur Gauche  | Sens de marche Robot | Moteur Droit |
 | -------------- | -------------------- | ------------ |
 | Sens **reverse** | Sens **forward** | Sens **forward** |
+
 
 ---
 
@@ -469,10 +475,15 @@ Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une
 - **Rapports Cycliques** :
   - La valeur `alpha` utilisée dans les fonctions correspond au rapport cyclique du signal PWM. Un rapport plus élevé entraîne une vitesse de rotation plus importante. **Point critique** : Vérifiez que le matériel supporte la plage de fonctionnement du PWM pour éviter des dommages.
 
-
+</details>
+---
 
 
 # 🚀 Utilisation du YDLIDAR X4 dans le robot
+
+
+<details>
+<summary> Détail sur l'utilisation du YDLIDAR X4 dans le robot  </summary>
 
 **🎯 Caractéristiques techniques**
 * 📡 **Range Frequency :** 5000Hz
@@ -604,10 +615,13 @@ Dans la vidéo suivante un test est réalisé avec un script python pour mieux v
 
 https://github.com/user-attachments/assets/c904982a-7dda-46ab-8d87-f73b21fb672f
 
-
+</details>
 
 
 # Théorie de l'asservissement angulaire du robot
+
+<details>
+<summary> Détail sur la théorie de l'asservissement angulaire du robot  </summary>
 
 ## 1. Définition du système
 
@@ -709,7 +723,7 @@ La stabilité est assurée si :
 
 
 A défaut d'un fonctionnement asservi en vitesse de nos moteurs, nous n'avons pas pu tester cet asservissement angulaire sur notre robot bien qu'une ébauche du code soit implémentée dans la tache du Lidar TaskLIDAR.
-
+</details>
 ---
 
 ## 🔧 **Matériel utilisé**  
