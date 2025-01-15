@@ -652,14 +652,7 @@ Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une
 
 **🔧 Traitement des données**
 * **Parser de trames :**
-```c
-if(i==frame_start){
-    dev_handle.processing.PH=dev_handle.raw_data[i];
-} else if(i==frame_start+1){
-    dev_handle.processing.PH |= (dev_handle.raw_data[i]<<8);
-}
-// etc...
-```
+Le parsing suit la datasheet du Lidar et est détaillé au sein de la tache TaskLidar.
 
 **📊 Analyse des données**
 * 🔍 **Détection d'objets :**
@@ -672,18 +665,7 @@ if(i==frame_start){
 
 ------
 
-**💾 Structure de données**
-```c
-typedef struct data_proc_struct {
-    uint16_t PH;        // Package Header
-    uint8_t CT;         // Package Type
-    uint8_t LSN;        // Sample Quantity
-    uint16_t FSA;       // First Scan Angle
-    uint16_t LSA;       // Last Scan Angle
-    uint16_t CS;        // CheckSum
-    // etc...
-} data_proc_t;
-```
+
 
 **⚡ Performances**
 * 🔄 **Temps réel :** Acquisition et traitement via DMA pour ne pas saturé la RAM
