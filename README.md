@@ -246,8 +246,12 @@ Dans cette feuille, nous avons connecter les composants suivants, le STM32, le S
 #####  le STM32  #####
 
 ###### Explications assignations signaux-pins du STM32 ######
-Pour assigner les pins du STM32, nous avons pris positionné d'abord le GPIO du timer 1 pour les signaux PWM, puis les signaux des encodeurs. Les encodeurs ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode" à une fréquence plus basse que les signaux PWM, ils ne peuvent donc pas être sur le même timer que les PWM.  
-Ensuite nous avons connecté l'USART4 du LIDAR (et ses connectiques) puis l'USART2 du STLINK. On a placé les connexions SPI pour l'accéléromètre et les connexions I2C du capteur TOF.   
+Pour assigner les pins du STM32, nous avons positionné d'abord les signaux PWM sur le timer 1, puis ceux des encodeurs. Les encodeurs, qui fonctionnent à une fréquence plus basse que les signaux PWM, ont besoin de leurs propre timer (le timer 3) configuré en mode "encoder mode".  
+Ensuite nous avons connecté les signaux restant : 
+ - l'USART4 du LIDAR (et ses connectiques)
+ - l'USART2 du STLINK.
+ - les signaux SPI pour l'accéléromètre
+ - les signaux I2C du capteur TOF.   
 
 
 résistance de tirage bus I2C : 
@@ -261,8 +265,7 @@ Pour stabiliser davantage l’alimentation, un condensateur de capacité plus é
 
 Ainsi, la combinaison de condensateurs de différentes valeurs, placés stratégiquement près des broches concernées, permet de garantir la stabilité et la fiabilité du microcontrôleur tout en réduisant les effets des perturbations électriques.
 découplage alim stm32 à dire 
-#####  le quartz #####
-Afin d'avoir
+#####  Le quartz #####
 Le quartz agit comme un résonateur, amplifiant les signaux à sa fréquence naturelle. Si les signaux d'entrée et de sortie ne sont pas correctement découplés, il peut y avoir des rétroactions indésirables, perturbant le fonctionnement normal de l'oscillateur. 
 Une capacité de découplage permet d'isoler les parties du circuit, minimisant les perturbations provenant des variations de tension ou d'autres signaux non désirés.
 Le quartz fonctionne avec des niveaux de signaux très précis pour maintenir une oscillation stable. Sans découplage capacitif, les variations de tension peuvent causer des décalages de phase ou des changements de fréquence. Le condensateur agit comme un filtre passif, en éliminant les hautes fréquences parasites et en assurant une meilleure stabilité du signal.
