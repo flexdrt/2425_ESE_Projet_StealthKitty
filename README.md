@@ -1053,7 +1053,7 @@ Le logiciel embarqué a été développé avec **STM32CubeIDE** et inclut :
 ### 📂 [Accédez à la documentation Doxygen ici.](./Doxygen/)
 
 
-
+---
 
 ## 🎯 État des Fonctionnalités du Robot StealthKitty
 
