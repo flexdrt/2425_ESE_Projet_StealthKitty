@@ -155,7 +155,7 @@ https://github.com/user-attachments/assets/b687c830-fabb-43c3-ac29-a924f9b9cf93
 
 
 
-# 📡Utilisation du capteur ToF VL53L1X pour détection des bords
+# 📡Capteur ToF VL53L1X pour détection des bords
 <details>
 <summary> Détail sur l'utilisation du capteur ToF VL53L1X pour la détection des bords </summary>
 
@@ -483,7 +483,7 @@ Le contrôle PID ajuste dynamiquement la commande des moteurs pour maintenir une
 
 
 
-#  🚀Utilisation du YDLIDAR X4 dans le robot
+#  🚀YDLIDAR X4 dans le robot
 
 
 <details>
